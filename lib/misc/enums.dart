@@ -174,3 +174,82 @@ enum MediaSort {
   FAVOURITES,
   FAVOURITES_DESC,
 }
+
+/// Type of relation media has to its parent.
+enum MediaRelation {
+  /// An adaption of this media into a different format
+  ADAPTATION,
+
+  /// Released before the relation
+  PREQUEL,
+
+  /// Released after the relation
+  SEQUEL,
+
+  /// The media a side story is from
+  PARENT,
+
+  /// A side story of the parent media
+  SIDE_STORY,
+
+  /// Shares at least 1 character
+  CHARACTER,
+
+  /// A shortened and summarized version
+  SUMMARY,
+
+  /// An alternative version of the same media
+  ALTERNATIVE,
+
+  /// An alternative version of the media with a different primary focus
+  SPIN_OFF,
+
+  /// Other
+  OTHER,
+
+  /// Version 2 only. The source material the media was adapted from
+  SOURCE,
+
+  /// Version 2 only.
+  COMPILATION,
+
+  /// Version 2 only.
+  CONTAINS,
+}
+
+enum CharacterRole {
+  /// A primary character role in the media
+  MAIN,
+
+  /// A supporting character role in the media
+  SUPPORTING,
+
+  /// A background character in the media
+  BACKGROUND,
+}
+
+enum ExternalLinkType {
+  INFO,
+  STREAMING,
+  SOCIAL,
+}
+
+enum MediaRankType {
+  /// Ranking is based on the media's ratings/score
+  RATED,
+
+  /// Ranking is based on the media's popularity
+  POPULAR,
+}
+
+enum RecommendationRating {
+  NO_RATING,
+  RATE_UP,
+  RATE_DOWN,
+}
+
+enum ReviewRating {
+  NO_VOTE,
+  UP_VOTE,
+  DOWN_VOTE,
+}

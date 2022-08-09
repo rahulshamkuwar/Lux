@@ -1,4 +1,4 @@
-import 'package:lux/models/anilist_token.dart';
+import 'package:lux/models/token.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

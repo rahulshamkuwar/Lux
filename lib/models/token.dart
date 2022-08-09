@@ -1,3 +1,4 @@
+/// Token provided by AniList API for authenticated user.
 class AniListToken {
   final String accessToken;
   final String refreshToken;

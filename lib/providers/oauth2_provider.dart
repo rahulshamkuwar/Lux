@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:http/http.dart' as http;
 import 'package:lux/env/env.dart';
-import 'package:lux/models/anilist_token.dart';
+import 'package:lux/models/token.dart';
 import 'package:lux/utilities/database_service.dart';
 
 class OAuth2Client {

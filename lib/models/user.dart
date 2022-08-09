@@ -1,5 +1,6 @@
 import 'package:lux/misc/enums.dart';
 
+///
 class User {
   /// Filter by the user id
   final int id;
