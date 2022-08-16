@@ -2,17 +2,22 @@ import 'package:lux/models/media.dart';
 import 'package:lux/models/media_edge.dart';
 import 'package:lux/models/page_info.dart';
 
-class MediaConnection {
-  final List<MediaEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<Media> nodes;
+part 'media_connection.freezed.dart';
+part 'media_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class MediaConnection with _$MediaConnection {
+  const factory MediaConnection({
+    required List<MediaEdge> edges,
+    required List<Media> nodes,
 
-  MediaConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _MediaConnection;
+
+  factory MediaConnection.fromJson(Map<String, Object?> json) =>
+      _$MediaConnectionFromJson(json);
 }

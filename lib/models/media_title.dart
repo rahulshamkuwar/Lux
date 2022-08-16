@@ -1,21 +1,26 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'media_title.freezed.dart';
+part 'media_title.g.dart';
+
 /// The official titles of the media in various languages
-class MediaTitle {
-  /// The romanization of the native language title
-  final String romanji;
+@freezed
+class MediaTitle with _$MediaTitle {
+  const factory MediaTitle({
+    /// The romanization of the native language title
+    required String romanji,
 
-  /// The official english title
-  final String english;
+    /// The official english title
+    required String english,
 
-  /// Official title in it's native language
-  final String native;
+    /// Official title in it's native language
+    required String native,
 
-  /// The currently authenticated users preferred title language. Default romaji for non-authenticated
-  final String userPreferred;
+    /// The currently authenticated users preferred title language. Default romaji for non-authenticated
+    required String userPreferred,
+  }) = _MediaTitle;
 
-  MediaTitle({
-    required this.romanji,
-    required this.english,
-    required this.native,
-    required this.userPreferred,
-  });
+  factory MediaTitle.fromJson(Map<String, Object?> json) =>
+      _$MediaTitleFromJson(json);
 }

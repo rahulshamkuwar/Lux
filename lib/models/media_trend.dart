@@ -1,43 +1,43 @@
 import 'package:lux/models/media.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'media_trend.freezed.dart';
+part 'media_trend.g.dart';
+
 /// Daily media statistics
-class MediaTrend {
-  /// The id of the tag
-  final int mediaId;
+@freezed
+class MediaTrend with _$MediaTrend {
+  const factory MediaTrend({
+    /// The id of the tag
+    required int mediaId,
 
-  /// The day the data was recorded (timestamp)
-  final int date;
+    /// The day the data was recorded (timestamp)
+    required int date,
 
-  /// The amount of media activity on the day
-  final int trending;
+    /// The amount of media activity on the day
+    required int trending,
 
-  /// A weighted average score of all the user's scores of the media
-  final int averageScore;
+    /// A weighted average score of all the user's scores of the media
+    required int averageScore,
 
-  /// The number of users with the media on their list
-  final int popularity;
+    /// The number of users with the media on their list
+    required int popularity,
 
-  /// The number of users with watching/reading the media
-  final int inProgress;
+    /// The number of users with watching/reading the media
+    required int inProgress,
 
-  /// If the media was being released at this time
-  final bool releasing;
+    /// If the media was being released at this time
+    required bool releasing,
 
-  /// The episode number of the anime released on this day
-  final int episode;
+    /// The episode number of the anime released on this day
+    required int episode,
 
-  /// The related media
-  final Media media;
+    /// The related media
+    required Media media,
+  }) = _MediaTrend;
 
-  MediaTrend({
-    required this.mediaId,
-    required this.date,
-    required this.trending,
-    required this.averageScore,
-    required this.popularity,
-    required this.inProgress,
-    required this.releasing,
-    required this.episode,
-    required this.media,
-  });
+  factory MediaTrend.fromJson(Map<String, Object?> json) =>
+      _$MediaTrendFromJson(json);
 }

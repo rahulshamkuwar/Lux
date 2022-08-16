@@ -1,33 +1,36 @@
 import 'package:lux/misc/enums.dart';
-import 'package:lux/models/_user.dart';
+import 'package:lux/models/user.dart';
 import 'package:lux/models/media.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'recommendation.freezed.dart';
+part 'recommendation.g.dart';
+
 /// Media recommendation
-class Recommendation {
-  /// The id of the recommendation
-  final int id;
+@freezed
+class Recommendation with _$Recommendation {
+  const factory Recommendation({
+    /// The id of the recommendation
+    required int id,
 
-  /// Users rating of the recommendation
-  final int rating;
+    /// Users rating of the recommendation
+    required int rating,
 
-  /// The rating of the recommendation by currently authenticated user
-  final RecommendationRating userRating;
+    /// The rating of the recommendation by currently authenticated user
+    required RecommendationRating userRating,
 
-  /// The media the recommendation is from
-  final Media media;
+    /// The media the recommendation is from
+    required Media media,
 
-  /// The recommended media
-  final Media mediaRecommendation;
+    /// The recommended media
+    required Media mediaRecommendation,
 
-  /// The user that first created the recommendation
-  final User user;
+    /// The user that first created the recommendation
+    required User user,
+  }) = _Recommendation;
 
-  Recommendation({
-    required this.id,
-    required this.rating,
-    required this.userRating,
-    required this.media,
-    required this.mediaRecommendation,
-    required this.user,
-  });
+  factory Recommendation.fromJson(Map<String, Object?> json) =>
+      _$RecommendationFromJson(json);
 }

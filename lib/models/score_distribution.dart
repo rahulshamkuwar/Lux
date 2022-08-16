@@ -1,12 +1,19 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'score_distribution.freezed.dart';
+part 'score_distribution.g.dart';
+
 /// A user's list score distribution.
-class ScoreDistribution {
-  final int score;
+@freezed
+class ScoreDistribution with _$ScoreDistribution {
+  const factory ScoreDistribution({
+    required int score,
 
-  /// The amount of list entries with this score
-  final int amount;
+    /// The amount of list entries with this score
+    required int amount,
+  }) = _ScoreDistribution;
 
-  ScoreDistribution({
-    required this.score,
-    required this.amount,
-  });
+  factory ScoreDistribution.fromJson(Map<String, Object?> json) =>
+      _$ScoreDistributionFromJson(json);
 }

@@ -2,17 +2,22 @@ import 'package:lux/models/page_info.dart';
 import 'package:lux/models/studio.dart';
 import 'package:lux/models/studio_edge.dart';
 
-class StudioConnection {
-  final List<StudioEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<Studio> nodes;
+part 'studio_connection.freezed.dart';
+part 'studio_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class StudioConnection with _$StudioConnection {
+  const factory StudioConnection({
+    required List<StudioEdge> edges,
+    required List<Studio> nodes,
 
-  StudioConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _StudioConnection;
+
+  factory StudioConnection.fromJson(Map<String, Object?> json) =>
+      _$StudioConnectionFromJson(json);
 }

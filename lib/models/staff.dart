@@ -1,109 +1,90 @@
-import 'package:lux/models/_user.dart';
+import 'package:lux/models/user.dart';
 import 'package:lux/models/character_connection.dart';
 import 'package:lux/models/media_connection.dart';
 import 'package:lux/models/staff_image.dart';
 import 'package:lux/models/staff_name.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'staff.freezed.dart';
+part 'staff.g.dart';
+
 /// Voice actors or production staff
-class Staff {
-  /// The id of the staff member
-  final int id;
+@Freezed(makeCollectionsUnmodifiable: false)
+class Staff with _$Staff {
+  const factory Staff({
+    /// The id of the staff member
+    required int id,
 
-  /// The names of the staff member
-  final StaffName name;
+    /// The names of the staff member
+    required StaffName languageV2,
 
-  /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
-  final String languageV2;
+    /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
+    required String image,
 
-  /// The staff images
-  final StaffImage image;
+    /// The staff images
+    required StaffImage description,
 
-  /// A general description of the staff member
-  final String description;
+    /// A general description of the staff member
+    required String primaryOccupations,
 
-  /// The person's primary occupations
-  final List<String> primaryOccupations;
+    /// The person's primary occupations
+    required List<String> gender,
+    required String dateOfBirth,
+    required DateTime dateOfDeath,
 
-  /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
-  final String gender;
+    /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
+    required DateTime age,
 
-  final DateTime dateOfBirth;
+    /// The person's age in years
+    required int yearsActive,
 
-  final DateTime dateOfDeath;
+    /// [startYear, endYear] (If the 2nd value is not present staff is still active)
+    required List<int> homeTown,
 
-  /// The person's age in years
-  final int age;
+    /// The persons birthplace or hometown
+    required String bloodType,
 
-  /// [startYear, endYear] (If the 2nd value is not present staff is still active)
-  final List<int> yearsActive;
+    /// The persons blood type
+    required String isFavourite,
 
-  /// The persons birthplace or hometown
-  final String homeTown;
+    /// If the staff member is marked as favourite by the currently authenticated user
+    required bool isFavouriteBlocked,
 
-  /// The persons blood type
-  final String bloodType;
+    /// If the staff member is blocked from being added to favourites
+    required bool siteUrl,
 
-  /// If the staff member is marked as favourite by the currently authenticated user
-  final bool isFavourite;
+    /// The url for the staff page on the AniList website
+    required String staffMedia,
 
-  /// If the staff member is blocked from being added to favourites
-  final bool isFavouriteBlocked;
+    /// Media where the staff member has a production role
+    required MediaConnection characters,
 
-  /// The url for the staff page on the AniList website
-  final String siteUrl;
+    /// Characters voiced by the actor
+    required CharacterConnection staff,
 
-  /// Media where the staff member has a production role
-  final MediaConnection staffMedia;
+    /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
+    required MediaConnection submitter,
 
-  /// Characters voiced by the actor
-  final CharacterConnection characters;
+    /// Staff member that the submission is referencing
+    required Staff submissionStatus,
 
-  /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
-  final MediaConnection characterMedia;
+    /// Submitter for the submission
+    required User submissionNotes,
 
-  /// Staff member that the submission is referencing
-  final Staff staff;
+    /// Status of the submission
+    required int favourites,
 
-  /// Submitter for the submission
-  final User submitter;
+    /// Inner details of submission status
+    required String modNotes,
 
-  /// Status of the submission
-  final int submissionStatus;
+    /// The amount of user's who have favourited the staff member
+    required int characterMedia,
 
-  /// Inner details of submission status
-  final String submissionNotes;
+    /// Notes for site moderators
+    required String name,
+  }) = _Staff;
 
-  /// The amount of user's who have favourited the staff member
-  final int favourites;
-
-  /// Notes for site moderators
-  final String modNotes;
-
-  Staff({
-    required this.id,
-    required this.languageV2,
-    required this.image,
-    required this.description,
-    required this.primaryOccupations,
-    required this.gender,
-    required this.dateOfBirth,
-    required this.dateOfDeath,
-    required this.age,
-    required this.yearsActive,
-    required this.homeTown,
-    required this.bloodType,
-    required this.isFavourite,
-    required this.isFavouriteBlocked,
-    required this.siteUrl,
-    required this.staffMedia,
-    required this.characters,
-    required this.staff,
-    required this.submitter,
-    required this.submissionStatus,
-    required this.submissionNotes,
-    required this.favourites,
-    required this.modNotes,
-    required this.characterMedia,
-    required this.name,
-  });
+  factory Staff.fromJson(Map<String, Object?> json) => _$StaffFromJson(json);
 }

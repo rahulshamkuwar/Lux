@@ -1,39 +1,29 @@
 import 'package:lux/misc/enums.dart';
 
-///
-class User {
-  /// Filter by the user id
-  final int id;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  /// Filter by the name of the user
-  final String name;
+part 'user.freezed.dart';
+part 'user.g.dart';
 
-  /// Filter to moderators only if true
-  final bool isModerator;
+@freezed
+class User with _$User {
+  const factory User({
+    /// Filter by the user id
+    required int id,
 
-  /// Filter by search query
-  final String search;
+    /// Filter by the name of the user
+    required String name,
 
-  /// The order the results will be returned in
-  final UserSort sort;
+    /// Filter to moderators only if true
+    required bool isModerator,
 
-  User({
-    required this.id,
-    required this.name,
-    required this.isModerator,
-    required this.search,
-    required this.sort,
-  });
+    /// Filter by search query
+    required String search,
 
-  factory User.fromJSON(Map<String, dynamic> json) {
-    User user = User(
-      id: json["id"],
-      name: json["name"],
-      isModerator: json["isModerator"],
-      search: json["search"],
-      sort: json["sort"],
-    );
+    /// The order the results will be returned in
+    required UserSort sort,
+  }) = _User;
 
-    return user;
-  }
+  factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
 }

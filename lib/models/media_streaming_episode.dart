@@ -1,21 +1,26 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'media_streaming_episode.freezed.dart';
+part 'media_streaming_episode.g.dart';
+
 /// Data and links to legal streaming episodes on external sites
-class MediaStreamingEpisode {
-  /// Title of the episode
-  final String title;
+@freezed
+class MediaStreamingEpisode with _$MediaStreamingEpisode {
+  const factory MediaStreamingEpisode({
+    /// Title of the episode
+    required String title,
 
-  /// Url of episode image thumbnail
-  final String thumbnail;
+    /// Url of episode image thumbnail
+    required String thumbnail,
 
-  /// The url of the episode
-  final String url;
+    /// The url of the episode
+    required String url,
 
-  /// The site location of the streaming episodes
-  final String site;
+    /// The site location of the streaming episodes
+    required String site,
+  }) = _MediaStreamingEpisode;
 
-  MediaStreamingEpisode({
-    required this.title,
-    required this.thumbnail,
-    required this.url,
-    required this.site,
-  });
+  factory MediaStreamingEpisode.fromJson(Map<String, Object?> json) =>
+      _$MediaStreamingEpisodeFromJson(json);
 }

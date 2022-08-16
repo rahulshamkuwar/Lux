@@ -2,17 +2,22 @@ import 'package:lux/models/page_info.dart';
 import 'package:lux/models/recommendation.dart';
 import 'package:lux/models/recommendation_edge.dart';
 
-class RecommendationConnection {
-  final List<RecommendationEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<Recommendation> nodes;
+part 'recommendation_connection.freezed.dart';
+part 'recommendation_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class RecommendationConnection with _$RecommendationConnection {
+  const factory RecommendationConnection({
+    required List<RecommendationEdge> edges,
+    required List<Recommendation> nodes,
 
-  RecommendationConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _RecommendationConnection;
+
+  factory RecommendationConnection.fromJson(Map<String, Object?> json) =>
+      _$RecommendationConnectionFromJson(json);
 }

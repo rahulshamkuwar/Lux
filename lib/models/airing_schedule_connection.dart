@@ -2,17 +2,22 @@ import 'package:lux/models/airing_schedule.dart';
 import 'package:lux/models/airing_schedule_edge.dart';
 import 'package:lux/models/page_info.dart';
 
-class AiringScheduleConnection {
-  final List<AiringScheduleEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<AiringSchedule> nodes;
+part 'airing_schedule_connection.freezed.dart';
+part 'airing_schedule_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class AiringScheduleConnection with _$AiringScheduleConnection {
+  const factory AiringScheduleConnection({
+    required List<AiringScheduleEdge> edges,
+    required List<AiringSchedule> nodes,
 
-  AiringScheduleConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _AiringScheduleConnection;
+
+  factory AiringScheduleConnection.fromJson(Map<String, Object?> json) =>
+      _$AiringScheduleConnectionFromJson(json);
 }

@@ -1,35 +1,36 @@
 import 'package:lux/models/media_connection.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'studio.freezed.dart';
+part 'studio.g.dart';
+
 /// Animation or production company
-class Studio {
-  /// The id of the studio
-  final int id;
+@freezed
+class Studio with _$Studio {
+  const factory Studio({
+    /// The id of the studio
+    required int id,
 
-  /// The name of the studio
-  final String name;
+    /// The name of the studio
+    required String name,
 
-  /// If the studio is an animation studio or a different kind of company
-  final bool isAnimationStudio;
+    /// If the studio is an animation studio or a different kind of company
+    required bool isAnimationStudio,
 
-  /// The media the studio has worked on
-  final MediaConnection media;
+    /// The media the studio has worked on
+    required MediaConnection media,
 
-  /// The url for the studio page on the AniList website
-  final String siteUrl;
+    /// The url for the studio page on the AniList website
+    required String siteUrl,
 
-  /// If the studio is marked as favourite by the currently authenticated user
-  final bool isFavourite;
+    /// If the studio is marked as favourite by the currently authenticated user
+    required bool isFavourite,
 
-  /// The amount of user's who have favourited the studio
-  final int favourites;
+    /// The amount of user's who have favourited the studio
+    required int favourites,
+  }) = _Studio;
 
-  Studio({
-    required this.id,
-    required this.name,
-    required this.isAnimationStudio,
-    required this.media,
-    required this.siteUrl,
-    required this.isFavourite,
-    required this.favourites,
-  });
+  factory Studio.fromJson(Map<String, Object?> json) => _$StudioFromJson(json);
 }

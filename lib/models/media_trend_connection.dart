@@ -2,17 +2,22 @@ import 'package:lux/models/media_trend.dart';
 import 'package:lux/models/media_trend_edge.dart';
 import 'package:lux/models/page_info.dart';
 
-class MediaTrendConnection {
-  final List<MediaTrendEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<MediaTrend> nodes;
+part 'media_trend_connection.freezed.dart';
+part 'media_trend_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class MediaTrendConnection with _$MediaTrendConnection {
+  const factory MediaTrendConnection({
+    required List<MediaTrendEdge> edges,
+    required List<MediaTrend> nodes,
 
-  MediaTrendConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _MediaTrendConnection;
+
+  factory MediaTrendConnection.fromJson(Map<String, Object?> json) =>
+      _$MediaTrendConnectionFromJson(json);
 }

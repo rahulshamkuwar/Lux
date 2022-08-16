@@ -1,73 +1,65 @@
 import 'package:lux/misc/enums.dart';
-import 'package:lux/models/_user.dart';
+import 'package:lux/models/user.dart';
 import 'package:lux/models/media.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'review.freezed.dart';
+part 'review.g.dart';
+
 /// A Review that features in an anime or manga
-class Review {
-  /// The id of the review
-  final int id;
+@freezed
+class Review with _$Review {
+  const factory Review({
+    /// The id of the review
+    required int id,
 
-  /// The id of the review's creator
-  final int userId;
+    /// The id of the review's creator
+    required int userId,
 
-  /// The id of the review's media
-  final int mediaId;
+    /// The id of the review's media
+    required int mediaId,
 
-  /// For which type of media the review is for
-  final MediaType mediaType;
+    /// For which type of media the review is for
+    required MediaType mediaType,
 
-  /// A short summary of the review
-  final String summary;
+    /// A short summary of the review
+    required String summary,
 
-  /// The main review body text
-  final String body;
+    /// The main review body text
+    required String body,
 
-  /// The total user rating of the review
-  final int rating;
+    /// The total user rating of the review
+    required int rating,
 
-  /// The amount of user ratings of the review
-  final int ratingAmount;
+    /// The amount of user ratings of the review
+    required int ratingAmount,
 
-  /// The rating of the review by currently authenticated user
-  final ReviewRating userRating;
+    /// The rating of the review by currently authenticated user
+    required ReviewRating userRating,
 
-  /// The review score of the media
-  final int score;
+    /// The review score of the media
+    required int score,
 
-  /// If the review is not yet publicly published and is only viewable by creator
-  final bool private;
+    /// If the review is not yet publicly published and is only viewable by creator
+    required bool private,
 
-  /// The url for the review page on the AniList website
-  final String siteUrl;
+    /// The url for the review page on the AniList website
+    required String siteUrl,
 
-  /// The time of the thread creation
-  final int createdAt;
+    /// The time of the thread creation
+    required int createdAt,
 
-  /// The time of the thread last update
-  final int updatedAt;
+    /// The time of the thread last update
+    required int updatedAt,
 
-  /// The creator of the review
-  final User user;
+    /// The creator of the review
+    required User user,
 
-  /// The media the review is of
-  final Media media;
+    /// The media the review is of
+    required Media media,
+  }) = _Review;
 
-  Review({
-    required this.id,
-    required this.userId,
-    required this.mediaId,
-    required this.mediaType,
-    required this.summary,
-    required this.body,
-    required this.rating,
-    required this.ratingAmount,
-    required this.userRating,
-    required this.score,
-    required this.private,
-    required this.siteUrl,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.user,
-    required this.media,
-  });
+  factory Review.fromJson(Map<String, Object?> json) => _$ReviewFromJson(json);
 }

@@ -253,3 +253,23 @@ enum ReviewRating {
   UP_VOTE,
   DOWN_VOTE,
 }
+
+enum MediaListStatus {
+  /// Currently watching/reading
+  CURRENT,
+
+  /// Planning to watch/read
+  PLANNING,
+
+  /// Finished watching/reading
+  COMPLETED,
+
+  /// Stopped watching/reading before completing
+  DROPPED,
+
+  /// Paused watching/reading
+  PAUSED,
+
+  /// Re-watching/reading
+  REPEATING,
+}

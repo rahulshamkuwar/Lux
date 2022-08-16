@@ -2,17 +2,22 @@ import 'package:lux/models/character.dart';
 import 'package:lux/models/character_edge.dart';
 import 'package:lux/models/page_info.dart';
 
-class CharacterConnection {
-  final List<CharacterEdge> edges;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final List<Character> nodes;
+part 'character_connection.freezed.dart';
+part 'character_connection.g.dart';
 
-  /// The pagination information
-  final PageInfo pageInfo;
+@Freezed(makeCollectionsUnmodifiable: false)
+class CharacterConnection with _$CharacterConnection {
+  const factory CharacterConnection({
+    required List<CharacterEdge> edges,
+    required List<Character> nodes,
 
-  CharacterConnection({
-    required this.edges,
-    required this.nodes,
-    required this.pageInfo,
-  });
+    /// The pagination information
+    required PageInfo pageInfo,
+  }) = _CharacterConnection;
+
+  factory CharacterConnection.fromJson(Map<String, Object?> json) =>
+      _$CharacterConnectionFromJson(json);
 }

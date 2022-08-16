@@ -1,37 +1,38 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'character_name.freezed.dart';
+part 'character_name.g.dart';
+
 /// The names of the character
-class CharacterName {
-  /// The character's given name
-  final String first;
+@Freezed(makeCollectionsUnmodifiable: false)
+class CharacterName with _$CharacterName {
+  const factory CharacterName({
+    /// The character's given name
+    required String first,
 
-  /// The character's middle name
-  final String? middle;
+    /// The character's middle name
+    required String middle,
 
-  /// The character's surname
-  final String last;
+    /// The character's surname
+    required String last,
 
-  /// The character's first and last name
-  final String full;
+    /// The character's first and last name
+    required String full,
 
-  /// The character's full name in their native language
-  final String native;
+    /// The character's full name in their native language
+    required String native,
 
-  /// Other names the character might be referred to as
-  final List<String> alternative;
+    /// Other names the character might be referred to as
+    required List<String> alternative,
 
-  /// Other names the character might be referred to as but are spoilers
-  final List<String> alternativeSpoiler;
+    /// Other names the character might be referred to as but are spoilers
+    required List<String> alternativeSpoiler,
 
-  /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-  final String userPreferred;
+    /// The currently authenticated users preferred name language. Default romaji for non-authenticated
+    required String userPreferred,
+  }) = _CharacterName;
 
-  CharacterName({
-    required this.first,
-    required this.middle,
-    required this.last,
-    required this.full,
-    required this.native,
-    required this.alternative,
-    required this.alternativeSpoiler,
-    required this.userPreferred,
-  });
+  factory CharacterName.fromJson(Map<String, Object?> json) =>
+      _$CharacterNameFromJson(json);
 }

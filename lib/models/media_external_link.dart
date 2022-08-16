@@ -1,41 +1,38 @@
 import 'package:lux/misc/enums.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
+
+part 'media_external_link.freezed.dart';
+part 'media_external_link.g.dart';
+
 /// An external link to another site related to the media or staff member
-class MediaExternalLink {
-  /// The id of the external link
-  final int id;
+@freezed
+class MediaExternalLink with _$MediaExternalLink {
+  const factory MediaExternalLink({
+    /// The id of the external link
+    required int id,
 
-  /// The url of the external link or base url of link source
-  final String url;
+    /// The url of the external link or base url of link source
+    required String url,
 
-  /// The links website site name
-  final String site;
+    /// The links website site name
+    required String site,
 
-  /// The links website site id
-  final int siteId;
+    /// The links website site id
+    required int siteId,
+    required ExternalLinkType type,
 
-  final ExternalLinkType type;
+    /// Language the site content is in. See Staff language field for values.
+    required String language,
+    required String color,
 
-  /// Language the site content is in. See Staff language field for values.
-  final String language;
+    /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
+    required String icon,
+    required String notes,
+    required bool isDisabled,
+  }) = _MediaExternalLink;
 
-  final String color;
-
-  /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
-  final String icon;
-  final String notes;
-  final bool isDisabled;
-
-  MediaExternalLink({
-    required this.id,
-    required this.url,
-    required this.site,
-    required this.siteId,
-    required this.type,
-    required this.language,
-    required this.color,
-    required this.icon,
-    required this.notes,
-    required this.isDisabled,
-  });
+  factory MediaExternalLink.fromJson(Map<String, Object?> json) =>
+      _$MediaExternalLinkFromJson(json);
 }

@@ -1,20 +1,25 @@
-class MediaCoverImage {
-  /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
-  final String extraLarge;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  /// The cover image url of the media at a large size
-  final String large;
+part 'media_cover_image.freezed.dart';
+part 'media_cover_image.g.dart';
 
-  /// The cover image url of the media at medium size
-  final String medium;
+@freezed
+class MediaCoverImage with _$MediaCoverImage {
+  const factory MediaCoverImage({
+    /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
+    required String extraLarge,
 
-  /// Average #hex color of cover image
-  final String color;
+    /// The cover image url of the media at a large size
+    required String large,
 
-  MediaCoverImage({
-    required this.extraLarge,
-    required this.large,
-    required this.medium,
-    required this.color,
-  });
+    /// The cover image url of the media at medium size
+    required String medium,
+
+    /// Average #hex color of cover image
+    required String color,
+  }) = _MediaCoverImage;
+
+  factory MediaCoverImage.fromJson(Map<String, Object?> json) =>
+      _$MediaCoverImageFromJson(json);
 }

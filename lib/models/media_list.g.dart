@@ -1,0 +1,63 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'media_list.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_MediaList _$$_MediaListFromJson(Map<String, dynamic> json) => _$_MediaList(
+      id: json['id'] as int,
+      userId: json['userId'] as int,
+      mediaId: json['mediaId'] as int,
+      status: $enumDecode(_$MediaListStatusEnumMap, json['status']),
+      score: (json['score'] as num).toDouble(),
+      progress: json['progress'] as int,
+      progressVolumes: json['progressVolumes'] as int,
+      repeat: json['repeat'] as int,
+      priority: json['priority'] as int,
+      private: json['private'] as bool,
+      notes: json['notes'] as String,
+      hiddenFromStatusLists: json['hiddenFromStatusLists'] as bool,
+      customLists: Map<String, bool>.from(json['customLists'] as Map),
+      advancedScores: Map<String, String>.from(json['advancedScores'] as Map),
+      startedAt: DateTime.parse(json['startedAt'] as String),
+      completedAt: DateTime.parse(json['completedAt'] as String),
+      updatedAt: json['updatedAt'] as int,
+      createdAt: json['createdAt'] as int,
+      media: Media.fromJson(json['media'] as Map<String, dynamic>),
+      user: User.fromJson(json['user'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_MediaListToJson(_$_MediaList instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'mediaId': instance.mediaId,
+      'status': _$MediaListStatusEnumMap[instance.status]!,
+      'score': instance.score,
+      'progress': instance.progress,
+      'progressVolumes': instance.progressVolumes,
+      'repeat': instance.repeat,
+      'priority': instance.priority,
+      'private': instance.private,
+      'notes': instance.notes,
+      'hiddenFromStatusLists': instance.hiddenFromStatusLists,
+      'customLists': instance.customLists,
+      'advancedScores': instance.advancedScores,
+      'startedAt': instance.startedAt.toIso8601String(),
+      'completedAt': instance.completedAt.toIso8601String(),
+      'updatedAt': instance.updatedAt,
+      'createdAt': instance.createdAt,
+      'media': instance.media,
+      'user': instance.user,
+    };
+
+const _$MediaListStatusEnumMap = {
+  MediaListStatus.CURRENT: 'CURRENT',
+  MediaListStatus.PLANNING: 'PLANNING',
+  MediaListStatus.COMPLETED: 'COMPLETED',
+  MediaListStatus.DROPPED: 'DROPPED',
+  MediaListStatus.PAUSED: 'PAUSED',
+  MediaListStatus.REPEATING: 'REPEATING',
+};

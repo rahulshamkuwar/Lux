@@ -1,11 +1,18 @@
-class StatusDistribution {
-  final int score;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  /// The amount of list entries with this score
-  final int amount;
+part 'status_distribution.freezed.dart';
+part 'status_distribution.g.dart';
 
-  StatusDistribution({
-    required this.score,
-    required this.amount,
-  });
+@freezed
+class StatusDistribution with _$StatusDistribution {
+  const factory StatusDistribution({
+    required int score,
+
+    /// The amount of list entries with this score
+    required int amount,
+  }) = _StatusDistribution;
+
+  factory StatusDistribution.fromJson(Map<String, Object?> json) =>
+      _$StatusDistributionFromJson(json);
 }

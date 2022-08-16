@@ -1,24 +1,28 @@
-class PageInfo {
-  /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
-  final int total;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  /// The count on a page
-  final int perPage;
+part 'page_info.freezed.dart';
+part 'page_info.g.dart';
 
-  /// The current page
-  final int currentPage;
+@freezed
+class PageInfo with _$PageInfo {
+  const factory PageInfo({
+    /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
+    required int total,
 
-  /// The last page
-  final int lastPage;
+    /// The count on a page
+    required int perPage,
 
-  /// If there is another page
-  final bool hasNextPage;
+    /// The current page
+    required int currentPage,
 
-  PageInfo({
-    required this.total,
-    required this.perPage,
-    required this.currentPage,
-    required this.lastPage,
-    required this.hasNextPage,
-  });
+    /// The last page
+    required int lastPage,
+
+    /// If there is another page
+    required bool hasNextPage,
+  }) = _PageInfo;
+
+  factory PageInfo.fromJson(Map<String, Object?> json) =>
+      _$PageInfoFromJson(json);
 }

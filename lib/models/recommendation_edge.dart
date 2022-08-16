@@ -1,7 +1,16 @@
 import 'package:lux/models/recommendation.dart';
 
-class RecommendationEdge {
-  final Recommendation node;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  RecommendationEdge({required this.node});
+part 'recommendation_edge.freezed.dart';
+part 'recommendation_edge.g.dart';
+
+@freezed
+class RecommendationEdge with _$RecommendationEdge {
+  const factory RecommendationEdge({required Recommendation node}) =
+      _RecommendationEdge;
+
+  factory RecommendationEdge.fromJson(Map<String, Object?> json) =>
+      _$RecommendationEdgeFromJson(json);
 }
