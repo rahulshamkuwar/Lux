@@ -1,1 +1,0 @@
-class OAuth2Client {}

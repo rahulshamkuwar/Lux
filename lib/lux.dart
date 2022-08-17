@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lux/screens/home.dart';
+import 'package:lux/screens/home/home.dart';
 import 'package:lux/screens/lists.dart';
 import 'package:lux/screens/loading.dart';
 import 'package:lux/screens/settings.dart';
@@ -21,8 +21,6 @@ class Lux extends StatelessWidget {
       darkTheme: ThemeData.dark().copyWith(
         backgroundColor: Colors.blueGrey[900],
         colorScheme: const ColorScheme.dark(
-          // primary: Colors.green[700]!,
-          // secondary: Colors.green[800]!,
           primary: Color.fromARGB(255, 29, 53, 87),
           secondary: Color.fromARGB(255, 69, 123, 157),
           onPrimary: Color.fromARGB(255, 241, 250, 238),
@@ -30,7 +28,8 @@ class Lux extends StatelessWidget {
           background: Color.fromARGB(255, 9, 30, 59),
           brightness: Brightness.dark,
           error: Color.fromARGB(255, 255, 0, 21),
-          surface: Color.fromARGB(255, 168, 218, 220),
+          surface: Color.fromARGB(255, 32, 77, 139),
+          onSurface: Color.fromARGB(255, 252, 255, 224),
           tertiary: Color.fromARGB(255, 230, 57, 71),
         ),
         textTheme: GoogleFonts.quicksandTextTheme(),

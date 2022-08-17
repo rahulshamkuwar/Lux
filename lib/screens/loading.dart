@@ -1,56 +1,74 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lux/lux.dart';
-import 'package:lux/providers/oauth2_provider.dart';
+import 'package:lux/providers/providers.dart';
+import 'package:lux/screens/login.dart';
 
-class Loading extends StatefulWidget {
+final initializationProvider = FutureProvider(
+  (ref) async {
+    final authNotifier = ref.read(authNotifierProvider.notifier);
+    await authNotifier.checkAndUpdateStatus();
+  },
+);
+
+class Loading extends ConsumerStatefulWidget {
   const Loading({Key? key}) : super(key: key);
 
   @override
-  State<Loading> createState() => _LoadingState();
+  LoadingState createState() => LoadingState();
 }
 
-class _LoadingState extends State<Loading> {
-  // final OAuth2Client _oAuth2Client = OAuth2Client();
-
-  @override
-  void didChangeDependencies() async {
-    super.didChangeDependencies();
-    ConnectivityResult connectivityResult =
-        await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.wifi ||
-        connectivityResult == ConnectivityResult.ethernet ||
-        connectivityResult == ConnectivityResult.mobile) {
-      // int tokenStatus = await _oAuth2Client.fetchToken();
-      // if (tokenStatus == 0) {
-      //   Navigator.of(context).pushReplacement(
-      //     MaterialPageRoute(
-      //       builder: (context) => const LuxTabs(),
-      //     ),
-      //   );
-      // }
-    }
-  }
-
+class LoadingState extends ConsumerState<Loading> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Lux",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.onPrimary,
+    ref.listen(
+      initializationProvider,
+      (previous, next) {},
+    );
+
+    final authNotifier = ref.watch(authNotifierProvider);
+    return authNotifier.when(
+      initial: () {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Lux",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-      ),
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Center(
-        child: Container(),
-      ),
+          backgroundColor: Theme.of(context).colorScheme.background,
+          body: Center(
+            child: SpinKitRing(color: Theme.of(context).colorScheme.onPrimary),
+          ),
+        );
+      },
+      unauthenticated: () => const Login(),
+      authenticated: () => const LuxTabs(),
+      failure: (_) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Lux",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Theme.of(context).colorScheme.primary,
+          ),
+          backgroundColor: Theme.of(context).colorScheme.background,
+          body: Center(
+            child: SpinKitRing(color: Theme.of(context).colorScheme.onPrimary),
+          ),
+        );
+      },
     );
   }
 }

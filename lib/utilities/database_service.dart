@@ -1,11 +1,11 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lux/models/token.dart';
 import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_sqlcipher/sqflite.dart';
 
 class DBProvider {
-  DBProvider._();
-  static final DBProvider db = DBProvider._();
-  static Database? _database;
+  DBProvider();
+  Database? _database;
 
   Future<Database?> get database async {
     if (_database != null) {
@@ -18,8 +18,10 @@ class DBProvider {
   initDB() async {
     return await openDatabase(
       join(await getDatabasesPath(), 'aniListToken.db'),
+      password: dotenv.env["DATABASE_PASSWORD"],
       onCreate: (db, version) async {
-        await db.execute('''
+        await db.execute(
+          '''
           CREATE TABLE aniListToken (
             id INTEGER PRIMARY KEY,
             accessToken TEXT,
@@ -28,13 +30,16 @@ class DBProvider {
             idToken TEXT,
             tokenType TEXT
           )
-          ''');
-        await db.execute('''
+          ''',
+        );
+        await db.execute(
+          '''
           CREATE TABLE aniListUserId (
             id INTEGER PRIMARY KEY,
             userId INTEGER
           )
-          ''');
+          ''',
+        );
       },
       version: 1,
     );
