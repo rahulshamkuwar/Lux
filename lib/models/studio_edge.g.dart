@@ -11,7 +11,7 @@ _$_StudioEdge _$$_StudioEdgeFromJson(Map<String, dynamic> json) =>
       node: Studio.fromJson(json['node'] as Map<String, dynamic>),
       id: json['id'] as int,
       isMain: json['isMain'] as bool,
-      favouriteOrder: json['favouriteOrder'] as int,
+      favouriteOrder: json['favouriteOrder'] as int?,
     );
 
 Map<String, dynamic> _$$_StudioEdgeToJson(_$_StudioEdge instance) =>

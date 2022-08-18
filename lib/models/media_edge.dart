@@ -24,34 +24,34 @@ class MediaEdge with _$MediaEdge {
     required MediaRelation relationType,
 
     /// If the studio is the main animation studio of the media (For Studio->MediaConnection field only)
-    required bool isMainStudio,
+    required bool? isMainStudio,
 
     /// The characters in the media voiced by the parent actor
-    required List<Character> characters,
+    required List<Character>? characters,
 
     /// The characters role in the media
-    required CharacterRole characterRole,
+    required CharacterRole? characterRole,
 
     /// Media specific character name
-    required String characterName,
+    required String? characterName,
 
     /// Notes regarding the VA's role for the character
-    required String roleNotes,
+    required String? roleNotes,
 
     /// Used for grouping roles where multiple dubs exist for the same language. Either dubbing company name or language variant.
-    required String dubGroup,
+    required String? dubGroup,
 
     /// The role of the staff member in the production of the media
-    required String staffRole,
+    required String? staffRole,
 
     /// The voice actors of the character
-    required List<Staff> voiceActors,
+    required List<Staff>? voiceActors,
 
     /// The voice actors of the character with role date
-    required List<StaffRoleType> voiceActorRoles,
+    required List<StaffRoleType>? voiceActorRoles,
 
     /// The order the media should be displayed from the users favourites
-    required int favouriteOrder,
+    required int? favouriteOrder,
   }) = _MediaEdge;
 
   factory MediaEdge.fromJson(Map<String, Object?> json) =>

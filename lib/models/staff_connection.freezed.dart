@@ -21,7 +21,7 @@ StaffConnection _$StaffConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StaffConnection {
   List<StaffEdge> get edges => throw _privateConstructorUsedError;
-  List<Staff> get nodes => throw _privateConstructorUsedError;
+  List<Staff>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $StaffConnectionCopyWith<$Res> {
   factory $StaffConnectionCopyWith(
           StaffConnection value, $Res Function(StaffConnection) then) =
       _$StaffConnectionCopyWithImpl<$Res>;
-  $Res call({List<StaffEdge> edges, List<Staff> nodes, PageInfo pageInfo});
+  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -65,7 +65,7 @@ class _$StaffConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<Staff>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_StaffConnectionCopyWith<$Res>
           _$_StaffConnection value, $Res Function(_$_StaffConnection) then) =
       __$$_StaffConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<StaffEdge> edges, List<Staff> nodes, PageInfo pageInfo});
+  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -119,7 +119,7 @@ class __$$_StaffConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<Staff>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$_StaffConnection
   @override
   final List<StaffEdge> edges;
   @override
-  final List<Staff> nodes;
+  final List<Staff>? nodes;
 
   /// The pagination information
   @override
@@ -197,7 +197,7 @@ class _$_StaffConnection
 abstract class _StaffConnection implements StaffConnection {
   const factory _StaffConnection(
       {required final List<StaffEdge> edges,
-      required final List<Staff> nodes,
+      required final List<Staff>? nodes,
       required final PageInfo pageInfo}) = _$_StaffConnection;
 
   factory _StaffConnection.fromJson(Map<String, dynamic> json) =
@@ -206,7 +206,7 @@ abstract class _StaffConnection implements StaffConnection {
   @override
   List<StaffEdge> get edges;
   @override
-  List<Staff> get nodes;
+  List<Staff>? get nodes;
   @override
 
   /// The pagination information

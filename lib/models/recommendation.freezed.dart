@@ -27,16 +27,16 @@ mixin _$Recommendation {
   int get rating => throw _privateConstructorUsedError;
 
   /// The rating of the recommendation by currently authenticated user
-  RecommendationRating get userRating => throw _privateConstructorUsedError;
+  RecommendationRating? get userRating => throw _privateConstructorUsedError;
 
   /// The media the recommendation is from
-  Media get media => throw _privateConstructorUsedError;
+  Media? get media => throw _privateConstructorUsedError;
 
   /// The recommended media
-  Media get mediaRecommendation => throw _privateConstructorUsedError;
+  Media? get mediaRecommendation => throw _privateConstructorUsedError;
 
   /// The user that first created the recommendation
-  User get user => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,14 +52,14 @@ abstract class $RecommendationCopyWith<$Res> {
   $Res call(
       {int id,
       int rating,
-      RecommendationRating userRating,
-      Media media,
-      Media mediaRecommendation,
-      User user});
+      RecommendationRating? userRating,
+      Media? media,
+      Media? mediaRecommendation,
+      User? user});
 
-  $MediaCopyWith<$Res> get media;
-  $MediaCopyWith<$Res> get mediaRecommendation;
-  $UserCopyWith<$Res> get user;
+  $MediaCopyWith<$Res>? get media;
+  $MediaCopyWith<$Res>? get mediaRecommendation;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -92,39 +92,51 @@ class _$RecommendationCopyWithImpl<$Res>
       userRating: userRating == freezed
           ? _value.userRating
           : userRating // ignore: cast_nullable_to_non_nullable
-              as RecommendationRating,
+              as RecommendationRating?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       mediaRecommendation: mediaRecommendation == freezed
           ? _value.mediaRecommendation
           : mediaRecommendation // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 
   @override
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
+  $MediaCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
 
   @override
-  $MediaCopyWith<$Res> get mediaRecommendation {
-    return $MediaCopyWith<$Res>(_value.mediaRecommendation, (value) {
+  $MediaCopyWith<$Res>? get mediaRecommendation {
+    if (_value.mediaRecommendation == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.mediaRecommendation!, (value) {
       return _then(_value.copyWith(mediaRecommendation: value));
     });
   }
 
   @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -140,17 +152,17 @@ abstract class _$$_RecommendationCopyWith<$Res>
   $Res call(
       {int id,
       int rating,
-      RecommendationRating userRating,
-      Media media,
-      Media mediaRecommendation,
-      User user});
+      RecommendationRating? userRating,
+      Media? media,
+      Media? mediaRecommendation,
+      User? user});
 
   @override
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
   @override
-  $MediaCopyWith<$Res> get mediaRecommendation;
+  $MediaCopyWith<$Res>? get mediaRecommendation;
   @override
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -185,19 +197,19 @@ class __$$_RecommendationCopyWithImpl<$Res>
       userRating: userRating == freezed
           ? _value.userRating
           : userRating // ignore: cast_nullable_to_non_nullable
-              as RecommendationRating,
+              as RecommendationRating?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       mediaRecommendation: mediaRecommendation == freezed
           ? _value.mediaRecommendation
           : mediaRecommendation // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 }
@@ -228,19 +240,19 @@ class _$_Recommendation
 
   /// The rating of the recommendation by currently authenticated user
   @override
-  final RecommendationRating userRating;
+  final RecommendationRating? userRating;
 
   /// The media the recommendation is from
   @override
-  final Media media;
+  final Media? media;
 
   /// The recommended media
   @override
-  final Media mediaRecommendation;
+  final Media? mediaRecommendation;
 
   /// The user that first created the recommendation
   @override
-  final User user;
+  final User? user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -303,10 +315,10 @@ abstract class _Recommendation implements Recommendation {
   const factory _Recommendation(
       {required final int id,
       required final int rating,
-      required final RecommendationRating userRating,
-      required final Media media,
-      required final Media mediaRecommendation,
-      required final User user}) = _$_Recommendation;
+      required final RecommendationRating? userRating,
+      required final Media? media,
+      required final Media? mediaRecommendation,
+      required final User? user}) = _$_Recommendation;
 
   factory _Recommendation.fromJson(Map<String, dynamic> json) =
       _$_Recommendation.fromJson;
@@ -322,19 +334,19 @@ abstract class _Recommendation implements Recommendation {
   @override
 
   /// The rating of the recommendation by currently authenticated user
-  RecommendationRating get userRating;
+  RecommendationRating? get userRating;
   @override
 
   /// The media the recommendation is from
-  Media get media;
+  Media? get media;
   @override
 
   /// The recommended media
-  Media get mediaRecommendation;
+  Media? get mediaRecommendation;
   @override
 
   /// The user that first created the recommendation
-  User get user;
+  User? get user;
   @override
   @JsonKey(ignore: true)
   _$$_RecommendationCopyWith<_$_Recommendation> get copyWith =>

@@ -14,25 +14,25 @@ class MediaRank with _$MediaRank {
     required int id,
 
     /// The numerical rank of the media
-    required int rank,
+    required int? rank,
 
     /// The type of ranking
-    required MediaRankType type,
+    required MediaRankType? type,
 
     /// The format the media is ranked within
-    required MediaFormat format,
+    required MediaFormat? format,
 
     /// The year the media is ranked within
-    required int year,
+    required int? year,
 
     /// The season the media is ranked within
-    required MediaSeason season,
+    required MediaSeason? season,
 
     /// If the ranking is based on all time instead of a season/year
-    required bool allTime,
+    required bool? allTime,
 
     /// String that gives context to the ranking type and time span
-    required String context,
+    required String? context,
   }) = _MediaRank;
 
   factory MediaRank.fromJson(Map<String, Object?> json) =>

@@ -23,10 +23,10 @@ class AiringSchedule with _$AiringSchedule {
     required int episode,
 
     /// The associate media id of the airing episode
-    required int mediaId,
+    required int? mediaId,
 
     /// The associate media of the airing episode
-    required Media media,
+    required Media? media,
   }) = _AiringSchedule;
 
   factory AiringSchedule.fromJson(Map<String, Object?> json) =>

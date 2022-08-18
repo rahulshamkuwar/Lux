@@ -8,8 +8,8 @@ part of 'character_image.dart';
 
 _$_CharacterImage _$$_CharacterImageFromJson(Map<String, dynamic> json) =>
     _$_CharacterImage(
-      large: json['large'] as String,
-      medium: json['medium'] as String,
+      large: json['large'] as String?,
+      medium: json['medium'] as String?,
     );
 
 Map<String, dynamic> _$$_CharacterImageToJson(_$_CharacterImage instance) =>

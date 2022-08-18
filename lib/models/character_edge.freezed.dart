@@ -26,22 +26,23 @@ mixin _$CharacterEdge {
   int get id => throw _privateConstructorUsedError;
 
   /// The characters role in the media
-  int get role => throw _privateConstructorUsedError;
+  CharacterRole? get role => throw _privateConstructorUsedError;
 
   /// Media specific character name
-  CharacterRole get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   /// The voice actors of the character
-  String get voiceActors => throw _privateConstructorUsedError;
+  List<Staff>? get voiceActors => throw _privateConstructorUsedError;
 
   /// The voice actors of the character with role date
-  List<Staff> get voiceActorRoles => throw _privateConstructorUsedError;
+  List<StaffRoleType>? get voiceActorRoles =>
+      throw _privateConstructorUsedError;
 
   /// The media the character is in
-  List<StaffRoleType> get media => throw _privateConstructorUsedError;
+  List<Media>? get media => throw _privateConstructorUsedError;
 
   /// The order the character should be displayed from the users favourites
-  List<Media> get favouriteOrder => throw _privateConstructorUsedError;
+  int? get favouriteOrder => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,12 +58,12 @@ abstract class $CharacterEdgeCopyWith<$Res> {
   $Res call(
       {Character node,
       int id,
-      int role,
-      CharacterRole name,
-      String voiceActors,
-      List<Staff> voiceActorRoles,
-      List<StaffRoleType> media,
-      List<Media> favouriteOrder});
+      CharacterRole? role,
+      String? name,
+      List<Staff>? voiceActors,
+      List<StaffRoleType>? voiceActorRoles,
+      List<Media>? media,
+      int? favouriteOrder});
 
   $CharacterCopyWith<$Res> get node;
 }
@@ -99,27 +100,27 @@ class _$CharacterEdgeCopyWithImpl<$Res>
       role: role == freezed
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as int,
+              as CharacterRole?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as CharacterRole,
+              as String?,
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<Staff>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<StaffRoleType>?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>,
+              as List<Media>?,
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as List<Media>,
+              as int?,
     ));
   }
 
@@ -141,12 +142,12 @@ abstract class _$$_CharacterEdgeCopyWith<$Res>
   $Res call(
       {Character node,
       int id,
-      int role,
-      CharacterRole name,
-      String voiceActors,
-      List<Staff> voiceActorRoles,
-      List<StaffRoleType> media,
-      List<Media> favouriteOrder});
+      CharacterRole? role,
+      String? name,
+      List<Staff>? voiceActors,
+      List<StaffRoleType>? voiceActorRoles,
+      List<Media>? media,
+      int? favouriteOrder});
 
   @override
   $CharacterCopyWith<$Res> get node;
@@ -186,27 +187,27 @@ class __$$_CharacterEdgeCopyWithImpl<$Res>
       role: role == freezed
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as int,
+              as CharacterRole?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as CharacterRole,
+              as String?,
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<Staff>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<StaffRoleType>?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>,
+              as List<Media>?,
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as List<Media>,
+              as int?,
     ));
   }
 }
@@ -236,27 +237,27 @@ class _$_CharacterEdge with DiagnosticableTreeMixin implements _CharacterEdge {
 
   /// The characters role in the media
   @override
-  final int role;
+  final CharacterRole? role;
 
   /// Media specific character name
   @override
-  final CharacterRole name;
+  final String? name;
 
   /// The voice actors of the character
   @override
-  final String voiceActors;
+  final List<Staff>? voiceActors;
 
   /// The voice actors of the character with role date
   @override
-  final List<Staff> voiceActorRoles;
+  final List<StaffRoleType>? voiceActorRoles;
 
   /// The media the character is in
   @override
-  final List<StaffRoleType> media;
+  final List<Media>? media;
 
   /// The order the character should be displayed from the users favourites
   @override
-  final List<Media> favouriteOrder;
+  final int? favouriteOrder;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -326,12 +327,12 @@ abstract class _CharacterEdge implements CharacterEdge {
   const factory _CharacterEdge(
       {required final Character node,
       required final int id,
-      required final int role,
-      required final CharacterRole name,
-      required final String voiceActors,
-      required final List<Staff> voiceActorRoles,
-      required final List<StaffRoleType> media,
-      required final List<Media> favouriteOrder}) = _$_CharacterEdge;
+      required final CharacterRole? role,
+      required final String? name,
+      required final List<Staff>? voiceActors,
+      required final List<StaffRoleType>? voiceActorRoles,
+      required final List<Media>? media,
+      required final int? favouriteOrder}) = _$_CharacterEdge;
 
   factory _CharacterEdge.fromJson(Map<String, dynamic> json) =
       _$_CharacterEdge.fromJson;
@@ -345,27 +346,27 @@ abstract class _CharacterEdge implements CharacterEdge {
   @override
 
   /// The characters role in the media
-  int get role;
+  CharacterRole? get role;
   @override
 
   /// Media specific character name
-  CharacterRole get name;
+  String? get name;
   @override
 
   /// The voice actors of the character
-  String get voiceActors;
+  List<Staff>? get voiceActors;
   @override
 
   /// The voice actors of the character with role date
-  List<Staff> get voiceActorRoles;
+  List<StaffRoleType>? get voiceActorRoles;
   @override
 
   /// The media the character is in
-  List<StaffRoleType> get media;
+  List<Media>? get media;
   @override
 
   /// The order the character should be displayed from the users favourites
-  List<Media> get favouriteOrder;
+  int? get favouriteOrder;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterEdgeCopyWith<_$_CharacterEdge> get copyWith =>

@@ -19,7 +19,7 @@ class StudioEdge with _$StudioEdge {
     required bool isMain,
 
     ///The order the character should be displayed from the users favourites
-    required int favouriteOrder,
+    required int? favouriteOrder,
   }) = _StudioEdge;
 
   factory StudioEdge.fromJson(Map<String, Object?> json) =>

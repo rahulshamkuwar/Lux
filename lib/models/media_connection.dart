@@ -12,7 +12,7 @@ part 'media_connection.g.dart';
 class MediaConnection with _$MediaConnection {
   const factory MediaConnection({
     required List<MediaEdge> edges,
-    required List<Media> nodes,
+    required List<Media>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lux/auth/auth_failure.dart';
@@ -18,7 +21,7 @@ class OAuth2Client {
 
   Future<Credentials?> getSignedInCredentials() async {
     try {
-      final storedCredentials = await _credentialsStorage.read();
+      final storedCredentials = await _credentialsStorage.getCredentials();
       return storedCredentials;
     } on PlatformException {
       return null;
@@ -45,8 +48,12 @@ class OAuth2Client {
       AuthorizationCodeGrant grant, Map<String, String> queryParams) async {
     try {
       final httpClient = await grant.handleAuthorizationResponse(queryParams);
-      await _credentialsStorage.save(httpClient.credentials);
-
+      Either<AuthFailure, int> userID =
+          await handleUserIDRequest(httpClient.credentials);
+      if (userID.isLeft()) {
+        return left(userID as AuthFailure);
+      }
+      await _credentialsStorage.save(httpClient.credentials, userID as int);
       return right(unit);
     } on FormatException {
       return left(const AuthFailure.server());
@@ -55,6 +62,37 @@ class OAuth2Client {
     } on PlatformException {
       return left(const AuthFailure.storage());
     }
+  }
+
+  Future<Either<AuthFailure, int>> handleUserIDRequest(
+      Credentials credentials) async {
+    Dio dio = Dio();
+    String userIDQuery = """
+            {
+              Viewer {
+                id
+              }
+            }
+          """;
+    final response = await dio.post("https://graphql.anilist.co/",
+        options: Options(
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer ${credentials.accessToken}",
+            "Accept": "application/json",
+          },
+          contentType: "application/json",
+        ),
+        data: jsonEncode({"query": userIDQuery}));
+    if (response.statusCode != 200) {
+      if (response.statusCode == 429) {
+        return left(AuthFailure.server(
+            "You are being rate limited. Try again after ${response.headers['Retry-After']} seconds."));
+      } else {
+        return left(const AuthFailure.server("Unable to process request"));
+      }
+    }
+    return jsonDecode(response.data)["data"]["Viewer"]["id"];
   }
 
   Future<Either<AuthFailure, Unit>> signout() async {

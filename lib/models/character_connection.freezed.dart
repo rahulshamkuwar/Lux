@@ -21,7 +21,7 @@ CharacterConnection _$CharacterConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CharacterConnection {
   List<CharacterEdge> get edges => throw _privateConstructorUsedError;
-  List<Character> get nodes => throw _privateConstructorUsedError;
+  List<Character>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $CharacterConnectionCopyWith<$Res> {
           CharacterConnection value, $Res Function(CharacterConnection) then) =
       _$CharacterConnectionCopyWithImpl<$Res>;
   $Res call(
-      {List<CharacterEdge> edges, List<Character> nodes, PageInfo pageInfo});
+      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -66,7 +66,7 @@ class _$CharacterConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
+              as List<Character>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$_CharacterConnectionCopyWith<$Res>
       __$$_CharacterConnectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<CharacterEdge> edges, List<Character> nodes, PageInfo pageInfo});
+      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -121,7 +121,7 @@ class __$$_CharacterConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
+              as List<Character>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ class _$_CharacterConnection
   @override
   final List<CharacterEdge> edges;
   @override
-  final List<Character> nodes;
+  final List<Character>? nodes;
 
   /// The pagination information
   @override
@@ -200,7 +200,7 @@ class _$_CharacterConnection
 abstract class _CharacterConnection implements CharacterConnection {
   const factory _CharacterConnection(
       {required final List<CharacterEdge> edges,
-      required final List<Character> nodes,
+      required final List<Character>? nodes,
       required final PageInfo pageInfo}) = _$_CharacterConnection;
 
   factory _CharacterConnection.fromJson(Map<String, dynamic> json) =
@@ -209,7 +209,7 @@ abstract class _CharacterConnection implements CharacterConnection {
   @override
   List<CharacterEdge> get edges;
   @override
-  List<Character> get nodes;
+  List<Character>? get nodes;
   @override
 
   /// The pagination information

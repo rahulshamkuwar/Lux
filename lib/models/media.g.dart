@@ -10,90 +10,113 @@ _$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
       id: json['id'] as int,
       title: MediaTitle.fromJson(json['title'] as Map<String, dynamic>),
       type: $enumDecode(_$MediaTypeEnumMap, json['type']),
-      format: $enumDecode(_$MediaFormatEnumMap, json['format']),
-      status: $enumDecode(_$MediaStatusEnumMap, json['status']),
-      description: json['description'] as String,
-      startDate: DateTime.parse(json['startDate'] as String),
-      endDate: DateTime.parse(json['endDate'] as String),
-      season: $enumDecode(_$MediaSeasonEnumMap, json['season']),
-      seasonYear: json['seasonYear'] as int,
+      format: $enumDecodeNullable(_$MediaFormatEnumMap, json['format']),
+      status: $enumDecodeNullable(_$MediaStatusEnumMap, json['status']),
+      description: json['description'] as String?,
+      startDate: json['startDate'] == null
+          ? null
+          : FuzzyDate.fromJson(json['startDate'] as Map<String, dynamic>),
+      endDate: json['endDate'] == null
+          ? null
+          : FuzzyDate.fromJson(json['endDate'] as Map<String, dynamic>),
+      season: $enumDecodeNullable(_$MediaSeasonEnumMap, json['season']),
+      seasonYear: json['seasonYear'] as int?,
       episodes: json['episodes'] as int?,
-      duration: json['duration'] as int,
+      duration: json['duration'] as int?,
       chapters: json['chapters'] as int?,
       volumes: json['volumes'] as int?,
-      countryOfOrigin: json['countryOfOrigin'] as String,
-      isLicensed: json['isLicensed'] as bool,
-      source: $enumDecode(_$MediaSourceEnumMap, json['source']),
-      hashtag: json['hashtag'] as String,
+      countryOfOrigin: json['countryOfOrigin'] as String?,
+      isLicensed: json['isLicensed'] as bool?,
+      source: $enumDecodeNullable(_$MediaSourceEnumMap, json['source']),
+      hashtag: json['hashtag'] as String?,
       trailer: json['trailer'] == null
           ? null
           : MediaTrailer.fromJson(json['trailer'] as Map<String, dynamic>),
-      updatedAt: json['updatedAt'] as int,
+      updatedAt: json['updatedAt'] as int?,
       coverImage:
           MediaCoverImage.fromJson(json['coverImage'] as Map<String, dynamic>),
-      bannerImage: json['bannerImage'] as String,
+      bannerImage: json['bannerImage'] as String?,
       genres:
-          (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
-      synonyms:
-          (json['synonyms'] as List<dynamic>).map((e) => e as String).toList(),
-      averageScore: json['averageScore'] as int,
-      meanScore: json['meanScore'] as int,
-      popularity: json['popularity'] as int,
-      isLocked: json['isLocked'] as bool,
-      trending: json['trending'] as int,
-      favourites: json['favourites'] as int,
-      tags: (json['tags'] as List<dynamic>)
-          .map((e) => MediaTag.fromJson(e as Map<String, dynamic>))
+          (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      synonyms: (json['synonyms'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
-      relations:
-          MediaConnection.fromJson(json['relations'] as Map<String, dynamic>),
-      characters: CharacterConnection.fromJson(
-          json['characters'] as Map<String, dynamic>),
-      staff: StaffConnection.fromJson(json['staff'] as Map<String, dynamic>),
-      studios:
-          StudioConnection.fromJson(json['studios'] as Map<String, dynamic>),
+      averageScore: json['averageScore'] as int?,
+      meanScore: json['meanScore'] as int?,
+      popularity: json['popularity'] as int?,
+      isLocked: json['isLocked'] as bool?,
+      trending: json['trending'] as int?,
+      favourites: json['favourites'] as int?,
+      tags: (json['tags'] as List<dynamic>?)
+          ?.map((e) => MediaTag.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      relations: json['relations'] == null
+          ? null
+          : MediaConnection.fromJson(json['relations'] as Map<String, dynamic>),
+      characters: json['characters'] == null
+          ? null
+          : CharacterConnection.fromJson(
+              json['characters'] as Map<String, dynamic>),
+      staff: json['staff'] == null
+          ? null
+          : StaffConnection.fromJson(json['staff'] as Map<String, dynamic>),
+      studios: json['studios'] == null
+          ? null
+          : StudioConnection.fromJson(json['studios'] as Map<String, dynamic>),
       isFavourite: json['isFavourite'] as bool,
-      isFavouriteBlocked: json['isFavouriteBlocked'] as bool,
+      isFavouriteBlocked: json['isFavouriteBlocked'] as bool?,
       isAdult: json['isAdult'] as bool,
-      nextAiringEpisode: AiringSchedule.fromJson(
-          json['nextAiringEpisode'] as Map<String, dynamic>),
-      airingSchedule: AiringScheduleConnection.fromJson(
-          json['airingSchedule'] as Map<String, dynamic>),
-      trends:
-          MediaTrendConnection.fromJson(json['trends'] as Map<String, dynamic>),
-      externalLinks: (json['externalLinks'] as List<dynamic>)
-          .map((e) => MediaExternalLink.fromJson(e as Map<String, dynamic>))
+      nextAiringEpisode: json['nextAiringEpisode'] == null
+          ? null
+          : AiringSchedule.fromJson(
+              json['nextAiringEpisode'] as Map<String, dynamic>),
+      airingSchedule: json['airingSchedule'] == null
+          ? null
+          : AiringScheduleConnection.fromJson(
+              json['airingSchedule'] as Map<String, dynamic>),
+      trends: json['trends'] == null
+          ? null
+          : MediaTrendConnection.fromJson(
+              json['trends'] as Map<String, dynamic>),
+      externalLinks: (json['externalLinks'] as List<dynamic>?)
+          ?.map((e) => MediaExternalLink.fromJson(e as Map<String, dynamic>))
           .toList(),
-      streamingEpisodes: (json['streamingEpisodes'] as List<dynamic>)
-          .map((e) => MediaStreamingEpisode.fromJson(e as Map<String, dynamic>))
+      streamingEpisodes: (json['streamingEpisodes'] as List<dynamic>?)
+          ?.map(
+              (e) => MediaStreamingEpisode.fromJson(e as Map<String, dynamic>))
           .toList(),
-      rankings: (json['rankings'] as List<dynamic>)
-          .map((e) => MediaRank.fromJson(e as Map<String, dynamic>))
+      rankings: (json['rankings'] as List<dynamic>?)
+          ?.map((e) => MediaRank.fromJson(e as Map<String, dynamic>))
           .toList(),
-      mediaListEntry:
-          MediaList.fromJson(json['mediaListEntry'] as Map<String, dynamic>),
-      reviews:
-          ReviewConnection.fromJson(json['reviews'] as Map<String, dynamic>),
-      recommendations: RecommendationConnection.fromJson(
-          json['recommendations'] as Map<String, dynamic>),
-      stats: MediaStats.fromJson(json['stats'] as Map<String, dynamic>),
-      siteUrl: json['siteUrl'] as String,
-      autoCreateForumThread: json['autoCreateForumThread'] as bool,
-      isRecommendationBlocked: json['isRecommendationBlocked'] as bool,
-      isReviewBlocked: json['isReviewBlocked'] as bool,
-      modNotes: json['modNotes'] as String,
+      mediaListEntry: json['mediaListEntry'] == null
+          ? null
+          : MediaList.fromJson(json['mediaListEntry'] as Map<String, dynamic>),
+      reviews: json['reviews'] == null
+          ? null
+          : ReviewConnection.fromJson(json['reviews'] as Map<String, dynamic>),
+      recommendations: json['recommendations'] == null
+          ? null
+          : RecommendationConnection.fromJson(
+              json['recommendations'] as Map<String, dynamic>),
+      stats: json['stats'] == null
+          ? null
+          : MediaStats.fromJson(json['stats'] as Map<String, dynamic>),
+      siteUrl: json['siteUrl'] as String?,
+      autoCreateForumThread: json['autoCreateForumThread'] as bool?,
+      isRecommendationBlocked: json['isRecommendationBlocked'] as bool?,
+      isReviewBlocked: json['isReviewBlocked'] as bool?,
     );
 
 Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'type': _$MediaTypeEnumMap[instance.type]!,
-      'format': _$MediaFormatEnumMap[instance.format]!,
-      'status': _$MediaStatusEnumMap[instance.status]!,
+      'format': _$MediaFormatEnumMap[instance.format],
+      'status': _$MediaStatusEnumMap[instance.status],
       'description': instance.description,
-      'startDate': instance.startDate.toIso8601String(),
-      'endDate': instance.endDate.toIso8601String(),
-      'season': _$MediaSeasonEnumMap[instance.season]!,
+      'startDate': instance.startDate,
+      'endDate': instance.endDate,
+      'season': _$MediaSeasonEnumMap[instance.season],
       'seasonYear': instance.seasonYear,
       'episodes': instance.episodes,
       'duration': instance.duration,
@@ -101,7 +124,7 @@ Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'volumes': instance.volumes,
       'countryOfOrigin': instance.countryOfOrigin,
       'isLicensed': instance.isLicensed,
-      'source': _$MediaSourceEnumMap[instance.source]!,
+      'source': _$MediaSourceEnumMap[instance.source],
       'hashtag': instance.hashtag,
       'trailer': instance.trailer,
       'updatedAt': instance.updatedAt,
@@ -137,7 +160,6 @@ Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'autoCreateForumThread': instance.autoCreateForumThread,
       'isRecommendationBlocked': instance.isRecommendationBlocked,
       'isReviewBlocked': instance.isReviewBlocked,
-      'modNotes': instance.modNotes,
     };
 
 const _$MediaTypeEnumMap = {

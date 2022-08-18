@@ -12,7 +12,7 @@ part 'recommendation_connection.g.dart';
 class RecommendationConnection with _$RecommendationConnection {
   const factory RecommendationConnection({
     required List<RecommendationEdge> edges,
-    required List<Recommendation> nodes,
+    required List<Recommendation>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

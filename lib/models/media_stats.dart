@@ -11,8 +11,8 @@ part 'media_stats.g.dart';
 @Freezed(makeCollectionsUnmodifiable: false)
 class MediaStats with _$MediaStats {
   const factory MediaStats({
-    required List<ScoreDistribution> scoreDistribution,
-    required List<StatusDistribution> statusDistribution,
+    required List<ScoreDistribution>? scoreDistribution,
+    required List<StatusDistribution>? statusDistribution,
   }) = _MediaStats;
 
   factory MediaStats.fromJson(Map<String, Object?> json) =>

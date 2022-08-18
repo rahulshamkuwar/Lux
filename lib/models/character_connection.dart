@@ -12,7 +12,7 @@ part 'character_connection.g.dart';
 class CharacterConnection with _$CharacterConnection {
   const factory CharacterConnection({
     required List<CharacterEdge> edges,
-    required List<Character> nodes,
+    required List<Character>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

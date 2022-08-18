@@ -10,22 +10,23 @@ _$_MediaEdge _$$_MediaEdgeFromJson(Map<String, dynamic> json) => _$_MediaEdge(
       node: Media.fromJson(json['node'] as Map<String, dynamic>),
       id: json['id'] as int,
       relationType: $enumDecode(_$MediaRelationEnumMap, json['relationType']),
-      isMainStudio: json['isMainStudio'] as bool,
-      characters: (json['characters'] as List<dynamic>)
-          .map((e) => Character.fromJson(e as Map<String, dynamic>))
+      isMainStudio: json['isMainStudio'] as bool?,
+      characters: (json['characters'] as List<dynamic>?)
+          ?.map((e) => Character.fromJson(e as Map<String, dynamic>))
           .toList(),
-      characterRole: $enumDecode(_$CharacterRoleEnumMap, json['characterRole']),
-      characterName: json['characterName'] as String,
-      roleNotes: json['roleNotes'] as String,
-      dubGroup: json['dubGroup'] as String,
-      staffRole: json['staffRole'] as String,
-      voiceActors: (json['voiceActors'] as List<dynamic>)
-          .map((e) => Staff.fromJson(e as Map<String, dynamic>))
+      characterRole:
+          $enumDecodeNullable(_$CharacterRoleEnumMap, json['characterRole']),
+      characterName: json['characterName'] as String?,
+      roleNotes: json['roleNotes'] as String?,
+      dubGroup: json['dubGroup'] as String?,
+      staffRole: json['staffRole'] as String?,
+      voiceActors: (json['voiceActors'] as List<dynamic>?)
+          ?.map((e) => Staff.fromJson(e as Map<String, dynamic>))
           .toList(),
-      voiceActorRoles: (json['voiceActorRoles'] as List<dynamic>)
-          .map((e) => StaffRoleType.fromJson(e as Map<String, dynamic>))
+      voiceActorRoles: (json['voiceActorRoles'] as List<dynamic>?)
+          ?.map((e) => StaffRoleType.fromJson(e as Map<String, dynamic>))
           .toList(),
-      favouriteOrder: json['favouriteOrder'] as int,
+      favouriteOrder: json['favouriteOrder'] as int?,
     );
 
 Map<String, dynamic> _$$_MediaEdgeToJson(_$_MediaEdge instance) =>
@@ -35,7 +36,7 @@ Map<String, dynamic> _$$_MediaEdgeToJson(_$_MediaEdge instance) =>
       'relationType': _$MediaRelationEnumMap[instance.relationType]!,
       'isMainStudio': instance.isMainStudio,
       'characters': instance.characters,
-      'characterRole': _$CharacterRoleEnumMap[instance.characterRole]!,
+      'characterRole': _$CharacterRoleEnumMap[instance.characterRole],
       'characterName': instance.characterName,
       'roleNotes': instance.roleNotes,
       'dubGroup': instance.dubGroup,

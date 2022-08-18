@@ -12,8 +12,8 @@ _$_MediaTrendConnection _$$_MediaTrendConnectionFromJson(
       edges: (json['edges'] as List<dynamic>)
           .map((e) => MediaTrendEdge.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nodes: (json['nodes'] as List<dynamic>)
-          .map((e) => MediaTrend.fromJson(e as Map<String, dynamic>))
+      nodes: (json['nodes'] as List<dynamic>?)
+          ?.map((e) => MediaTrend.fromJson(e as Map<String, dynamic>))
           .toList(),
       pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );

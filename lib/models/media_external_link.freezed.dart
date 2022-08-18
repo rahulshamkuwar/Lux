@@ -31,16 +31,16 @@ mixin _$MediaExternalLink {
 
   /// The links website site id
   int get siteId => throw _privateConstructorUsedError;
-  ExternalLinkType get type => throw _privateConstructorUsedError;
+  ExternalLinkType? get type => throw _privateConstructorUsedError;
 
   /// Language the site content is in. See Staff language field for values.
-  String get language => throw _privateConstructorUsedError;
-  String get color => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
 
   /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
-  String get icon => throw _privateConstructorUsedError;
-  String get notes => throw _privateConstructorUsedError;
-  bool get isDisabled => throw _privateConstructorUsedError;
+  String? get icon => throw _privateConstructorUsedError;
+  String? get notes => throw _privateConstructorUsedError;
+  bool? get isDisabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,12 +58,12 @@ abstract class $MediaExternalLinkCopyWith<$Res> {
       String url,
       String site,
       int siteId,
-      ExternalLinkType type,
-      String language,
-      String color,
-      String icon,
-      String notes,
-      bool isDisabled});
+      ExternalLinkType? type,
+      String? language,
+      String? color,
+      String? icon,
+      String? notes,
+      bool? isDisabled});
 }
 
 /// @nodoc
@@ -108,27 +108,27 @@ class _$MediaExternalLinkCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ExternalLinkType,
+              as ExternalLinkType?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       icon: icon == freezed
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       notes: notes == freezed
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isDisabled: isDisabled == freezed
           ? _value.isDisabled
           : isDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -145,12 +145,12 @@ abstract class _$$_MediaExternalLinkCopyWith<$Res>
       String url,
       String site,
       int siteId,
-      ExternalLinkType type,
-      String language,
-      String color,
-      String icon,
-      String notes,
-      bool isDisabled});
+      ExternalLinkType? type,
+      String? language,
+      String? color,
+      String? icon,
+      String? notes,
+      bool? isDisabled});
 }
 
 /// @nodoc
@@ -197,27 +197,27 @@ class __$$_MediaExternalLinkCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ExternalLinkType,
+              as ExternalLinkType?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       icon: icon == freezed
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       notes: notes == freezed
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isDisabled: isDisabled == freezed
           ? _value.isDisabled
           : isDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -258,21 +258,21 @@ class _$_MediaExternalLink
   @override
   final int siteId;
   @override
-  final ExternalLinkType type;
+  final ExternalLinkType? type;
 
   /// Language the site content is in. See Staff language field for values.
   @override
-  final String language;
+  final String? language;
   @override
-  final String color;
+  final String? color;
 
   /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
   @override
-  final String icon;
+  final String? icon;
   @override
-  final String notes;
+  final String? notes;
   @override
-  final bool isDisabled;
+  final bool? isDisabled;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -349,12 +349,12 @@ abstract class _MediaExternalLink implements MediaExternalLink {
       required final String url,
       required final String site,
       required final int siteId,
-      required final ExternalLinkType type,
-      required final String language,
-      required final String color,
-      required final String icon,
-      required final String notes,
-      required final bool isDisabled}) = _$_MediaExternalLink;
+      required final ExternalLinkType? type,
+      required final String? language,
+      required final String? color,
+      required final String? icon,
+      required final String? notes,
+      required final bool? isDisabled}) = _$_MediaExternalLink;
 
   factory _MediaExternalLink.fromJson(Map<String, dynamic> json) =
       _$_MediaExternalLink.fromJson;
@@ -376,21 +376,21 @@ abstract class _MediaExternalLink implements MediaExternalLink {
   /// The links website site id
   int get siteId;
   @override
-  ExternalLinkType get type;
+  ExternalLinkType? get type;
   @override
 
   /// Language the site content is in. See Staff language field for values.
-  String get language;
+  String? get language;
   @override
-  String get color;
+  String? get color;
   @override
 
   /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
-  String get icon;
+  String? get icon;
   @override
-  String get notes;
+  String? get notes;
   @override
-  bool get isDisabled;
+  bool? get isDisabled;
   @override
   @JsonKey(ignore: true)
   _$$_MediaExternalLinkCopyWith<_$_MediaExternalLink> get copyWith =>

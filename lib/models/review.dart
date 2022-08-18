@@ -22,43 +22,43 @@ class Review with _$Review {
     required int mediaId,
 
     /// For which type of media the review is for
-    required MediaType mediaType,
+    required MediaType? mediaType,
 
     /// A short summary of the review
-    required String summary,
+    required String? summary,
 
     /// The main review body text
-    required String body,
+    required String? body,
 
     /// The total user rating of the review
     required int rating,
 
     /// The amount of user ratings of the review
-    required int ratingAmount,
+    required int? ratingAmount,
 
     /// The rating of the review by currently authenticated user
-    required ReviewRating userRating,
+    required ReviewRating? userRating,
 
     /// The review score of the media
     required int score,
 
     /// If the review is not yet publicly published and is only viewable by creator
-    required bool private,
+    required bool? private,
 
     /// The url for the review page on the AniList website
-    required String siteUrl,
+    required String? siteUrl,
 
     /// The time of the thread creation
-    required int createdAt,
+    required int? createdAt,
 
     /// The time of the thread last update
-    required int updatedAt,
+    required int? updatedAt,
 
     /// The creator of the review
-    required User user,
+    required User? user,
 
     /// The media the review is of
-    required Media media,
+    required Media? media,
   }) = _Review;
 
   factory Review.fromJson(Map<String, Object?> json) => _$ReviewFromJson(json);

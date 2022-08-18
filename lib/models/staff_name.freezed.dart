@@ -21,25 +21,25 @@ StaffName _$StaffNameFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StaffName {
   /// The person's given name
-  String get first => throw _privateConstructorUsedError;
+  String? get first => throw _privateConstructorUsedError;
 
   /// The person's middle name
-  String get middle => throw _privateConstructorUsedError;
+  String? get middle => throw _privateConstructorUsedError;
 
   /// The person's surname
-  String get last => throw _privateConstructorUsedError;
+  String? get last => throw _privateConstructorUsedError;
 
   /// The person's first and last name
-  String get full => throw _privateConstructorUsedError;
+  String? get full => throw _privateConstructorUsedError;
 
   /// The person's full name in their native language
-  String get native => throw _privateConstructorUsedError;
+  String? get native => throw _privateConstructorUsedError;
 
   /// Other names the staff member might be referred to as (pen names)
-  List<String> get alternative => throw _privateConstructorUsedError;
+  List<String>? get alternative => throw _privateConstructorUsedError;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-  String get userPreferred => throw _privateConstructorUsedError;
+  String? get userPreferred => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,13 +52,13 @@ abstract class $StaffNameCopyWith<$Res> {
   factory $StaffNameCopyWith(StaffName value, $Res Function(StaffName) then) =
       _$StaffNameCopyWithImpl<$Res>;
   $Res call(
-      {String first,
-      String middle,
-      String last,
-      String full,
-      String native,
-      List<String> alternative,
-      String userPreferred});
+      {String? first,
+      String? middle,
+      String? last,
+      String? full,
+      String? native,
+      List<String>? alternative,
+      String? userPreferred});
 }
 
 /// @nodoc
@@ -83,31 +83,31 @@ class _$StaffNameCopyWithImpl<$Res> implements $StaffNameCopyWith<$Res> {
       first: first == freezed
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       middle: middle == freezed
           ? _value.middle
           : middle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       last: last == freezed
           ? _value.last
           : last // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       full: full == freezed
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -119,13 +119,13 @@ abstract class _$$_StaffNameCopyWith<$Res> implements $StaffNameCopyWith<$Res> {
       __$$_StaffNameCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String first,
-      String middle,
-      String last,
-      String full,
-      String native,
-      List<String> alternative,
-      String userPreferred});
+      {String? first,
+      String? middle,
+      String? last,
+      String? full,
+      String? native,
+      List<String>? alternative,
+      String? userPreferred});
 }
 
 /// @nodoc
@@ -152,31 +152,31 @@ class __$$_StaffNameCopyWithImpl<$Res> extends _$StaffNameCopyWithImpl<$Res>
       first: first == freezed
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       middle: middle == freezed
           ? _value.middle
           : middle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       last: last == freezed
           ? _value.last
           : last // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       full: full == freezed
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -198,31 +198,31 @@ class _$_StaffName with DiagnosticableTreeMixin implements _StaffName {
 
   /// The person's given name
   @override
-  final String first;
+  final String? first;
 
   /// The person's middle name
   @override
-  final String middle;
+  final String? middle;
 
   /// The person's surname
   @override
-  final String last;
+  final String? last;
 
   /// The person's first and last name
   @override
-  final String full;
+  final String? full;
 
   /// The person's full name in their native language
   @override
-  final String native;
+  final String? native;
 
   /// Other names the staff member might be referred to as (pen names)
   @override
-  final List<String> alternative;
+  final List<String>? alternative;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
   @override
-  final String userPreferred;
+  final String? userPreferred;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -286,13 +286,13 @@ class _$_StaffName with DiagnosticableTreeMixin implements _StaffName {
 
 abstract class _StaffName implements StaffName {
   const factory _StaffName(
-      {required final String first,
-      required final String middle,
-      required final String last,
-      required final String full,
-      required final String native,
-      required final List<String> alternative,
-      required final String userPreferred}) = _$_StaffName;
+      {required final String? first,
+      required final String? middle,
+      required final String? last,
+      required final String? full,
+      required final String? native,
+      required final List<String>? alternative,
+      required final String? userPreferred}) = _$_StaffName;
 
   factory _StaffName.fromJson(Map<String, dynamic> json) =
       _$_StaffName.fromJson;
@@ -300,31 +300,31 @@ abstract class _StaffName implements StaffName {
   @override
 
   /// The person's given name
-  String get first;
+  String? get first;
   @override
 
   /// The person's middle name
-  String get middle;
+  String? get middle;
   @override
 
   /// The person's surname
-  String get last;
+  String? get last;
   @override
 
   /// The person's first and last name
-  String get full;
+  String? get full;
   @override
 
   /// The person's full name in their native language
-  String get native;
+  String? get native;
   @override
 
   /// Other names the staff member might be referred to as (pen names)
-  List<String> get alternative;
+  List<String>? get alternative;
   @override
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-  String get userPreferred;
+  String? get userPreferred;
   @override
   @JsonKey(ignore: true)
   _$$_StaffNameCopyWith<_$_StaffName> get copyWith =>

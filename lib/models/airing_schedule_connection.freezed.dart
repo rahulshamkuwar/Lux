@@ -22,7 +22,7 @@ AiringScheduleConnection _$AiringScheduleConnectionFromJson(
 /// @nodoc
 mixin _$AiringScheduleConnection {
   List<AiringScheduleEdge> get edges => throw _privateConstructorUsedError;
-  List<AiringSchedule> get nodes => throw _privateConstructorUsedError;
+  List<AiringSchedule>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $AiringScheduleConnectionCopyWith<$Res> {
       _$AiringScheduleConnectionCopyWithImpl<$Res>;
   $Res call(
       {List<AiringScheduleEdge> edges,
-      List<AiringSchedule> nodes,
+      List<AiringSchedule>? nodes,
       PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -69,7 +69,7 @@ class _$AiringScheduleConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<AiringSchedule>,
+              as List<AiringSchedule>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$_AiringScheduleConnectionCopyWith<$Res>
   @override
   $Res call(
       {List<AiringScheduleEdge> edges,
-      List<AiringSchedule> nodes,
+      List<AiringSchedule>? nodes,
       PageInfo pageInfo});
 
   @override
@@ -128,7 +128,7 @@ class __$$_AiringScheduleConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<AiringSchedule>,
+              as List<AiringSchedule>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ class _$_AiringScheduleConnection
   @override
   final List<AiringScheduleEdge> edges;
   @override
-  final List<AiringSchedule> nodes;
+  final List<AiringSchedule>? nodes;
 
   /// The pagination information
   @override
@@ -207,7 +207,7 @@ class _$_AiringScheduleConnection
 abstract class _AiringScheduleConnection implements AiringScheduleConnection {
   const factory _AiringScheduleConnection(
       {required final List<AiringScheduleEdge> edges,
-      required final List<AiringSchedule> nodes,
+      required final List<AiringSchedule>? nodes,
       required final PageInfo pageInfo}) = _$_AiringScheduleConnection;
 
   factory _AiringScheduleConnection.fromJson(Map<String, dynamic> json) =
@@ -216,7 +216,7 @@ abstract class _AiringScheduleConnection implements AiringScheduleConnection {
   @override
   List<AiringScheduleEdge> get edges;
   @override
-  List<AiringSchedule> get nodes;
+  List<AiringSchedule>? get nodes;
   @override
 
   /// The pagination information

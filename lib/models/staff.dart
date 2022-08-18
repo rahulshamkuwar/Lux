@@ -1,7 +1,7 @@
+import 'package:lux/models/fuzzy_date.dart';
 import 'package:lux/models/user.dart';
 import 'package:lux/models/character_connection.dart';
 import 'package:lux/models/media_connection.dart';
-import 'package:lux/models/staff_image.dart';
 import 'package:lux/models/staff_name.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,72 +18,72 @@ class Staff with _$Staff {
     required int id,
 
     /// The names of the staff member
-    required StaffName languageV2,
+    required StaffName name,
 
     /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
-    required String image,
+    required String? languageV2,
 
     /// The staff images
-    required StaffImage description,
+    required String image,
 
     /// A general description of the staff member
-    required String primaryOccupations,
+    required String? description,
 
     /// The person's primary occupations
-    required List<String> gender,
-    required String dateOfBirth,
-    required DateTime dateOfDeath,
+    required List<String>? primaryOccupations,
 
     /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
-    required DateTime age,
+    required String? gender,
+    required FuzzyDate? dateOfBirth,
+    required FuzzyDate? dateOfDeath,
 
     /// The person's age in years
-    required int yearsActive,
+    required int? age,
 
     /// [startYear, endYear] (If the 2nd value is not present staff is still active)
-    required List<int> homeTown,
+    required List<int>? yearsActive,
 
     /// The persons birthplace or hometown
-    required String bloodType,
+    required String? homeTown,
 
     /// The persons blood type
-    required String isFavourite,
+    required String? bloodType,
 
     /// If the staff member is marked as favourite by the currently authenticated user
-    required bool isFavouriteBlocked,
+    required bool? isFavourite,
 
     /// If the staff member is blocked from being added to favourites
-    required bool siteUrl,
+    required bool? isFavouriteBlocked,
 
     /// The url for the staff page on the AniList website
-    required String staffMedia,
+    required String? siteUrl,
 
     /// Media where the staff member has a production role
-    required MediaConnection characters,
+    required MediaConnection? staffMedia,
 
     /// Characters voiced by the actor
-    required CharacterConnection staff,
+    required CharacterConnection? characters,
 
     /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
-    required MediaConnection submitter,
+    required MediaConnection? characterMedia,
 
     /// Staff member that the submission is referencing
-    required Staff submissionStatus,
+    required Staff? staff,
 
     /// Submitter for the submission
-    required User submissionNotes,
+    required User? submitter,
 
     /// Status of the submission
-    required int favourites,
+    required int? submissionStatus,
 
     /// Inner details of submission status
-    required String modNotes,
+    required String? submissionNotes,
 
     /// The amount of user's who have favourited the staff member
-    required int characterMedia,
+    required int? favourites,
 
     /// Notes for site moderators
-    required String name,
+    required String? modNotes,
   }) = _Staff;
 
   factory Staff.fromJson(Map<String, Object?> json) => _$StaffFromJson(json);

@@ -20,9 +20,9 @@ MediaStats _$MediaStatsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MediaStats {
-  List<ScoreDistribution> get scoreDistribution =>
+  List<ScoreDistribution>? get scoreDistribution =>
       throw _privateConstructorUsedError;
-  List<StatusDistribution> get statusDistribution =>
+  List<StatusDistribution>? get statusDistribution =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,8 +37,8 @@ abstract class $MediaStatsCopyWith<$Res> {
           MediaStats value, $Res Function(MediaStats) then) =
       _$MediaStatsCopyWithImpl<$Res>;
   $Res call(
-      {List<ScoreDistribution> scoreDistribution,
-      List<StatusDistribution> statusDistribution});
+      {List<ScoreDistribution>? scoreDistribution,
+      List<StatusDistribution>? statusDistribution});
 }
 
 /// @nodoc
@@ -58,11 +58,11 @@ class _$MediaStatsCopyWithImpl<$Res> implements $MediaStatsCopyWith<$Res> {
       scoreDistribution: scoreDistribution == freezed
           ? _value.scoreDistribution
           : scoreDistribution // ignore: cast_nullable_to_non_nullable
-              as List<ScoreDistribution>,
+              as List<ScoreDistribution>?,
       statusDistribution: statusDistribution == freezed
           ? _value.statusDistribution
           : statusDistribution // ignore: cast_nullable_to_non_nullable
-              as List<StatusDistribution>,
+              as List<StatusDistribution>?,
     ));
   }
 }
@@ -75,8 +75,8 @@ abstract class _$$_MediaStatsCopyWith<$Res>
       __$$_MediaStatsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<ScoreDistribution> scoreDistribution,
-      List<StatusDistribution> statusDistribution});
+      {List<ScoreDistribution>? scoreDistribution,
+      List<StatusDistribution>? statusDistribution});
 }
 
 /// @nodoc
@@ -98,11 +98,11 @@ class __$$_MediaStatsCopyWithImpl<$Res> extends _$MediaStatsCopyWithImpl<$Res>
       scoreDistribution: scoreDistribution == freezed
           ? _value.scoreDistribution
           : scoreDistribution // ignore: cast_nullable_to_non_nullable
-              as List<ScoreDistribution>,
+              as List<ScoreDistribution>?,
       statusDistribution: statusDistribution == freezed
           ? _value.statusDistribution
           : statusDistribution // ignore: cast_nullable_to_non_nullable
-              as List<StatusDistribution>,
+              as List<StatusDistribution>?,
     ));
   }
 }
@@ -117,9 +117,9 @@ class _$_MediaStats with DiagnosticableTreeMixin implements _MediaStats {
       _$$_MediaStatsFromJson(json);
 
   @override
-  final List<ScoreDistribution> scoreDistribution;
+  final List<ScoreDistribution>? scoreDistribution;
   @override
-  final List<StatusDistribution> statusDistribution;
+  final List<StatusDistribution>? statusDistribution;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -168,17 +168,17 @@ class _$_MediaStats with DiagnosticableTreeMixin implements _MediaStats {
 
 abstract class _MediaStats implements MediaStats {
   const factory _MediaStats(
-          {required final List<ScoreDistribution> scoreDistribution,
-          required final List<StatusDistribution> statusDistribution}) =
+          {required final List<ScoreDistribution>? scoreDistribution,
+          required final List<StatusDistribution>? statusDistribution}) =
       _$_MediaStats;
 
   factory _MediaStats.fromJson(Map<String, dynamic> json) =
       _$_MediaStats.fromJson;
 
   @override
-  List<ScoreDistribution> get scoreDistribution;
+  List<ScoreDistribution>? get scoreDistribution;
   @override
-  List<StatusDistribution> get statusDistribution;
+  List<StatusDistribution>? get statusDistribution;
   @override
   @JsonKey(ignore: true)
   _$$_MediaStatsCopyWith<_$_MediaStats> get copyWith =>

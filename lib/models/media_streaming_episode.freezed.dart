@@ -22,16 +22,16 @@ MediaStreamingEpisode _$MediaStreamingEpisodeFromJson(
 /// @nodoc
 mixin _$MediaStreamingEpisode {
   /// Title of the episode
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
 
   /// Url of episode image thumbnail
-  String get thumbnail => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   /// The url of the episode
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
 
   /// The site location of the streaming episodes
-  String get site => throw _privateConstructorUsedError;
+  String? get site => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $MediaStreamingEpisodeCopyWith<$Res> {
   factory $MediaStreamingEpisodeCopyWith(MediaStreamingEpisode value,
           $Res Function(MediaStreamingEpisode) then) =
       _$MediaStreamingEpisodeCopyWithImpl<$Res>;
-  $Res call({String title, String thumbnail, String url, String site});
+  $Res call({String? title, String? thumbnail, String? url, String? site});
 }
 
 /// @nodoc
@@ -67,19 +67,19 @@ class _$MediaStreamingEpisodeCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       thumbnail: thumbnail == freezed
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       site: site == freezed
           ? _value.site
           : site // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$_MediaStreamingEpisodeCopyWith<$Res>
           $Res Function(_$_MediaStreamingEpisode) then) =
       __$$_MediaStreamingEpisodeCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String thumbnail, String url, String site});
+  $Res call({String? title, String? thumbnail, String? url, String? site});
 }
 
 /// @nodoc
@@ -117,19 +117,19 @@ class __$$_MediaStreamingEpisodeCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       thumbnail: thumbnail == freezed
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       site: site == freezed
           ? _value.site
           : site // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -150,19 +150,19 @@ class _$_MediaStreamingEpisode
 
   /// Title of the episode
   @override
-  final String title;
+  final String? title;
 
   /// Url of episode image thumbnail
   @override
-  final String thumbnail;
+  final String? thumbnail;
 
   /// The url of the episode
   @override
-  final String url;
+  final String? url;
 
   /// The site location of the streaming episodes
   @override
-  final String site;
+  final String? site;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -216,10 +216,10 @@ class _$_MediaStreamingEpisode
 
 abstract class _MediaStreamingEpisode implements MediaStreamingEpisode {
   const factory _MediaStreamingEpisode(
-      {required final String title,
-      required final String thumbnail,
-      required final String url,
-      required final String site}) = _$_MediaStreamingEpisode;
+      {required final String? title,
+      required final String? thumbnail,
+      required final String? url,
+      required final String? site}) = _$_MediaStreamingEpisode;
 
   factory _MediaStreamingEpisode.fromJson(Map<String, dynamic> json) =
       _$_MediaStreamingEpisode.fromJson;
@@ -227,19 +227,19 @@ abstract class _MediaStreamingEpisode implements MediaStreamingEpisode {
   @override
 
   /// Title of the episode
-  String get title;
+  String? get title;
   @override
 
   /// Url of episode image thumbnail
-  String get thumbnail;
+  String? get thumbnail;
   @override
 
   /// The url of the episode
-  String get url;
+  String? get url;
   @override
 
   /// The site location of the streaming episodes
-  String get site;
+  String? get site;
   @override
   @JsonKey(ignore: true)
   _$$_MediaStreamingEpisodeCopyWith<_$_MediaStreamingEpisode> get copyWith =>

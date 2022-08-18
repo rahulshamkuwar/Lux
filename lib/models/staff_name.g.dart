@@ -7,15 +7,15 @@ part of 'staff_name.dart';
 // **************************************************************************
 
 _$_StaffName _$$_StaffNameFromJson(Map<String, dynamic> json) => _$_StaffName(
-      first: json['first'] as String,
-      middle: json['middle'] as String,
-      last: json['last'] as String,
-      full: json['full'] as String,
-      native: json['native'] as String,
-      alternative: (json['alternative'] as List<dynamic>)
-          .map((e) => e as String)
+      first: json['first'] as String?,
+      middle: json['middle'] as String?,
+      last: json['last'] as String?,
+      full: json['full'] as String?,
+      native: json['native'] as String?,
+      alternative: (json['alternative'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
-      userPreferred: json['userPreferred'] as String,
+      userPreferred: json['userPreferred'] as String?,
     );
 
 Map<String, dynamic> _$$_StaffNameToJson(_$_StaffName instance) =>

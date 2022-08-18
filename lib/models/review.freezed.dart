@@ -30,43 +30,43 @@ mixin _$Review {
   int get mediaId => throw _privateConstructorUsedError;
 
   /// For which type of media the review is for
-  MediaType get mediaType => throw _privateConstructorUsedError;
+  MediaType? get mediaType => throw _privateConstructorUsedError;
 
   /// A short summary of the review
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   /// The main review body text
-  String get body => throw _privateConstructorUsedError;
+  String? get body => throw _privateConstructorUsedError;
 
   /// The total user rating of the review
   int get rating => throw _privateConstructorUsedError;
 
   /// The amount of user ratings of the review
-  int get ratingAmount => throw _privateConstructorUsedError;
+  int? get ratingAmount => throw _privateConstructorUsedError;
 
   /// The rating of the review by currently authenticated user
-  ReviewRating get userRating => throw _privateConstructorUsedError;
+  ReviewRating? get userRating => throw _privateConstructorUsedError;
 
   /// The review score of the media
   int get score => throw _privateConstructorUsedError;
 
   /// If the review is not yet publicly published and is only viewable by creator
-  bool get private => throw _privateConstructorUsedError;
+  bool? get private => throw _privateConstructorUsedError;
 
   /// The url for the review page on the AniList website
-  String get siteUrl => throw _privateConstructorUsedError;
+  String? get siteUrl => throw _privateConstructorUsedError;
 
   /// The time of the thread creation
-  int get createdAt => throw _privateConstructorUsedError;
+  int? get createdAt => throw _privateConstructorUsedError;
 
   /// The time of the thread last update
-  int get updatedAt => throw _privateConstructorUsedError;
+  int? get updatedAt => throw _privateConstructorUsedError;
 
   /// The creator of the review
-  User get user => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   /// The media the review is of
-  Media get media => throw _privateConstructorUsedError;
+  Media? get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -81,22 +81,22 @@ abstract class $ReviewCopyWith<$Res> {
       {int id,
       int userId,
       int mediaId,
-      MediaType mediaType,
-      String summary,
-      String body,
+      MediaType? mediaType,
+      String? summary,
+      String? body,
       int rating,
-      int ratingAmount,
-      ReviewRating userRating,
+      int? ratingAmount,
+      ReviewRating? userRating,
       int score,
-      bool private,
-      String siteUrl,
-      int createdAt,
-      int updatedAt,
-      User user,
-      Media media});
+      bool? private,
+      String? siteUrl,
+      int? createdAt,
+      int? updatedAt,
+      User? user,
+      Media? media});
 
-  $UserCopyWith<$Res> get user;
-  $MediaCopyWith<$Res> get media;
+  $UserCopyWith<$Res>? get user;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -142,15 +142,15 @@ class _$ReviewCopyWithImpl<$Res> implements $ReviewCopyWith<$Res> {
       mediaType: mediaType == freezed
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as MediaType,
+              as MediaType?,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
@@ -158,11 +158,11 @@ class _$ReviewCopyWithImpl<$Res> implements $ReviewCopyWith<$Res> {
       ratingAmount: ratingAmount == freezed
           ? _value.ratingAmount
           : ratingAmount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       userRating: userRating == freezed
           ? _value.userRating
           : userRating // ignore: cast_nullable_to_non_nullable
-              as ReviewRating,
+              as ReviewRating?,
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
@@ -170,40 +170,48 @@ class _$ReviewCopyWithImpl<$Res> implements $ReviewCopyWith<$Res> {
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 
   @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
 
   @override
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
+  $MediaCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
@@ -218,24 +226,24 @@ abstract class _$$_ReviewCopyWith<$Res> implements $ReviewCopyWith<$Res> {
       {int id,
       int userId,
       int mediaId,
-      MediaType mediaType,
-      String summary,
-      String body,
+      MediaType? mediaType,
+      String? summary,
+      String? body,
       int rating,
-      int ratingAmount,
-      ReviewRating userRating,
+      int? ratingAmount,
+      ReviewRating? userRating,
       int score,
-      bool private,
-      String siteUrl,
-      int createdAt,
-      int updatedAt,
-      User user,
-      Media media});
+      bool? private,
+      String? siteUrl,
+      int? createdAt,
+      int? updatedAt,
+      User? user,
+      Media? media});
 
   @override
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
   @override
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -282,15 +290,15 @@ class __$$_ReviewCopyWithImpl<$Res> extends _$ReviewCopyWithImpl<$Res>
       mediaType: mediaType == freezed
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as MediaType,
+              as MediaType?,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
@@ -298,11 +306,11 @@ class __$$_ReviewCopyWithImpl<$Res> extends _$ReviewCopyWithImpl<$Res>
       ratingAmount: ratingAmount == freezed
           ? _value.ratingAmount
           : ratingAmount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       userRating: userRating == freezed
           ? _value.userRating
           : userRating // ignore: cast_nullable_to_non_nullable
-              as ReviewRating,
+              as ReviewRating?,
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
@@ -310,27 +318,27 @@ class __$$_ReviewCopyWithImpl<$Res> extends _$ReviewCopyWithImpl<$Res>
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 }
@@ -373,15 +381,15 @@ class _$_Review with DiagnosticableTreeMixin implements _Review {
 
   /// For which type of media the review is for
   @override
-  final MediaType mediaType;
+  final MediaType? mediaType;
 
   /// A short summary of the review
   @override
-  final String summary;
+  final String? summary;
 
   /// The main review body text
   @override
-  final String body;
+  final String? body;
 
   /// The total user rating of the review
   @override
@@ -389,11 +397,11 @@ class _$_Review with DiagnosticableTreeMixin implements _Review {
 
   /// The amount of user ratings of the review
   @override
-  final int ratingAmount;
+  final int? ratingAmount;
 
   /// The rating of the review by currently authenticated user
   @override
-  final ReviewRating userRating;
+  final ReviewRating? userRating;
 
   /// The review score of the media
   @override
@@ -401,27 +409,27 @@ class _$_Review with DiagnosticableTreeMixin implements _Review {
 
   /// If the review is not yet publicly published and is only viewable by creator
   @override
-  final bool private;
+  final bool? private;
 
   /// The url for the review page on the AniList website
   @override
-  final String siteUrl;
+  final String? siteUrl;
 
   /// The time of the thread creation
   @override
-  final int createdAt;
+  final int? createdAt;
 
   /// The time of the thread last update
   @override
-  final int updatedAt;
+  final int? updatedAt;
 
   /// The creator of the review
   @override
-  final User user;
+  final User? user;
 
   /// The media the review is of
   @override
-  final Media media;
+  final Media? media;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -515,19 +523,19 @@ abstract class _Review implements Review {
       {required final int id,
       required final int userId,
       required final int mediaId,
-      required final MediaType mediaType,
-      required final String summary,
-      required final String body,
+      required final MediaType? mediaType,
+      required final String? summary,
+      required final String? body,
       required final int rating,
-      required final int ratingAmount,
-      required final ReviewRating userRating,
+      required final int? ratingAmount,
+      required final ReviewRating? userRating,
       required final int score,
-      required final bool private,
-      required final String siteUrl,
-      required final int createdAt,
-      required final int updatedAt,
-      required final User user,
-      required final Media media}) = _$_Review;
+      required final bool? private,
+      required final String? siteUrl,
+      required final int? createdAt,
+      required final int? updatedAt,
+      required final User? user,
+      required final Media? media}) = _$_Review;
 
   factory _Review.fromJson(Map<String, dynamic> json) = _$_Review.fromJson;
 
@@ -546,15 +554,15 @@ abstract class _Review implements Review {
   @override
 
   /// For which type of media the review is for
-  MediaType get mediaType;
+  MediaType? get mediaType;
   @override
 
   /// A short summary of the review
-  String get summary;
+  String? get summary;
   @override
 
   /// The main review body text
-  String get body;
+  String? get body;
   @override
 
   /// The total user rating of the review
@@ -562,11 +570,11 @@ abstract class _Review implements Review {
   @override
 
   /// The amount of user ratings of the review
-  int get ratingAmount;
+  int? get ratingAmount;
   @override
 
   /// The rating of the review by currently authenticated user
-  ReviewRating get userRating;
+  ReviewRating? get userRating;
   @override
 
   /// The review score of the media
@@ -574,27 +582,27 @@ abstract class _Review implements Review {
   @override
 
   /// If the review is not yet publicly published and is only viewable by creator
-  bool get private;
+  bool? get private;
   @override
 
   /// The url for the review page on the AniList website
-  String get siteUrl;
+  String? get siteUrl;
   @override
 
   /// The time of the thread creation
-  int get createdAt;
+  int? get createdAt;
   @override
 
   /// The time of the thread last update
-  int get updatedAt;
+  int? get updatedAt;
   @override
 
   /// The creator of the review
-  User get user;
+  User? get user;
   @override
 
   /// The media the review is of
-  Media get media;
+  Media? get media;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewCopyWith<_$_Review> get copyWith =>

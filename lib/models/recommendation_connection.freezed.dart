@@ -22,7 +22,7 @@ RecommendationConnection _$RecommendationConnectionFromJson(
 /// @nodoc
 mixin _$RecommendationConnection {
   List<RecommendationEdge> get edges => throw _privateConstructorUsedError;
-  List<Recommendation> get nodes => throw _privateConstructorUsedError;
+  List<Recommendation>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $RecommendationConnectionCopyWith<$Res> {
       _$RecommendationConnectionCopyWithImpl<$Res>;
   $Res call(
       {List<RecommendationEdge> edges,
-      List<Recommendation> nodes,
+      List<Recommendation>? nodes,
       PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -69,7 +69,7 @@ class _$RecommendationConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Recommendation>,
+              as List<Recommendation>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$_RecommendationConnectionCopyWith<$Res>
   @override
   $Res call(
       {List<RecommendationEdge> edges,
-      List<Recommendation> nodes,
+      List<Recommendation>? nodes,
       PageInfo pageInfo});
 
   @override
@@ -128,7 +128,7 @@ class __$$_RecommendationConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Recommendation>,
+              as List<Recommendation>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ class _$_RecommendationConnection
   @override
   final List<RecommendationEdge> edges;
   @override
-  final List<Recommendation> nodes;
+  final List<Recommendation>? nodes;
 
   /// The pagination information
   @override
@@ -207,7 +207,7 @@ class _$_RecommendationConnection
 abstract class _RecommendationConnection implements RecommendationConnection {
   const factory _RecommendationConnection(
       {required final List<RecommendationEdge> edges,
-      required final List<Recommendation> nodes,
+      required final List<Recommendation>? nodes,
       required final PageInfo pageInfo}) = _$_RecommendationConnection;
 
   factory _RecommendationConnection.fromJson(Map<String, dynamic> json) =
@@ -216,7 +216,7 @@ abstract class _RecommendationConnection implements RecommendationConnection {
   @override
   List<RecommendationEdge> get edges;
   @override
-  List<Recommendation> get nodes;
+  List<Recommendation>? get nodes;
   @override
 
   /// The pagination information

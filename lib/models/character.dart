@@ -1,5 +1,6 @@
 import 'package:lux/models/character_image.dart';
 import 'package:lux/models/character_name.dart';
+import 'package:lux/models/fuzzy_date.dart';
 import 'package:lux/models/media_connection.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,37 +23,37 @@ class Character with _$Character {
     required CharacterImage image,
 
     /// A general description of the character
-    required String description,
+    required String? description,
 
     /// The character's gender. Usually Male, Female, or Non-binary but can be any string.
-    required String gender,
+    required String? gender,
 
     /// The character's birth date
-    required DateTime dateOfBirth,
+    required FuzzyDate? dateOfBirth,
 
     /// The character's age. Note this is a string, not an int, it may contain further text and additional ages.
-    required String age,
+    required String? age,
 
     /// The characters blood type
     required String? bloodType,
 
     /// If the character is marked as favourite by the currently authenticated user
-    required bool isFavourite,
+    required bool? isFavourite,
 
     /// If the character is blocked from being added to favourites
-    required bool isFavouriteBlocked,
+    required bool? isFavouriteBlocked,
 
     /// The url for the character page on the AniList website
-    required String siteUrl,
+    required String? siteUrl,
 
     /// Media that includes the character
-    required MediaConnection media,
+    required MediaConnection? media,
 
     /// The amount of user's who have favourited the character
-    required int favourites,
+    required int? favourites,
 
     /// Notes for site moderators
-    required String modNotes,
+    required String? modNotes,
   }) = _Character;
 
   factory Character.fromJson(Map<String, Object?> json) =>

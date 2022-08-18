@@ -30,31 +30,31 @@ mixin _$Media {
   MediaType get type => throw _privateConstructorUsedError;
 
   /// The format the media was released in
-  MediaFormat get format => throw _privateConstructorUsedError;
+  MediaFormat? get format => throw _privateConstructorUsedError;
 
   /// The current releasing status of the media
-  MediaStatus get status => throw _privateConstructorUsedError;
+  MediaStatus? get status => throw _privateConstructorUsedError;
 
   /// Short description of the media's story and characters
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   /// The first official release date of the media
-  DateTime get startDate => throw _privateConstructorUsedError;
+  FuzzyDate? get startDate => throw _privateConstructorUsedError;
 
   /// The last official release date of the media
-  DateTime get endDate => throw _privateConstructorUsedError;
+  FuzzyDate? get endDate => throw _privateConstructorUsedError;
 
   /// The season the media was initially released in
-  MediaSeason get season => throw _privateConstructorUsedError;
+  MediaSeason? get season => throw _privateConstructorUsedError;
 
   /// The season year the media was initially released in
-  int get seasonYear => throw _privateConstructorUsedError;
+  int? get seasonYear => throw _privateConstructorUsedError;
 
   /// The amount of episodes the anime has when complete
   int? get episodes => throw _privateConstructorUsedError;
 
   /// The general length of each anime episode in minutes
-  int get duration => throw _privateConstructorUsedError;
+  int? get duration => throw _privateConstructorUsedError;
 
   /// The amount of chapters the manga has when complete
   int? get chapters => throw _privateConstructorUsedError;
@@ -63,123 +63,120 @@ mixin _$Media {
   int? get volumes => throw _privateConstructorUsedError;
 
   /// Where the media was created. (ISO 3166-1 alpha-2)
-  String get countryOfOrigin => throw _privateConstructorUsedError;
+  String? get countryOfOrigin => throw _privateConstructorUsedError;
 
   /// If the media is officially licensed or a self-published doujin release
-  bool get isLicensed => throw _privateConstructorUsedError;
+  bool? get isLicensed => throw _privateConstructorUsedError;
 
   /// Source type the media was adapted from.
-  MediaSource get source => throw _privateConstructorUsedError;
+  MediaSource? get source => throw _privateConstructorUsedError;
 
   /// Official Twitter hashtags for the media
-  String get hashtag => throw _privateConstructorUsedError;
+  String? get hashtag => throw _privateConstructorUsedError;
 
   /// Media trailer or advertisement
   MediaTrailer? get trailer => throw _privateConstructorUsedError;
 
   /// When the media's data was last updated
-  int get updatedAt => throw _privateConstructorUsedError;
+  int? get updatedAt => throw _privateConstructorUsedError;
 
   /// The cover images of the media
   MediaCoverImage get coverImage => throw _privateConstructorUsedError;
 
   /// The banner image of the media
-  String get bannerImage => throw _privateConstructorUsedError;
+  String? get bannerImage => throw _privateConstructorUsedError;
 
   /// The genres of the media
-  List<String> get genres => throw _privateConstructorUsedError;
+  List<String>? get genres => throw _privateConstructorUsedError;
 
   /// Alternative titles of the media
-  List<String> get synonyms => throw _privateConstructorUsedError;
+  List<String>? get synonyms => throw _privateConstructorUsedError;
 
   /// A weighted average score of all the user's scores of the media
-  int get averageScore => throw _privateConstructorUsedError;
+  int? get averageScore => throw _privateConstructorUsedError;
 
   /// Mean score of all the user's scores of the media
-  int get meanScore => throw _privateConstructorUsedError;
+  int? get meanScore => throw _privateConstructorUsedError;
 
   /// The number of users with the media on their list
-  int get popularity => throw _privateConstructorUsedError;
+  int? get popularity => throw _privateConstructorUsedError;
 
   /// Locked media may not be added to lists our favorited. This may be due to the entry pending for deletion or other reasons.
-  bool get isLocked => throw _privateConstructorUsedError;
+  bool? get isLocked => throw _privateConstructorUsedError;
 
   /// The amount of related activity in the past hour
-  int get trending => throw _privateConstructorUsedError;
+  int? get trending => throw _privateConstructorUsedError;
 
   /// The amount of user's who have favourited the media
-  int get favourites => throw _privateConstructorUsedError;
+  int? get favourites => throw _privateConstructorUsedError;
 
   /// List of tags that describes elements and themes of the media
-  List<MediaTag> get tags => throw _privateConstructorUsedError;
+  List<MediaTag>? get tags => throw _privateConstructorUsedError;
 
   /// Other media in the same or connecting franchise
-  MediaConnection get relations => throw _privateConstructorUsedError;
+  MediaConnection? get relations => throw _privateConstructorUsedError;
 
   /// The characters in the media
-  CharacterConnection get characters => throw _privateConstructorUsedError;
+  CharacterConnection? get characters => throw _privateConstructorUsedError;
 
   /// The staff who produced the media
-  StaffConnection get staff => throw _privateConstructorUsedError;
+  StaffConnection? get staff => throw _privateConstructorUsedError;
 
   /// The companies who produced the media
-  StudioConnection get studios => throw _privateConstructorUsedError;
+  StudioConnection? get studios => throw _privateConstructorUsedError;
 
   /// If the media is marked as favourite by the current authenticated user
   bool get isFavourite => throw _privateConstructorUsedError;
 
   /// If the media is blocked from being added to favourites
-  bool get isFavouriteBlocked => throw _privateConstructorUsedError;
+  bool? get isFavouriteBlocked => throw _privateConstructorUsedError;
 
   /// If the media is intended only for 18+ adult audiences
   bool get isAdult => throw _privateConstructorUsedError;
 
   /// The media's next episode airing schedule
-  AiringSchedule get nextAiringEpisode => throw _privateConstructorUsedError;
+  AiringSchedule? get nextAiringEpisode => throw _privateConstructorUsedError;
 
   /// The media's entire airing schedule
-  AiringScheduleConnection get airingSchedule =>
+  AiringScheduleConnection? get airingSchedule =>
       throw _privateConstructorUsedError;
 
   /// The media's daily trend stats
-  MediaTrendConnection get trends => throw _privateConstructorUsedError;
+  MediaTrendConnection? get trends => throw _privateConstructorUsedError;
 
   /// External links to another site related to the media
-  List<MediaExternalLink> get externalLinks =>
+  List<MediaExternalLink>? get externalLinks =>
       throw _privateConstructorUsedError;
 
   /// Data and links to legal streaming episodes on external sites
-  List<MediaStreamingEpisode> get streamingEpisodes =>
+  List<MediaStreamingEpisode>? get streamingEpisodes =>
       throw _privateConstructorUsedError;
 
   /// The ranking of the media in a particular time span and format compared to other media
-  List<MediaRank> get rankings => throw _privateConstructorUsedError;
+  List<MediaRank>? get rankings => throw _privateConstructorUsedError;
 
   /// The authenticated user's media list entry for the media
-  MediaList get mediaListEntry => throw _privateConstructorUsedError;
+  MediaList? get mediaListEntry => throw _privateConstructorUsedError;
 
   /// User reviews of the media
-  ReviewConnection get reviews => throw _privateConstructorUsedError;
+  ReviewConnection? get reviews => throw _privateConstructorUsedError;
 
   /// User recommendations for similar media
-  RecommendationConnection get recommendations =>
+  RecommendationConnection? get recommendations =>
       throw _privateConstructorUsedError;
-  MediaStats get stats => throw _privateConstructorUsedError;
+  MediaStats? get stats => throw _privateConstructorUsedError;
 
   /// The url for the media page on the AniList website
-  String get siteUrl => throw _privateConstructorUsedError;
+  String? get siteUrl => throw _privateConstructorUsedError;
 
   /// If the media should have forum thread automatically created for it on airing episode release
-  bool get autoCreateForumThread => throw _privateConstructorUsedError;
+  bool? get autoCreateForumThread => throw _privateConstructorUsedError;
 
   /// If the media is blocked from being recommended to/from
-  bool get isRecommendationBlocked => throw _privateConstructorUsedError;
+  bool? get isRecommendationBlocked => throw _privateConstructorUsedError;
 
   /// If the media is blocked from being reviewed
-  bool get isReviewBlocked => throw _privateConstructorUsedError;
-
-  /// Notes for site moderators
-  String get modNotes => throw _privateConstructorUsedError;
+  bool? get isReviewBlocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -194,71 +191,72 @@ abstract class $MediaCopyWith<$Res> {
       {int id,
       MediaTitle title,
       MediaType type,
-      MediaFormat format,
-      MediaStatus status,
-      String description,
-      DateTime startDate,
-      DateTime endDate,
-      MediaSeason season,
-      int seasonYear,
+      MediaFormat? format,
+      MediaStatus? status,
+      String? description,
+      FuzzyDate? startDate,
+      FuzzyDate? endDate,
+      MediaSeason? season,
+      int? seasonYear,
       int? episodes,
-      int duration,
+      int? duration,
       int? chapters,
       int? volumes,
-      String countryOfOrigin,
-      bool isLicensed,
-      MediaSource source,
-      String hashtag,
+      String? countryOfOrigin,
+      bool? isLicensed,
+      MediaSource? source,
+      String? hashtag,
       MediaTrailer? trailer,
-      int updatedAt,
+      int? updatedAt,
       MediaCoverImage coverImage,
-      String bannerImage,
-      List<String> genres,
-      List<String> synonyms,
-      int averageScore,
-      int meanScore,
-      int popularity,
-      bool isLocked,
-      int trending,
-      int favourites,
-      List<MediaTag> tags,
-      MediaConnection relations,
-      CharacterConnection characters,
-      StaffConnection staff,
-      StudioConnection studios,
+      String? bannerImage,
+      List<String>? genres,
+      List<String>? synonyms,
+      int? averageScore,
+      int? meanScore,
+      int? popularity,
+      bool? isLocked,
+      int? trending,
+      int? favourites,
+      List<MediaTag>? tags,
+      MediaConnection? relations,
+      CharacterConnection? characters,
+      StaffConnection? staff,
+      StudioConnection? studios,
       bool isFavourite,
-      bool isFavouriteBlocked,
+      bool? isFavouriteBlocked,
       bool isAdult,
-      AiringSchedule nextAiringEpisode,
-      AiringScheduleConnection airingSchedule,
-      MediaTrendConnection trends,
-      List<MediaExternalLink> externalLinks,
-      List<MediaStreamingEpisode> streamingEpisodes,
-      List<MediaRank> rankings,
-      MediaList mediaListEntry,
-      ReviewConnection reviews,
-      RecommendationConnection recommendations,
-      MediaStats stats,
-      String siteUrl,
-      bool autoCreateForumThread,
-      bool isRecommendationBlocked,
-      bool isReviewBlocked,
-      String modNotes});
+      AiringSchedule? nextAiringEpisode,
+      AiringScheduleConnection? airingSchedule,
+      MediaTrendConnection? trends,
+      List<MediaExternalLink>? externalLinks,
+      List<MediaStreamingEpisode>? streamingEpisodes,
+      List<MediaRank>? rankings,
+      MediaList? mediaListEntry,
+      ReviewConnection? reviews,
+      RecommendationConnection? recommendations,
+      MediaStats? stats,
+      String? siteUrl,
+      bool? autoCreateForumThread,
+      bool? isRecommendationBlocked,
+      bool? isReviewBlocked});
 
   $MediaTitleCopyWith<$Res> get title;
+  $FuzzyDateCopyWith<$Res>? get startDate;
+  $FuzzyDateCopyWith<$Res>? get endDate;
   $MediaTrailerCopyWith<$Res>? get trailer;
   $MediaCoverImageCopyWith<$Res> get coverImage;
-  $MediaConnectionCopyWith<$Res> get relations;
-  $CharacterConnectionCopyWith<$Res> get characters;
-  $StaffConnectionCopyWith<$Res> get staff;
-  $StudioConnectionCopyWith<$Res> get studios;
-  $AiringScheduleCopyWith<$Res> get nextAiringEpisode;
-  $AiringScheduleConnectionCopyWith<$Res> get airingSchedule;
-  $MediaTrendConnectionCopyWith<$Res> get trends;
-  $MediaListCopyWith<$Res> get mediaListEntry;
-  $ReviewConnectionCopyWith<$Res> get reviews;
-  $RecommendationConnectionCopyWith<$Res> get recommendations;
-  $MediaStatsCopyWith<$Res> get stats;
+  $MediaConnectionCopyWith<$Res>? get relations;
+  $CharacterConnectionCopyWith<$Res>? get characters;
+  $StaffConnectionCopyWith<$Res>? get staff;
+  $StudioConnectionCopyWith<$Res>? get studios;
+  $AiringScheduleCopyWith<$Res>? get nextAiringEpisode;
+  $AiringScheduleConnectionCopyWith<$Res>? get airingSchedule;
+  $MediaTrendConnectionCopyWith<$Res>? get trends;
+  $MediaListCopyWith<$Res>? get mediaListEntry;
+  $ReviewConnectionCopyWith<$Res>? get reviews;
+  $RecommendationConnectionCopyWith<$Res>? get recommendations;
+  $MediaStatsCopyWith<$Res>? get stats;
 }
 
 /// @nodoc
@@ -323,7 +321,6 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
     Object? autoCreateForumThread = freezed,
     Object? isRecommendationBlocked = freezed,
     Object? isReviewBlocked = freezed,
-    Object? modNotes = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -341,31 +338,31 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MediaFormat,
+              as MediaFormat?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MediaStatus,
+              as MediaStatus?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       endDate: endDate == freezed
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       season: season == freezed
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as MediaSeason,
+              as MediaSeason?,
       seasonYear: seasonYear == freezed
           ? _value.seasonYear
           : seasonYear // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       episodes: episodes == freezed
           ? _value.episodes
           : episodes // ignore: cast_nullable_to_non_nullable
@@ -373,7 +370,7 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       chapters: chapters == freezed
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
@@ -385,19 +382,19 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       countryOfOrigin: countryOfOrigin == freezed
           ? _value.countryOfOrigin
           : countryOfOrigin // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLicensed: isLicensed == freezed
           ? _value.isLicensed
           : isLicensed // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       source: source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as MediaSource,
+              as MediaSource?,
       hashtag: hashtag == freezed
           ? _value.hashtag
           : hashtag // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       trailer: trailer == freezed
           ? _value.trailer
           : trailer // ignore: cast_nullable_to_non_nullable
@@ -405,7 +402,7 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       coverImage: coverImage == freezed
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
@@ -413,59 +410,59 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       bannerImage: bannerImage == freezed
           ? _value.bannerImage
           : bannerImage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       genres: genres == freezed
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       synonyms: synonyms == freezed
           ? _value.synonyms
           : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       averageScore: averageScore == freezed
           ? _value.averageScore
           : averageScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       meanScore: meanScore == freezed
           ? _value.meanScore
           : meanScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isLocked: isLocked == freezed
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       trending: trending == freezed
           ? _value.trending
           : trending // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       tags: tags == freezed
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<MediaTag>,
+              as List<MediaTag>?,
       relations: relations == freezed
           ? _value.relations
           : relations // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharacterConnection,
+              as CharacterConnection?,
       staff: staff == freezed
           ? _value.staff
           : staff // ignore: cast_nullable_to_non_nullable
-              as StaffConnection,
+              as StaffConnection?,
       studios: studios == freezed
           ? _value.studios
           : studios // ignore: cast_nullable_to_non_nullable
-              as StudioConnection,
+              as StudioConnection?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
@@ -473,7 +470,7 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isAdult: isAdult == freezed
           ? _value.isAdult
           : isAdult // ignore: cast_nullable_to_non_nullable
@@ -481,63 +478,59 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
       nextAiringEpisode: nextAiringEpisode == freezed
           ? _value.nextAiringEpisode
           : nextAiringEpisode // ignore: cast_nullable_to_non_nullable
-              as AiringSchedule,
+              as AiringSchedule?,
       airingSchedule: airingSchedule == freezed
           ? _value.airingSchedule
           : airingSchedule // ignore: cast_nullable_to_non_nullable
-              as AiringScheduleConnection,
+              as AiringScheduleConnection?,
       trends: trends == freezed
           ? _value.trends
           : trends // ignore: cast_nullable_to_non_nullable
-              as MediaTrendConnection,
+              as MediaTrendConnection?,
       externalLinks: externalLinks == freezed
           ? _value.externalLinks
           : externalLinks // ignore: cast_nullable_to_non_nullable
-              as List<MediaExternalLink>,
+              as List<MediaExternalLink>?,
       streamingEpisodes: streamingEpisodes == freezed
           ? _value.streamingEpisodes
           : streamingEpisodes // ignore: cast_nullable_to_non_nullable
-              as List<MediaStreamingEpisode>,
+              as List<MediaStreamingEpisode>?,
       rankings: rankings == freezed
           ? _value.rankings
           : rankings // ignore: cast_nullable_to_non_nullable
-              as List<MediaRank>,
+              as List<MediaRank>?,
       mediaListEntry: mediaListEntry == freezed
           ? _value.mediaListEntry
           : mediaListEntry // ignore: cast_nullable_to_non_nullable
-              as MediaList,
+              as MediaList?,
       reviews: reviews == freezed
           ? _value.reviews
           : reviews // ignore: cast_nullable_to_non_nullable
-              as ReviewConnection,
+              as ReviewConnection?,
       recommendations: recommendations == freezed
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as RecommendationConnection,
+              as RecommendationConnection?,
       stats: stats == freezed
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as MediaStats,
+              as MediaStats?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       autoCreateForumThread: autoCreateForumThread == freezed
           ? _value.autoCreateForumThread
           : autoCreateForumThread // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isRecommendationBlocked: isRecommendationBlocked == freezed
           ? _value.isRecommendationBlocked
           : isRecommendationBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isReviewBlocked: isReviewBlocked == freezed
           ? _value.isReviewBlocked
           : isReviewBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      modNotes: modNotes == freezed
-          ? _value.modNotes
-          : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool?,
     ));
   }
 
@@ -545,6 +538,28 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
   $MediaTitleCopyWith<$Res> get title {
     return $MediaTitleCopyWith<$Res>(_value.title, (value) {
       return _then(_value.copyWith(title: value));
+    });
+  }
+
+  @override
+  $FuzzyDateCopyWith<$Res>? get startDate {
+    if (_value.startDate == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.startDate!, (value) {
+      return _then(_value.copyWith(startDate: value));
+    });
+  }
+
+  @override
+  $FuzzyDateCopyWith<$Res>? get endDate {
+    if (_value.endDate == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.endDate!, (value) {
+      return _then(_value.copyWith(endDate: value));
     });
   }
 
@@ -567,80 +582,124 @@ class _$MediaCopyWithImpl<$Res> implements $MediaCopyWith<$Res> {
   }
 
   @override
-  $MediaConnectionCopyWith<$Res> get relations {
-    return $MediaConnectionCopyWith<$Res>(_value.relations, (value) {
+  $MediaConnectionCopyWith<$Res>? get relations {
+    if (_value.relations == null) {
+      return null;
+    }
+
+    return $MediaConnectionCopyWith<$Res>(_value.relations!, (value) {
       return _then(_value.copyWith(relations: value));
     });
   }
 
   @override
-  $CharacterConnectionCopyWith<$Res> get characters {
-    return $CharacterConnectionCopyWith<$Res>(_value.characters, (value) {
+  $CharacterConnectionCopyWith<$Res>? get characters {
+    if (_value.characters == null) {
+      return null;
+    }
+
+    return $CharacterConnectionCopyWith<$Res>(_value.characters!, (value) {
       return _then(_value.copyWith(characters: value));
     });
   }
 
   @override
-  $StaffConnectionCopyWith<$Res> get staff {
-    return $StaffConnectionCopyWith<$Res>(_value.staff, (value) {
+  $StaffConnectionCopyWith<$Res>? get staff {
+    if (_value.staff == null) {
+      return null;
+    }
+
+    return $StaffConnectionCopyWith<$Res>(_value.staff!, (value) {
       return _then(_value.copyWith(staff: value));
     });
   }
 
   @override
-  $StudioConnectionCopyWith<$Res> get studios {
-    return $StudioConnectionCopyWith<$Res>(_value.studios, (value) {
+  $StudioConnectionCopyWith<$Res>? get studios {
+    if (_value.studios == null) {
+      return null;
+    }
+
+    return $StudioConnectionCopyWith<$Res>(_value.studios!, (value) {
       return _then(_value.copyWith(studios: value));
     });
   }
 
   @override
-  $AiringScheduleCopyWith<$Res> get nextAiringEpisode {
-    return $AiringScheduleCopyWith<$Res>(_value.nextAiringEpisode, (value) {
+  $AiringScheduleCopyWith<$Res>? get nextAiringEpisode {
+    if (_value.nextAiringEpisode == null) {
+      return null;
+    }
+
+    return $AiringScheduleCopyWith<$Res>(_value.nextAiringEpisode!, (value) {
       return _then(_value.copyWith(nextAiringEpisode: value));
     });
   }
 
   @override
-  $AiringScheduleConnectionCopyWith<$Res> get airingSchedule {
-    return $AiringScheduleConnectionCopyWith<$Res>(_value.airingSchedule,
+  $AiringScheduleConnectionCopyWith<$Res>? get airingSchedule {
+    if (_value.airingSchedule == null) {
+      return null;
+    }
+
+    return $AiringScheduleConnectionCopyWith<$Res>(_value.airingSchedule!,
         (value) {
       return _then(_value.copyWith(airingSchedule: value));
     });
   }
 
   @override
-  $MediaTrendConnectionCopyWith<$Res> get trends {
-    return $MediaTrendConnectionCopyWith<$Res>(_value.trends, (value) {
+  $MediaTrendConnectionCopyWith<$Res>? get trends {
+    if (_value.trends == null) {
+      return null;
+    }
+
+    return $MediaTrendConnectionCopyWith<$Res>(_value.trends!, (value) {
       return _then(_value.copyWith(trends: value));
     });
   }
 
   @override
-  $MediaListCopyWith<$Res> get mediaListEntry {
-    return $MediaListCopyWith<$Res>(_value.mediaListEntry, (value) {
+  $MediaListCopyWith<$Res>? get mediaListEntry {
+    if (_value.mediaListEntry == null) {
+      return null;
+    }
+
+    return $MediaListCopyWith<$Res>(_value.mediaListEntry!, (value) {
       return _then(_value.copyWith(mediaListEntry: value));
     });
   }
 
   @override
-  $ReviewConnectionCopyWith<$Res> get reviews {
-    return $ReviewConnectionCopyWith<$Res>(_value.reviews, (value) {
+  $ReviewConnectionCopyWith<$Res>? get reviews {
+    if (_value.reviews == null) {
+      return null;
+    }
+
+    return $ReviewConnectionCopyWith<$Res>(_value.reviews!, (value) {
       return _then(_value.copyWith(reviews: value));
     });
   }
 
   @override
-  $RecommendationConnectionCopyWith<$Res> get recommendations {
-    return $RecommendationConnectionCopyWith<$Res>(_value.recommendations,
+  $RecommendationConnectionCopyWith<$Res>? get recommendations {
+    if (_value.recommendations == null) {
+      return null;
+    }
+
+    return $RecommendationConnectionCopyWith<$Res>(_value.recommendations!,
         (value) {
       return _then(_value.copyWith(recommendations: value));
     });
   }
 
   @override
-  $MediaStatsCopyWith<$Res> get stats {
-    return $MediaStatsCopyWith<$Res>(_value.stats, (value) {
+  $MediaStatsCopyWith<$Res>? get stats {
+    if (_value.stats == null) {
+      return null;
+    }
+
+    return $MediaStatsCopyWith<$Res>(_value.stats!, (value) {
       return _then(_value.copyWith(stats: value));
     });
   }
@@ -655,85 +714,88 @@ abstract class _$$_MediaCopyWith<$Res> implements $MediaCopyWith<$Res> {
       {int id,
       MediaTitle title,
       MediaType type,
-      MediaFormat format,
-      MediaStatus status,
-      String description,
-      DateTime startDate,
-      DateTime endDate,
-      MediaSeason season,
-      int seasonYear,
+      MediaFormat? format,
+      MediaStatus? status,
+      String? description,
+      FuzzyDate? startDate,
+      FuzzyDate? endDate,
+      MediaSeason? season,
+      int? seasonYear,
       int? episodes,
-      int duration,
+      int? duration,
       int? chapters,
       int? volumes,
-      String countryOfOrigin,
-      bool isLicensed,
-      MediaSource source,
-      String hashtag,
+      String? countryOfOrigin,
+      bool? isLicensed,
+      MediaSource? source,
+      String? hashtag,
       MediaTrailer? trailer,
-      int updatedAt,
+      int? updatedAt,
       MediaCoverImage coverImage,
-      String bannerImage,
-      List<String> genres,
-      List<String> synonyms,
-      int averageScore,
-      int meanScore,
-      int popularity,
-      bool isLocked,
-      int trending,
-      int favourites,
-      List<MediaTag> tags,
-      MediaConnection relations,
-      CharacterConnection characters,
-      StaffConnection staff,
-      StudioConnection studios,
+      String? bannerImage,
+      List<String>? genres,
+      List<String>? synonyms,
+      int? averageScore,
+      int? meanScore,
+      int? popularity,
+      bool? isLocked,
+      int? trending,
+      int? favourites,
+      List<MediaTag>? tags,
+      MediaConnection? relations,
+      CharacterConnection? characters,
+      StaffConnection? staff,
+      StudioConnection? studios,
       bool isFavourite,
-      bool isFavouriteBlocked,
+      bool? isFavouriteBlocked,
       bool isAdult,
-      AiringSchedule nextAiringEpisode,
-      AiringScheduleConnection airingSchedule,
-      MediaTrendConnection trends,
-      List<MediaExternalLink> externalLinks,
-      List<MediaStreamingEpisode> streamingEpisodes,
-      List<MediaRank> rankings,
-      MediaList mediaListEntry,
-      ReviewConnection reviews,
-      RecommendationConnection recommendations,
-      MediaStats stats,
-      String siteUrl,
-      bool autoCreateForumThread,
-      bool isRecommendationBlocked,
-      bool isReviewBlocked,
-      String modNotes});
+      AiringSchedule? nextAiringEpisode,
+      AiringScheduleConnection? airingSchedule,
+      MediaTrendConnection? trends,
+      List<MediaExternalLink>? externalLinks,
+      List<MediaStreamingEpisode>? streamingEpisodes,
+      List<MediaRank>? rankings,
+      MediaList? mediaListEntry,
+      ReviewConnection? reviews,
+      RecommendationConnection? recommendations,
+      MediaStats? stats,
+      String? siteUrl,
+      bool? autoCreateForumThread,
+      bool? isRecommendationBlocked,
+      bool? isReviewBlocked});
 
   @override
   $MediaTitleCopyWith<$Res> get title;
+  @override
+  $FuzzyDateCopyWith<$Res>? get startDate;
+  @override
+  $FuzzyDateCopyWith<$Res>? get endDate;
   @override
   $MediaTrailerCopyWith<$Res>? get trailer;
   @override
   $MediaCoverImageCopyWith<$Res> get coverImage;
   @override
-  $MediaConnectionCopyWith<$Res> get relations;
+  $MediaConnectionCopyWith<$Res>? get relations;
   @override
-  $CharacterConnectionCopyWith<$Res> get characters;
+  $CharacterConnectionCopyWith<$Res>? get characters;
   @override
-  $StaffConnectionCopyWith<$Res> get staff;
+  $StaffConnectionCopyWith<$Res>? get staff;
   @override
-  $StudioConnectionCopyWith<$Res> get studios;
+  $StudioConnectionCopyWith<$Res>? get studios;
   @override
-  $AiringScheduleCopyWith<$Res> get nextAiringEpisode;
+  $AiringScheduleCopyWith<$Res>? get nextAiringEpisode;
   @override
-  $AiringScheduleConnectionCopyWith<$Res> get airingSchedule;
+  $AiringScheduleConnectionCopyWith<$Res>? get airingSchedule;
   @override
-  $MediaTrendConnectionCopyWith<$Res> get trends;
+  $MediaTrendConnectionCopyWith<$Res>? get trends;
   @override
-  $MediaListCopyWith<$Res> get mediaListEntry;
+  $MediaListCopyWith<$Res>? get mediaListEntry;
   @override
-  $ReviewConnectionCopyWith<$Res> get reviews;
+  $ReviewConnectionCopyWith<$Res>? get reviews;
   @override
-  $RecommendationConnectionCopyWith<$Res> get recommendations;
+  $RecommendationConnectionCopyWith<$Res>? get recommendations;
   @override
-  $MediaStatsCopyWith<$Res> get stats;
+  $MediaStatsCopyWith<$Res>? get stats;
 }
 
 /// @nodoc
@@ -799,7 +861,6 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
     Object? autoCreateForumThread = freezed,
     Object? isRecommendationBlocked = freezed,
     Object? isReviewBlocked = freezed,
-    Object? modNotes = freezed,
   }) {
     return _then(_$_Media(
       id: id == freezed
@@ -817,31 +878,31 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MediaFormat,
+              as MediaFormat?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MediaStatus,
+              as MediaStatus?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       endDate: endDate == freezed
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       season: season == freezed
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as MediaSeason,
+              as MediaSeason?,
       seasonYear: seasonYear == freezed
           ? _value.seasonYear
           : seasonYear // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       episodes: episodes == freezed
           ? _value.episodes
           : episodes // ignore: cast_nullable_to_non_nullable
@@ -849,7 +910,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       chapters: chapters == freezed
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
@@ -861,19 +922,19 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       countryOfOrigin: countryOfOrigin == freezed
           ? _value.countryOfOrigin
           : countryOfOrigin // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLicensed: isLicensed == freezed
           ? _value.isLicensed
           : isLicensed // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       source: source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as MediaSource,
+              as MediaSource?,
       hashtag: hashtag == freezed
           ? _value.hashtag
           : hashtag // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       trailer: trailer == freezed
           ? _value.trailer
           : trailer // ignore: cast_nullable_to_non_nullable
@@ -881,7 +942,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       coverImage: coverImage == freezed
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
@@ -889,59 +950,59 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       bannerImage: bannerImage == freezed
           ? _value.bannerImage
           : bannerImage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       genres: genres == freezed
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       synonyms: synonyms == freezed
           ? _value.synonyms
           : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       averageScore: averageScore == freezed
           ? _value.averageScore
           : averageScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       meanScore: meanScore == freezed
           ? _value.meanScore
           : meanScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isLocked: isLocked == freezed
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       trending: trending == freezed
           ? _value.trending
           : trending // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       tags: tags == freezed
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<MediaTag>,
+              as List<MediaTag>?,
       relations: relations == freezed
           ? _value.relations
           : relations // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharacterConnection,
+              as CharacterConnection?,
       staff: staff == freezed
           ? _value.staff
           : staff // ignore: cast_nullable_to_non_nullable
-              as StaffConnection,
+              as StaffConnection?,
       studios: studios == freezed
           ? _value.studios
           : studios // ignore: cast_nullable_to_non_nullable
-              as StudioConnection,
+              as StudioConnection?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
@@ -949,7 +1010,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isAdult: isAdult == freezed
           ? _value.isAdult
           : isAdult // ignore: cast_nullable_to_non_nullable
@@ -957,63 +1018,59 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res>
       nextAiringEpisode: nextAiringEpisode == freezed
           ? _value.nextAiringEpisode
           : nextAiringEpisode // ignore: cast_nullable_to_non_nullable
-              as AiringSchedule,
+              as AiringSchedule?,
       airingSchedule: airingSchedule == freezed
           ? _value.airingSchedule
           : airingSchedule // ignore: cast_nullable_to_non_nullable
-              as AiringScheduleConnection,
+              as AiringScheduleConnection?,
       trends: trends == freezed
           ? _value.trends
           : trends // ignore: cast_nullable_to_non_nullable
-              as MediaTrendConnection,
+              as MediaTrendConnection?,
       externalLinks: externalLinks == freezed
           ? _value.externalLinks
           : externalLinks // ignore: cast_nullable_to_non_nullable
-              as List<MediaExternalLink>,
+              as List<MediaExternalLink>?,
       streamingEpisodes: streamingEpisodes == freezed
           ? _value.streamingEpisodes
           : streamingEpisodes // ignore: cast_nullable_to_non_nullable
-              as List<MediaStreamingEpisode>,
+              as List<MediaStreamingEpisode>?,
       rankings: rankings == freezed
           ? _value.rankings
           : rankings // ignore: cast_nullable_to_non_nullable
-              as List<MediaRank>,
+              as List<MediaRank>?,
       mediaListEntry: mediaListEntry == freezed
           ? _value.mediaListEntry
           : mediaListEntry // ignore: cast_nullable_to_non_nullable
-              as MediaList,
+              as MediaList?,
       reviews: reviews == freezed
           ? _value.reviews
           : reviews // ignore: cast_nullable_to_non_nullable
-              as ReviewConnection,
+              as ReviewConnection?,
       recommendations: recommendations == freezed
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as RecommendationConnection,
+              as RecommendationConnection?,
       stats: stats == freezed
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as MediaStats,
+              as MediaStats?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       autoCreateForumThread: autoCreateForumThread == freezed
           ? _value.autoCreateForumThread
           : autoCreateForumThread // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isRecommendationBlocked: isRecommendationBlocked == freezed
           ? _value.isRecommendationBlocked
           : isRecommendationBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isReviewBlocked: isReviewBlocked == freezed
           ? _value.isReviewBlocked
           : isReviewBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      modNotes: modNotes == freezed
-          ? _value.modNotes
-          : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool?,
     ));
   }
 }
@@ -1073,8 +1130,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
       required this.siteUrl,
       required this.autoCreateForumThread,
       required this.isRecommendationBlocked,
-      required this.isReviewBlocked,
-      required this.modNotes});
+      required this.isReviewBlocked});
 
   factory _$_Media.fromJson(Map<String, dynamic> json) =>
       _$$_MediaFromJson(json);
@@ -1093,31 +1149,31 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// The format the media was released in
   @override
-  final MediaFormat format;
+  final MediaFormat? format;
 
   /// The current releasing status of the media
   @override
-  final MediaStatus status;
+  final MediaStatus? status;
 
   /// Short description of the media's story and characters
   @override
-  final String description;
+  final String? description;
 
   /// The first official release date of the media
   @override
-  final DateTime startDate;
+  final FuzzyDate? startDate;
 
   /// The last official release date of the media
   @override
-  final DateTime endDate;
+  final FuzzyDate? endDate;
 
   /// The season the media was initially released in
   @override
-  final MediaSeason season;
+  final MediaSeason? season;
 
   /// The season year the media was initially released in
   @override
-  final int seasonYear;
+  final int? seasonYear;
 
   /// The amount of episodes the anime has when complete
   @override
@@ -1125,7 +1181,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// The general length of each anime episode in minutes
   @override
-  final int duration;
+  final int? duration;
 
   /// The amount of chapters the manga has when complete
   @override
@@ -1137,19 +1193,19 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// Where the media was created. (ISO 3166-1 alpha-2)
   @override
-  final String countryOfOrigin;
+  final String? countryOfOrigin;
 
   /// If the media is officially licensed or a self-published doujin release
   @override
-  final bool isLicensed;
+  final bool? isLicensed;
 
   /// Source type the media was adapted from.
   @override
-  final MediaSource source;
+  final MediaSource? source;
 
   /// Official Twitter hashtags for the media
   @override
-  final String hashtag;
+  final String? hashtag;
 
   /// Media trailer or advertisement
   @override
@@ -1157,7 +1213,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// When the media's data was last updated
   @override
-  final int updatedAt;
+  final int? updatedAt;
 
   /// The cover images of the media
   @override
@@ -1165,59 +1221,59 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// The banner image of the media
   @override
-  final String bannerImage;
+  final String? bannerImage;
 
   /// The genres of the media
   @override
-  final List<String> genres;
+  final List<String>? genres;
 
   /// Alternative titles of the media
   @override
-  final List<String> synonyms;
+  final List<String>? synonyms;
 
   /// A weighted average score of all the user's scores of the media
   @override
-  final int averageScore;
+  final int? averageScore;
 
   /// Mean score of all the user's scores of the media
   @override
-  final int meanScore;
+  final int? meanScore;
 
   /// The number of users with the media on their list
   @override
-  final int popularity;
+  final int? popularity;
 
   /// Locked media may not be added to lists our favorited. This may be due to the entry pending for deletion or other reasons.
   @override
-  final bool isLocked;
+  final bool? isLocked;
 
   /// The amount of related activity in the past hour
   @override
-  final int trending;
+  final int? trending;
 
   /// The amount of user's who have favourited the media
   @override
-  final int favourites;
+  final int? favourites;
 
   /// List of tags that describes elements and themes of the media
   @override
-  final List<MediaTag> tags;
+  final List<MediaTag>? tags;
 
   /// Other media in the same or connecting franchise
   @override
-  final MediaConnection relations;
+  final MediaConnection? relations;
 
   /// The characters in the media
   @override
-  final CharacterConnection characters;
+  final CharacterConnection? characters;
 
   /// The staff who produced the media
   @override
-  final StaffConnection staff;
+  final StaffConnection? staff;
 
   /// The companies who produced the media
   @override
-  final StudioConnection studios;
+  final StudioConnection? studios;
 
   /// If the media is marked as favourite by the current authenticated user
   @override
@@ -1225,7 +1281,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// If the media is blocked from being added to favourites
   @override
-  final bool isFavouriteBlocked;
+  final bool? isFavouriteBlocked;
 
   /// If the media is intended only for 18+ adult audiences
   @override
@@ -1233,65 +1289,61 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
 
   /// The media's next episode airing schedule
   @override
-  final AiringSchedule nextAiringEpisode;
+  final AiringSchedule? nextAiringEpisode;
 
   /// The media's entire airing schedule
   @override
-  final AiringScheduleConnection airingSchedule;
+  final AiringScheduleConnection? airingSchedule;
 
   /// The media's daily trend stats
   @override
-  final MediaTrendConnection trends;
+  final MediaTrendConnection? trends;
 
   /// External links to another site related to the media
   @override
-  final List<MediaExternalLink> externalLinks;
+  final List<MediaExternalLink>? externalLinks;
 
   /// Data and links to legal streaming episodes on external sites
   @override
-  final List<MediaStreamingEpisode> streamingEpisodes;
+  final List<MediaStreamingEpisode>? streamingEpisodes;
 
   /// The ranking of the media in a particular time span and format compared to other media
   @override
-  final List<MediaRank> rankings;
+  final List<MediaRank>? rankings;
 
   /// The authenticated user's media list entry for the media
   @override
-  final MediaList mediaListEntry;
+  final MediaList? mediaListEntry;
 
   /// User reviews of the media
   @override
-  final ReviewConnection reviews;
+  final ReviewConnection? reviews;
 
   /// User recommendations for similar media
   @override
-  final RecommendationConnection recommendations;
+  final RecommendationConnection? recommendations;
   @override
-  final MediaStats stats;
+  final MediaStats? stats;
 
   /// The url for the media page on the AniList website
   @override
-  final String siteUrl;
+  final String? siteUrl;
 
   /// If the media should have forum thread automatically created for it on airing episode release
   @override
-  final bool autoCreateForumThread;
+  final bool? autoCreateForumThread;
 
   /// If the media is blocked from being recommended to/from
   @override
-  final bool isRecommendationBlocked;
+  final bool? isRecommendationBlocked;
 
   /// If the media is blocked from being reviewed
   @override
-  final bool isReviewBlocked;
-
-  /// Notes for site moderators
-  @override
-  final String modNotes;
+  final bool? isReviewBlocked;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Media(id: $id, title: $title, type: $type, format: $format, status: $status, description: $description, startDate: $startDate, endDate: $endDate, season: $season, seasonYear: $seasonYear, episodes: $episodes, duration: $duration, chapters: $chapters, volumes: $volumes, countryOfOrigin: $countryOfOrigin, isLicensed: $isLicensed, source: $source, hashtag: $hashtag, trailer: $trailer, updatedAt: $updatedAt, coverImage: $coverImage, bannerImage: $bannerImage, genres: $genres, synonyms: $synonyms, averageScore: $averageScore, meanScore: $meanScore, popularity: $popularity, isLocked: $isLocked, trending: $trending, favourites: $favourites, tags: $tags, relations: $relations, characters: $characters, staff: $staff, studios: $studios, isFavourite: $isFavourite, isFavouriteBlocked: $isFavouriteBlocked, isAdult: $isAdult, nextAiringEpisode: $nextAiringEpisode, airingSchedule: $airingSchedule, trends: $trends, externalLinks: $externalLinks, streamingEpisodes: $streamingEpisodes, rankings: $rankings, mediaListEntry: $mediaListEntry, reviews: $reviews, recommendations: $recommendations, stats: $stats, siteUrl: $siteUrl, autoCreateForumThread: $autoCreateForumThread, isRecommendationBlocked: $isRecommendationBlocked, isReviewBlocked: $isReviewBlocked, modNotes: $modNotes)';
+    return 'Media(id: $id, title: $title, type: $type, format: $format, status: $status, description: $description, startDate: $startDate, endDate: $endDate, season: $season, seasonYear: $seasonYear, episodes: $episodes, duration: $duration, chapters: $chapters, volumes: $volumes, countryOfOrigin: $countryOfOrigin, isLicensed: $isLicensed, source: $source, hashtag: $hashtag, trailer: $trailer, updatedAt: $updatedAt, coverImage: $coverImage, bannerImage: $bannerImage, genres: $genres, synonyms: $synonyms, averageScore: $averageScore, meanScore: $meanScore, popularity: $popularity, isLocked: $isLocked, trending: $trending, favourites: $favourites, tags: $tags, relations: $relations, characters: $characters, staff: $staff, studios: $studios, isFavourite: $isFavourite, isFavouriteBlocked: $isFavouriteBlocked, isAdult: $isAdult, nextAiringEpisode: $nextAiringEpisode, airingSchedule: $airingSchedule, trends: $trends, externalLinks: $externalLinks, streamingEpisodes: $streamingEpisodes, rankings: $rankings, mediaListEntry: $mediaListEntry, reviews: $reviews, recommendations: $recommendations, stats: $stats, siteUrl: $siteUrl, autoCreateForumThread: $autoCreateForumThread, isRecommendationBlocked: $isRecommendationBlocked, isReviewBlocked: $isReviewBlocked)';
   }
 
   @override
@@ -1351,8 +1403,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
       ..add(DiagnosticsProperty('autoCreateForumThread', autoCreateForumThread))
       ..add(DiagnosticsProperty(
           'isRecommendationBlocked', isRecommendationBlocked))
-      ..add(DiagnosticsProperty('isReviewBlocked', isReviewBlocked))
-      ..add(DiagnosticsProperty('modNotes', modNotes));
+      ..add(DiagnosticsProperty('isReviewBlocked', isReviewBlocked));
   }
 
   @override
@@ -1432,8 +1483,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
             const DeepCollectionEquality().equals(
                 other.isRecommendationBlocked, isRecommendationBlocked) &&
             const DeepCollectionEquality()
-                .equals(other.isReviewBlocked, isReviewBlocked) &&
-            const DeepCollectionEquality().equals(other.modNotes, modNotes));
+                .equals(other.isReviewBlocked, isReviewBlocked));
   }
 
   @JsonKey(ignore: true)
@@ -1491,8 +1541,7 @@ class _$_Media with DiagnosticableTreeMixin implements _Media {
         const DeepCollectionEquality().hash(siteUrl),
         const DeepCollectionEquality().hash(autoCreateForumThread),
         const DeepCollectionEquality().hash(isRecommendationBlocked),
-        const DeepCollectionEquality().hash(isReviewBlocked),
-        const DeepCollectionEquality().hash(modNotes)
+        const DeepCollectionEquality().hash(isReviewBlocked)
       ]);
 
   @JsonKey(ignore: true)
@@ -1513,56 +1562,55 @@ abstract class _Media implements Media {
       {required final int id,
       required final MediaTitle title,
       required final MediaType type,
-      required final MediaFormat format,
-      required final MediaStatus status,
-      required final String description,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final MediaSeason season,
-      required final int seasonYear,
+      required final MediaFormat? format,
+      required final MediaStatus? status,
+      required final String? description,
+      required final FuzzyDate? startDate,
+      required final FuzzyDate? endDate,
+      required final MediaSeason? season,
+      required final int? seasonYear,
       required final int? episodes,
-      required final int duration,
+      required final int? duration,
       required final int? chapters,
       required final int? volumes,
-      required final String countryOfOrigin,
-      required final bool isLicensed,
-      required final MediaSource source,
-      required final String hashtag,
+      required final String? countryOfOrigin,
+      required final bool? isLicensed,
+      required final MediaSource? source,
+      required final String? hashtag,
       required final MediaTrailer? trailer,
-      required final int updatedAt,
+      required final int? updatedAt,
       required final MediaCoverImage coverImage,
-      required final String bannerImage,
-      required final List<String> genres,
-      required final List<String> synonyms,
-      required final int averageScore,
-      required final int meanScore,
-      required final int popularity,
-      required final bool isLocked,
-      required final int trending,
-      required final int favourites,
-      required final List<MediaTag> tags,
-      required final MediaConnection relations,
-      required final CharacterConnection characters,
-      required final StaffConnection staff,
-      required final StudioConnection studios,
+      required final String? bannerImage,
+      required final List<String>? genres,
+      required final List<String>? synonyms,
+      required final int? averageScore,
+      required final int? meanScore,
+      required final int? popularity,
+      required final bool? isLocked,
+      required final int? trending,
+      required final int? favourites,
+      required final List<MediaTag>? tags,
+      required final MediaConnection? relations,
+      required final CharacterConnection? characters,
+      required final StaffConnection? staff,
+      required final StudioConnection? studios,
       required final bool isFavourite,
-      required final bool isFavouriteBlocked,
+      required final bool? isFavouriteBlocked,
       required final bool isAdult,
-      required final AiringSchedule nextAiringEpisode,
-      required final AiringScheduleConnection airingSchedule,
-      required final MediaTrendConnection trends,
-      required final List<MediaExternalLink> externalLinks,
-      required final List<MediaStreamingEpisode> streamingEpisodes,
-      required final List<MediaRank> rankings,
-      required final MediaList mediaListEntry,
-      required final ReviewConnection reviews,
-      required final RecommendationConnection recommendations,
-      required final MediaStats stats,
-      required final String siteUrl,
-      required final bool autoCreateForumThread,
-      required final bool isRecommendationBlocked,
-      required final bool isReviewBlocked,
-      required final String modNotes}) = _$_Media;
+      required final AiringSchedule? nextAiringEpisode,
+      required final AiringScheduleConnection? airingSchedule,
+      required final MediaTrendConnection? trends,
+      required final List<MediaExternalLink>? externalLinks,
+      required final List<MediaStreamingEpisode>? streamingEpisodes,
+      required final List<MediaRank>? rankings,
+      required final MediaList? mediaListEntry,
+      required final ReviewConnection? reviews,
+      required final RecommendationConnection? recommendations,
+      required final MediaStats? stats,
+      required final String? siteUrl,
+      required final bool? autoCreateForumThread,
+      required final bool? isRecommendationBlocked,
+      required final bool? isReviewBlocked}) = _$_Media;
 
   factory _Media.fromJson(Map<String, dynamic> json) = _$_Media.fromJson;
 
@@ -1581,31 +1629,31 @@ abstract class _Media implements Media {
   @override
 
   /// The format the media was released in
-  MediaFormat get format;
+  MediaFormat? get format;
   @override
 
   /// The current releasing status of the media
-  MediaStatus get status;
+  MediaStatus? get status;
   @override
 
   /// Short description of the media's story and characters
-  String get description;
+  String? get description;
   @override
 
   /// The first official release date of the media
-  DateTime get startDate;
+  FuzzyDate? get startDate;
   @override
 
   /// The last official release date of the media
-  DateTime get endDate;
+  FuzzyDate? get endDate;
   @override
 
   /// The season the media was initially released in
-  MediaSeason get season;
+  MediaSeason? get season;
   @override
 
   /// The season year the media was initially released in
-  int get seasonYear;
+  int? get seasonYear;
   @override
 
   /// The amount of episodes the anime has when complete
@@ -1613,7 +1661,7 @@ abstract class _Media implements Media {
   @override
 
   /// The general length of each anime episode in minutes
-  int get duration;
+  int? get duration;
   @override
 
   /// The amount of chapters the manga has when complete
@@ -1625,19 +1673,19 @@ abstract class _Media implements Media {
   @override
 
   /// Where the media was created. (ISO 3166-1 alpha-2)
-  String get countryOfOrigin;
+  String? get countryOfOrigin;
   @override
 
   /// If the media is officially licensed or a self-published doujin release
-  bool get isLicensed;
+  bool? get isLicensed;
   @override
 
   /// Source type the media was adapted from.
-  MediaSource get source;
+  MediaSource? get source;
   @override
 
   /// Official Twitter hashtags for the media
-  String get hashtag;
+  String? get hashtag;
   @override
 
   /// Media trailer or advertisement
@@ -1645,7 +1693,7 @@ abstract class _Media implements Media {
   @override
 
   /// When the media's data was last updated
-  int get updatedAt;
+  int? get updatedAt;
   @override
 
   /// The cover images of the media
@@ -1653,59 +1701,59 @@ abstract class _Media implements Media {
   @override
 
   /// The banner image of the media
-  String get bannerImage;
+  String? get bannerImage;
   @override
 
   /// The genres of the media
-  List<String> get genres;
+  List<String>? get genres;
   @override
 
   /// Alternative titles of the media
-  List<String> get synonyms;
+  List<String>? get synonyms;
   @override
 
   /// A weighted average score of all the user's scores of the media
-  int get averageScore;
+  int? get averageScore;
   @override
 
   /// Mean score of all the user's scores of the media
-  int get meanScore;
+  int? get meanScore;
   @override
 
   /// The number of users with the media on their list
-  int get popularity;
+  int? get popularity;
   @override
 
   /// Locked media may not be added to lists our favorited. This may be due to the entry pending for deletion or other reasons.
-  bool get isLocked;
+  bool? get isLocked;
   @override
 
   /// The amount of related activity in the past hour
-  int get trending;
+  int? get trending;
   @override
 
   /// The amount of user's who have favourited the media
-  int get favourites;
+  int? get favourites;
   @override
 
   /// List of tags that describes elements and themes of the media
-  List<MediaTag> get tags;
+  List<MediaTag>? get tags;
   @override
 
   /// Other media in the same or connecting franchise
-  MediaConnection get relations;
+  MediaConnection? get relations;
   @override
 
   /// The characters in the media
-  CharacterConnection get characters;
+  CharacterConnection? get characters;
   @override
 
   /// The staff who produced the media
-  StaffConnection get staff;
+  StaffConnection? get staff;
   @override
 
   /// The companies who produced the media
-  StudioConnection get studios;
+  StudioConnection? get studios;
   @override
 
   /// If the media is marked as favourite by the current authenticated user
@@ -1713,7 +1761,7 @@ abstract class _Media implements Media {
   @override
 
   /// If the media is blocked from being added to favourites
-  bool get isFavouriteBlocked;
+  bool? get isFavouriteBlocked;
   @override
 
   /// If the media is intended only for 18+ adult audiences
@@ -1721,61 +1769,57 @@ abstract class _Media implements Media {
   @override
 
   /// The media's next episode airing schedule
-  AiringSchedule get nextAiringEpisode;
+  AiringSchedule? get nextAiringEpisode;
   @override
 
   /// The media's entire airing schedule
-  AiringScheduleConnection get airingSchedule;
+  AiringScheduleConnection? get airingSchedule;
   @override
 
   /// The media's daily trend stats
-  MediaTrendConnection get trends;
+  MediaTrendConnection? get trends;
   @override
 
   /// External links to another site related to the media
-  List<MediaExternalLink> get externalLinks;
+  List<MediaExternalLink>? get externalLinks;
   @override
 
   /// Data and links to legal streaming episodes on external sites
-  List<MediaStreamingEpisode> get streamingEpisodes;
+  List<MediaStreamingEpisode>? get streamingEpisodes;
   @override
 
   /// The ranking of the media in a particular time span and format compared to other media
-  List<MediaRank> get rankings;
+  List<MediaRank>? get rankings;
   @override
 
   /// The authenticated user's media list entry for the media
-  MediaList get mediaListEntry;
+  MediaList? get mediaListEntry;
   @override
 
   /// User reviews of the media
-  ReviewConnection get reviews;
+  ReviewConnection? get reviews;
   @override
 
   /// User recommendations for similar media
-  RecommendationConnection get recommendations;
+  RecommendationConnection? get recommendations;
   @override
-  MediaStats get stats;
+  MediaStats? get stats;
   @override
 
   /// The url for the media page on the AniList website
-  String get siteUrl;
+  String? get siteUrl;
   @override
 
   /// If the media should have forum thread automatically created for it on airing episode release
-  bool get autoCreateForumThread;
+  bool? get autoCreateForumThread;
   @override
 
   /// If the media is blocked from being recommended to/from
-  bool get isRecommendationBlocked;
+  bool? get isRecommendationBlocked;
   @override
 
   /// If the media is blocked from being reviewed
-  bool get isReviewBlocked;
-  @override
-
-  /// Notes for site moderators
-  String get modNotes;
+  bool? get isReviewBlocked;
   @override
   @JsonKey(ignore: true)
   _$$_MediaCopyWith<_$_Media> get copyWith =>

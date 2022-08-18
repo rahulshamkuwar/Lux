@@ -19,7 +19,7 @@ class StaffEdge with _$StaffEdge {
     required String role,
 
     /// The order the staff should be displayed from the users favourites
-    required int favouriteOrder,
+    required int? favouriteOrder,
   }) = _StaffEdge;
 
   factory StaffEdge.fromJson(Map<String, Object?> json) =>

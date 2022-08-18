@@ -21,7 +21,7 @@ StudioConnection _$StudioConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StudioConnection {
   List<StudioEdge> get edges => throw _privateConstructorUsedError;
-  List<Studio> get nodes => throw _privateConstructorUsedError;
+  List<Studio>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $StudioConnectionCopyWith<$Res> {
   factory $StudioConnectionCopyWith(
           StudioConnection value, $Res Function(StudioConnection) then) =
       _$StudioConnectionCopyWithImpl<$Res>;
-  $Res call({List<StudioEdge> edges, List<Studio> nodes, PageInfo pageInfo});
+  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -65,7 +65,7 @@ class _$StudioConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Studio>,
+              as List<Studio>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_StudioConnectionCopyWith<$Res>
           _$_StudioConnection value, $Res Function(_$_StudioConnection) then) =
       __$$_StudioConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<StudioEdge> edges, List<Studio> nodes, PageInfo pageInfo});
+  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -119,7 +119,7 @@ class __$$_StudioConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Studio>,
+              as List<Studio>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$_StudioConnection
   @override
   final List<StudioEdge> edges;
   @override
-  final List<Studio> nodes;
+  final List<Studio>? nodes;
 
   /// The pagination information
   @override
@@ -197,7 +197,7 @@ class _$_StudioConnection
 abstract class _StudioConnection implements StudioConnection {
   const factory _StudioConnection(
       {required final List<StudioEdge> edges,
-      required final List<Studio> nodes,
+      required final List<Studio>? nodes,
       required final PageInfo pageInfo}) = _$_StudioConnection;
 
   factory _StudioConnection.fromJson(Map<String, dynamic> json) =
@@ -206,7 +206,7 @@ abstract class _StudioConnection implements StudioConnection {
   @override
   List<StudioEdge> get edges;
   @override
-  List<Studio> get nodes;
+  List<Studio>? get nodes;
   @override
 
   /// The pagination information

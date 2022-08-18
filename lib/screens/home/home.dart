@@ -46,8 +46,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
         Expanded(
           child: TabBarView(
-            children: [Feed(), Feed(), Feed(), Feed()],
             controller: _tabController,
+            children: const [Feed(), Feed(), Feed(), Feed()],
           ),
         )
       ],

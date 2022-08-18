@@ -21,7 +21,7 @@ MediaTrendConnection _$MediaTrendConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MediaTrendConnection {
   List<MediaTrendEdge> get edges => throw _privateConstructorUsedError;
-  List<MediaTrend> get nodes => throw _privateConstructorUsedError;
+  List<MediaTrend>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $MediaTrendConnectionCopyWith<$Res> {
           $Res Function(MediaTrendConnection) then) =
       _$MediaTrendConnectionCopyWithImpl<$Res>;
   $Res call(
-      {List<MediaTrendEdge> edges, List<MediaTrend> nodes, PageInfo pageInfo});
+      {List<MediaTrendEdge> edges, List<MediaTrend>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -66,7 +66,7 @@ class _$MediaTrendConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<MediaTrend>,
+              as List<MediaTrend>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$_MediaTrendConnectionCopyWith<$Res>
       __$$_MediaTrendConnectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<MediaTrendEdge> edges, List<MediaTrend> nodes, PageInfo pageInfo});
+      {List<MediaTrendEdge> edges, List<MediaTrend>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -121,7 +121,7 @@ class __$$_MediaTrendConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<MediaTrend>,
+              as List<MediaTrend>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ class _$_MediaTrendConnection
   @override
   final List<MediaTrendEdge> edges;
   @override
-  final List<MediaTrend> nodes;
+  final List<MediaTrend>? nodes;
 
   /// The pagination information
   @override
@@ -200,7 +200,7 @@ class _$_MediaTrendConnection
 abstract class _MediaTrendConnection implements MediaTrendConnection {
   const factory _MediaTrendConnection(
       {required final List<MediaTrendEdge> edges,
-      required final List<MediaTrend> nodes,
+      required final List<MediaTrend>? nodes,
       required final PageInfo pageInfo}) = _$_MediaTrendConnection;
 
   factory _MediaTrendConnection.fromJson(Map<String, dynamic> json) =
@@ -209,7 +209,7 @@ abstract class _MediaTrendConnection implements MediaTrendConnection {
   @override
   List<MediaTrendEdge> get edges;
   @override
-  List<MediaTrend> get nodes;
+  List<MediaTrend>? get nodes;
   @override
 
   /// The pagination information

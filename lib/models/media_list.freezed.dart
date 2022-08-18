@@ -36,45 +36,45 @@ mixin _$MediaList {
   double get score => throw _privateConstructorUsedError;
 
   /// The amount of episodes/chapters consumed by the user
-  int get progress => throw _privateConstructorUsedError;
+  int? get progress => throw _privateConstructorUsedError;
 
   /// The amount of volumes read by the user
-  int get progressVolumes => throw _privateConstructorUsedError;
+  int? get progressVolumes => throw _privateConstructorUsedError;
 
   /// The amount of times the user has rewatched/read the media
-  int get repeat => throw _privateConstructorUsedError;
+  int? get repeat => throw _privateConstructorUsedError;
 
   /// Priority of planning
-  int get priority => throw _privateConstructorUsedError;
+  int? get priority => throw _privateConstructorUsedError;
 
   /// If the entry should only be visible to authenticated user
-  bool get private => throw _privateConstructorUsedError;
+  bool? get private => throw _privateConstructorUsedError;
 
   /// Text notes
-  String get notes => throw _privateConstructorUsedError;
+  String? get notes => throw _privateConstructorUsedError;
 
   /// If the entry shown be hidden from non-custom lists
-  bool get hiddenFromStatusLists => throw _privateConstructorUsedError;
+  bool? get hiddenFromStatusLists => throw _privateConstructorUsedError;
 
   /// Map of booleans for which custom lists the entry are in
-  Map<String, bool> get customLists => throw _privateConstructorUsedError;
+  Map<String, bool>? get customLists => throw _privateConstructorUsedError;
 
   /// Map of advanced scores with name keys
-  Map<String, String> get advancedScores => throw _privateConstructorUsedError;
+  Map<String, String>? get advancedScores => throw _privateConstructorUsedError;
 
   /// When the entry was started by the user
-  DateTime get startedAt => throw _privateConstructorUsedError;
+  FuzzyDate? get startedAt => throw _privateConstructorUsedError;
 
   /// When the entry was completed by the user
-  DateTime get completedAt => throw _privateConstructorUsedError;
+  FuzzyDate? get completedAt => throw _privateConstructorUsedError;
 
   /// When the entry data was last updated
-  int get updatedAt => throw _privateConstructorUsedError;
+  int? get updatedAt => throw _privateConstructorUsedError;
 
   /// When the entry data was created
-  int get createdAt => throw _privateConstructorUsedError;
-  Media get media => throw _privateConstructorUsedError;
-  User get user => throw _privateConstructorUsedError;
+  int? get createdAt => throw _privateConstructorUsedError;
+  Media? get media => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -92,24 +92,26 @@ abstract class $MediaListCopyWith<$Res> {
       int mediaId,
       MediaListStatus status,
       double score,
-      int progress,
-      int progressVolumes,
-      int repeat,
-      int priority,
-      bool private,
-      String notes,
-      bool hiddenFromStatusLists,
-      Map<String, bool> customLists,
-      Map<String, String> advancedScores,
-      DateTime startedAt,
-      DateTime completedAt,
-      int updatedAt,
-      int createdAt,
-      Media media,
-      User user});
+      int? progress,
+      int? progressVolumes,
+      int? repeat,
+      int? priority,
+      bool? private,
+      String? notes,
+      bool? hiddenFromStatusLists,
+      Map<String, bool>? customLists,
+      Map<String, String>? advancedScores,
+      FuzzyDate? startedAt,
+      FuzzyDate? completedAt,
+      int? updatedAt,
+      int? createdAt,
+      Media? media,
+      User? user});
 
-  $MediaCopyWith<$Res> get media;
-  $UserCopyWith<$Res> get user;
+  $FuzzyDateCopyWith<$Res>? get startedAt;
+  $FuzzyDateCopyWith<$Res>? get completedAt;
+  $MediaCopyWith<$Res>? get media;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -167,76 +169,106 @@ class _$MediaListCopyWithImpl<$Res> implements $MediaListCopyWith<$Res> {
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       progressVolumes: progressVolumes == freezed
           ? _value.progressVolumes
           : progressVolumes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       repeat: repeat == freezed
           ? _value.repeat
           : repeat // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       priority: priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       notes: notes == freezed
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hiddenFromStatusLists: hiddenFromStatusLists == freezed
           ? _value.hiddenFromStatusLists
           : hiddenFromStatusLists // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       customLists: customLists == freezed
           ? _value.customLists
           : customLists // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
+              as Map<String, bool>?,
       advancedScores: advancedScores == freezed
           ? _value.advancedScores
           : advancedScores // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String>?,
       startedAt: startedAt == freezed
           ? _value.startedAt
           : startedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       completedAt: completedAt == freezed
           ? _value.completedAt
           : completedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 
   @override
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
+  $FuzzyDateCopyWith<$Res>? get startedAt {
+    if (_value.startedAt == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.startedAt!, (value) {
+      return _then(_value.copyWith(startedAt: value));
+    });
+  }
+
+  @override
+  $FuzzyDateCopyWith<$Res>? get completedAt {
+    if (_value.completedAt == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.completedAt!, (value) {
+      return _then(_value.copyWith(completedAt: value));
+    });
+  }
+
+  @override
+  $MediaCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
 
   @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -254,26 +286,30 @@ abstract class _$$_MediaListCopyWith<$Res> implements $MediaListCopyWith<$Res> {
       int mediaId,
       MediaListStatus status,
       double score,
-      int progress,
-      int progressVolumes,
-      int repeat,
-      int priority,
-      bool private,
-      String notes,
-      bool hiddenFromStatusLists,
-      Map<String, bool> customLists,
-      Map<String, String> advancedScores,
-      DateTime startedAt,
-      DateTime completedAt,
-      int updatedAt,
-      int createdAt,
-      Media media,
-      User user});
+      int? progress,
+      int? progressVolumes,
+      int? repeat,
+      int? priority,
+      bool? private,
+      String? notes,
+      bool? hiddenFromStatusLists,
+      Map<String, bool>? customLists,
+      Map<String, String>? advancedScores,
+      FuzzyDate? startedAt,
+      FuzzyDate? completedAt,
+      int? updatedAt,
+      int? createdAt,
+      Media? media,
+      User? user});
 
   @override
-  $MediaCopyWith<$Res> get media;
+  $FuzzyDateCopyWith<$Res>? get startedAt;
   @override
-  $UserCopyWith<$Res> get user;
+  $FuzzyDateCopyWith<$Res>? get completedAt;
+  @override
+  $MediaCopyWith<$Res>? get media;
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -333,63 +369,63 @@ class __$$_MediaListCopyWithImpl<$Res> extends _$MediaListCopyWithImpl<$Res>
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       progressVolumes: progressVolumes == freezed
           ? _value.progressVolumes
           : progressVolumes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       repeat: repeat == freezed
           ? _value.repeat
           : repeat // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       priority: priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       notes: notes == freezed
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hiddenFromStatusLists: hiddenFromStatusLists == freezed
           ? _value.hiddenFromStatusLists
           : hiddenFromStatusLists // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       customLists: customLists == freezed
           ? _value.customLists
           : customLists // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
+              as Map<String, bool>?,
       advancedScores: advancedScores == freezed
           ? _value.advancedScores
           : advancedScores // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String>?,
       startedAt: startedAt == freezed
           ? _value.startedAt
           : startedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       completedAt: completedAt == freezed
           ? _value.completedAt
           : completedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 }
@@ -444,59 +480,59 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
 
   /// The amount of episodes/chapters consumed by the user
   @override
-  final int progress;
+  final int? progress;
 
   /// The amount of volumes read by the user
   @override
-  final int progressVolumes;
+  final int? progressVolumes;
 
   /// The amount of times the user has rewatched/read the media
   @override
-  final int repeat;
+  final int? repeat;
 
   /// Priority of planning
   @override
-  final int priority;
+  final int? priority;
 
   /// If the entry should only be visible to authenticated user
   @override
-  final bool private;
+  final bool? private;
 
   /// Text notes
   @override
-  final String notes;
+  final String? notes;
 
   /// If the entry shown be hidden from non-custom lists
   @override
-  final bool hiddenFromStatusLists;
+  final bool? hiddenFromStatusLists;
 
   /// Map of booleans for which custom lists the entry are in
   @override
-  final Map<String, bool> customLists;
+  final Map<String, bool>? customLists;
 
   /// Map of advanced scores with name keys
   @override
-  final Map<String, String> advancedScores;
+  final Map<String, String>? advancedScores;
 
   /// When the entry was started by the user
   @override
-  final DateTime startedAt;
+  final FuzzyDate? startedAt;
 
   /// When the entry was completed by the user
   @override
-  final DateTime completedAt;
+  final FuzzyDate? completedAt;
 
   /// When the entry data was last updated
   @override
-  final int updatedAt;
+  final int? updatedAt;
 
   /// When the entry data was created
   @override
-  final int createdAt;
+  final int? createdAt;
   @override
-  final Media media;
+  final Media? media;
   @override
-  final User user;
+  final User? user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -608,21 +644,21 @@ abstract class _MediaList implements MediaList {
       required final int mediaId,
       required final MediaListStatus status,
       required final double score,
-      required final int progress,
-      required final int progressVolumes,
-      required final int repeat,
-      required final int priority,
-      required final bool private,
-      required final String notes,
-      required final bool hiddenFromStatusLists,
-      required final Map<String, bool> customLists,
-      required final Map<String, String> advancedScores,
-      required final DateTime startedAt,
-      required final DateTime completedAt,
-      required final int updatedAt,
-      required final int createdAt,
-      required final Media media,
-      required final User user}) = _$_MediaList;
+      required final int? progress,
+      required final int? progressVolumes,
+      required final int? repeat,
+      required final int? priority,
+      required final bool? private,
+      required final String? notes,
+      required final bool? hiddenFromStatusLists,
+      required final Map<String, bool>? customLists,
+      required final Map<String, String>? advancedScores,
+      required final FuzzyDate? startedAt,
+      required final FuzzyDate? completedAt,
+      required final int? updatedAt,
+      required final int? createdAt,
+      required final Media? media,
+      required final User? user}) = _$_MediaList;
 
   factory _MediaList.fromJson(Map<String, dynamic> json) =
       _$_MediaList.fromJson;
@@ -650,59 +686,59 @@ abstract class _MediaList implements MediaList {
   @override
 
   /// The amount of episodes/chapters consumed by the user
-  int get progress;
+  int? get progress;
   @override
 
   /// The amount of volumes read by the user
-  int get progressVolumes;
+  int? get progressVolumes;
   @override
 
   /// The amount of times the user has rewatched/read the media
-  int get repeat;
+  int? get repeat;
   @override
 
   /// Priority of planning
-  int get priority;
+  int? get priority;
   @override
 
   /// If the entry should only be visible to authenticated user
-  bool get private;
+  bool? get private;
   @override
 
   /// Text notes
-  String get notes;
+  String? get notes;
   @override
 
   /// If the entry shown be hidden from non-custom lists
-  bool get hiddenFromStatusLists;
+  bool? get hiddenFromStatusLists;
   @override
 
   /// Map of booleans for which custom lists the entry are in
-  Map<String, bool> get customLists;
+  Map<String, bool>? get customLists;
   @override
 
   /// Map of advanced scores with name keys
-  Map<String, String> get advancedScores;
+  Map<String, String>? get advancedScores;
   @override
 
   /// When the entry was started by the user
-  DateTime get startedAt;
+  FuzzyDate? get startedAt;
   @override
 
   /// When the entry was completed by the user
-  DateTime get completedAt;
+  FuzzyDate? get completedAt;
   @override
 
   /// When the entry data was last updated
-  int get updatedAt;
+  int? get updatedAt;
   @override
 
   /// When the entry data was created
-  int get createdAt;
+  int? get createdAt;
   @override
-  Media get media;
+  Media? get media;
   @override
-  User get user;
+  User? get user;
   @override
   @JsonKey(ignore: true)
   _$$_MediaListCopyWith<_$_MediaList> get copyWith =>

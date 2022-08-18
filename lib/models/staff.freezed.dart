@@ -24,72 +24,72 @@ mixin _$Staff {
   int get id => throw _privateConstructorUsedError;
 
   /// The names of the staff member
-  StaffName get languageV2 => throw _privateConstructorUsedError;
+  StaffName get name => throw _privateConstructorUsedError;
 
   /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
-  String get image => throw _privateConstructorUsedError;
+  String? get languageV2 => throw _privateConstructorUsedError;
 
   /// The staff images
-  StaffImage get description => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
 
   /// A general description of the staff member
-  String get primaryOccupations => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   /// The person's primary occupations
-  List<String> get gender => throw _privateConstructorUsedError;
-  String get dateOfBirth => throw _privateConstructorUsedError;
-  DateTime get dateOfDeath => throw _privateConstructorUsedError;
+  List<String>? get primaryOccupations => throw _privateConstructorUsedError;
 
   /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
-  DateTime get age => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
+  FuzzyDate? get dateOfBirth => throw _privateConstructorUsedError;
+  FuzzyDate? get dateOfDeath => throw _privateConstructorUsedError;
 
   /// The person's age in years
-  int get yearsActive => throw _privateConstructorUsedError;
+  int? get age => throw _privateConstructorUsedError;
 
   /// [startYear, endYear] (If the 2nd value is not present staff is still active)
-  List<int> get homeTown => throw _privateConstructorUsedError;
+  List<int>? get yearsActive => throw _privateConstructorUsedError;
 
   /// The persons birthplace or hometown
-  String get bloodType => throw _privateConstructorUsedError;
+  String? get homeTown => throw _privateConstructorUsedError;
 
   /// The persons blood type
-  String get isFavourite => throw _privateConstructorUsedError;
+  String? get bloodType => throw _privateConstructorUsedError;
 
   /// If the staff member is marked as favourite by the currently authenticated user
-  bool get isFavouriteBlocked => throw _privateConstructorUsedError;
+  bool? get isFavourite => throw _privateConstructorUsedError;
 
   /// If the staff member is blocked from being added to favourites
-  bool get siteUrl => throw _privateConstructorUsedError;
+  bool? get isFavouriteBlocked => throw _privateConstructorUsedError;
 
   /// The url for the staff page on the AniList website
-  String get staffMedia => throw _privateConstructorUsedError;
+  String? get siteUrl => throw _privateConstructorUsedError;
 
   /// Media where the staff member has a production role
-  MediaConnection get characters => throw _privateConstructorUsedError;
+  MediaConnection? get staffMedia => throw _privateConstructorUsedError;
 
   /// Characters voiced by the actor
-  CharacterConnection get staff => throw _privateConstructorUsedError;
+  CharacterConnection? get characters => throw _privateConstructorUsedError;
 
   /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
-  MediaConnection get submitter => throw _privateConstructorUsedError;
+  MediaConnection? get characterMedia => throw _privateConstructorUsedError;
 
   /// Staff member that the submission is referencing
-  Staff get submissionStatus => throw _privateConstructorUsedError;
+  Staff? get staff => throw _privateConstructorUsedError;
 
   /// Submitter for the submission
-  User get submissionNotes => throw _privateConstructorUsedError;
+  User? get submitter => throw _privateConstructorUsedError;
 
   /// Status of the submission
-  int get favourites => throw _privateConstructorUsedError;
+  int? get submissionStatus => throw _privateConstructorUsedError;
 
   /// Inner details of submission status
-  String get modNotes => throw _privateConstructorUsedError;
+  String? get submissionNotes => throw _privateConstructorUsedError;
 
   /// The amount of user's who have favourited the staff member
-  int get characterMedia => throw _privateConstructorUsedError;
+  int? get favourites => throw _privateConstructorUsedError;
 
   /// Notes for site moderators
-  String get name => throw _privateConstructorUsedError;
+  String? get modNotes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -102,38 +102,39 @@ abstract class $StaffCopyWith<$Res> {
       _$StaffCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      StaffName languageV2,
+      StaffName name,
+      String? languageV2,
       String image,
-      StaffImage description,
-      String primaryOccupations,
-      List<String> gender,
-      String dateOfBirth,
-      DateTime dateOfDeath,
-      DateTime age,
-      int yearsActive,
-      List<int> homeTown,
-      String bloodType,
-      String isFavourite,
-      bool isFavouriteBlocked,
-      bool siteUrl,
-      String staffMedia,
-      MediaConnection characters,
-      CharacterConnection staff,
-      MediaConnection submitter,
-      Staff submissionStatus,
-      User submissionNotes,
-      int favourites,
-      String modNotes,
-      int characterMedia,
-      String name});
+      String? description,
+      List<String>? primaryOccupations,
+      String? gender,
+      FuzzyDate? dateOfBirth,
+      FuzzyDate? dateOfDeath,
+      int? age,
+      List<int>? yearsActive,
+      String? homeTown,
+      String? bloodType,
+      bool? isFavourite,
+      bool? isFavouriteBlocked,
+      String? siteUrl,
+      MediaConnection? staffMedia,
+      CharacterConnection? characters,
+      MediaConnection? characterMedia,
+      Staff? staff,
+      User? submitter,
+      int? submissionStatus,
+      String? submissionNotes,
+      int? favourites,
+      String? modNotes});
 
-  $StaffNameCopyWith<$Res> get languageV2;
-  $StaffImageCopyWith<$Res> get description;
-  $MediaConnectionCopyWith<$Res> get characters;
-  $CharacterConnectionCopyWith<$Res> get staff;
-  $MediaConnectionCopyWith<$Res> get submitter;
-  $StaffCopyWith<$Res> get submissionStatus;
-  $UserCopyWith<$Res> get submissionNotes;
+  $StaffNameCopyWith<$Res> get name;
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth;
+  $FuzzyDateCopyWith<$Res>? get dateOfDeath;
+  $MediaConnectionCopyWith<$Res>? get staffMedia;
+  $CharacterConnectionCopyWith<$Res>? get characters;
+  $MediaConnectionCopyWith<$Res>? get characterMedia;
+  $StaffCopyWith<$Res>? get staff;
+  $UserCopyWith<$Res>? get submitter;
 }
 
 /// @nodoc
@@ -147,6 +148,7 @@ class _$StaffCopyWithImpl<$Res> implements $StaffCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
     Object? languageV2 = freezed,
     Object? image = freezed,
     Object? description = freezed,
@@ -163,24 +165,27 @@ class _$StaffCopyWithImpl<$Res> implements $StaffCopyWith<$Res> {
     Object? siteUrl = freezed,
     Object? staffMedia = freezed,
     Object? characters = freezed,
+    Object? characterMedia = freezed,
     Object? staff = freezed,
     Object? submitter = freezed,
     Object? submissionStatus = freezed,
     Object? submissionNotes = freezed,
     Object? favourites = freezed,
     Object? modNotes = freezed,
-    Object? characterMedia = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as StaffName,
       languageV2: languageV2 == freezed
           ? _value.languageV2
           : languageV2 // ignore: cast_nullable_to_non_nullable
-              as StaffName,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -188,140 +193,171 @@ class _$StaffCopyWithImpl<$Res> implements $StaffCopyWith<$Res> {
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as StaffImage,
+              as String?,
       primaryOccupations: primaryOccupations == freezed
           ? _value.primaryOccupations
           : primaryOccupations // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String?,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as String,
+              as FuzzyDate?,
       dateOfDeath: dateOfDeath == freezed
           ? _value.dateOfDeath
           : dateOfDeath // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int?,
       yearsActive: yearsActive == freezed
           ? _value.yearsActive
           : yearsActive // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>?,
       homeTown: homeTown == freezed
           ? _value.homeTown
           : homeTown // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as String?,
       bloodType: bloodType == freezed
           ? _value.bloodType
           : bloodType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool?,
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String?,
       staffMedia: staffMedia == freezed
           ? _value.staffMedia
           : staffMedia // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaConnection?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
-      staff: staff == freezed
-          ? _value.staff
-          : staff // ignore: cast_nullable_to_non_nullable
-              as CharacterConnection,
-      submitter: submitter == freezed
-          ? _value.submitter
-          : submitter // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
-      submissionStatus: submissionStatus == freezed
-          ? _value.submissionStatus
-          : submissionStatus // ignore: cast_nullable_to_non_nullable
-              as Staff,
-      submissionNotes: submissionNotes == freezed
-          ? _value.submissionNotes
-          : submissionNotes // ignore: cast_nullable_to_non_nullable
-              as User,
-      favourites: favourites == freezed
-          ? _value.favourites
-          : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
-      modNotes: modNotes == freezed
-          ? _value.modNotes
-          : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as CharacterConnection?,
       characterMedia: characterMedia == freezed
           ? _value.characterMedia
           : characterMedia // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaConnection?,
+      staff: staff == freezed
+          ? _value.staff
+          : staff // ignore: cast_nullable_to_non_nullable
+              as Staff?,
+      submitter: submitter == freezed
+          ? _value.submitter
+          : submitter // ignore: cast_nullable_to_non_nullable
+              as User?,
+      submissionStatus: submissionStatus == freezed
+          ? _value.submissionStatus
+          : submissionStatus // ignore: cast_nullable_to_non_nullable
+              as int?,
+      submissionNotes: submissionNotes == freezed
+          ? _value.submissionNotes
+          : submissionNotes // ignore: cast_nullable_to_non_nullable
+              as String?,
+      favourites: favourites == freezed
+          ? _value.favourites
+          : favourites // ignore: cast_nullable_to_non_nullable
+              as int?,
+      modNotes: modNotes == freezed
+          ? _value.modNotes
+          : modNotes // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
   @override
-  $StaffNameCopyWith<$Res> get languageV2 {
-    return $StaffNameCopyWith<$Res>(_value.languageV2, (value) {
-      return _then(_value.copyWith(languageV2: value));
+  $StaffNameCopyWith<$Res> get name {
+    return $StaffNameCopyWith<$Res>(_value.name, (value) {
+      return _then(_value.copyWith(name: value));
     });
   }
 
   @override
-  $StaffImageCopyWith<$Res> get description {
-    return $StaffImageCopyWith<$Res>(_value.description, (value) {
-      return _then(_value.copyWith(description: value));
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth {
+    if (_value.dateOfBirth == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.dateOfBirth!, (value) {
+      return _then(_value.copyWith(dateOfBirth: value));
     });
   }
 
   @override
-  $MediaConnectionCopyWith<$Res> get characters {
-    return $MediaConnectionCopyWith<$Res>(_value.characters, (value) {
+  $FuzzyDateCopyWith<$Res>? get dateOfDeath {
+    if (_value.dateOfDeath == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.dateOfDeath!, (value) {
+      return _then(_value.copyWith(dateOfDeath: value));
+    });
+  }
+
+  @override
+  $MediaConnectionCopyWith<$Res>? get staffMedia {
+    if (_value.staffMedia == null) {
+      return null;
+    }
+
+    return $MediaConnectionCopyWith<$Res>(_value.staffMedia!, (value) {
+      return _then(_value.copyWith(staffMedia: value));
+    });
+  }
+
+  @override
+  $CharacterConnectionCopyWith<$Res>? get characters {
+    if (_value.characters == null) {
+      return null;
+    }
+
+    return $CharacterConnectionCopyWith<$Res>(_value.characters!, (value) {
       return _then(_value.copyWith(characters: value));
     });
   }
 
   @override
-  $CharacterConnectionCopyWith<$Res> get staff {
-    return $CharacterConnectionCopyWith<$Res>(_value.staff, (value) {
+  $MediaConnectionCopyWith<$Res>? get characterMedia {
+    if (_value.characterMedia == null) {
+      return null;
+    }
+
+    return $MediaConnectionCopyWith<$Res>(_value.characterMedia!, (value) {
+      return _then(_value.copyWith(characterMedia: value));
+    });
+  }
+
+  @override
+  $StaffCopyWith<$Res>? get staff {
+    if (_value.staff == null) {
+      return null;
+    }
+
+    return $StaffCopyWith<$Res>(_value.staff!, (value) {
       return _then(_value.copyWith(staff: value));
     });
   }
 
   @override
-  $MediaConnectionCopyWith<$Res> get submitter {
-    return $MediaConnectionCopyWith<$Res>(_value.submitter, (value) {
+  $UserCopyWith<$Res>? get submitter {
+    if (_value.submitter == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.submitter!, (value) {
       return _then(_value.copyWith(submitter: value));
-    });
-  }
-
-  @override
-  $StaffCopyWith<$Res> get submissionStatus {
-    return $StaffCopyWith<$Res>(_value.submissionStatus, (value) {
-      return _then(_value.copyWith(submissionStatus: value));
-    });
-  }
-
-  @override
-  $UserCopyWith<$Res> get submissionNotes {
-    return $UserCopyWith<$Res>(_value.submissionNotes, (value) {
-      return _then(_value.copyWith(submissionNotes: value));
     });
   }
 }
@@ -333,45 +369,47 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      StaffName languageV2,
+      StaffName name,
+      String? languageV2,
       String image,
-      StaffImage description,
-      String primaryOccupations,
-      List<String> gender,
-      String dateOfBirth,
-      DateTime dateOfDeath,
-      DateTime age,
-      int yearsActive,
-      List<int> homeTown,
-      String bloodType,
-      String isFavourite,
-      bool isFavouriteBlocked,
-      bool siteUrl,
-      String staffMedia,
-      MediaConnection characters,
-      CharacterConnection staff,
-      MediaConnection submitter,
-      Staff submissionStatus,
-      User submissionNotes,
-      int favourites,
-      String modNotes,
-      int characterMedia,
-      String name});
+      String? description,
+      List<String>? primaryOccupations,
+      String? gender,
+      FuzzyDate? dateOfBirth,
+      FuzzyDate? dateOfDeath,
+      int? age,
+      List<int>? yearsActive,
+      String? homeTown,
+      String? bloodType,
+      bool? isFavourite,
+      bool? isFavouriteBlocked,
+      String? siteUrl,
+      MediaConnection? staffMedia,
+      CharacterConnection? characters,
+      MediaConnection? characterMedia,
+      Staff? staff,
+      User? submitter,
+      int? submissionStatus,
+      String? submissionNotes,
+      int? favourites,
+      String? modNotes});
 
   @override
-  $StaffNameCopyWith<$Res> get languageV2;
+  $StaffNameCopyWith<$Res> get name;
   @override
-  $StaffImageCopyWith<$Res> get description;
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth;
   @override
-  $MediaConnectionCopyWith<$Res> get characters;
+  $FuzzyDateCopyWith<$Res>? get dateOfDeath;
   @override
-  $CharacterConnectionCopyWith<$Res> get staff;
+  $MediaConnectionCopyWith<$Res>? get staffMedia;
   @override
-  $MediaConnectionCopyWith<$Res> get submitter;
+  $CharacterConnectionCopyWith<$Res>? get characters;
   @override
-  $StaffCopyWith<$Res> get submissionStatus;
+  $MediaConnectionCopyWith<$Res>? get characterMedia;
   @override
-  $UserCopyWith<$Res> get submissionNotes;
+  $StaffCopyWith<$Res>? get staff;
+  @override
+  $UserCopyWith<$Res>? get submitter;
 }
 
 /// @nodoc
@@ -386,6 +424,7 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
     Object? languageV2 = freezed,
     Object? image = freezed,
     Object? description = freezed,
@@ -402,24 +441,27 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res>
     Object? siteUrl = freezed,
     Object? staffMedia = freezed,
     Object? characters = freezed,
+    Object? characterMedia = freezed,
     Object? staff = freezed,
     Object? submitter = freezed,
     Object? submissionStatus = freezed,
     Object? submissionNotes = freezed,
     Object? favourites = freezed,
     Object? modNotes = freezed,
-    Object? characterMedia = freezed,
-    Object? name = freezed,
   }) {
     return _then(_$_Staff(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as StaffName,
       languageV2: languageV2 == freezed
           ? _value.languageV2
           : languageV2 // ignore: cast_nullable_to_non_nullable
-              as StaffName,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -427,91 +469,87 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res>
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as StaffImage,
+              as String?,
       primaryOccupations: primaryOccupations == freezed
           ? _value.primaryOccupations
           : primaryOccupations // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String?,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as String,
+              as FuzzyDate?,
       dateOfDeath: dateOfDeath == freezed
           ? _value.dateOfDeath
           : dateOfDeath // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int?,
       yearsActive: yearsActive == freezed
           ? _value.yearsActive
           : yearsActive // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>?,
       homeTown: homeTown == freezed
           ? _value.homeTown
           : homeTown // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as String?,
       bloodType: bloodType == freezed
           ? _value.bloodType
           : bloodType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool?,
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String?,
       staffMedia: staffMedia == freezed
           ? _value.staffMedia
           : staffMedia // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaConnection?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
-      staff: staff == freezed
-          ? _value.staff
-          : staff // ignore: cast_nullable_to_non_nullable
-              as CharacterConnection,
-      submitter: submitter == freezed
-          ? _value.submitter
-          : submitter // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
-      submissionStatus: submissionStatus == freezed
-          ? _value.submissionStatus
-          : submissionStatus // ignore: cast_nullable_to_non_nullable
-              as Staff,
-      submissionNotes: submissionNotes == freezed
-          ? _value.submissionNotes
-          : submissionNotes // ignore: cast_nullable_to_non_nullable
-              as User,
-      favourites: favourites == freezed
-          ? _value.favourites
-          : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
-      modNotes: modNotes == freezed
-          ? _value.modNotes
-          : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as CharacterConnection?,
       characterMedia: characterMedia == freezed
           ? _value.characterMedia
           : characterMedia // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaConnection?,
+      staff: staff == freezed
+          ? _value.staff
+          : staff // ignore: cast_nullable_to_non_nullable
+              as Staff?,
+      submitter: submitter == freezed
+          ? _value.submitter
+          : submitter // ignore: cast_nullable_to_non_nullable
+              as User?,
+      submissionStatus: submissionStatus == freezed
+          ? _value.submissionStatus
+          : submissionStatus // ignore: cast_nullable_to_non_nullable
+              as int?,
+      submissionNotes: submissionNotes == freezed
+          ? _value.submissionNotes
+          : submissionNotes // ignore: cast_nullable_to_non_nullable
+              as String?,
+      favourites: favourites == freezed
+          ? _value.favourites
+          : favourites // ignore: cast_nullable_to_non_nullable
+              as int?,
+      modNotes: modNotes == freezed
+          ? _value.modNotes
+          : modNotes // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -521,6 +559,7 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res>
 class _$_Staff with DiagnosticableTreeMixin implements _Staff {
   const _$_Staff(
       {required this.id,
+      required this.name,
       required this.languageV2,
       required this.image,
       required this.description,
@@ -537,14 +576,13 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
       required this.siteUrl,
       required this.staffMedia,
       required this.characters,
+      required this.characterMedia,
       required this.staff,
       required this.submitter,
       required this.submissionStatus,
       required this.submissionNotes,
       required this.favourites,
-      required this.modNotes,
-      required this.characterMedia,
-      required this.name});
+      required this.modNotes});
 
   factory _$_Staff.fromJson(Map<String, dynamic> json) =>
       _$$_StaffFromJson(json);
@@ -555,99 +593,99 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
 
   /// The names of the staff member
   @override
-  final StaffName languageV2;
+  final StaffName name;
 
   /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
   @override
-  final String image;
+  final String? languageV2;
 
   /// The staff images
   @override
-  final StaffImage description;
+  final String image;
 
   /// A general description of the staff member
   @override
-  final String primaryOccupations;
+  final String? description;
 
   /// The person's primary occupations
   @override
-  final List<String> gender;
-  @override
-  final String dateOfBirth;
-  @override
-  final DateTime dateOfDeath;
+  final List<String>? primaryOccupations;
 
   /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
   @override
-  final DateTime age;
+  final String? gender;
+  @override
+  final FuzzyDate? dateOfBirth;
+  @override
+  final FuzzyDate? dateOfDeath;
 
   /// The person's age in years
   @override
-  final int yearsActive;
+  final int? age;
 
   /// [startYear, endYear] (If the 2nd value is not present staff is still active)
   @override
-  final List<int> homeTown;
+  final List<int>? yearsActive;
 
   /// The persons birthplace or hometown
   @override
-  final String bloodType;
+  final String? homeTown;
 
   /// The persons blood type
   @override
-  final String isFavourite;
+  final String? bloodType;
 
   /// If the staff member is marked as favourite by the currently authenticated user
   @override
-  final bool isFavouriteBlocked;
+  final bool? isFavourite;
 
   /// If the staff member is blocked from being added to favourites
   @override
-  final bool siteUrl;
+  final bool? isFavouriteBlocked;
 
   /// The url for the staff page on the AniList website
   @override
-  final String staffMedia;
+  final String? siteUrl;
 
   /// Media where the staff member has a production role
   @override
-  final MediaConnection characters;
+  final MediaConnection? staffMedia;
 
   /// Characters voiced by the actor
   @override
-  final CharacterConnection staff;
+  final CharacterConnection? characters;
 
   /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
   @override
-  final MediaConnection submitter;
+  final MediaConnection? characterMedia;
 
   /// Staff member that the submission is referencing
   @override
-  final Staff submissionStatus;
+  final Staff? staff;
 
   /// Submitter for the submission
   @override
-  final User submissionNotes;
+  final User? submitter;
 
   /// Status of the submission
   @override
-  final int favourites;
+  final int? submissionStatus;
 
   /// Inner details of submission status
   @override
-  final String modNotes;
+  final String? submissionNotes;
 
   /// The amount of user's who have favourited the staff member
   @override
-  final int characterMedia;
+  final int? favourites;
 
   /// Notes for site moderators
   @override
-  final String name;
+  final String? modNotes;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Staff(id: $id, languageV2: $languageV2, image: $image, description: $description, primaryOccupations: $primaryOccupations, gender: $gender, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, age: $age, yearsActive: $yearsActive, homeTown: $homeTown, bloodType: $bloodType, isFavourite: $isFavourite, isFavouriteBlocked: $isFavouriteBlocked, siteUrl: $siteUrl, staffMedia: $staffMedia, characters: $characters, staff: $staff, submitter: $submitter, submissionStatus: $submissionStatus, submissionNotes: $submissionNotes, favourites: $favourites, modNotes: $modNotes, characterMedia: $characterMedia, name: $name)';
+    return 'Staff(id: $id, name: $name, languageV2: $languageV2, image: $image, description: $description, primaryOccupations: $primaryOccupations, gender: $gender, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, age: $age, yearsActive: $yearsActive, homeTown: $homeTown, bloodType: $bloodType, isFavourite: $isFavourite, isFavouriteBlocked: $isFavouriteBlocked, siteUrl: $siteUrl, staffMedia: $staffMedia, characters: $characters, characterMedia: $characterMedia, staff: $staff, submitter: $submitter, submissionStatus: $submissionStatus, submissionNotes: $submissionNotes, favourites: $favourites, modNotes: $modNotes)';
   }
 
   @override
@@ -656,6 +694,7 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
     properties
       ..add(DiagnosticsProperty('type', 'Staff'))
       ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('languageV2', languageV2))
       ..add(DiagnosticsProperty('image', image))
       ..add(DiagnosticsProperty('description', description))
@@ -672,14 +711,13 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
       ..add(DiagnosticsProperty('siteUrl', siteUrl))
       ..add(DiagnosticsProperty('staffMedia', staffMedia))
       ..add(DiagnosticsProperty('characters', characters))
+      ..add(DiagnosticsProperty('characterMedia', characterMedia))
       ..add(DiagnosticsProperty('staff', staff))
       ..add(DiagnosticsProperty('submitter', submitter))
       ..add(DiagnosticsProperty('submissionStatus', submissionStatus))
       ..add(DiagnosticsProperty('submissionNotes', submissionNotes))
       ..add(DiagnosticsProperty('favourites', favourites))
-      ..add(DiagnosticsProperty('modNotes', modNotes))
-      ..add(DiagnosticsProperty('characterMedia', characterMedia))
-      ..add(DiagnosticsProperty('name', name));
+      ..add(DiagnosticsProperty('modNotes', modNotes));
   }
 
   @override
@@ -688,6 +726,7 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
         (other.runtimeType == runtimeType &&
             other is _$_Staff &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.languageV2, languageV2) &&
             const DeepCollectionEquality().equals(other.image, image) &&
@@ -714,6 +753,8 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
                 .equals(other.staffMedia, staffMedia) &&
             const DeepCollectionEquality()
                 .equals(other.characters, characters) &&
+            const DeepCollectionEquality()
+                .equals(other.characterMedia, characterMedia) &&
             const DeepCollectionEquality().equals(other.staff, staff) &&
             const DeepCollectionEquality().equals(other.submitter, submitter) &&
             const DeepCollectionEquality()
@@ -722,10 +763,7 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
                 .equals(other.submissionNotes, submissionNotes) &&
             const DeepCollectionEquality()
                 .equals(other.favourites, favourites) &&
-            const DeepCollectionEquality().equals(other.modNotes, modNotes) &&
-            const DeepCollectionEquality()
-                .equals(other.characterMedia, characterMedia) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.modNotes, modNotes));
   }
 
   @JsonKey(ignore: true)
@@ -733,6 +771,7 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
   int get hashCode => Object.hashAll([
         runtimeType,
         const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(name),
         const DeepCollectionEquality().hash(languageV2),
         const DeepCollectionEquality().hash(image),
         const DeepCollectionEquality().hash(description),
@@ -749,14 +788,13 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
         const DeepCollectionEquality().hash(siteUrl),
         const DeepCollectionEquality().hash(staffMedia),
         const DeepCollectionEquality().hash(characters),
+        const DeepCollectionEquality().hash(characterMedia),
         const DeepCollectionEquality().hash(staff),
         const DeepCollectionEquality().hash(submitter),
         const DeepCollectionEquality().hash(submissionStatus),
         const DeepCollectionEquality().hash(submissionNotes),
         const DeepCollectionEquality().hash(favourites),
-        const DeepCollectionEquality().hash(modNotes),
-        const DeepCollectionEquality().hash(characterMedia),
-        const DeepCollectionEquality().hash(name)
+        const DeepCollectionEquality().hash(modNotes)
       ]);
 
   @JsonKey(ignore: true)
@@ -775,30 +813,30 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
 abstract class _Staff implements Staff {
   const factory _Staff(
       {required final int id,
-      required final StaffName languageV2,
+      required final StaffName name,
+      required final String? languageV2,
       required final String image,
-      required final StaffImage description,
-      required final String primaryOccupations,
-      required final List<String> gender,
-      required final String dateOfBirth,
-      required final DateTime dateOfDeath,
-      required final DateTime age,
-      required final int yearsActive,
-      required final List<int> homeTown,
-      required final String bloodType,
-      required final String isFavourite,
-      required final bool isFavouriteBlocked,
-      required final bool siteUrl,
-      required final String staffMedia,
-      required final MediaConnection characters,
-      required final CharacterConnection staff,
-      required final MediaConnection submitter,
-      required final Staff submissionStatus,
-      required final User submissionNotes,
-      required final int favourites,
-      required final String modNotes,
-      required final int characterMedia,
-      required final String name}) = _$_Staff;
+      required final String? description,
+      required final List<String>? primaryOccupations,
+      required final String? gender,
+      required final FuzzyDate? dateOfBirth,
+      required final FuzzyDate? dateOfDeath,
+      required final int? age,
+      required final List<int>? yearsActive,
+      required final String? homeTown,
+      required final String? bloodType,
+      required final bool? isFavourite,
+      required final bool? isFavouriteBlocked,
+      required final String? siteUrl,
+      required final MediaConnection? staffMedia,
+      required final CharacterConnection? characters,
+      required final MediaConnection? characterMedia,
+      required final Staff? staff,
+      required final User? submitter,
+      required final int? submissionStatus,
+      required final String? submissionNotes,
+      required final int? favourites,
+      required final String? modNotes}) = _$_Staff;
 
   factory _Staff.fromJson(Map<String, dynamic> json) = _$_Staff.fromJson;
 
@@ -809,95 +847,95 @@ abstract class _Staff implements Staff {
   @override
 
   /// The names of the staff member
-  StaffName get languageV2;
+  StaffName get name;
   @override
 
   /// The primary language of the staff member. Current values: Japanese, English, Korean, Italian, Spanish, Portuguese, French, German, Hebrew, Hungarian, Chinese, Arabic, Filipino, Catalan, Finnish, Turkish, Dutch, Swedish, Thai, Tagalog, Malaysian, Indonesian, Vietnamese, Nepali, Hindi, Urdu
-  String get image;
+  String? get languageV2;
   @override
 
   /// The staff images
-  StaffImage get description;
+  String get image;
   @override
 
   /// A general description of the staff member
-  String get primaryOccupations;
+  String? get description;
   @override
 
   /// The person's primary occupations
-  List<String> get gender;
-  @override
-  String get dateOfBirth;
-  @override
-  DateTime get dateOfDeath;
+  List<String>? get primaryOccupations;
   @override
 
   /// The staff's gender. Usually Male, Female, or Non-binary but can be any string.
-  DateTime get age;
+  String? get gender;
+  @override
+  FuzzyDate? get dateOfBirth;
+  @override
+  FuzzyDate? get dateOfDeath;
   @override
 
   /// The person's age in years
-  int get yearsActive;
+  int? get age;
   @override
 
   /// [startYear, endYear] (If the 2nd value is not present staff is still active)
-  List<int> get homeTown;
+  List<int>? get yearsActive;
   @override
 
   /// The persons birthplace or hometown
-  String get bloodType;
+  String? get homeTown;
   @override
 
   /// The persons blood type
-  String get isFavourite;
+  String? get bloodType;
   @override
 
   /// If the staff member is marked as favourite by the currently authenticated user
-  bool get isFavouriteBlocked;
+  bool? get isFavourite;
   @override
 
   /// If the staff member is blocked from being added to favourites
-  bool get siteUrl;
+  bool? get isFavouriteBlocked;
   @override
 
   /// The url for the staff page on the AniList website
-  String get staffMedia;
+  String? get siteUrl;
   @override
 
   /// Media where the staff member has a production role
-  MediaConnection get characters;
+  MediaConnection? get staffMedia;
   @override
 
   /// Characters voiced by the actor
-  CharacterConnection get staff;
+  CharacterConnection? get characters;
   @override
 
   /// Media the actor voiced characters in. (Same data as characters with media as node instead of characters)
-  MediaConnection get submitter;
+  MediaConnection? get characterMedia;
   @override
 
   /// Staff member that the submission is referencing
-  Staff get submissionStatus;
+  Staff? get staff;
   @override
 
   /// Submitter for the submission
-  User get submissionNotes;
+  User? get submitter;
   @override
 
   /// Status of the submission
-  int get favourites;
+  int? get submissionStatus;
   @override
 
   /// Inner details of submission status
-  String get modNotes;
+  String? get submissionNotes;
   @override
 
   /// The amount of user's who have favourited the staff member
-  int get characterMedia;
+  int? get favourites;
   @override
 
   /// Notes for site moderators
-  String get name;
+  String? get modNotes;
   @override
   @JsonKey(ignore: true)
   _$$_StaffCopyWith<_$_Staff> get copyWith =>

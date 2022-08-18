@@ -33,10 +33,10 @@ mixin _$AiringSchedule {
   int get episode => throw _privateConstructorUsedError;
 
   /// The associate media id of the airing episode
-  int get mediaId => throw _privateConstructorUsedError;
+  int? get mediaId => throw _privateConstructorUsedError;
 
   /// The associate media of the airing episode
-  Media get media => throw _privateConstructorUsedError;
+  Media? get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,10 +54,10 @@ abstract class $AiringScheduleCopyWith<$Res> {
       int airingAt,
       int timeUntilAiring,
       int episode,
-      int mediaId,
-      Media media});
+      int? mediaId,
+      Media? media});
 
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -98,17 +98,21 @@ class _$AiringScheduleCopyWithImpl<$Res>
       mediaId: mediaId == freezed
           ? _value.mediaId
           : mediaId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 
   @override
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
+  $MediaCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
@@ -126,11 +130,11 @@ abstract class _$$_AiringScheduleCopyWith<$Res>
       int airingAt,
       int timeUntilAiring,
       int episode,
-      int mediaId,
-      Media media});
+      int? mediaId,
+      Media? media});
 
   @override
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -173,11 +177,11 @@ class __$$_AiringScheduleCopyWithImpl<$Res>
       mediaId: mediaId == freezed
           ? _value.mediaId
           : mediaId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 }
@@ -216,11 +220,11 @@ class _$_AiringSchedule
 
   /// The associate media id of the airing episode
   @override
-  final int mediaId;
+  final int? mediaId;
 
   /// The associate media of the airing episode
   @override
-  final Media media;
+  final Media? media;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -284,8 +288,8 @@ abstract class _AiringSchedule implements AiringSchedule {
       required final int airingAt,
       required final int timeUntilAiring,
       required final int episode,
-      required final int mediaId,
-      required final Media media}) = _$_AiringSchedule;
+      required final int? mediaId,
+      required final Media? media}) = _$_AiringSchedule;
 
   factory _AiringSchedule.fromJson(Map<String, dynamic> json) =
       _$_AiringSchedule.fromJson;
@@ -309,11 +313,11 @@ abstract class _AiringSchedule implements AiringSchedule {
   @override
 
   /// The associate media id of the airing episode
-  int get mediaId;
+  int? get mediaId;
   @override
 
   /// The associate media of the airing episode
-  Media get media;
+  Media? get media;
   @override
   @JsonKey(ignore: true)
   _$$_AiringScheduleCopyWith<_$_AiringSchedule> get copyWith =>

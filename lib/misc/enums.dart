@@ -273,3 +273,148 @@ enum MediaListStatus {
   /// Re-watching/reading
   REPEATING,
 }
+
+enum UserTitleLanguage {
+  /// The romanization of the native language title
+  ROMAJI,
+
+  /// The official english title
+  ENGLISH,
+
+  /// Official title in it's native language
+  NATIVE,
+
+  /// The romanization of the native language title, stylised by media creator
+  ROMAJI_STYLISED,
+
+  /// The official english title, stylised by media creator
+  ENGLISH_STYLISED,
+
+  /// Official title in it's native language, stylised by media creator
+  NATIVE_STYLISED,
+}
+
+enum NotificationType {
+  /// A user has sent you message
+  ACTIVITY_MESSAGE,
+
+  /// A user has replied to your activity
+  ACTIVITY_REPLY,
+
+  /// A user has followed you
+  FOLLOWING,
+
+  /// A user has mentioned you in their activity
+  ACTIVITY_MENTION,
+
+  /// A user has mentioned you in a forum comment
+  THREAD_COMMENT_MENTION,
+
+  /// A user has commented in one of your subscribed forum threads
+  THREAD_SUBSCRIBED,
+
+  /// A user has replied to your forum comment
+  THREAD_COMMENT_REPLY,
+
+  /// An anime you are currently watching has aired
+  AIRING,
+
+  /// A user has liked your activity
+  ACTIVITY_LIKE,
+
+  /// A user has liked your activity reply
+  ACTIVITY_REPLY_LIKE,
+
+  /// A user has liked your forum thread
+  THREAD_LIKE,
+
+  /// A user has liked your forum comment
+  THREAD_COMMENT_LIKE,
+
+  /// A user has replied to activity you have also replied to
+  ACTIVITY_REPLY_SUBSCRIBED,
+
+  /// A new anime or manga has been added to the site where its related media is on the user's list
+  RELATED_MEDIA_ADDITION,
+
+  /// An anime or manga has had a data change that affects how a user may track it in their lists
+  MEDIA_DATA_CHANGE,
+
+  /// Anime or manga entries on the user's list have been merged into a single entry
+  MEDIA_MERGE,
+
+  /// An anime or manga on the user's list has been deleted from the site
+  MEDIA_DELETION,
+}
+
+/// The language the user wants to see staff and character names in
+enum UserStaffNameLanguage {
+  /// The romanization of the staff or character's native name, with western name ordering
+  ROMAJI_WESTERN,
+
+  /// The romanization of the staff or character's native name
+  ROMAJI,
+
+  /// The staff or character's name in their native language
+  NATIVE,
+}
+
+/// Media list scoring type
+enum ScoreFormat {
+  /// An integer from 0-100
+  POINT_100,
+
+  /// A float from 0-10 with 1 decimal place
+  POINT_10_DECIMAL,
+
+  /// An integer from 0-10
+  POINT_10,
+
+  /// An integer from 0-5. Should be represented in Stars
+  POINT_5,
+
+  /// An integer from 0-3. Should be represented in Smileys. 0 => No Score, 1 => :(, 2 => :|, 3 => :)
+  POINT_3,
+}
+
+/// Mod role enums
+enum ModRole {
+  /// An AniList administrator
+  ADMIN,
+
+  /// A head developer of AniList
+  LEAD_DEVELOPER,
+
+  /// An AniList developer
+  DEVELOPER,
+
+  /// A lead community moderator
+  LEAD_COMMUNITY,
+
+  /// A community moderator
+  COMMUNITY,
+
+  /// A discord community moderator
+  DISCORD_COMMUNITY,
+
+  /// A lead anime data moderator
+  LEAD_ANIME_DATA,
+
+  /// An anime data moderator
+  ANIME_DATA,
+
+  /// A lead manga data moderator
+  LEAD_MANGA_DATA,
+
+  /// A manga data moderator
+  MANGA_DATA,
+
+  /// A lead social media moderator
+  LEAD_SOCIAL_MEDIA,
+
+  /// A social media moderator
+  SOCIAL_MEDIA,
+
+  /// A retired moderator
+  RETIRED,
+}

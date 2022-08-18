@@ -30,34 +30,35 @@ mixin _$MediaEdge {
   MediaRelation get relationType => throw _privateConstructorUsedError;
 
   /// If the studio is the main animation studio of the media (For Studio->MediaConnection field only)
-  bool get isMainStudio => throw _privateConstructorUsedError;
+  bool? get isMainStudio => throw _privateConstructorUsedError;
 
   /// The characters in the media voiced by the parent actor
-  List<Character> get characters => throw _privateConstructorUsedError;
+  List<Character>? get characters => throw _privateConstructorUsedError;
 
   /// The characters role in the media
-  CharacterRole get characterRole => throw _privateConstructorUsedError;
+  CharacterRole? get characterRole => throw _privateConstructorUsedError;
 
   /// Media specific character name
-  String get characterName => throw _privateConstructorUsedError;
+  String? get characterName => throw _privateConstructorUsedError;
 
   /// Notes regarding the VA's role for the character
-  String get roleNotes => throw _privateConstructorUsedError;
+  String? get roleNotes => throw _privateConstructorUsedError;
 
   /// Used for grouping roles where multiple dubs exist for the same language. Either dubbing company name or language variant.
-  String get dubGroup => throw _privateConstructorUsedError;
+  String? get dubGroup => throw _privateConstructorUsedError;
 
   /// The role of the staff member in the production of the media
-  String get staffRole => throw _privateConstructorUsedError;
+  String? get staffRole => throw _privateConstructorUsedError;
 
   /// The voice actors of the character
-  List<Staff> get voiceActors => throw _privateConstructorUsedError;
+  List<Staff>? get voiceActors => throw _privateConstructorUsedError;
 
   /// The voice actors of the character with role date
-  List<StaffRoleType> get voiceActorRoles => throw _privateConstructorUsedError;
+  List<StaffRoleType>? get voiceActorRoles =>
+      throw _privateConstructorUsedError;
 
   /// The order the media should be displayed from the users favourites
-  int get favouriteOrder => throw _privateConstructorUsedError;
+  int? get favouriteOrder => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,16 +74,16 @@ abstract class $MediaEdgeCopyWith<$Res> {
       {Media node,
       int id,
       MediaRelation relationType,
-      bool isMainStudio,
-      List<Character> characters,
-      CharacterRole characterRole,
-      String characterName,
-      String roleNotes,
-      String dubGroup,
-      String staffRole,
-      List<Staff> voiceActors,
-      List<StaffRoleType> voiceActorRoles,
-      int favouriteOrder});
+      bool? isMainStudio,
+      List<Character>? characters,
+      CharacterRole? characterRole,
+      String? characterName,
+      String? roleNotes,
+      String? dubGroup,
+      String? staffRole,
+      List<Staff>? voiceActors,
+      List<StaffRoleType>? voiceActorRoles,
+      int? favouriteOrder});
 
   $MediaCopyWith<$Res> get node;
 }
@@ -127,43 +128,43 @@ class _$MediaEdgeCopyWithImpl<$Res> implements $MediaEdgeCopyWith<$Res> {
       isMainStudio: isMainStudio == freezed
           ? _value.isMainStudio
           : isMainStudio // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
+              as List<Character>?,
       characterRole: characterRole == freezed
           ? _value.characterRole
           : characterRole // ignore: cast_nullable_to_non_nullable
-              as CharacterRole,
+              as CharacterRole?,
       characterName: characterName == freezed
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       roleNotes: roleNotes == freezed
           ? _value.roleNotes
           : roleNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       dubGroup: dubGroup == freezed
           ? _value.dubGroup
           : dubGroup // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       staffRole: staffRole == freezed
           ? _value.staffRole
           : staffRole // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<Staff>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>,
+              as List<StaffRoleType>?,
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 
@@ -185,16 +186,16 @@ abstract class _$$_MediaEdgeCopyWith<$Res> implements $MediaEdgeCopyWith<$Res> {
       {Media node,
       int id,
       MediaRelation relationType,
-      bool isMainStudio,
-      List<Character> characters,
-      CharacterRole characterRole,
-      String characterName,
-      String roleNotes,
-      String dubGroup,
-      String staffRole,
-      List<Staff> voiceActors,
-      List<StaffRoleType> voiceActorRoles,
-      int favouriteOrder});
+      bool? isMainStudio,
+      List<Character>? characters,
+      CharacterRole? characterRole,
+      String? characterName,
+      String? roleNotes,
+      String? dubGroup,
+      String? staffRole,
+      List<Staff>? voiceActors,
+      List<StaffRoleType>? voiceActorRoles,
+      int? favouriteOrder});
 
   @override
   $MediaCopyWith<$Res> get node;
@@ -242,43 +243,43 @@ class __$$_MediaEdgeCopyWithImpl<$Res> extends _$MediaEdgeCopyWithImpl<$Res>
       isMainStudio: isMainStudio == freezed
           ? _value.isMainStudio
           : isMainStudio // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
+              as List<Character>?,
       characterRole: characterRole == freezed
           ? _value.characterRole
           : characterRole // ignore: cast_nullable_to_non_nullable
-              as CharacterRole,
+              as CharacterRole?,
       characterName: characterName == freezed
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       roleNotes: roleNotes == freezed
           ? _value.roleNotes
           : roleNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       dubGroup: dubGroup == freezed
           ? _value.dubGroup
           : dubGroup // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       staffRole: staffRole == freezed
           ? _value.staffRole
           : staffRole // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as List<Staff>,
+              as List<Staff>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>,
+              as List<StaffRoleType>?,
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -318,43 +319,43 @@ class _$_MediaEdge with DiagnosticableTreeMixin implements _MediaEdge {
 
   /// If the studio is the main animation studio of the media (For Studio->MediaConnection field only)
   @override
-  final bool isMainStudio;
+  final bool? isMainStudio;
 
   /// The characters in the media voiced by the parent actor
   @override
-  final List<Character> characters;
+  final List<Character>? characters;
 
   /// The characters role in the media
   @override
-  final CharacterRole characterRole;
+  final CharacterRole? characterRole;
 
   /// Media specific character name
   @override
-  final String characterName;
+  final String? characterName;
 
   /// Notes regarding the VA's role for the character
   @override
-  final String roleNotes;
+  final String? roleNotes;
 
   /// Used for grouping roles where multiple dubs exist for the same language. Either dubbing company name or language variant.
   @override
-  final String dubGroup;
+  final String? dubGroup;
 
   /// The role of the staff member in the production of the media
   @override
-  final String staffRole;
+  final String? staffRole;
 
   /// The voice actors of the character
   @override
-  final List<Staff> voiceActors;
+  final List<Staff>? voiceActors;
 
   /// The voice actors of the character with role date
   @override
-  final List<StaffRoleType> voiceActorRoles;
+  final List<StaffRoleType>? voiceActorRoles;
 
   /// The order the media should be displayed from the users favourites
   @override
-  final int favouriteOrder;
+  final int? favouriteOrder;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -445,16 +446,16 @@ abstract class _MediaEdge implements MediaEdge {
       {required final Media node,
       required final int id,
       required final MediaRelation relationType,
-      required final bool isMainStudio,
-      required final List<Character> characters,
-      required final CharacterRole characterRole,
-      required final String characterName,
-      required final String roleNotes,
-      required final String dubGroup,
-      required final String staffRole,
-      required final List<Staff> voiceActors,
-      required final List<StaffRoleType> voiceActorRoles,
-      required final int favouriteOrder}) = _$_MediaEdge;
+      required final bool? isMainStudio,
+      required final List<Character>? characters,
+      required final CharacterRole? characterRole,
+      required final String? characterName,
+      required final String? roleNotes,
+      required final String? dubGroup,
+      required final String? staffRole,
+      required final List<Staff>? voiceActors,
+      required final List<StaffRoleType>? voiceActorRoles,
+      required final int? favouriteOrder}) = _$_MediaEdge;
 
   factory _MediaEdge.fromJson(Map<String, dynamic> json) =
       _$_MediaEdge.fromJson;
@@ -474,43 +475,43 @@ abstract class _MediaEdge implements MediaEdge {
   @override
 
   /// If the studio is the main animation studio of the media (For Studio->MediaConnection field only)
-  bool get isMainStudio;
+  bool? get isMainStudio;
   @override
 
   /// The characters in the media voiced by the parent actor
-  List<Character> get characters;
+  List<Character>? get characters;
   @override
 
   /// The characters role in the media
-  CharacterRole get characterRole;
+  CharacterRole? get characterRole;
   @override
 
   /// Media specific character name
-  String get characterName;
+  String? get characterName;
   @override
 
   /// Notes regarding the VA's role for the character
-  String get roleNotes;
+  String? get roleNotes;
   @override
 
   /// Used for grouping roles where multiple dubs exist for the same language. Either dubbing company name or language variant.
-  String get dubGroup;
+  String? get dubGroup;
   @override
 
   /// The role of the staff member in the production of the media
-  String get staffRole;
+  String? get staffRole;
   @override
 
   /// The voice actors of the character
-  List<Staff> get voiceActors;
+  List<Staff>? get voiceActors;
   @override
 
   /// The voice actors of the character with role date
-  List<StaffRoleType> get voiceActorRoles;
+  List<StaffRoleType>? get voiceActorRoles;
   @override
 
   /// The order the media should be displayed from the users favourites
-  int get favouriteOrder;
+  int? get favouriteOrder;
   @override
   @JsonKey(ignore: true)
   _$$_MediaEdgeCopyWith<_$_MediaEdge> get copyWith =>

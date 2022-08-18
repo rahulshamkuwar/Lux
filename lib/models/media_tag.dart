@@ -33,7 +33,7 @@ class MediaTag with _$MediaTag {
     required bool isAdult,
 
     /// The user who submitted the tag
-    required int userId,
+    required int? userId,
   }) = _MediaTag;
 
   factory MediaTag.fromJson(Map<String, Object?> json) =>

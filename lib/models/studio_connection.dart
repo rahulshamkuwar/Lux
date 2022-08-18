@@ -12,7 +12,7 @@ part 'studio_connection.g.dart';
 class StudioConnection with _$StudioConnection {
   const factory StudioConnection({
     required List<StudioEdge> edges,
-    required List<Studio> nodes,
+    required List<Studio>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

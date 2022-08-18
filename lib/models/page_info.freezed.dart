@@ -21,16 +21,16 @@ PageInfo _$PageInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PageInfo {
   /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
-  int get total => throw _privateConstructorUsedError;
+  int? get total => throw _privateConstructorUsedError;
 
   /// The count on a page
-  int get perPage => throw _privateConstructorUsedError;
+  int? get perPage => throw _privateConstructorUsedError;
 
   /// The current page
-  int get currentPage => throw _privateConstructorUsedError;
+  int? get currentPage => throw _privateConstructorUsedError;
 
   /// The last page
-  int get lastPage => throw _privateConstructorUsedError;
+  int? get lastPage => throw _privateConstructorUsedError;
 
   /// If there is another page
   bool get hasNextPage => throw _privateConstructorUsedError;
@@ -46,10 +46,10 @@ abstract class $PageInfoCopyWith<$Res> {
   factory $PageInfoCopyWith(PageInfo value, $Res Function(PageInfo) then) =
       _$PageInfoCopyWithImpl<$Res>;
   $Res call(
-      {int total,
-      int perPage,
-      int currentPage,
-      int lastPage,
+      {int? total,
+      int? perPage,
+      int? currentPage,
+      int? lastPage,
       bool hasNextPage});
 }
 
@@ -73,19 +73,19 @@ class _$PageInfoCopyWithImpl<$Res> implements $PageInfoCopyWith<$Res> {
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       perPage: perPage == freezed
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       lastPage: lastPage == freezed
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       hasNextPage: hasNextPage == freezed
           ? _value.hasNextPage
           : hasNextPage // ignore: cast_nullable_to_non_nullable
@@ -101,10 +101,10 @@ abstract class _$$_PageInfoCopyWith<$Res> implements $PageInfoCopyWith<$Res> {
       __$$_PageInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int total,
-      int perPage,
-      int currentPage,
-      int lastPage,
+      {int? total,
+      int? perPage,
+      int? currentPage,
+      int? lastPage,
       bool hasNextPage});
 }
 
@@ -130,19 +130,19 @@ class __$$_PageInfoCopyWithImpl<$Res> extends _$PageInfoCopyWithImpl<$Res>
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       perPage: perPage == freezed
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       lastPage: lastPage == freezed
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       hasNextPage: hasNextPage == freezed
           ? _value.hasNextPage
           : hasNextPage // ignore: cast_nullable_to_non_nullable
@@ -166,19 +166,19 @@ class _$_PageInfo with DiagnosticableTreeMixin implements _PageInfo {
 
   /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
   @override
-  final int total;
+  final int? total;
 
   /// The count on a page
   @override
-  final int perPage;
+  final int? perPage;
 
   /// The current page
   @override
-  final int currentPage;
+  final int? currentPage;
 
   /// The last page
   @override
-  final int lastPage;
+  final int? lastPage;
 
   /// If there is another page
   @override
@@ -240,10 +240,10 @@ class _$_PageInfo with DiagnosticableTreeMixin implements _PageInfo {
 
 abstract class _PageInfo implements PageInfo {
   const factory _PageInfo(
-      {required final int total,
-      required final int perPage,
-      required final int currentPage,
-      required final int lastPage,
+      {required final int? total,
+      required final int? perPage,
+      required final int? currentPage,
+      required final int? lastPage,
       required final bool hasNextPage}) = _$_PageInfo;
 
   factory _PageInfo.fromJson(Map<String, dynamic> json) = _$_PageInfo.fromJson;
@@ -251,19 +251,19 @@ abstract class _PageInfo implements PageInfo {
   @override
 
   /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
-  int get total;
+  int? get total;
   @override
 
   /// The count on a page
-  int get perPage;
+  int? get perPage;
   @override
 
   /// The current page
-  int get currentPage;
+  int? get currentPage;
   @override
 
   /// The last page
-  int get lastPage;
+  int? get lastPage;
   @override
 
   /// If there is another page

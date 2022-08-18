@@ -12,8 +12,8 @@ _$_AiringScheduleConnection _$$_AiringScheduleConnectionFromJson(
       edges: (json['edges'] as List<dynamic>)
           .map((e) => AiringScheduleEdge.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nodes: (json['nodes'] as List<dynamic>)
-          .map((e) => AiringSchedule.fromJson(e as Map<String, dynamic>))
+      nodes: (json['nodes'] as List<dynamic>?)
+          ?.map((e) => AiringSchedule.fromJson(e as Map<String, dynamic>))
           .toList(),
       pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );

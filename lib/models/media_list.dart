@@ -1,4 +1,5 @@
 import 'package:lux/misc/enums.dart';
+import 'package:lux/models/fuzzy_date.dart';
 import 'package:lux/models/media.dart';
 import 'package:lux/models/user.dart';
 
@@ -28,45 +29,45 @@ class MediaList with _$MediaList {
     required double score,
 
     /// The amount of episodes/chapters consumed by the user
-    required int progress,
+    required int? progress,
 
     /// The amount of volumes read by the user
-    required int progressVolumes,
+    required int? progressVolumes,
 
     /// The amount of times the user has rewatched/read the media
-    required int repeat,
+    required int? repeat,
 
     /// Priority of planning
-    required int priority,
+    required int? priority,
 
     /// If the entry should only be visible to authenticated user
-    required bool private,
+    required bool? private,
 
     /// Text notes
-    required String notes,
+    required String? notes,
 
     /// If the entry shown be hidden from non-custom lists
-    required bool hiddenFromStatusLists,
+    required bool? hiddenFromStatusLists,
 
     /// Map of booleans for which custom lists the entry are in
-    required Map<String, bool> customLists,
+    required Map<String, bool>? customLists,
 
     /// Map of advanced scores with name keys
-    required Map<String, String> advancedScores,
+    required Map<String, String>? advancedScores,
 
     /// When the entry was started by the user
-    required DateTime startedAt,
+    required FuzzyDate? startedAt,
 
     /// When the entry was completed by the user
-    required DateTime completedAt,
+    required FuzzyDate? completedAt,
 
     /// When the entry data was last updated
-    required int updatedAt,
+    required int? updatedAt,
 
     /// When the entry data was created
-    required int createdAt,
-    required Media media,
-    required User user,
+    required int? createdAt,
+    required Media? media,
+    required User? user,
   }) = _MediaList;
 
   factory MediaList.fromJson(Map<String, Object?> json) =>

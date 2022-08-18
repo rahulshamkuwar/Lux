@@ -15,7 +15,7 @@ _$_MediaTag _$$_MediaTagFromJson(Map<String, dynamic> json) => _$_MediaTag(
       isGeneralSpoiler: json['isGeneralSpoiler'] as bool,
       isMediaSpoiler: json['isMediaSpoiler'] as bool,
       isAdult: json['isAdult'] as bool,
-      userId: json['userId'] as int,
+      userId: json['userId'] as int?,
     );
 
 Map<String, dynamic> _$$_MediaTagToJson(_$_MediaTag instance) =>

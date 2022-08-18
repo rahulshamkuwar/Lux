@@ -9,28 +9,28 @@ part 'character_name.g.dart';
 class CharacterName with _$CharacterName {
   const factory CharacterName({
     /// The character's given name
-    required String first,
+    required String? first,
 
     /// The character's middle name
-    required String middle,
+    required String? middle,
 
     /// The character's surname
-    required String last,
+    required String? last,
 
     /// The character's first and last name
-    required String full,
+    required String? full,
 
     /// The character's full name in their native language
-    required String native,
+    required String? native,
 
     /// Other names the character might be referred to as
-    required List<String> alternative,
+    required List<String?> alternative,
 
     /// Other names the character might be referred to as but are spoilers
-    required List<String> alternativeSpoiler,
+    required List<String?> alternativeSpoiler,
 
     /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-    required String userPreferred,
+    required String? userPreferred,
   }) = _CharacterName;
 
   factory CharacterName.fromJson(Map<String, Object?> json) =>

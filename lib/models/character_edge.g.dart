@@ -10,26 +10,26 @@ _$_CharacterEdge _$$_CharacterEdgeFromJson(Map<String, dynamic> json) =>
     _$_CharacterEdge(
       node: Character.fromJson(json['node'] as Map<String, dynamic>),
       id: json['id'] as int,
-      role: json['role'] as int,
-      name: $enumDecode(_$CharacterRoleEnumMap, json['name']),
-      voiceActors: json['voiceActors'] as String,
-      voiceActorRoles: (json['voiceActorRoles'] as List<dynamic>)
-          .map((e) => Staff.fromJson(e as Map<String, dynamic>))
+      role: $enumDecodeNullable(_$CharacterRoleEnumMap, json['role']),
+      name: json['name'] as String?,
+      voiceActors: (json['voiceActors'] as List<dynamic>?)
+          ?.map((e) => Staff.fromJson(e as Map<String, dynamic>))
           .toList(),
-      media: (json['media'] as List<dynamic>)
-          .map((e) => StaffRoleType.fromJson(e as Map<String, dynamic>))
+      voiceActorRoles: (json['voiceActorRoles'] as List<dynamic>?)
+          ?.map((e) => StaffRoleType.fromJson(e as Map<String, dynamic>))
           .toList(),
-      favouriteOrder: (json['favouriteOrder'] as List<dynamic>)
-          .map((e) => Media.fromJson(e as Map<String, dynamic>))
+      media: (json['media'] as List<dynamic>?)
+          ?.map((e) => Media.fromJson(e as Map<String, dynamic>))
           .toList(),
+      favouriteOrder: json['favouriteOrder'] as int?,
     );
 
 Map<String, dynamic> _$$_CharacterEdgeToJson(_$_CharacterEdge instance) =>
     <String, dynamic>{
       'node': instance.node,
       'id': instance.id,
-      'role': instance.role,
-      'name': _$CharacterRoleEnumMap[instance.name]!,
+      'role': _$CharacterRoleEnumMap[instance.role],
+      'name': instance.name,
       'voiceActors': instance.voiceActors,
       'voiceActorRoles': instance.voiceActorRoles,
       'media': instance.media,

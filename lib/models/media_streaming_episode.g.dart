@@ -9,10 +9,10 @@ part of 'media_streaming_episode.dart';
 _$_MediaStreamingEpisode _$$_MediaStreamingEpisodeFromJson(
         Map<String, dynamic> json) =>
     _$_MediaStreamingEpisode(
-      title: json['title'] as String,
-      thumbnail: json['thumbnail'] as String,
-      url: json['url'] as String,
-      site: json['site'] as String,
+      title: json['title'] as String?,
+      thumbnail: json['thumbnail'] as String?,
+      url: json['url'] as String?,
+      site: json['site'] as String?,
     );
 
 Map<String, dynamic> _$$_MediaStreamingEpisodeToJson(

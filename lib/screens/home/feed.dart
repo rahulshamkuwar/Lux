@@ -20,8 +20,8 @@ class _FeedState extends State<Feed> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(3.0),
           ),
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(5.0),
+          child: const ListTile(
+            contentPadding: EdgeInsets.all(5.0),
             dense: false,
             isThreeLine: true,
             title: Text("Test"),

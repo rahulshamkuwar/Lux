@@ -45,7 +45,7 @@ mixin _$MediaTag {
   bool get isAdult => throw _privateConstructorUsedError;
 
   /// The user who submitted the tag
-  int get userId => throw _privateConstructorUsedError;
+  int? get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,7 +66,7 @@ abstract class $MediaTagCopyWith<$Res> {
       bool isGeneralSpoiler,
       bool isMediaSpoiler,
       bool isAdult,
-      int userId});
+      int? userId});
 }
 
 /// @nodoc
@@ -125,7 +125,7 @@ class _$MediaTagCopyWithImpl<$Res> implements $MediaTagCopyWith<$Res> {
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -145,7 +145,7 @@ abstract class _$$_MediaTagCopyWith<$Res> implements $MediaTagCopyWith<$Res> {
       bool isGeneralSpoiler,
       bool isMediaSpoiler,
       bool isAdult,
-      int userId});
+      int? userId});
 }
 
 /// @nodoc
@@ -206,7 +206,7 @@ class __$$_MediaTagCopyWithImpl<$Res> extends _$MediaTagCopyWithImpl<$Res>
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -262,7 +262,7 @@ class _$_MediaTag with DiagnosticableTreeMixin implements _MediaTag {
 
   /// The user who submitted the tag
   @override
-  final int userId;
+  final int? userId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -341,7 +341,7 @@ abstract class _MediaTag implements MediaTag {
       required final bool isGeneralSpoiler,
       required final bool isMediaSpoiler,
       required final bool isAdult,
-      required final int userId}) = _$_MediaTag;
+      required final int? userId}) = _$_MediaTag;
 
   factory _MediaTag.fromJson(Map<String, dynamic> json) = _$_MediaTag.fromJson;
 
@@ -380,7 +380,7 @@ abstract class _MediaTag implements MediaTag {
   @override
 
   /// The user who submitted the tag
-  int get userId;
+  int? get userId;
   @override
   @JsonKey(ignore: true)
   _$$_MediaTagCopyWith<_$_MediaTag> get copyWith =>

@@ -12,21 +12,33 @@ _$_MediaList _$$_MediaListFromJson(Map<String, dynamic> json) => _$_MediaList(
       mediaId: json['mediaId'] as int,
       status: $enumDecode(_$MediaListStatusEnumMap, json['status']),
       score: (json['score'] as num).toDouble(),
-      progress: json['progress'] as int,
-      progressVolumes: json['progressVolumes'] as int,
-      repeat: json['repeat'] as int,
-      priority: json['priority'] as int,
-      private: json['private'] as bool,
-      notes: json['notes'] as String,
-      hiddenFromStatusLists: json['hiddenFromStatusLists'] as bool,
-      customLists: Map<String, bool>.from(json['customLists'] as Map),
-      advancedScores: Map<String, String>.from(json['advancedScores'] as Map),
-      startedAt: DateTime.parse(json['startedAt'] as String),
-      completedAt: DateTime.parse(json['completedAt'] as String),
-      updatedAt: json['updatedAt'] as int,
-      createdAt: json['createdAt'] as int,
-      media: Media.fromJson(json['media'] as Map<String, dynamic>),
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      progress: json['progress'] as int?,
+      progressVolumes: json['progressVolumes'] as int?,
+      repeat: json['repeat'] as int?,
+      priority: json['priority'] as int?,
+      private: json['private'] as bool?,
+      notes: json['notes'] as String?,
+      hiddenFromStatusLists: json['hiddenFromStatusLists'] as bool?,
+      customLists: (json['customLists'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as bool),
+      ),
+      advancedScores: (json['advancedScores'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      startedAt: json['startedAt'] == null
+          ? null
+          : FuzzyDate.fromJson(json['startedAt'] as Map<String, dynamic>),
+      completedAt: json['completedAt'] == null
+          ? null
+          : FuzzyDate.fromJson(json['completedAt'] as Map<String, dynamic>),
+      updatedAt: json['updatedAt'] as int?,
+      createdAt: json['createdAt'] as int?,
+      media: json['media'] == null
+          ? null
+          : Media.fromJson(json['media'] as Map<String, dynamic>),
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MediaListToJson(_$_MediaList instance) =>
@@ -45,8 +57,8 @@ Map<String, dynamic> _$$_MediaListToJson(_$_MediaList instance) =>
       'hiddenFromStatusLists': instance.hiddenFromStatusLists,
       'customLists': instance.customLists,
       'advancedScores': instance.advancedScores,
-      'startedAt': instance.startedAt.toIso8601String(),
-      'completedAt': instance.completedAt.toIso8601String(),
+      'startedAt': instance.startedAt,
+      'completedAt': instance.completedAt,
       'updatedAt': instance.updatedAt,
       'createdAt': instance.createdAt,
       'media': instance.media,

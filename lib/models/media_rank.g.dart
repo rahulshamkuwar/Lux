@@ -8,23 +8,23 @@ part of 'media_rank.dart';
 
 _$_MediaRank _$$_MediaRankFromJson(Map<String, dynamic> json) => _$_MediaRank(
       id: json['id'] as int,
-      rank: json['rank'] as int,
-      type: $enumDecode(_$MediaRankTypeEnumMap, json['type']),
-      format: $enumDecode(_$MediaFormatEnumMap, json['format']),
-      year: json['year'] as int,
-      season: $enumDecode(_$MediaSeasonEnumMap, json['season']),
-      allTime: json['allTime'] as bool,
-      context: json['context'] as String,
+      rank: json['rank'] as int?,
+      type: $enumDecodeNullable(_$MediaRankTypeEnumMap, json['type']),
+      format: $enumDecodeNullable(_$MediaFormatEnumMap, json['format']),
+      year: json['year'] as int?,
+      season: $enumDecodeNullable(_$MediaSeasonEnumMap, json['season']),
+      allTime: json['allTime'] as bool?,
+      context: json['context'] as String?,
     );
 
 Map<String, dynamic> _$$_MediaRankToJson(_$_MediaRank instance) =>
     <String, dynamic>{
       'id': instance.id,
       'rank': instance.rank,
-      'type': _$MediaRankTypeEnumMap[instance.type]!,
-      'format': _$MediaFormatEnumMap[instance.format]!,
+      'type': _$MediaRankTypeEnumMap[instance.type],
+      'format': _$MediaFormatEnumMap[instance.format],
       'year': instance.year,
-      'season': _$MediaSeasonEnumMap[instance.season]!,
+      'season': _$MediaSeasonEnumMap[instance.season],
       'allTime': instance.allTime,
       'context': instance.context,
     };

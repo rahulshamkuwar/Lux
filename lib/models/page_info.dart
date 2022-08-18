@@ -8,16 +8,16 @@ part 'page_info.g.dart';
 class PageInfo with _$PageInfo {
   const factory PageInfo({
     /// The total number of items. Note: This value is not guaranteed to be accurate, do not rely on this for logic
-    required int total,
+    required int? total,
 
     /// The count on a page
-    required int perPage,
+    required int? perPage,
 
     /// The current page
-    required int currentPage,
+    required int? currentPage,
 
     /// The last page
-    required int lastPage,
+    required int? lastPage,
 
     /// If there is another page
     required bool hasNextPage,

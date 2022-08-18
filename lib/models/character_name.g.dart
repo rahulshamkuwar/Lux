@@ -8,18 +8,18 @@ part of 'character_name.dart';
 
 _$_CharacterName _$$_CharacterNameFromJson(Map<String, dynamic> json) =>
     _$_CharacterName(
-      first: json['first'] as String,
-      middle: json['middle'] as String,
-      last: json['last'] as String,
-      full: json['full'] as String,
-      native: json['native'] as String,
+      first: json['first'] as String?,
+      middle: json['middle'] as String?,
+      last: json['last'] as String?,
+      full: json['full'] as String?,
+      native: json['native'] as String?,
       alternative: (json['alternative'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((e) => e as String?)
           .toList(),
       alternativeSpoiler: (json['alternativeSpoiler'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((e) => e as String?)
           .toList(),
-      userPreferred: json['userPreferred'] as String,
+      userPreferred: json['userPreferred'] as String?,
     );
 
 Map<String, dynamic> _$$_CharacterNameToJson(_$_CharacterName instance) =>

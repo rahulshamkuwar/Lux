@@ -29,7 +29,7 @@ mixin _$StaffEdge {
   String get role => throw _privateConstructorUsedError;
 
   /// The order the staff should be displayed from the users favourites
-  int get favouriteOrder => throw _privateConstructorUsedError;
+  int? get favouriteOrder => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ mixin _$StaffEdge {
 abstract class $StaffEdgeCopyWith<$Res> {
   factory $StaffEdgeCopyWith(StaffEdge value, $Res Function(StaffEdge) then) =
       _$StaffEdgeCopyWithImpl<$Res>;
-  $Res call({Staff node, int id, String role, int favouriteOrder});
+  $Res call({Staff node, int id, String role, int? favouriteOrder});
 
   $StaffCopyWith<$Res> get node;
 }
@@ -77,7 +77,7 @@ class _$StaffEdgeCopyWithImpl<$Res> implements $StaffEdgeCopyWith<$Res> {
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 
@@ -95,7 +95,7 @@ abstract class _$$_StaffEdgeCopyWith<$Res> implements $StaffEdgeCopyWith<$Res> {
           _$_StaffEdge value, $Res Function(_$_StaffEdge) then) =
       __$$_StaffEdgeCopyWithImpl<$Res>;
   @override
-  $Res call({Staff node, int id, String role, int favouriteOrder});
+  $Res call({Staff node, int id, String role, int? favouriteOrder});
 
   @override
   $StaffCopyWith<$Res> get node;
@@ -134,7 +134,7 @@ class __$$_StaffEdgeCopyWithImpl<$Res> extends _$StaffEdgeCopyWithImpl<$Res>
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -164,7 +164,7 @@ class _$_StaffEdge with DiagnosticableTreeMixin implements _StaffEdge {
 
   /// The order the staff should be displayed from the users favourites
   @override
-  final int favouriteOrder;
+  final int? favouriteOrder;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -221,7 +221,7 @@ abstract class _StaffEdge implements StaffEdge {
       {required final Staff node,
       required final int id,
       required final String role,
-      required final int favouriteOrder}) = _$_StaffEdge;
+      required final int? favouriteOrder}) = _$_StaffEdge;
 
   factory _StaffEdge.fromJson(Map<String, dynamic> json) =
       _$_StaffEdge.fromJson;
@@ -239,7 +239,7 @@ abstract class _StaffEdge implements StaffEdge {
   @override
 
   /// The order the staff should be displayed from the users favourites
-  int get favouriteOrder;
+  int? get favouriteOrder;
   @override
   @JsonKey(ignore: true)
   _$$_StaffEdgeCopyWith<_$_StaffEdge> get copyWith =>

@@ -21,28 +21,28 @@ CharacterName _$CharacterNameFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CharacterName {
   /// The character's given name
-  String get first => throw _privateConstructorUsedError;
+  String? get first => throw _privateConstructorUsedError;
 
   /// The character's middle name
-  String get middle => throw _privateConstructorUsedError;
+  String? get middle => throw _privateConstructorUsedError;
 
   /// The character's surname
-  String get last => throw _privateConstructorUsedError;
+  String? get last => throw _privateConstructorUsedError;
 
   /// The character's first and last name
-  String get full => throw _privateConstructorUsedError;
+  String? get full => throw _privateConstructorUsedError;
 
   /// The character's full name in their native language
-  String get native => throw _privateConstructorUsedError;
+  String? get native => throw _privateConstructorUsedError;
 
   /// Other names the character might be referred to as
-  List<String> get alternative => throw _privateConstructorUsedError;
+  List<String?> get alternative => throw _privateConstructorUsedError;
 
   /// Other names the character might be referred to as but are spoilers
-  List<String> get alternativeSpoiler => throw _privateConstructorUsedError;
+  List<String?> get alternativeSpoiler => throw _privateConstructorUsedError;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-  String get userPreferred => throw _privateConstructorUsedError;
+  String? get userPreferred => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,14 +56,14 @@ abstract class $CharacterNameCopyWith<$Res> {
           CharacterName value, $Res Function(CharacterName) then) =
       _$CharacterNameCopyWithImpl<$Res>;
   $Res call(
-      {String first,
-      String middle,
-      String last,
-      String full,
-      String native,
-      List<String> alternative,
-      List<String> alternativeSpoiler,
-      String userPreferred});
+      {String? first,
+      String? middle,
+      String? last,
+      String? full,
+      String? native,
+      List<String?> alternative,
+      List<String?> alternativeSpoiler,
+      String? userPreferred});
 }
 
 /// @nodoc
@@ -90,35 +90,35 @@ class _$CharacterNameCopyWithImpl<$Res>
       first: first == freezed
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       middle: middle == freezed
           ? _value.middle
           : middle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       last: last == freezed
           ? _value.last
           : last // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       full: full == freezed
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String?>,
       alternativeSpoiler: alternativeSpoiler == freezed
           ? _value.alternativeSpoiler
           : alternativeSpoiler // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String?>,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -131,14 +131,14 @@ abstract class _$$_CharacterNameCopyWith<$Res>
       __$$_CharacterNameCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String first,
-      String middle,
-      String last,
-      String full,
-      String native,
-      List<String> alternative,
-      List<String> alternativeSpoiler,
-      String userPreferred});
+      {String? first,
+      String? middle,
+      String? last,
+      String? full,
+      String? native,
+      List<String?> alternative,
+      List<String?> alternativeSpoiler,
+      String? userPreferred});
 }
 
 /// @nodoc
@@ -167,35 +167,35 @@ class __$$_CharacterNameCopyWithImpl<$Res>
       first: first == freezed
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       middle: middle == freezed
           ? _value.middle
           : middle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       last: last == freezed
           ? _value.last
           : last // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       full: full == freezed
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String?>,
       alternativeSpoiler: alternativeSpoiler == freezed
           ? _value.alternativeSpoiler
           : alternativeSpoiler // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String?>,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -218,35 +218,35 @@ class _$_CharacterName with DiagnosticableTreeMixin implements _CharacterName {
 
   /// The character's given name
   @override
-  final String first;
+  final String? first;
 
   /// The character's middle name
   @override
-  final String middle;
+  final String? middle;
 
   /// The character's surname
   @override
-  final String last;
+  final String? last;
 
   /// The character's first and last name
   @override
-  final String full;
+  final String? full;
 
   /// The character's full name in their native language
   @override
-  final String native;
+  final String? native;
 
   /// Other names the character might be referred to as
   @override
-  final List<String> alternative;
+  final List<String?> alternative;
 
   /// Other names the character might be referred to as but are spoilers
   @override
-  final List<String> alternativeSpoiler;
+  final List<String?> alternativeSpoiler;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
   @override
-  final String userPreferred;
+  final String? userPreferred;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -314,14 +314,14 @@ class _$_CharacterName with DiagnosticableTreeMixin implements _CharacterName {
 
 abstract class _CharacterName implements CharacterName {
   const factory _CharacterName(
-      {required final String first,
-      required final String middle,
-      required final String last,
-      required final String full,
-      required final String native,
-      required final List<String> alternative,
-      required final List<String> alternativeSpoiler,
-      required final String userPreferred}) = _$_CharacterName;
+      {required final String? first,
+      required final String? middle,
+      required final String? last,
+      required final String? full,
+      required final String? native,
+      required final List<String?> alternative,
+      required final List<String?> alternativeSpoiler,
+      required final String? userPreferred}) = _$_CharacterName;
 
   factory _CharacterName.fromJson(Map<String, dynamic> json) =
       _$_CharacterName.fromJson;
@@ -329,35 +329,35 @@ abstract class _CharacterName implements CharacterName {
   @override
 
   /// The character's given name
-  String get first;
+  String? get first;
   @override
 
   /// The character's middle name
-  String get middle;
+  String? get middle;
   @override
 
   /// The character's surname
-  String get last;
+  String? get last;
   @override
 
   /// The character's first and last name
-  String get full;
+  String? get full;
   @override
 
   /// The character's full name in their native language
-  String get native;
+  String? get native;
   @override
 
   /// Other names the character might be referred to as
-  List<String> get alternative;
+  List<String?> get alternative;
   @override
 
   /// Other names the character might be referred to as but are spoilers
-  List<String> get alternativeSpoiler;
+  List<String?> get alternativeSpoiler;
   @override
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
-  String get userPreferred;
+  String? get userPreferred;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterNameCopyWith<_$_CharacterName> get copyWith =>

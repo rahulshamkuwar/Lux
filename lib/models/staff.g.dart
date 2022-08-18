@@ -8,51 +8,64 @@ part of 'staff.dart';
 
 _$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
       id: json['id'] as int,
-      languageV2:
-          StaffName.fromJson(json['languageV2'] as Map<String, dynamic>),
+      name: StaffName.fromJson(json['name'] as Map<String, dynamic>),
+      languageV2: json['languageV2'] as String?,
       image: json['image'] as String,
-      description:
-          StaffImage.fromJson(json['description'] as Map<String, dynamic>),
-      primaryOccupations: json['primaryOccupations'] as String,
-      gender:
-          (json['gender'] as List<dynamic>).map((e) => e as String).toList(),
-      dateOfBirth: json['dateOfBirth'] as String,
-      dateOfDeath: DateTime.parse(json['dateOfDeath'] as String),
-      age: DateTime.parse(json['age'] as String),
-      yearsActive: json['yearsActive'] as int,
-      homeTown:
-          (json['homeTown'] as List<dynamic>).map((e) => e as int).toList(),
-      bloodType: json['bloodType'] as String,
-      isFavourite: json['isFavourite'] as String,
-      isFavouriteBlocked: json['isFavouriteBlocked'] as bool,
-      siteUrl: json['siteUrl'] as bool,
-      staffMedia: json['staffMedia'] as String,
-      characters:
-          MediaConnection.fromJson(json['characters'] as Map<String, dynamic>),
-      staff:
-          CharacterConnection.fromJson(json['staff'] as Map<String, dynamic>),
-      submitter:
-          MediaConnection.fromJson(json['submitter'] as Map<String, dynamic>),
-      submissionStatus:
-          Staff.fromJson(json['submissionStatus'] as Map<String, dynamic>),
-      submissionNotes:
-          User.fromJson(json['submissionNotes'] as Map<String, dynamic>),
-      favourites: json['favourites'] as int,
-      modNotes: json['modNotes'] as String,
-      characterMedia: json['characterMedia'] as int,
-      name: json['name'] as String,
+      description: json['description'] as String?,
+      primaryOccupations: (json['primaryOccupations'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      gender: json['gender'] as String?,
+      dateOfBirth: json['dateOfBirth'] == null
+          ? null
+          : FuzzyDate.fromJson(json['dateOfBirth'] as Map<String, dynamic>),
+      dateOfDeath: json['dateOfDeath'] == null
+          ? null
+          : FuzzyDate.fromJson(json['dateOfDeath'] as Map<String, dynamic>),
+      age: json['age'] as int?,
+      yearsActive: (json['yearsActive'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
+      homeTown: json['homeTown'] as String?,
+      bloodType: json['bloodType'] as String?,
+      isFavourite: json['isFavourite'] as bool?,
+      isFavouriteBlocked: json['isFavouriteBlocked'] as bool?,
+      siteUrl: json['siteUrl'] as String?,
+      staffMedia: json['staffMedia'] == null
+          ? null
+          : MediaConnection.fromJson(
+              json['staffMedia'] as Map<String, dynamic>),
+      characters: json['characters'] == null
+          ? null
+          : CharacterConnection.fromJson(
+              json['characters'] as Map<String, dynamic>),
+      characterMedia: json['characterMedia'] == null
+          ? null
+          : MediaConnection.fromJson(
+              json['characterMedia'] as Map<String, dynamic>),
+      staff: json['staff'] == null
+          ? null
+          : Staff.fromJson(json['staff'] as Map<String, dynamic>),
+      submitter: json['submitter'] == null
+          ? null
+          : User.fromJson(json['submitter'] as Map<String, dynamic>),
+      submissionStatus: json['submissionStatus'] as int?,
+      submissionNotes: json['submissionNotes'] as String?,
+      favourites: json['favourites'] as int?,
+      modNotes: json['modNotes'] as String?,
     );
 
 Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
       'id': instance.id,
+      'name': instance.name,
       'languageV2': instance.languageV2,
       'image': instance.image,
       'description': instance.description,
       'primaryOccupations': instance.primaryOccupations,
       'gender': instance.gender,
       'dateOfBirth': instance.dateOfBirth,
-      'dateOfDeath': instance.dateOfDeath.toIso8601String(),
-      'age': instance.age.toIso8601String(),
+      'dateOfDeath': instance.dateOfDeath,
+      'age': instance.age,
       'yearsActive': instance.yearsActive,
       'homeTown': instance.homeTown,
       'bloodType': instance.bloodType,
@@ -61,12 +74,11 @@ Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
       'siteUrl': instance.siteUrl,
       'staffMedia': instance.staffMedia,
       'characters': instance.characters,
+      'characterMedia': instance.characterMedia,
       'staff': instance.staff,
       'submitter': instance.submitter,
       'submissionStatus': instance.submissionStatus,
       'submissionNotes': instance.submissionNotes,
       'favourites': instance.favourites,
       'modNotes': instance.modNotes,
-      'characterMedia': instance.characterMedia,
-      'name': instance.name,
     };

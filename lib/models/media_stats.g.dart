@@ -8,11 +8,11 @@ part of 'media_stats.dart';
 
 _$_MediaStats _$$_MediaStatsFromJson(Map<String, dynamic> json) =>
     _$_MediaStats(
-      scoreDistribution: (json['scoreDistribution'] as List<dynamic>)
-          .map((e) => ScoreDistribution.fromJson(e as Map<String, dynamic>))
+      scoreDistribution: (json['scoreDistribution'] as List<dynamic>?)
+          ?.map((e) => ScoreDistribution.fromJson(e as Map<String, dynamic>))
           .toList(),
-      statusDistribution: (json['statusDistribution'] as List<dynamic>)
-          .map((e) => StatusDistribution.fromJson(e as Map<String, dynamic>))
+      statusDistribution: (json['statusDistribution'] as List<dynamic>?)
+          ?.map((e) => StatusDistribution.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

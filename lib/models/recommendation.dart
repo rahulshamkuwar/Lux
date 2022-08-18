@@ -19,16 +19,16 @@ class Recommendation with _$Recommendation {
     required int rating,
 
     /// The rating of the recommendation by currently authenticated user
-    required RecommendationRating userRating,
+    required RecommendationRating? userRating,
 
     /// The media the recommendation is from
-    required Media media,
+    required Media? media,
 
     /// The recommended media
-    required Media mediaRecommendation,
+    required Media? mediaRecommendation,
 
     /// The user that first created the recommendation
-    required User user,
+    required User? user,
   }) = _Recommendation;
 
   factory Recommendation.fromJson(Map<String, Object?> json) =>

@@ -14,28 +14,28 @@ class MediaTrend with _$MediaTrend {
     required int mediaId,
 
     /// The day the data was recorded (timestamp)
-    required int date,
+    required int? date,
 
     /// The amount of media activity on the day
-    required int trending,
+    required int? trending,
 
     /// A weighted average score of all the user's scores of the media
-    required int averageScore,
+    required int? averageScore,
 
     /// The number of users with the media on their list
-    required int popularity,
+    required int? popularity,
 
     /// The number of users with watching/reading the media
-    required int inProgress,
+    required int? inProgress,
 
     /// If the media was being released at this time
-    required bool releasing,
+    required bool? releasing,
 
     /// The episode number of the anime released on this day
-    required int episode,
+    required int? episode,
 
     /// The related media
-    required Media media,
+    required Media? media,
   }) = _MediaTrend;
 
   factory MediaTrend.fromJson(Map<String, Object?> json) =>

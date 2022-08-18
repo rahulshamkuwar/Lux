@@ -30,16 +30,16 @@ mixin _$Studio {
   bool get isAnimationStudio => throw _privateConstructorUsedError;
 
   /// The media the studio has worked on
-  MediaConnection get media => throw _privateConstructorUsedError;
+  MediaConnection? get media => throw _privateConstructorUsedError;
 
   /// The url for the studio page on the AniList website
-  String get siteUrl => throw _privateConstructorUsedError;
+  String? get siteUrl => throw _privateConstructorUsedError;
 
   /// If the studio is marked as favourite by the currently authenticated user
   bool get isFavourite => throw _privateConstructorUsedError;
 
   /// The amount of user's who have favourited the studio
-  int get favourites => throw _privateConstructorUsedError;
+  int? get favourites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,12 +54,12 @@ abstract class $StudioCopyWith<$Res> {
       {int id,
       String name,
       bool isAnimationStudio,
-      MediaConnection media,
-      String siteUrl,
+      MediaConnection? media,
+      String? siteUrl,
       bool isFavourite,
-      int favourites});
+      int? favourites});
 
-  $MediaConnectionCopyWith<$Res> get media;
+  $MediaConnectionCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -96,11 +96,11 @@ class _$StudioCopyWithImpl<$Res> implements $StudioCopyWith<$Res> {
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
@@ -108,13 +108,17 @@ class _$StudioCopyWithImpl<$Res> implements $StudioCopyWith<$Res> {
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 
   @override
-  $MediaConnectionCopyWith<$Res> get media {
-    return $MediaConnectionCopyWith<$Res>(_value.media, (value) {
+  $MediaConnectionCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaConnectionCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
@@ -129,13 +133,13 @@ abstract class _$$_StudioCopyWith<$Res> implements $StudioCopyWith<$Res> {
       {int id,
       String name,
       bool isAnimationStudio,
-      MediaConnection media,
-      String siteUrl,
+      MediaConnection? media,
+      String? siteUrl,
       bool isFavourite,
-      int favourites});
+      int? favourites});
 
   @override
-  $MediaConnectionCopyWith<$Res> get media;
+  $MediaConnectionCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -173,11 +177,11 @@ class __$$_StudioCopyWithImpl<$Res> extends _$StudioCopyWithImpl<$Res>
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
@@ -185,7 +189,7 @@ class __$$_StudioCopyWithImpl<$Res> extends _$StudioCopyWithImpl<$Res>
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -219,11 +223,11 @@ class _$_Studio with DiagnosticableTreeMixin implements _Studio {
 
   /// The media the studio has worked on
   @override
-  final MediaConnection media;
+  final MediaConnection? media;
 
   /// The url for the studio page on the AniList website
   @override
-  final String siteUrl;
+  final String? siteUrl;
 
   /// If the studio is marked as favourite by the currently authenticated user
   @override
@@ -231,7 +235,7 @@ class _$_Studio with DiagnosticableTreeMixin implements _Studio {
 
   /// The amount of user's who have favourited the studio
   @override
-  final int favourites;
+  final int? favourites;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -299,10 +303,10 @@ abstract class _Studio implements Studio {
       {required final int id,
       required final String name,
       required final bool isAnimationStudio,
-      required final MediaConnection media,
-      required final String siteUrl,
+      required final MediaConnection? media,
+      required final String? siteUrl,
       required final bool isFavourite,
-      required final int favourites}) = _$_Studio;
+      required final int? favourites}) = _$_Studio;
 
   factory _Studio.fromJson(Map<String, dynamic> json) = _$_Studio.fromJson;
 
@@ -321,11 +325,11 @@ abstract class _Studio implements Studio {
   @override
 
   /// The media the studio has worked on
-  MediaConnection get media;
+  MediaConnection? get media;
   @override
 
   /// The url for the studio page on the AniList website
-  String get siteUrl;
+  String? get siteUrl;
   @override
 
   /// If the studio is marked as favourite by the currently authenticated user
@@ -333,7 +337,7 @@ abstract class _Studio implements Studio {
   @override
 
   /// The amount of user's who have favourited the studio
-  int get favourites;
+  int? get favourites;
   @override
   @JsonKey(ignore: true)
   _$$_StudioCopyWith<_$_Studio> get copyWith =>

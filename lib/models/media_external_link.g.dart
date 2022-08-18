@@ -12,12 +12,12 @@ _$_MediaExternalLink _$$_MediaExternalLinkFromJson(Map<String, dynamic> json) =>
       url: json['url'] as String,
       site: json['site'] as String,
       siteId: json['siteId'] as int,
-      type: $enumDecode(_$ExternalLinkTypeEnumMap, json['type']),
-      language: json['language'] as String,
-      color: json['color'] as String,
-      icon: json['icon'] as String,
-      notes: json['notes'] as String,
-      isDisabled: json['isDisabled'] as bool,
+      type: $enumDecodeNullable(_$ExternalLinkTypeEnumMap, json['type']),
+      language: json['language'] as String?,
+      color: json['color'] as String?,
+      icon: json['icon'] as String?,
+      notes: json['notes'] as String?,
+      isDisabled: json['isDisabled'] as bool?,
     );
 
 Map<String, dynamic> _$$_MediaExternalLinkToJson(
@@ -27,7 +27,7 @@ Map<String, dynamic> _$$_MediaExternalLinkToJson(
       'url': instance.url,
       'site': instance.site,
       'siteId': instance.siteId,
-      'type': _$ExternalLinkTypeEnumMap[instance.type]!,
+      'type': _$ExternalLinkTypeEnumMap[instance.type],
       'language': instance.language,
       'color': instance.color,
       'icon': instance.icon,

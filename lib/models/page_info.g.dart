@@ -7,10 +7,10 @@ part of 'page_info.dart';
 // **************************************************************************
 
 _$_PageInfo _$$_PageInfoFromJson(Map<String, dynamic> json) => _$_PageInfo(
-      total: json['total'] as int,
-      perPage: json['perPage'] as int,
-      currentPage: json['currentPage'] as int,
-      lastPage: json['lastPage'] as int,
+      total: json['total'] as int?,
+      perPage: json['perPage'] as int?,
+      currentPage: json['currentPage'] as int?,
+      lastPage: json['lastPage'] as int?,
       hasNextPage: json['hasNextPage'] as bool,
     );
 

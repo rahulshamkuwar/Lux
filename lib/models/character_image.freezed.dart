@@ -21,10 +21,10 @@ CharacterImage _$CharacterImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CharacterImage {
   /// The character's image of media at its largest size
-  String get large => throw _privateConstructorUsedError;
+  String? get large => throw _privateConstructorUsedError;
 
   /// The character's image of media at medium size
-  String get medium => throw _privateConstructorUsedError;
+  String? get medium => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $CharacterImageCopyWith<$Res> {
   factory $CharacterImageCopyWith(
           CharacterImage value, $Res Function(CharacterImage) then) =
       _$CharacterImageCopyWithImpl<$Res>;
-  $Res call({String large, String medium});
+  $Res call({String? large, String? medium});
 }
 
 /// @nodoc
@@ -58,11 +58,11 @@ class _$CharacterImageCopyWithImpl<$Res>
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$$_CharacterImageCopyWith<$Res>
           _$_CharacterImage value, $Res Function(_$_CharacterImage) then) =
       __$$_CharacterImageCopyWithImpl<$Res>;
   @override
-  $Res call({String large, String medium});
+  $Res call({String? large, String? medium});
 }
 
 /// @nodoc
@@ -97,11 +97,11 @@ class __$$_CharacterImageCopyWithImpl<$Res>
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -118,11 +118,11 @@ class _$_CharacterImage
 
   /// The character's image of media at its largest size
   @override
-  final String large;
+  final String? large;
 
   /// The character's image of media at medium size
   @override
-  final String medium;
+  final String? medium;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -169,8 +169,8 @@ class _$_CharacterImage
 
 abstract class _CharacterImage implements CharacterImage {
   const factory _CharacterImage(
-      {required final String large,
-      required final String medium}) = _$_CharacterImage;
+      {required final String? large,
+      required final String? medium}) = _$_CharacterImage;
 
   factory _CharacterImage.fromJson(Map<String, dynamic> json) =
       _$_CharacterImage.fromJson;
@@ -178,11 +178,11 @@ abstract class _CharacterImage implements CharacterImage {
   @override
 
   /// The character's image of media at its largest size
-  String get large;
+  String? get large;
   @override
 
   /// The character's image of media at medium size
-  String get medium;
+  String? get medium;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterImageCopyWith<_$_CharacterImage> get copyWith =>

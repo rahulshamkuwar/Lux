@@ -11,8 +11,8 @@ _$_ReviewConnection _$$_ReviewConnectionFromJson(Map<String, dynamic> json) =>
       edges: (json['edges'] as List<dynamic>)
           .map((e) => ReviewEdge.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nodes: (json['nodes'] as List<dynamic>)
-          .map((e) => Review.fromJson(e as Map<String, dynamic>))
+      nodes: (json['nodes'] as List<dynamic>?)
+          ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
           .toList(),
       pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );

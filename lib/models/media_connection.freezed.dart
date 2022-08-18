@@ -21,7 +21,7 @@ MediaConnection _$MediaConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MediaConnection {
   List<MediaEdge> get edges => throw _privateConstructorUsedError;
-  List<Media> get nodes => throw _privateConstructorUsedError;
+  List<Media>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $MediaConnectionCopyWith<$Res> {
   factory $MediaConnectionCopyWith(
           MediaConnection value, $Res Function(MediaConnection) then) =
       _$MediaConnectionCopyWithImpl<$Res>;
-  $Res call({List<MediaEdge> edges, List<Media> nodes, PageInfo pageInfo});
+  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -65,7 +65,7 @@ class _$MediaConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Media>,
+              as List<Media>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_MediaConnectionCopyWith<$Res>
           _$_MediaConnection value, $Res Function(_$_MediaConnection) then) =
       __$$_MediaConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<MediaEdge> edges, List<Media> nodes, PageInfo pageInfo});
+  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -119,7 +119,7 @@ class __$$_MediaConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Media>,
+              as List<Media>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$_MediaConnection
   @override
   final List<MediaEdge> edges;
   @override
-  final List<Media> nodes;
+  final List<Media>? nodes;
 
   /// The pagination information
   @override
@@ -197,7 +197,7 @@ class _$_MediaConnection
 abstract class _MediaConnection implements MediaConnection {
   const factory _MediaConnection(
       {required final List<MediaEdge> edges,
-      required final List<Media> nodes,
+      required final List<Media>? nodes,
       required final PageInfo pageInfo}) = _$_MediaConnection;
 
   factory _MediaConnection.fromJson(Map<String, dynamic> json) =
@@ -206,7 +206,7 @@ abstract class _MediaConnection implements MediaConnection {
   @override
   List<MediaEdge> get edges;
   @override
-  List<Media> get nodes;
+  List<Media>? get nodes;
   @override
 
   /// The pagination information

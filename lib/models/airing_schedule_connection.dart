@@ -12,7 +12,7 @@ part 'airing_schedule_connection.g.dart';
 class AiringScheduleConnection with _$AiringScheduleConnection {
   const factory AiringScheduleConnection({
     required List<AiringScheduleEdge> edges,
-    required List<AiringSchedule> nodes,
+    required List<AiringSchedule>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

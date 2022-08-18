@@ -24,28 +24,28 @@ mixin _$MediaTrend {
   int get mediaId => throw _privateConstructorUsedError;
 
   /// The day the data was recorded (timestamp)
-  int get date => throw _privateConstructorUsedError;
+  int? get date => throw _privateConstructorUsedError;
 
   /// The amount of media activity on the day
-  int get trending => throw _privateConstructorUsedError;
+  int? get trending => throw _privateConstructorUsedError;
 
   /// A weighted average score of all the user's scores of the media
-  int get averageScore => throw _privateConstructorUsedError;
+  int? get averageScore => throw _privateConstructorUsedError;
 
   /// The number of users with the media on their list
-  int get popularity => throw _privateConstructorUsedError;
+  int? get popularity => throw _privateConstructorUsedError;
 
   /// The number of users with watching/reading the media
-  int get inProgress => throw _privateConstructorUsedError;
+  int? get inProgress => throw _privateConstructorUsedError;
 
   /// If the media was being released at this time
-  bool get releasing => throw _privateConstructorUsedError;
+  bool? get releasing => throw _privateConstructorUsedError;
 
   /// The episode number of the anime released on this day
-  int get episode => throw _privateConstructorUsedError;
+  int? get episode => throw _privateConstructorUsedError;
 
   /// The related media
-  Media get media => throw _privateConstructorUsedError;
+  Media? get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,16 +60,16 @@ abstract class $MediaTrendCopyWith<$Res> {
       _$MediaTrendCopyWithImpl<$Res>;
   $Res call(
       {int mediaId,
-      int date,
-      int trending,
-      int averageScore,
-      int popularity,
-      int inProgress,
-      bool releasing,
-      int episode,
-      Media media});
+      int? date,
+      int? trending,
+      int? averageScore,
+      int? popularity,
+      int? inProgress,
+      bool? releasing,
+      int? episode,
+      Media? media});
 
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -100,41 +100,45 @@ class _$MediaTrendCopyWithImpl<$Res> implements $MediaTrendCopyWith<$Res> {
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       trending: trending == freezed
           ? _value.trending
           : trending // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       averageScore: averageScore == freezed
           ? _value.averageScore
           : averageScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       inProgress: inProgress == freezed
           ? _value.inProgress
           : inProgress // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       releasing: releasing == freezed
           ? _value.releasing
           : releasing // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       episode: episode == freezed
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 
   @override
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
+  $MediaCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
@@ -149,17 +153,17 @@ abstract class _$$_MediaTrendCopyWith<$Res>
   @override
   $Res call(
       {int mediaId,
-      int date,
-      int trending,
-      int averageScore,
-      int popularity,
-      int inProgress,
-      bool releasing,
-      int episode,
-      Media media});
+      int? date,
+      int? trending,
+      int? averageScore,
+      int? popularity,
+      int? inProgress,
+      bool? releasing,
+      int? episode,
+      Media? media});
 
   @override
-  $MediaCopyWith<$Res> get media;
+  $MediaCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -192,35 +196,35 @@ class __$$_MediaTrendCopyWithImpl<$Res> extends _$MediaTrendCopyWithImpl<$Res>
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       trending: trending == freezed
           ? _value.trending
           : trending // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       averageScore: averageScore == freezed
           ? _value.averageScore
           : averageScore // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       inProgress: inProgress == freezed
           ? _value.inProgress
           : inProgress // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       releasing: releasing == freezed
           ? _value.releasing
           : releasing // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       episode: episode == freezed
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as Media,
+              as Media?,
     ));
   }
 }
@@ -248,35 +252,35 @@ class _$_MediaTrend with DiagnosticableTreeMixin implements _MediaTrend {
 
   /// The day the data was recorded (timestamp)
   @override
-  final int date;
+  final int? date;
 
   /// The amount of media activity on the day
   @override
-  final int trending;
+  final int? trending;
 
   /// A weighted average score of all the user's scores of the media
   @override
-  final int averageScore;
+  final int? averageScore;
 
   /// The number of users with the media on their list
   @override
-  final int popularity;
+  final int? popularity;
 
   /// The number of users with watching/reading the media
   @override
-  final int inProgress;
+  final int? inProgress;
 
   /// If the media was being released at this time
   @override
-  final bool releasing;
+  final bool? releasing;
 
   /// The episode number of the anime released on this day
   @override
-  final int episode;
+  final int? episode;
 
   /// The related media
   @override
-  final Media media;
+  final Media? media;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -348,14 +352,14 @@ class _$_MediaTrend with DiagnosticableTreeMixin implements _MediaTrend {
 abstract class _MediaTrend implements MediaTrend {
   const factory _MediaTrend(
       {required final int mediaId,
-      required final int date,
-      required final int trending,
-      required final int averageScore,
-      required final int popularity,
-      required final int inProgress,
-      required final bool releasing,
-      required final int episode,
-      required final Media media}) = _$_MediaTrend;
+      required final int? date,
+      required final int? trending,
+      required final int? averageScore,
+      required final int? popularity,
+      required final int? inProgress,
+      required final bool? releasing,
+      required final int? episode,
+      required final Media? media}) = _$_MediaTrend;
 
   factory _MediaTrend.fromJson(Map<String, dynamic> json) =
       _$_MediaTrend.fromJson;
@@ -367,35 +371,35 @@ abstract class _MediaTrend implements MediaTrend {
   @override
 
   /// The day the data was recorded (timestamp)
-  int get date;
+  int? get date;
   @override
 
   /// The amount of media activity on the day
-  int get trending;
+  int? get trending;
   @override
 
   /// A weighted average score of all the user's scores of the media
-  int get averageScore;
+  int? get averageScore;
   @override
 
   /// The number of users with the media on their list
-  int get popularity;
+  int? get popularity;
   @override
 
   /// The number of users with watching/reading the media
-  int get inProgress;
+  int? get inProgress;
   @override
 
   /// If the media was being released at this time
-  bool get releasing;
+  bool? get releasing;
   @override
 
   /// The episode number of the anime released on this day
-  int get episode;
+  int? get episode;
   @override
 
   /// The related media
-  Media get media;
+  Media? get media;
   @override
   @JsonKey(ignore: true)
   _$$_MediaTrendCopyWith<_$_MediaTrend> get copyWith =>

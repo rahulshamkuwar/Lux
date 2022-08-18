@@ -30,37 +30,37 @@ mixin _$Character {
   CharacterImage get image => throw _privateConstructorUsedError;
 
   /// A general description of the character
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   /// The character's gender. Usually Male, Female, or Non-binary but can be any string.
-  String get gender => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
 
   /// The character's birth date
-  DateTime get dateOfBirth => throw _privateConstructorUsedError;
+  FuzzyDate? get dateOfBirth => throw _privateConstructorUsedError;
 
   /// The character's age. Note this is a string, not an int, it may contain further text and additional ages.
-  String get age => throw _privateConstructorUsedError;
+  String? get age => throw _privateConstructorUsedError;
 
   /// The characters blood type
   String? get bloodType => throw _privateConstructorUsedError;
 
   /// If the character is marked as favourite by the currently authenticated user
-  bool get isFavourite => throw _privateConstructorUsedError;
+  bool? get isFavourite => throw _privateConstructorUsedError;
 
   /// If the character is blocked from being added to favourites
-  bool get isFavouriteBlocked => throw _privateConstructorUsedError;
+  bool? get isFavouriteBlocked => throw _privateConstructorUsedError;
 
   /// The url for the character page on the AniList website
-  String get siteUrl => throw _privateConstructorUsedError;
+  String? get siteUrl => throw _privateConstructorUsedError;
 
   /// Media that includes the character
-  MediaConnection get media => throw _privateConstructorUsedError;
+  MediaConnection? get media => throw _privateConstructorUsedError;
 
   /// The amount of user's who have favourited the character
-  int get favourites => throw _privateConstructorUsedError;
+  int? get favourites => throw _privateConstructorUsedError;
 
   /// Notes for site moderators
-  String get modNotes => throw _privateConstructorUsedError;
+  String? get modNotes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -76,21 +76,22 @@ abstract class $CharacterCopyWith<$Res> {
       {int id,
       CharacterName name,
       CharacterImage image,
-      String description,
-      String gender,
-      DateTime dateOfBirth,
-      String age,
+      String? description,
+      String? gender,
+      FuzzyDate? dateOfBirth,
+      String? age,
       String? bloodType,
-      bool isFavourite,
-      bool isFavouriteBlocked,
-      String siteUrl,
-      MediaConnection media,
-      int favourites,
-      String modNotes});
+      bool? isFavourite,
+      bool? isFavouriteBlocked,
+      String? siteUrl,
+      MediaConnection? media,
+      int? favourites,
+      String? modNotes});
 
   $CharacterNameCopyWith<$Res> get name;
   $CharacterImageCopyWith<$Res> get image;
-  $MediaConnectionCopyWith<$Res> get media;
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth;
+  $MediaConnectionCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -134,19 +135,19 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bloodType: bloodType == freezed
           ? _value.bloodType
           : bloodType // ignore: cast_nullable_to_non_nullable
@@ -154,27 +155,27 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       modNotes: modNotes == freezed
           ? _value.modNotes
           : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -193,8 +194,23 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
   }
 
   @override
-  $MediaConnectionCopyWith<$Res> get media {
-    return $MediaConnectionCopyWith<$Res>(_value.media, (value) {
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth {
+    if (_value.dateOfBirth == null) {
+      return null;
+    }
+
+    return $FuzzyDateCopyWith<$Res>(_value.dateOfBirth!, (value) {
+      return _then(_value.copyWith(dateOfBirth: value));
+    });
+  }
+
+  @override
+  $MediaConnectionCopyWith<$Res>? get media {
+    if (_value.media == null) {
+      return null;
+    }
+
+    return $MediaConnectionCopyWith<$Res>(_value.media!, (value) {
       return _then(_value.copyWith(media: value));
     });
   }
@@ -210,24 +226,26 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       {int id,
       CharacterName name,
       CharacterImage image,
-      String description,
-      String gender,
-      DateTime dateOfBirth,
-      String age,
+      String? description,
+      String? gender,
+      FuzzyDate? dateOfBirth,
+      String? age,
       String? bloodType,
-      bool isFavourite,
-      bool isFavouriteBlocked,
-      String siteUrl,
-      MediaConnection media,
-      int favourites,
-      String modNotes});
+      bool? isFavourite,
+      bool? isFavouriteBlocked,
+      String? siteUrl,
+      MediaConnection? media,
+      int? favourites,
+      String? modNotes});
 
   @override
   $CharacterNameCopyWith<$Res> get name;
   @override
   $CharacterImageCopyWith<$Res> get image;
   @override
-  $MediaConnectionCopyWith<$Res> get media;
+  $FuzzyDateCopyWith<$Res>? get dateOfBirth;
+  @override
+  $MediaConnectionCopyWith<$Res>? get media;
 }
 
 /// @nodoc
@@ -273,19 +291,19 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FuzzyDate?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bloodType: bloodType == freezed
           ? _value.bloodType
           : bloodType // ignore: cast_nullable_to_non_nullable
@@ -293,27 +311,27 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isFavouriteBlocked: isFavouriteBlocked == freezed
           ? _value.isFavouriteBlocked
           : isFavouriteBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       siteUrl: siteUrl == freezed
           ? _value.siteUrl
           : siteUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as MediaConnection,
+              as MediaConnection?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       modNotes: modNotes == freezed
           ? _value.modNotes
           : modNotes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -354,19 +372,19 @@ class _$_Character with DiagnosticableTreeMixin implements _Character {
 
   /// A general description of the character
   @override
-  final String description;
+  final String? description;
 
   /// The character's gender. Usually Male, Female, or Non-binary but can be any string.
   @override
-  final String gender;
+  final String? gender;
 
   /// The character's birth date
   @override
-  final DateTime dateOfBirth;
+  final FuzzyDate? dateOfBirth;
 
   /// The character's age. Note this is a string, not an int, it may contain further text and additional ages.
   @override
-  final String age;
+  final String? age;
 
   /// The characters blood type
   @override
@@ -374,27 +392,27 @@ class _$_Character with DiagnosticableTreeMixin implements _Character {
 
   /// If the character is marked as favourite by the currently authenticated user
   @override
-  final bool isFavourite;
+  final bool? isFavourite;
 
   /// If the character is blocked from being added to favourites
   @override
-  final bool isFavouriteBlocked;
+  final bool? isFavouriteBlocked;
 
   /// The url for the character page on the AniList website
   @override
-  final String siteUrl;
+  final String? siteUrl;
 
   /// Media that includes the character
   @override
-  final MediaConnection media;
+  final MediaConnection? media;
 
   /// The amount of user's who have favourited the character
   @override
-  final int favourites;
+  final int? favourites;
 
   /// Notes for site moderators
   @override
-  final String modNotes;
+  final String? modNotes;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -485,17 +503,17 @@ abstract class _Character implements Character {
       {required final int id,
       required final CharacterName name,
       required final CharacterImage image,
-      required final String description,
-      required final String gender,
-      required final DateTime dateOfBirth,
-      required final String age,
+      required final String? description,
+      required final String? gender,
+      required final FuzzyDate? dateOfBirth,
+      required final String? age,
       required final String? bloodType,
-      required final bool isFavourite,
-      required final bool isFavouriteBlocked,
-      required final String siteUrl,
-      required final MediaConnection media,
-      required final int favourites,
-      required final String modNotes}) = _$_Character;
+      required final bool? isFavourite,
+      required final bool? isFavouriteBlocked,
+      required final String? siteUrl,
+      required final MediaConnection? media,
+      required final int? favourites,
+      required final String? modNotes}) = _$_Character;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$_Character.fromJson;
@@ -515,19 +533,19 @@ abstract class _Character implements Character {
   @override
 
   /// A general description of the character
-  String get description;
+  String? get description;
   @override
 
   /// The character's gender. Usually Male, Female, or Non-binary but can be any string.
-  String get gender;
+  String? get gender;
   @override
 
   /// The character's birth date
-  DateTime get dateOfBirth;
+  FuzzyDate? get dateOfBirth;
   @override
 
   /// The character's age. Note this is a string, not an int, it may contain further text and additional ages.
-  String get age;
+  String? get age;
   @override
 
   /// The characters blood type
@@ -535,27 +553,27 @@ abstract class _Character implements Character {
   @override
 
   /// If the character is marked as favourite by the currently authenticated user
-  bool get isFavourite;
+  bool? get isFavourite;
   @override
 
   /// If the character is blocked from being added to favourites
-  bool get isFavouriteBlocked;
+  bool? get isFavouriteBlocked;
   @override
 
   /// The url for the character page on the AniList website
-  String get siteUrl;
+  String? get siteUrl;
   @override
 
   /// Media that includes the character
-  MediaConnection get media;
+  MediaConnection? get media;
   @override
 
   /// The amount of user's who have favourited the character
-  int get favourites;
+  int? get favourites;
   @override
 
   /// Notes for site moderators
-  String get modNotes;
+  String? get modNotes;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterCopyWith<_$_Character> get copyWith =>

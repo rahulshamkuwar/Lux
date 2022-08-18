@@ -12,7 +12,7 @@ part 'review_connection.g.dart';
 class ReviewConnection with _$ReviewConnection {
   const factory ReviewConnection({
     required List<ReviewEdge> edges,
-    required List<Review> nodes,
+    required List<Review>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

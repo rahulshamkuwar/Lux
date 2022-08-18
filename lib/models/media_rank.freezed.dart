@@ -24,25 +24,25 @@ mixin _$MediaRank {
   int get id => throw _privateConstructorUsedError;
 
   /// The numerical rank of the media
-  int get rank => throw _privateConstructorUsedError;
+  int? get rank => throw _privateConstructorUsedError;
 
   /// The type of ranking
-  MediaRankType get type => throw _privateConstructorUsedError;
+  MediaRankType? get type => throw _privateConstructorUsedError;
 
   /// The format the media is ranked within
-  MediaFormat get format => throw _privateConstructorUsedError;
+  MediaFormat? get format => throw _privateConstructorUsedError;
 
   /// The year the media is ranked within
-  int get year => throw _privateConstructorUsedError;
+  int? get year => throw _privateConstructorUsedError;
 
   /// The season the media is ranked within
-  MediaSeason get season => throw _privateConstructorUsedError;
+  MediaSeason? get season => throw _privateConstructorUsedError;
 
   /// If the ranking is based on all time instead of a season/year
-  bool get allTime => throw _privateConstructorUsedError;
+  bool? get allTime => throw _privateConstructorUsedError;
 
   /// String that gives context to the ranking type and time span
-  String get context => throw _privateConstructorUsedError;
+  String? get context => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,13 +56,13 @@ abstract class $MediaRankCopyWith<$Res> {
       _$MediaRankCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      int rank,
-      MediaRankType type,
-      MediaFormat format,
-      int year,
-      MediaSeason season,
-      bool allTime,
-      String context});
+      int? rank,
+      MediaRankType? type,
+      MediaFormat? format,
+      int? year,
+      MediaSeason? season,
+      bool? allTime,
+      String? context});
 }
 
 /// @nodoc
@@ -92,31 +92,31 @@ class _$MediaRankCopyWithImpl<$Res> implements $MediaRankCopyWith<$Res> {
       rank: rank == freezed
           ? _value.rank
           : rank // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as MediaRankType,
+              as MediaRankType?,
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MediaFormat,
+              as MediaFormat?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       season: season == freezed
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as MediaSeason,
+              as MediaSeason?,
       allTime: allTime == freezed
           ? _value.allTime
           : allTime // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       context: context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -129,13 +129,13 @@ abstract class _$$_MediaRankCopyWith<$Res> implements $MediaRankCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      int rank,
-      MediaRankType type,
-      MediaFormat format,
-      int year,
-      MediaSeason season,
-      bool allTime,
-      String context});
+      int? rank,
+      MediaRankType? type,
+      MediaFormat? format,
+      int? year,
+      MediaSeason? season,
+      bool? allTime,
+      String? context});
 }
 
 /// @nodoc
@@ -167,31 +167,31 @@ class __$$_MediaRankCopyWithImpl<$Res> extends _$MediaRankCopyWithImpl<$Res>
       rank: rank == freezed
           ? _value.rank
           : rank // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as MediaRankType,
+              as MediaRankType?,
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MediaFormat,
+              as MediaFormat?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       season: season == freezed
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as MediaSeason,
+              as MediaSeason?,
       allTime: allTime == freezed
           ? _value.allTime
           : allTime // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       context: context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -218,31 +218,31 @@ class _$_MediaRank with DiagnosticableTreeMixin implements _MediaRank {
 
   /// The numerical rank of the media
   @override
-  final int rank;
+  final int? rank;
 
   /// The type of ranking
   @override
-  final MediaRankType type;
+  final MediaRankType? type;
 
   /// The format the media is ranked within
   @override
-  final MediaFormat format;
+  final MediaFormat? format;
 
   /// The year the media is ranked within
   @override
-  final int year;
+  final int? year;
 
   /// The season the media is ranked within
   @override
-  final MediaSeason season;
+  final MediaSeason? season;
 
   /// If the ranking is based on all time instead of a season/year
   @override
-  final bool allTime;
+  final bool? allTime;
 
   /// String that gives context to the ranking type and time span
   @override
-  final String context;
+  final String? context;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -308,13 +308,13 @@ class _$_MediaRank with DiagnosticableTreeMixin implements _MediaRank {
 abstract class _MediaRank implements MediaRank {
   const factory _MediaRank(
       {required final int id,
-      required final int rank,
-      required final MediaRankType type,
-      required final MediaFormat format,
-      required final int year,
-      required final MediaSeason season,
-      required final bool allTime,
-      required final String context}) = _$_MediaRank;
+      required final int? rank,
+      required final MediaRankType? type,
+      required final MediaFormat? format,
+      required final int? year,
+      required final MediaSeason? season,
+      required final bool? allTime,
+      required final String? context}) = _$_MediaRank;
 
   factory _MediaRank.fromJson(Map<String, dynamic> json) =
       _$_MediaRank.fromJson;
@@ -326,31 +326,31 @@ abstract class _MediaRank implements MediaRank {
   @override
 
   /// The numerical rank of the media
-  int get rank;
+  int? get rank;
   @override
 
   /// The type of ranking
-  MediaRankType get type;
+  MediaRankType? get type;
   @override
 
   /// The format the media is ranked within
-  MediaFormat get format;
+  MediaFormat? get format;
   @override
 
   /// The year the media is ranked within
-  int get year;
+  int? get year;
   @override
 
   /// The season the media is ranked within
-  MediaSeason get season;
+  MediaSeason? get season;
   @override
 
   /// If the ranking is based on all time instead of a season/year
-  bool get allTime;
+  bool? get allTime;
   @override
 
   /// String that gives context to the ranking type and time span
-  String get context;
+  String? get context;
   @override
   @JsonKey(ignore: true)
   _$$_MediaRankCopyWith<_$_MediaRank> get copyWith =>

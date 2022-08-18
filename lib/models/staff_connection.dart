@@ -12,7 +12,7 @@ part 'staff_connection.g.dart';
 class StaffConnection with _$StaffConnection {
   const factory StaffConnection({
     required List<StaffEdge> edges,
-    required List<Staff> nodes,
+    required List<Staff>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

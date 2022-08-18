@@ -21,7 +21,7 @@ ReviewConnection _$ReviewConnectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ReviewConnection {
   List<ReviewEdge> get edges => throw _privateConstructorUsedError;
-  List<Review> get nodes => throw _privateConstructorUsedError;
+  List<Review>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
   PageInfo get pageInfo => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $ReviewConnectionCopyWith<$Res> {
   factory $ReviewConnectionCopyWith(
           ReviewConnection value, $Res Function(ReviewConnection) then) =
       _$ReviewConnectionCopyWithImpl<$Res>;
-  $Res call({List<ReviewEdge> edges, List<Review> nodes, PageInfo pageInfo});
+  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo pageInfo});
 
   $PageInfoCopyWith<$Res> get pageInfo;
 }
@@ -65,7 +65,7 @@ class _$ReviewConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Review>,
+              as List<Review>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_ReviewConnectionCopyWith<$Res>
           _$_ReviewConnection value, $Res Function(_$_ReviewConnection) then) =
       __$$_ReviewConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<ReviewEdge> edges, List<Review> nodes, PageInfo pageInfo});
+  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo pageInfo});
 
   @override
   $PageInfoCopyWith<$Res> get pageInfo;
@@ -119,7 +119,7 @@ class __$$_ReviewConnectionCopyWithImpl<$Res>
       nodes: nodes == freezed
           ? _value.nodes
           : nodes // ignore: cast_nullable_to_non_nullable
-              as List<Review>,
+              as List<Review>?,
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$_ReviewConnection
   @override
   final List<ReviewEdge> edges;
   @override
-  final List<Review> nodes;
+  final List<Review>? nodes;
 
   /// The pagination information
   @override
@@ -197,7 +197,7 @@ class _$_ReviewConnection
 abstract class _ReviewConnection implements ReviewConnection {
   const factory _ReviewConnection(
       {required final List<ReviewEdge> edges,
-      required final List<Review> nodes,
+      required final List<Review>? nodes,
       required final PageInfo pageInfo}) = _$_ReviewConnection;
 
   factory _ReviewConnection.fromJson(Map<String, dynamic> json) =
@@ -206,7 +206,7 @@ abstract class _ReviewConnection implements ReviewConnection {
   @override
   List<ReviewEdge> get edges;
   @override
-  List<Review> get nodes;
+  List<Review>? get nodes;
   @override
 
   /// The pagination information

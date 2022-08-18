@@ -11,8 +11,8 @@ _$_MediaConnection _$$_MediaConnectionFromJson(Map<String, dynamic> json) =>
       edges: (json['edges'] as List<dynamic>)
           .map((e) => MediaEdge.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nodes: (json['nodes'] as List<dynamic>)
-          .map((e) => Media.fromJson(e as Map<String, dynamic>))
+      nodes: (json['nodes'] as List<dynamic>?)
+          ?.map((e) => Media.fromJson(e as Map<String, dynamic>))
           .toList(),
       pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );

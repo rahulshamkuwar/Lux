@@ -8,10 +8,10 @@ part 'character_image.g.dart';
 class CharacterImage with _$CharacterImage {
   const factory CharacterImage({
     /// The character's image of media at its largest size
-    required String large,
+    required String? large,
 
     /// The character's image of media at medium size
-    required String medium,
+    required String? medium,
   }) = _CharacterImage;
 
   factory CharacterImage.fromJson(Map<String, Object?> json) =>

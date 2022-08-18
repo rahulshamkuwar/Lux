@@ -21,16 +21,16 @@ class MediaExternalLink with _$MediaExternalLink {
 
     /// The links website site id
     required int siteId,
-    required ExternalLinkType type,
+    required ExternalLinkType? type,
 
     /// Language the site content is in. See Staff language field for values.
-    required String language,
-    required String color,
+    required String? language,
+    required String? color,
 
     /// The icon image url of the site. Not available for all links. Transparent PNG 64x64
-    required String icon,
-    required String notes,
-    required bool isDisabled,
+    required String? icon,
+    required String? notes,
+    required bool? isDisabled,
   }) = _MediaExternalLink;
 
   factory MediaExternalLink.fromJson(Map<String, Object?> json) =>

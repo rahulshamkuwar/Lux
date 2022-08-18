@@ -9,14 +9,16 @@ part of 'media_trend.dart';
 _$_MediaTrend _$$_MediaTrendFromJson(Map<String, dynamic> json) =>
     _$_MediaTrend(
       mediaId: json['mediaId'] as int,
-      date: json['date'] as int,
-      trending: json['trending'] as int,
-      averageScore: json['averageScore'] as int,
-      popularity: json['popularity'] as int,
-      inProgress: json['inProgress'] as int,
-      releasing: json['releasing'] as bool,
-      episode: json['episode'] as int,
-      media: Media.fromJson(json['media'] as Map<String, dynamic>),
+      date: json['date'] as int?,
+      trending: json['trending'] as int?,
+      averageScore: json['averageScore'] as int?,
+      popularity: json['popularity'] as int?,
+      inProgress: json['inProgress'] as int?,
+      releasing: json['releasing'] as bool?,
+      episode: json['episode'] as int?,
+      media: json['media'] == null
+          ? null
+          : Media.fromJson(json['media'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MediaTrendToJson(_$_MediaTrend instance) =>

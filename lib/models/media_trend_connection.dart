@@ -12,7 +12,7 @@ part 'media_trend_connection.g.dart';
 class MediaTrendConnection with _$MediaTrendConnection {
   const factory MediaTrendConnection({
     required List<MediaTrendEdge> edges,
-    required List<MediaTrend> nodes,
+    required List<MediaTrend>? nodes,
 
     /// The pagination information
     required PageInfo pageInfo,

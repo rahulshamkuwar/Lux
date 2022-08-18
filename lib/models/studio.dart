@@ -20,16 +20,16 @@ class Studio with _$Studio {
     required bool isAnimationStudio,
 
     /// The media the studio has worked on
-    required MediaConnection media,
+    required MediaConnection? media,
 
     /// The url for the studio page on the AniList website
-    required String siteUrl,
+    required String? siteUrl,
 
     /// If the studio is marked as favourite by the currently authenticated user
     required bool isFavourite,
 
     /// The amount of user's who have favourited the studio
-    required int favourites,
+    required int? favourites,
   }) = _Studio;
 
   factory Studio.fromJson(Map<String, Object?> json) => _$StudioFromJson(json);

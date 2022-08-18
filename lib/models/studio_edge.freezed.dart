@@ -29,7 +29,7 @@ mixin _$StudioEdge {
   bool get isMain => throw _privateConstructorUsedError;
 
   ///The order the character should be displayed from the users favourites
-  int get favouriteOrder => throw _privateConstructorUsedError;
+  int? get favouriteOrder => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $StudioEdgeCopyWith<$Res> {
   factory $StudioEdgeCopyWith(
           StudioEdge value, $Res Function(StudioEdge) then) =
       _$StudioEdgeCopyWithImpl<$Res>;
-  $Res call({Studio node, int id, bool isMain, int favouriteOrder});
+  $Res call({Studio node, int id, bool isMain, int? favouriteOrder});
 
   $StudioCopyWith<$Res> get node;
 }
@@ -78,7 +78,7 @@ class _$StudioEdgeCopyWithImpl<$Res> implements $StudioEdgeCopyWith<$Res> {
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 
@@ -97,7 +97,7 @@ abstract class _$$_StudioEdgeCopyWith<$Res>
           _$_StudioEdge value, $Res Function(_$_StudioEdge) then) =
       __$$_StudioEdgeCopyWithImpl<$Res>;
   @override
-  $Res call({Studio node, int id, bool isMain, int favouriteOrder});
+  $Res call({Studio node, int id, bool isMain, int? favouriteOrder});
 
   @override
   $StudioCopyWith<$Res> get node;
@@ -136,7 +136,7 @@ class __$$_StudioEdgeCopyWithImpl<$Res> extends _$StudioEdgeCopyWithImpl<$Res>
       favouriteOrder: favouriteOrder == freezed
           ? _value.favouriteOrder
           : favouriteOrder // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -166,7 +166,7 @@ class _$_StudioEdge with DiagnosticableTreeMixin implements _StudioEdge {
 
   ///The order the character should be displayed from the users favourites
   @override
-  final int favouriteOrder;
+  final int? favouriteOrder;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -223,7 +223,7 @@ abstract class _StudioEdge implements StudioEdge {
       {required final Studio node,
       required final int id,
       required final bool isMain,
-      required final int favouriteOrder}) = _$_StudioEdge;
+      required final int? favouriteOrder}) = _$_StudioEdge;
 
   factory _StudioEdge.fromJson(Map<String, dynamic> json) =
       _$_StudioEdge.fromJson;
@@ -241,7 +241,7 @@ abstract class _StudioEdge implements StudioEdge {
   @override
 
   ///The order the character should be displayed from the users favourites
-  int get favouriteOrder;
+  int? get favouriteOrder;
   @override
   @JsonKey(ignore: true)
   _$$_StudioEdgeCopyWith<_$_StudioEdge> get copyWith =>
