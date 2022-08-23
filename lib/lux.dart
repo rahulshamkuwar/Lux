@@ -13,23 +13,18 @@ class Lux extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "AniList App",
-      theme: ThemeData.light().copyWith(
-          colorScheme: ColorScheme.light(
-        primary: Colors.blueGrey[300]!,
-        secondary: Colors.blue[200]!,
-      )),
-      darkTheme: ThemeData.dark().copyWith(
+      theme: ThemeData.dark().copyWith(
         backgroundColor: Colors.blueGrey[900],
         colorScheme: const ColorScheme.dark(
           primary: Color.fromARGB(255, 29, 53, 87),
           secondary: Color.fromARGB(255, 69, 123, 157),
-          onPrimary: Color.fromARGB(255, 241, 250, 238),
-          onSecondary: Color.fromARGB(255, 241, 250, 238),
+          onPrimary: Color.fromARGB(255, 238, 238, 238),
+          onSecondary: Color.fromARGB(255, 238, 238, 238),
           background: Color.fromARGB(255, 9, 30, 59),
           brightness: Brightness.dark,
           error: Color.fromARGB(255, 255, 0, 21),
-          surface: Color.fromARGB(255, 32, 77, 139),
-          onSurface: Color.fromARGB(255, 252, 255, 224),
+          surface: Color.fromARGB(255, 38, 62, 95),
+          onSurface: Color.fromARGB(255, 238, 238, 238),
           tertiary: Color.fromARGB(255, 230, 57, 71),
         ),
         textTheme: GoogleFonts.quicksandTextTheme(),

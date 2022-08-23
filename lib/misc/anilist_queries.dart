@@ -316,6 +316,7 @@ class AniListQueries {
               }
               isFavourite
               isAdult
+              episodes
             }
           }
         }
