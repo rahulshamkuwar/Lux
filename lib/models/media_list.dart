@@ -23,7 +23,7 @@ class MediaList with _$MediaList {
     required int mediaId,
 
     /// The watching/reading status
-    required MediaListStatus status,
+    required MediaListStatus? status,
 
     /// The score of the entry
     required double score,

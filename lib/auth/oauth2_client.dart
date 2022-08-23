@@ -50,10 +50,9 @@ class OAuth2Client {
       final httpClient = await grant.handleAuthorizationResponse(queryParams);
       Either<AuthFailure, int> userID =
           await handleUserIDRequest(httpClient.credentials);
-      if (userID.isLeft()) {
-        return left(userID as AuthFailure);
-      }
-      await _credentialsStorage.save(httpClient.credentials, userID as int);
+      userID.fold((l) => left(l), (r) async {
+        await _credentialsStorage.save(httpClient.credentials, r);
+      });
       return right(unit);
     } on FormatException {
       return left(const AuthFailure.server());
@@ -92,7 +91,8 @@ class OAuth2Client {
         return left(const AuthFailure.server("Unable to process request"));
       }
     }
-    return jsonDecode(response.data)["data"]["Viewer"]["id"];
+    final int id = response.data["data"]["Viewer"]["id"];
+    return right(id);
   }
 
   Future<Either<AuthFailure, Unit>> signout() async {

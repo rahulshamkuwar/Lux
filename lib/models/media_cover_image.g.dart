@@ -11,7 +11,7 @@ _$_MediaCoverImage _$$_MediaCoverImageFromJson(Map<String, dynamic> json) =>
       extraLarge: json['extraLarge'] as String,
       large: json['large'] as String,
       medium: json['medium'] as String,
-      color: json['color'] as String,
+      color: json['color'] as String?,
     );
 
 Map<String, dynamic> _$$_MediaCoverImageToJson(_$_MediaCoverImage instance) =>

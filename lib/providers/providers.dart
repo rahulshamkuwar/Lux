@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lux/auth/auth_notifier.dart';
 import 'package:lux/auth/auth_state.dart';
 import 'package:lux/auth/oauth2_client.dart';
+import 'package:lux/utilities/anililst_requests.dart';
 import 'package:lux/utilities/secure_credentials_storage.dart';
 
 final flutterSecureStorage = Provider((ref) => const FlutterSecureStorage());
@@ -16,3 +17,9 @@ final oAuth2Provider = Provider(
 final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
   (ref) => AuthNotifier(ref.watch(oAuth2Provider)),
 );
+
+final aniListAPIProvider = FutureProvider<AniListAPI>((ref) async {
+  AniListAPI api = AniListAPI();
+  await api.init();
+  return api;
+});

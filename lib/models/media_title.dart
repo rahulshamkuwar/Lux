@@ -9,16 +9,16 @@ part 'media_title.g.dart';
 class MediaTitle with _$MediaTitle {
   const factory MediaTitle({
     /// The romanization of the native language title
-    required String romanji,
+    required String? romaji,
 
     /// The official english title
-    required String english,
+    required String? english,
 
     /// Official title in it's native language
-    required String native,
+    required String? native,
 
     /// The currently authenticated users preferred title language. Default romaji for non-authenticated
-    required String userPreferred,
+    required String? userPreferred,
   }) = _MediaTitle;
 
   factory MediaTitle.fromJson(Map<String, Object?> json) =>

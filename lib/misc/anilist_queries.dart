@@ -1,7 +1,7 @@
 class AniListQueries {
-  static const String animePage = """
+  static String animePage(int id) => """
     query {
-      Media(id: 9253, type: ANIME) {
+      Media(id: $id, type: ANIME) {
         id
         title {
           romaji
@@ -276,6 +276,47 @@ class AniListQueries {
           statusDistribution {
             status
             amount
+          }
+        }
+      }
+    }
+    """;
+
+  static String currentUserAnimeList(int userId) => """
+    query {
+      MediaListCollection(userId: $userId, type: ANIME) {
+        lists {
+          name
+          status
+          isCustomList
+          isSplitCompletedList
+          entries {
+            id
+            userId
+            mediaId
+            score
+            progress
+            repeat
+            notes
+            hiddenFromStatusLists
+            media {
+              id
+              title {
+                romaji
+                english
+                native
+                userPreferred
+              }
+              type
+              coverImage {
+                extraLarge
+                large
+                medium
+                color
+              }
+              isFavourite
+              isAdult
+            }
           }
         }
       }

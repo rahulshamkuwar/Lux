@@ -30,7 +30,7 @@ mixin _$MediaList {
   int get mediaId => throw _privateConstructorUsedError;
 
   /// The watching/reading status
-  MediaListStatus get status => throw _privateConstructorUsedError;
+  MediaListStatus? get status => throw _privateConstructorUsedError;
 
   /// The score of the entry
   double get score => throw _privateConstructorUsedError;
@@ -90,7 +90,7 @@ abstract class $MediaListCopyWith<$Res> {
       {int id,
       int userId,
       int mediaId,
-      MediaListStatus status,
+      MediaListStatus? status,
       double score,
       int? progress,
       int? progressVolumes,
@@ -161,7 +161,7 @@ class _$MediaListCopyWithImpl<$Res> implements $MediaListCopyWith<$Res> {
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MediaListStatus,
+              as MediaListStatus?,
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
@@ -284,7 +284,7 @@ abstract class _$$_MediaListCopyWith<$Res> implements $MediaListCopyWith<$Res> {
       {int id,
       int userId,
       int mediaId,
-      MediaListStatus status,
+      MediaListStatus? status,
       double score,
       int? progress,
       int? progressVolumes,
@@ -361,7 +361,7 @@ class __$$_MediaListCopyWithImpl<$Res> extends _$MediaListCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MediaListStatus,
+              as MediaListStatus?,
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
@@ -472,7 +472,7 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
 
   /// The watching/reading status
   @override
-  final MediaListStatus status;
+  final MediaListStatus? status;
 
   /// The score of the entry
   @override
@@ -642,7 +642,7 @@ abstract class _MediaList implements MediaList {
       {required final int id,
       required final int userId,
       required final int mediaId,
-      required final MediaListStatus status,
+      required final MediaListStatus? status,
       required final double score,
       required final int? progress,
       required final int? progressVolumes,
@@ -678,7 +678,7 @@ abstract class _MediaList implements MediaList {
   @override
 
   /// The watching/reading status
-  MediaListStatus get status;
+  MediaListStatus? get status;
   @override
 
   /// The score of the entry

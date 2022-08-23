@@ -21,16 +21,16 @@ MediaTitle _$MediaTitleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MediaTitle {
   /// The romanization of the native language title
-  String get romanji => throw _privateConstructorUsedError;
+  String? get romaji => throw _privateConstructorUsedError;
 
   /// The official english title
-  String get english => throw _privateConstructorUsedError;
+  String? get english => throw _privateConstructorUsedError;
 
   /// Official title in it's native language
-  String get native => throw _privateConstructorUsedError;
+  String? get native => throw _privateConstructorUsedError;
 
   /// The currently authenticated users preferred title language. Default romaji for non-authenticated
-  String get userPreferred => throw _privateConstructorUsedError;
+  String? get userPreferred => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $MediaTitleCopyWith<$Res> {
           MediaTitle value, $Res Function(MediaTitle) then) =
       _$MediaTitleCopyWithImpl<$Res>;
   $Res call(
-      {String romanji, String english, String native, String userPreferred});
+      {String? romaji, String? english, String? native, String? userPreferred});
 }
 
 /// @nodoc
@@ -57,28 +57,28 @@ class _$MediaTitleCopyWithImpl<$Res> implements $MediaTitleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? romanji = freezed,
+    Object? romaji = freezed,
     Object? english = freezed,
     Object? native = freezed,
     Object? userPreferred = freezed,
   }) {
     return _then(_value.copyWith(
-      romanji: romanji == freezed
-          ? _value.romanji
-          : romanji // ignore: cast_nullable_to_non_nullable
-              as String,
+      romaji: romaji == freezed
+          ? _value.romaji
+          : romaji // ignore: cast_nullable_to_non_nullable
+              as String?,
       english: english == freezed
           ? _value.english
           : english // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$_MediaTitleCopyWith<$Res>
       __$$_MediaTitleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String romanji, String english, String native, String userPreferred});
+      {String? romaji, String? english, String? native, String? userPreferred});
 }
 
 /// @nodoc
@@ -106,28 +106,28 @@ class __$$_MediaTitleCopyWithImpl<$Res> extends _$MediaTitleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? romanji = freezed,
+    Object? romaji = freezed,
     Object? english = freezed,
     Object? native = freezed,
     Object? userPreferred = freezed,
   }) {
     return _then(_$_MediaTitle(
-      romanji: romanji == freezed
-          ? _value.romanji
-          : romanji // ignore: cast_nullable_to_non_nullable
-              as String,
+      romaji: romaji == freezed
+          ? _value.romaji
+          : romaji // ignore: cast_nullable_to_non_nullable
+              as String?,
       english: english == freezed
           ? _value.english
           : english // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       native: native == freezed
           ? _value.native
           : native // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -136,7 +136,7 @@ class __$$_MediaTitleCopyWithImpl<$Res> extends _$MediaTitleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
   const _$_MediaTitle(
-      {required this.romanji,
+      {required this.romaji,
       required this.english,
       required this.native,
       required this.userPreferred});
@@ -146,23 +146,23 @@ class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
 
   /// The romanization of the native language title
   @override
-  final String romanji;
+  final String? romaji;
 
   /// The official english title
   @override
-  final String english;
+  final String? english;
 
   /// Official title in it's native language
   @override
-  final String native;
+  final String? native;
 
   /// The currently authenticated users preferred title language. Default romaji for non-authenticated
   @override
-  final String userPreferred;
+  final String? userPreferred;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MediaTitle(romanji: $romanji, english: $english, native: $native, userPreferred: $userPreferred)';
+    return 'MediaTitle(romaji: $romaji, english: $english, native: $native, userPreferred: $userPreferred)';
   }
 
   @override
@@ -170,7 +170,7 @@ class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'MediaTitle'))
-      ..add(DiagnosticsProperty('romanji', romanji))
+      ..add(DiagnosticsProperty('romaji', romaji))
       ..add(DiagnosticsProperty('english', english))
       ..add(DiagnosticsProperty('native', native))
       ..add(DiagnosticsProperty('userPreferred', userPreferred));
@@ -181,7 +181,7 @@ class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MediaTitle &&
-            const DeepCollectionEquality().equals(other.romanji, romanji) &&
+            const DeepCollectionEquality().equals(other.romaji, romaji) &&
             const DeepCollectionEquality().equals(other.english, english) &&
             const DeepCollectionEquality().equals(other.native, native) &&
             const DeepCollectionEquality()
@@ -192,7 +192,7 @@ class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(romanji),
+      const DeepCollectionEquality().hash(romaji),
       const DeepCollectionEquality().hash(english),
       const DeepCollectionEquality().hash(native),
       const DeepCollectionEquality().hash(userPreferred));
@@ -212,10 +212,10 @@ class _$_MediaTitle with DiagnosticableTreeMixin implements _MediaTitle {
 
 abstract class _MediaTitle implements MediaTitle {
   const factory _MediaTitle(
-      {required final String romanji,
-      required final String english,
-      required final String native,
-      required final String userPreferred}) = _$_MediaTitle;
+      {required final String? romaji,
+      required final String? english,
+      required final String? native,
+      required final String? userPreferred}) = _$_MediaTitle;
 
   factory _MediaTitle.fromJson(Map<String, dynamic> json) =
       _$_MediaTitle.fromJson;
@@ -223,19 +223,19 @@ abstract class _MediaTitle implements MediaTitle {
   @override
 
   /// The romanization of the native language title
-  String get romanji;
+  String? get romaji;
   @override
 
   /// The official english title
-  String get english;
+  String? get english;
   @override
 
   /// Official title in it's native language
-  String get native;
+  String? get native;
   @override
 
   /// The currently authenticated users preferred title language. Default romaji for non-authenticated
-  String get userPreferred;
+  String? get userPreferred;
   @override
   @JsonKey(ignore: true)
   _$$_MediaTitleCopyWith<_$_MediaTitle> get copyWith =>

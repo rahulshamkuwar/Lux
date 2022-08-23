@@ -30,7 +30,7 @@ mixin _$MediaCoverImage {
   String get medium => throw _privateConstructorUsedError;
 
   /// Average #hex color of cover image
-  String get color => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $MediaCoverImageCopyWith<$Res> {
   factory $MediaCoverImageCopyWith(
           MediaCoverImage value, $Res Function(MediaCoverImage) then) =
       _$MediaCoverImageCopyWithImpl<$Res>;
-  $Res call({String extraLarge, String large, String medium, String color});
+  $Res call({String extraLarge, String large, String medium, String? color});
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$MediaCoverImageCopyWithImpl<$Res>
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$_MediaCoverImageCopyWith<$Res>
           _$_MediaCoverImage value, $Res Function(_$_MediaCoverImage) then) =
       __$$_MediaCoverImageCopyWithImpl<$Res>;
   @override
-  $Res call({String extraLarge, String large, String medium, String color});
+  $Res call({String extraLarge, String large, String medium, String? color});
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$$_MediaCoverImageCopyWithImpl<$Res>
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -160,7 +160,7 @@ class _$_MediaCoverImage
 
   /// Average #hex color of cover image
   @override
-  final String color;
+  final String? color;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -217,7 +217,7 @@ abstract class _MediaCoverImage implements MediaCoverImage {
       {required final String extraLarge,
       required final String large,
       required final String medium,
-      required final String color}) = _$_MediaCoverImage;
+      required final String? color}) = _$_MediaCoverImage;
 
   factory _MediaCoverImage.fromJson(Map<String, dynamic> json) =
       _$_MediaCoverImage.fromJson;
@@ -237,7 +237,7 @@ abstract class _MediaCoverImage implements MediaCoverImage {
   @override
 
   /// Average #hex color of cover image
-  String get color;
+  String? get color;
   @override
   @JsonKey(ignore: true)
   _$$_MediaCoverImageCopyWith<_$_MediaCoverImage> get copyWith =>

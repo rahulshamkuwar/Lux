@@ -17,7 +17,7 @@ class MediaCoverImage with _$MediaCoverImage {
     required String medium,
 
     /// Average #hex color of cover image
-    required String color,
+    required String? color,
   }) = _MediaCoverImage;
 
   factory MediaCoverImage.fromJson(Map<String, Object?> json) =>
