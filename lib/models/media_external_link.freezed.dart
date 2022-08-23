@@ -30,7 +30,7 @@ mixin _$MediaExternalLink {
   String get site => throw _privateConstructorUsedError;
 
   /// The links website site id
-  int get siteId => throw _privateConstructorUsedError;
+  int? get siteId => throw _privateConstructorUsedError;
   ExternalLinkType? get type => throw _privateConstructorUsedError;
 
   /// Language the site content is in. See Staff language field for values.
@@ -57,7 +57,7 @@ abstract class $MediaExternalLinkCopyWith<$Res> {
       {int id,
       String url,
       String site,
-      int siteId,
+      int? siteId,
       ExternalLinkType? type,
       String? language,
       String? color,
@@ -104,7 +104,7 @@ class _$MediaExternalLinkCopyWithImpl<$Res>
       siteId: siteId == freezed
           ? _value.siteId
           : siteId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ abstract class _$$_MediaExternalLinkCopyWith<$Res>
       {int id,
       String url,
       String site,
-      int siteId,
+      int? siteId,
       ExternalLinkType? type,
       String? language,
       String? color,
@@ -193,7 +193,7 @@ class __$$_MediaExternalLinkCopyWithImpl<$Res>
       siteId: siteId == freezed
           ? _value.siteId
           : siteId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -256,7 +256,7 @@ class _$_MediaExternalLink
 
   /// The links website site id
   @override
-  final int siteId;
+  final int? siteId;
   @override
   final ExternalLinkType? type;
 
@@ -348,7 +348,7 @@ abstract class _MediaExternalLink implements MediaExternalLink {
       {required final int id,
       required final String url,
       required final String site,
-      required final int siteId,
+      required final int? siteId,
       required final ExternalLinkType? type,
       required final String? language,
       required final String? color,
@@ -374,7 +374,7 @@ abstract class _MediaExternalLink implements MediaExternalLink {
   @override
 
   /// The links website site id
-  int get siteId;
+  int? get siteId;
   @override
   ExternalLinkType? get type;
   @override

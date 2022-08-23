@@ -14,7 +14,9 @@ _$_MediaConnection _$$_MediaConnectionFromJson(Map<String, dynamic> json) =>
       nodes: (json['nodes'] as List<dynamic>?)
           ?.map((e) => Media.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
+      pageInfo: json['pageInfo'] == null
+          ? null
+          : PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MediaConnectionToJson(_$_MediaConnection instance) =>

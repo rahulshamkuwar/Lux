@@ -7,10 +7,10 @@ part 'status_distribution.g.dart';
 @freezed
 class StatusDistribution with _$StatusDistribution {
   const factory StatusDistribution({
-    required int score,
+    required int? score,
 
     /// The amount of list entries with this score
-    required int amount,
+    required int? amount,
   }) = _StatusDistribution;
 
   factory StatusDistribution.fromJson(Map<String, Object?> json) =>

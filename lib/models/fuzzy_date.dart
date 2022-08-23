@@ -6,9 +6,9 @@ part 'fuzzy_date.g.dart';
 @freezed
 class FuzzyDate with _$FuzzyDate {
   const factory FuzzyDate({
-    required int year,
-    required int month,
-    required int day,
+    required int? year,
+    required int? month,
+    required int? day,
   }) = _FuzzyDate;
 
   factory FuzzyDate.fromJson(Map<String, dynamic> json) =>

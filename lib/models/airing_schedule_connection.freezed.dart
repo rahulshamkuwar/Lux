@@ -25,7 +25,7 @@ mixin _$AiringScheduleConnection {
   List<AiringSchedule>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,9 +41,9 @@ abstract class $AiringScheduleConnectionCopyWith<$Res> {
   $Res call(
       {List<AiringScheduleEdge> edges,
       List<AiringSchedule>? nodes,
-      PageInfo pageInfo});
+      PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -73,13 +73,17 @@ class _$AiringScheduleConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -96,10 +100,10 @@ abstract class _$$_AiringScheduleConnectionCopyWith<$Res>
   $Res call(
       {List<AiringScheduleEdge> edges,
       List<AiringSchedule>? nodes,
-      PageInfo pageInfo});
+      PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -132,7 +136,7 @@ class __$$_AiringScheduleConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -155,7 +159,7 @@ class _$_AiringScheduleConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -208,7 +212,7 @@ abstract class _AiringScheduleConnection implements AiringScheduleConnection {
   const factory _AiringScheduleConnection(
       {required final List<AiringScheduleEdge> edges,
       required final List<AiringSchedule>? nodes,
-      required final PageInfo pageInfo}) = _$_AiringScheduleConnection;
+      required final PageInfo? pageInfo}) = _$_AiringScheduleConnection;
 
   factory _AiringScheduleConnection.fromJson(Map<String, dynamic> json) =
       _$_AiringScheduleConnection.fromJson;
@@ -220,7 +224,7 @@ abstract class _AiringScheduleConnection implements AiringScheduleConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_AiringScheduleConnectionCopyWith<_$_AiringScheduleConnection>

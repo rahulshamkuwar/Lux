@@ -1,4 +1,5 @@
 import 'package:lux/models/fuzzy_date.dart';
+import 'package:lux/models/staff_image.dart';
 import 'package:lux/models/user.dart';
 import 'package:lux/models/character_connection.dart';
 import 'package:lux/models/media_connection.dart';
@@ -24,7 +25,7 @@ class Staff with _$Staff {
     required String? languageV2,
 
     /// The staff images
-    required String image,
+    required StaffImage? image,
 
     /// A general description of the staff member
     required String? description,

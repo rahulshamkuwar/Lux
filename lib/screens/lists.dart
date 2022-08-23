@@ -5,6 +5,7 @@ import 'package:lux/auth/auth_failure.dart';
 import 'package:lux/models/media_list_collection.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
+import 'package:lux/screens/anime_page.dart';
 
 class Lists extends ConsumerStatefulWidget {
   const Lists({Key? key}) : super(key: key);
@@ -45,81 +46,91 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(3.0),
           ),
-          child: ListTile(
-            key: Key(entries[index].id.toString()),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-            dense: false,
-            isThreeLine: true,
-            title: Text(
-              entries[index].media?.title.userPreferred ?? "",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => AnimePage(id: entries[index].mediaId),
+              ));
+            },
+            child: ListTile(
+              key: Key(entries[index].id.toString()),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              dense: false,
+              isThreeLine: true,
+              title: Text(
+                entries[index].media?.title.userPreferred ?? "",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 2.0),
-                      child: Text(
-                        entries[index].score.toString(),
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fontSize:
-                              Theme.of(context).textTheme.subtitle1?.fontSize,
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 2.0),
+                        child: Text(
+                          entries[index].score.toString(),
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
+                            fontSize:
+                                Theme.of(context).textTheme.subtitle1?.fontSize,
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 2.0),
-                      child: Icon(
-                        entries[index].media!.isFavourite
-                            ? Icons.favorite_rounded
-                            : Icons.favorite_border_rounded,
-                      ),
-                    ),
-                  ],
-                ),
-                Flex(
-                  direction: Axis.horizontal,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.remove),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.all(2.0),
-                        child: LinearProgressIndicator(
-                          value: _progressValue(entries[index].progress,
-                              entries[index].media!.episodes),
-                          backgroundColor:
-                              Theme.of(context).colorScheme.onSurface,
-                          color: Theme.of(context).colorScheme.secondary,
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 2.0),
+                        child: Icon(
+                          entries[index].media!.isFavourite
+                              ? Icons.favorite_rounded
+                              : Icons.favorite_border_rounded,
                         ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                    ),
-                  ],
+                    ],
+                  ),
+                  Flex(
+                    direction: Axis.horizontal,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.remove),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(2.0),
+                          child: LinearProgressIndicator(
+                            value: _progressValue(entries[index].progress,
+                                entries[index].media!.episodes),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.onSurface,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.add),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              leading: Hero(
+                tag: entries[index].mediaId,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.network(
+                    entries[index].media!.coverImage.extraLarge,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ],
-            ),
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.network(
-                entries[index].media!.coverImage.extraLarge,
-                fit: BoxFit.fill,
               ),
             ),
           ),

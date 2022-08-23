@@ -10,7 +10,9 @@ _$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
       id: json['id'] as int,
       name: StaffName.fromJson(json['name'] as Map<String, dynamic>),
       languageV2: json['languageV2'] as String?,
-      image: json['image'] as String,
+      image: json['image'] == null
+          ? null
+          : StaffImage.fromJson(json['image'] as Map<String, dynamic>),
       description: json['description'] as String?,
       primaryOccupations: (json['primaryOccupations'] as List<dynamic>?)
           ?.map((e) => e as String)

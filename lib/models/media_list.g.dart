@@ -23,7 +23,7 @@ _$_MediaList _$$_MediaListFromJson(Map<String, dynamic> json) => _$_MediaList(
         (k, e) => MapEntry(k, e as bool),
       ),
       advancedScores: (json['advancedScores'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
+        (k, e) => MapEntry(k, e as int),
       ),
       startedAt: json['startedAt'] == null
           ? null

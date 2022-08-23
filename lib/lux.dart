@@ -14,7 +14,17 @@ class Lux extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "AniList App",
       theme: ThemeData.dark().copyWith(
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: const Color.fromARGB(255, 9, 30, 59),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 9, 30, 59),
+        appBarTheme: AppBarTheme(
+          backgroundColor: const Color.fromARGB(255, 29, 53, 87),
+          centerTitle: true,
+          titleTextStyle: GoogleFonts.quicksand().copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: Theme.of(context).textTheme.headline5?.fontSize,
+            color: const Color.fromARGB(255, 238, 238, 238),
+          ),
+        ),
         colorScheme: const ColorScheme.dark(
           primary: Color.fromARGB(255, 29, 53, 87),
           secondary: Color.fromARGB(255, 69, 123, 157),
@@ -67,17 +77,10 @@ class _LuxTabsState extends State<LuxTabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Lux",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
         ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(

@@ -14,7 +14,9 @@ _$_StaffConnection _$$_StaffConnectionFromJson(Map<String, dynamic> json) =>
       nodes: (json['nodes'] as List<dynamic>?)
           ?.map((e) => Staff.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
+      pageInfo: json['pageInfo'] == null
+          ? null
+          : PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_StaffConnectionToJson(_$_StaffConnection instance) =>

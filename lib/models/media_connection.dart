@@ -15,7 +15,7 @@ class MediaConnection with _$MediaConnection {
     required List<Media>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _MediaConnection;
 
   factory MediaConnection.fromJson(Map<String, Object?> json) =>

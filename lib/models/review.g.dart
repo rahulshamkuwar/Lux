@@ -9,7 +9,7 @@ part of 'review.dart';
 _$_Review _$$_ReviewFromJson(Map<String, dynamic> json) => _$_Review(
       id: json['id'] as int,
       userId: json['userId'] as int,
-      mediaId: json['mediaId'] as int,
+      mediaId: json['mediaId'] as int?,
       mediaType: $enumDecodeNullable(_$MediaTypeEnumMap, json['mediaType']),
       summary: json['summary'] as String?,
       body: json['body'] as String?,

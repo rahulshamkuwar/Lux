@@ -15,7 +15,7 @@ class RecommendationConnection with _$RecommendationConnection {
     required List<Recommendation>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _RecommendationConnection;
 
   factory RecommendationConnection.fromJson(Map<String, Object?> json) =>

@@ -27,7 +27,7 @@ mixin _$Review {
   int get userId => throw _privateConstructorUsedError;
 
   /// The id of the review's media
-  int get mediaId => throw _privateConstructorUsedError;
+  int? get mediaId => throw _privateConstructorUsedError;
 
   /// For which type of media the review is for
   MediaType? get mediaType => throw _privateConstructorUsedError;
@@ -80,7 +80,7 @@ abstract class $ReviewCopyWith<$Res> {
   $Res call(
       {int id,
       int userId,
-      int mediaId,
+      int? mediaId,
       MediaType? mediaType,
       String? summary,
       String? body,
@@ -138,7 +138,7 @@ class _$ReviewCopyWithImpl<$Res> implements $ReviewCopyWith<$Res> {
       mediaId: mediaId == freezed
           ? _value.mediaId
           : mediaId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       mediaType: mediaType == freezed
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -225,7 +225,7 @@ abstract class _$$_ReviewCopyWith<$Res> implements $ReviewCopyWith<$Res> {
   $Res call(
       {int id,
       int userId,
-      int mediaId,
+      int? mediaId,
       MediaType? mediaType,
       String? summary,
       String? body,
@@ -286,7 +286,7 @@ class __$$_ReviewCopyWithImpl<$Res> extends _$ReviewCopyWithImpl<$Res>
       mediaId: mediaId == freezed
           ? _value.mediaId
           : mediaId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       mediaType: mediaType == freezed
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -377,7 +377,7 @@ class _$_Review with DiagnosticableTreeMixin implements _Review {
 
   /// The id of the review's media
   @override
-  final int mediaId;
+  final int? mediaId;
 
   /// For which type of media the review is for
   @override
@@ -522,7 +522,7 @@ abstract class _Review implements Review {
   const factory _Review(
       {required final int id,
       required final int userId,
-      required final int mediaId,
+      required final int? mediaId,
       required final MediaType? mediaType,
       required final String? summary,
       required final String? body,
@@ -550,7 +550,7 @@ abstract class _Review implements Review {
   @override
 
   /// The id of the review's media
-  int get mediaId;
+  int? get mediaId;
   @override
 
   /// For which type of media the review is for

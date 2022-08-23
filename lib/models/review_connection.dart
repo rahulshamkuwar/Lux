@@ -15,7 +15,7 @@ class ReviewConnection with _$ReviewConnection {
     required List<Review>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _ReviewConnection;
 
   factory ReviewConnection.fromJson(Map<String, Object?> json) =>

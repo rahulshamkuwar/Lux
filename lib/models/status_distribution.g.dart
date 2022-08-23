@@ -9,8 +9,8 @@ part of 'status_distribution.dart';
 _$_StatusDistribution _$$_StatusDistributionFromJson(
         Map<String, dynamic> json) =>
     _$_StatusDistribution(
-      score: json['score'] as int,
-      amount: json['amount'] as int,
+      score: json['score'] as int?,
+      amount: json['amount'] as int?,
     );
 
 Map<String, dynamic> _$$_StatusDistributionToJson(

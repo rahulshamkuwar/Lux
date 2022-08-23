@@ -15,7 +15,7 @@ class AiringScheduleConnection with _$AiringScheduleConnection {
     required List<AiringSchedule>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _AiringScheduleConnection;
 
   factory AiringScheduleConnection.fromJson(Map<String, Object?> json) =>

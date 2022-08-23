@@ -20,9 +20,9 @@ FuzzyDate _$FuzzyDateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FuzzyDate {
-  int get year => throw _privateConstructorUsedError;
-  int get month => throw _privateConstructorUsedError;
-  int get day => throw _privateConstructorUsedError;
+  int? get year => throw _privateConstructorUsedError;
+  int? get month => throw _privateConstructorUsedError;
+  int? get day => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ mixin _$FuzzyDate {
 abstract class $FuzzyDateCopyWith<$Res> {
   factory $FuzzyDateCopyWith(FuzzyDate value, $Res Function(FuzzyDate) then) =
       _$FuzzyDateCopyWithImpl<$Res>;
-  $Res call({int year, int month, int day});
+  $Res call({int? year, int? month, int? day});
 }
 
 /// @nodoc
@@ -55,15 +55,15 @@ class _$FuzzyDateCopyWithImpl<$Res> implements $FuzzyDateCopyWith<$Res> {
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       month: month == freezed
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       day: day == freezed
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$$_FuzzyDateCopyWith<$Res> implements $FuzzyDateCopyWith<$Res> {
           _$_FuzzyDate value, $Res Function(_$_FuzzyDate) then) =
       __$$_FuzzyDateCopyWithImpl<$Res>;
   @override
-  $Res call({int year, int month, int day});
+  $Res call({int? year, int? month, int? day});
 }
 
 /// @nodoc
@@ -97,15 +97,15 @@ class __$$_FuzzyDateCopyWithImpl<$Res> extends _$FuzzyDateCopyWithImpl<$Res>
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       month: month == freezed
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       day: day == freezed
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -120,11 +120,11 @@ class _$_FuzzyDate implements _FuzzyDate {
       _$$_FuzzyDateFromJson(json);
 
   @override
-  final int year;
+  final int? year;
   @override
-  final int month;
+  final int? month;
   @override
-  final int day;
+  final int? day;
 
   @override
   String toString() {
@@ -164,19 +164,19 @@ class _$_FuzzyDate implements _FuzzyDate {
 
 abstract class _FuzzyDate implements FuzzyDate {
   const factory _FuzzyDate(
-      {required final int year,
-      required final int month,
-      required final int day}) = _$_FuzzyDate;
+      {required final int? year,
+      required final int? month,
+      required final int? day}) = _$_FuzzyDate;
 
   factory _FuzzyDate.fromJson(Map<String, dynamic> json) =
       _$_FuzzyDate.fromJson;
 
   @override
-  int get year;
+  int? get year;
   @override
-  int get month;
+  int? get month;
   @override
-  int get day;
+  int? get day;
   @override
   @JsonKey(ignore: true)
   _$$_FuzzyDateCopyWith<_$_FuzzyDate> get copyWith =>

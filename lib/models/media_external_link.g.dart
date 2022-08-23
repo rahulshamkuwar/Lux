@@ -11,7 +11,7 @@ _$_MediaExternalLink _$$_MediaExternalLinkFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       url: json['url'] as String,
       site: json['site'] as String,
-      siteId: json['siteId'] as int,
+      siteId: json['siteId'] as int?,
       type: $enumDecodeNullable(_$ExternalLinkTypeEnumMap, json['type']),
       language: json['language'] as String?,
       color: json['color'] as String?,

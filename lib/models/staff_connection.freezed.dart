@@ -24,7 +24,7 @@ mixin _$StaffConnection {
   List<Staff>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $StaffConnectionCopyWith<$Res> {
   factory $StaffConnectionCopyWith(
           StaffConnection value, $Res Function(StaffConnection) then) =
       _$StaffConnectionCopyWithImpl<$Res>;
-  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo pageInfo});
+  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -69,13 +69,17 @@ class _$StaffConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -88,10 +92,10 @@ abstract class _$$_StaffConnectionCopyWith<$Res>
           _$_StaffConnection value, $Res Function(_$_StaffConnection) then) =
       __$$_StaffConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo pageInfo});
+  $Res call({List<StaffEdge> edges, List<Staff>? nodes, PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -123,7 +127,7 @@ class __$$_StaffConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -146,7 +150,7 @@ class _$_StaffConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -198,7 +202,7 @@ abstract class _StaffConnection implements StaffConnection {
   const factory _StaffConnection(
       {required final List<StaffEdge> edges,
       required final List<Staff>? nodes,
-      required final PageInfo pageInfo}) = _$_StaffConnection;
+      required final PageInfo? pageInfo}) = _$_StaffConnection;
 
   factory _StaffConnection.fromJson(Map<String, dynamic> json) =
       _$_StaffConnection.fromJson;
@@ -210,7 +214,7 @@ abstract class _StaffConnection implements StaffConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_StaffConnectionCopyWith<_$_StaffConnection> get copyWith =>

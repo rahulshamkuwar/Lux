@@ -20,10 +20,10 @@ StatusDistribution _$StatusDistributionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StatusDistribution {
-  int get score => throw _privateConstructorUsedError;
+  int? get score => throw _privateConstructorUsedError;
 
   /// The amount of list entries with this score
-  int get amount => throw _privateConstructorUsedError;
+  int? get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $StatusDistributionCopyWith<$Res> {
   factory $StatusDistributionCopyWith(
           StatusDistribution value, $Res Function(StatusDistribution) then) =
       _$StatusDistributionCopyWithImpl<$Res>;
-  $Res call({int score, int amount});
+  $Res call({int? score, int? amount});
 }
 
 /// @nodoc
@@ -57,11 +57,11 @@ class _$StatusDistributionCopyWithImpl<$Res>
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_StatusDistributionCopyWith<$Res>
           $Res Function(_$_StatusDistribution) then) =
       __$$_StatusDistributionCopyWithImpl<$Res>;
   @override
-  $Res call({int score, int amount});
+  $Res call({int? score, int? amount});
 }
 
 /// @nodoc
@@ -96,11 +96,11 @@ class __$$_StatusDistributionCopyWithImpl<$Res>
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -116,11 +116,11 @@ class _$_StatusDistribution
       _$$_StatusDistributionFromJson(json);
 
   @override
-  final int score;
+  final int? score;
 
   /// The amount of list entries with this score
   @override
-  final int amount;
+  final int? amount;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -168,18 +168,18 @@ class _$_StatusDistribution
 
 abstract class _StatusDistribution implements StatusDistribution {
   const factory _StatusDistribution(
-      {required final int score,
-      required final int amount}) = _$_StatusDistribution;
+      {required final int? score,
+      required final int? amount}) = _$_StatusDistribution;
 
   factory _StatusDistribution.fromJson(Map<String, dynamic> json) =
       _$_StatusDistribution.fromJson;
 
   @override
-  int get score;
+  int? get score;
   @override
 
   /// The amount of list entries with this score
-  int get amount;
+  int? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_StatusDistributionCopyWith<_$_StatusDistribution> get copyWith =>

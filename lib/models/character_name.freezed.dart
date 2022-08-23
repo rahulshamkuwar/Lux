@@ -36,10 +36,10 @@ mixin _$CharacterName {
   String? get native => throw _privateConstructorUsedError;
 
   /// Other names the character might be referred to as
-  List<String?> get alternative => throw _privateConstructorUsedError;
+  List<String?>? get alternative => throw _privateConstructorUsedError;
 
   /// Other names the character might be referred to as but are spoilers
-  List<String?> get alternativeSpoiler => throw _privateConstructorUsedError;
+  List<String?>? get alternativeSpoiler => throw _privateConstructorUsedError;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
   String? get userPreferred => throw _privateConstructorUsedError;
@@ -61,8 +61,8 @@ abstract class $CharacterNameCopyWith<$Res> {
       String? last,
       String? full,
       String? native,
-      List<String?> alternative,
-      List<String?> alternativeSpoiler,
+      List<String?>? alternative,
+      List<String?>? alternativeSpoiler,
       String? userPreferred});
 }
 
@@ -110,11 +110,11 @@ class _$CharacterNameCopyWithImpl<$Res>
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String?>?,
       alternativeSpoiler: alternativeSpoiler == freezed
           ? _value.alternativeSpoiler
           : alternativeSpoiler // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String?>?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ abstract class _$$_CharacterNameCopyWith<$Res>
       String? last,
       String? full,
       String? native,
-      List<String?> alternative,
-      List<String?> alternativeSpoiler,
+      List<String?>? alternative,
+      List<String?>? alternativeSpoiler,
       String? userPreferred});
 }
 
@@ -187,11 +187,11 @@ class __$$_CharacterNameCopyWithImpl<$Res>
       alternative: alternative == freezed
           ? _value.alternative
           : alternative // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String?>?,
       alternativeSpoiler: alternativeSpoiler == freezed
           ? _value.alternativeSpoiler
           : alternativeSpoiler // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String?>?,
       userPreferred: userPreferred == freezed
           ? _value.userPreferred
           : userPreferred // ignore: cast_nullable_to_non_nullable
@@ -238,11 +238,11 @@ class _$_CharacterName with DiagnosticableTreeMixin implements _CharacterName {
 
   /// Other names the character might be referred to as
   @override
-  final List<String?> alternative;
+  final List<String?>? alternative;
 
   /// Other names the character might be referred to as but are spoilers
   @override
-  final List<String?> alternativeSpoiler;
+  final List<String?>? alternativeSpoiler;
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated
   @override
@@ -319,8 +319,8 @@ abstract class _CharacterName implements CharacterName {
       required final String? last,
       required final String? full,
       required final String? native,
-      required final List<String?> alternative,
-      required final List<String?> alternativeSpoiler,
+      required final List<String?>? alternative,
+      required final List<String?>? alternativeSpoiler,
       required final String? userPreferred}) = _$_CharacterName;
 
   factory _CharacterName.fromJson(Map<String, dynamic> json) =
@@ -349,11 +349,11 @@ abstract class _CharacterName implements CharacterName {
   @override
 
   /// Other names the character might be referred to as
-  List<String?> get alternative;
+  List<String?>? get alternative;
   @override
 
   /// Other names the character might be referred to as but are spoilers
-  List<String?> get alternativeSpoiler;
+  List<String?>? get alternativeSpoiler;
   @override
 
   /// The currently authenticated users preferred name language. Default romaji for non-authenticated

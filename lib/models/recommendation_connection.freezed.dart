@@ -25,7 +25,7 @@ mixin _$RecommendationConnection {
   List<Recommendation>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,9 +41,9 @@ abstract class $RecommendationConnectionCopyWith<$Res> {
   $Res call(
       {List<RecommendationEdge> edges,
       List<Recommendation>? nodes,
-      PageInfo pageInfo});
+      PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -73,13 +73,17 @@ class _$RecommendationConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -96,10 +100,10 @@ abstract class _$$_RecommendationConnectionCopyWith<$Res>
   $Res call(
       {List<RecommendationEdge> edges,
       List<Recommendation>? nodes,
-      PageInfo pageInfo});
+      PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -132,7 +136,7 @@ class __$$_RecommendationConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -155,7 +159,7 @@ class _$_RecommendationConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -208,7 +212,7 @@ abstract class _RecommendationConnection implements RecommendationConnection {
   const factory _RecommendationConnection(
       {required final List<RecommendationEdge> edges,
       required final List<Recommendation>? nodes,
-      required final PageInfo pageInfo}) = _$_RecommendationConnection;
+      required final PageInfo? pageInfo}) = _$_RecommendationConnection;
 
   factory _RecommendationConnection.fromJson(Map<String, dynamic> json) =
       _$_RecommendationConnection.fromJson;
@@ -220,7 +224,7 @@ abstract class _RecommendationConnection implements RecommendationConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_RecommendationConnectionCopyWith<_$_RecommendationConnection>

@@ -24,10 +24,10 @@ class CharacterName with _$CharacterName {
     required String? native,
 
     /// Other names the character might be referred to as
-    required List<String?> alternative,
+    required List<String?>? alternative,
 
     /// Other names the character might be referred to as but are spoilers
-    required List<String?> alternativeSpoiler,
+    required List<String?>? alternativeSpoiler,
 
     /// The currently authenticated users preferred name language. Default romaji for non-authenticated
     required String? userPreferred,

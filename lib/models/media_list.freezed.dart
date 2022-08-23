@@ -60,7 +60,7 @@ mixin _$MediaList {
   Map<String, bool>? get customLists => throw _privateConstructorUsedError;
 
   /// Map of advanced scores with name keys
-  Map<String, String>? get advancedScores => throw _privateConstructorUsedError;
+  Map<String, int>? get advancedScores => throw _privateConstructorUsedError;
 
   /// When the entry was started by the user
   FuzzyDate? get startedAt => throw _privateConstructorUsedError;
@@ -100,7 +100,7 @@ abstract class $MediaListCopyWith<$Res> {
       String? notes,
       bool? hiddenFromStatusLists,
       Map<String, bool>? customLists,
-      Map<String, String>? advancedScores,
+      Map<String, int>? advancedScores,
       FuzzyDate? startedAt,
       FuzzyDate? completedAt,
       int? updatedAt,
@@ -201,7 +201,7 @@ class _$MediaListCopyWithImpl<$Res> implements $MediaListCopyWith<$Res> {
       advancedScores: advancedScores == freezed
           ? _value.advancedScores
           : advancedScores // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
+              as Map<String, int>?,
       startedAt: startedAt == freezed
           ? _value.startedAt
           : startedAt // ignore: cast_nullable_to_non_nullable
@@ -294,7 +294,7 @@ abstract class _$$_MediaListCopyWith<$Res> implements $MediaListCopyWith<$Res> {
       String? notes,
       bool? hiddenFromStatusLists,
       Map<String, bool>? customLists,
-      Map<String, String>? advancedScores,
+      Map<String, int>? advancedScores,
       FuzzyDate? startedAt,
       FuzzyDate? completedAt,
       int? updatedAt,
@@ -401,7 +401,7 @@ class __$$_MediaListCopyWithImpl<$Res> extends _$MediaListCopyWithImpl<$Res>
       advancedScores: advancedScores == freezed
           ? _value.advancedScores
           : advancedScores // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
+              as Map<String, int>?,
       startedAt: startedAt == freezed
           ? _value.startedAt
           : startedAt // ignore: cast_nullable_to_non_nullable
@@ -512,7 +512,7 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
 
   /// Map of advanced scores with name keys
   @override
-  final Map<String, String>? advancedScores;
+  final Map<String, int>? advancedScores;
 
   /// When the entry was started by the user
   @override
@@ -652,7 +652,7 @@ abstract class _MediaList implements MediaList {
       required final String? notes,
       required final bool? hiddenFromStatusLists,
       required final Map<String, bool>? customLists,
-      required final Map<String, String>? advancedScores,
+      required final Map<String, int>? advancedScores,
       required final FuzzyDate? startedAt,
       required final FuzzyDate? completedAt,
       required final int? updatedAt,
@@ -718,7 +718,7 @@ abstract class _MediaList implements MediaList {
   @override
 
   /// Map of advanced scores with name keys
-  Map<String, String>? get advancedScores;
+  Map<String, int>? get advancedScores;
   @override
 
   /// When the entry was started by the user

@@ -19,7 +19,7 @@ class Review with _$Review {
     required int userId,
 
     /// The id of the review's media
-    required int mediaId,
+    required int? mediaId,
 
     /// For which type of media the review is for
     required MediaType? mediaType,

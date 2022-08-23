@@ -15,7 +15,7 @@ class StudioConnection with _$StudioConnection {
     required List<Studio>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _StudioConnection;
 
   factory StudioConnection.fromJson(Map<String, Object?> json) =>

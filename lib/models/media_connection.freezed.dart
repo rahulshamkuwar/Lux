@@ -24,7 +24,7 @@ mixin _$MediaConnection {
   List<Media>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $MediaConnectionCopyWith<$Res> {
   factory $MediaConnectionCopyWith(
           MediaConnection value, $Res Function(MediaConnection) then) =
       _$MediaConnectionCopyWithImpl<$Res>;
-  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo pageInfo});
+  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -69,13 +69,17 @@ class _$MediaConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -88,10 +92,10 @@ abstract class _$$_MediaConnectionCopyWith<$Res>
           _$_MediaConnection value, $Res Function(_$_MediaConnection) then) =
       __$$_MediaConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo pageInfo});
+  $Res call({List<MediaEdge> edges, List<Media>? nodes, PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -123,7 +127,7 @@ class __$$_MediaConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -146,7 +150,7 @@ class _$_MediaConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -198,7 +202,7 @@ abstract class _MediaConnection implements MediaConnection {
   const factory _MediaConnection(
       {required final List<MediaEdge> edges,
       required final List<Media>? nodes,
-      required final PageInfo pageInfo}) = _$_MediaConnection;
+      required final PageInfo? pageInfo}) = _$_MediaConnection;
 
   factory _MediaConnection.fromJson(Map<String, dynamic> json) =
       _$_MediaConnection.fromJson;
@@ -210,7 +214,7 @@ abstract class _MediaConnection implements MediaConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_MediaConnectionCopyWith<_$_MediaConnection> get copyWith =>

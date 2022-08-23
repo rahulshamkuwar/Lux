@@ -24,7 +24,7 @@ mixin _$MediaTrendConnection {
   List<MediaTrend>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,11 @@ abstract class $MediaTrendConnectionCopyWith<$Res> {
           $Res Function(MediaTrendConnection) then) =
       _$MediaTrendConnectionCopyWithImpl<$Res>;
   $Res call(
-      {List<MediaTrendEdge> edges, List<MediaTrend>? nodes, PageInfo pageInfo});
+      {List<MediaTrendEdge> edges,
+      List<MediaTrend>? nodes,
+      PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -70,13 +72,17 @@ class _$MediaTrendConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -90,10 +96,12 @@ abstract class _$$_MediaTrendConnectionCopyWith<$Res>
       __$$_MediaTrendConnectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<MediaTrendEdge> edges, List<MediaTrend>? nodes, PageInfo pageInfo});
+      {List<MediaTrendEdge> edges,
+      List<MediaTrend>? nodes,
+      PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -125,7 +133,7 @@ class __$$_MediaTrendConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -148,7 +156,7 @@ class _$_MediaTrendConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -201,7 +209,7 @@ abstract class _MediaTrendConnection implements MediaTrendConnection {
   const factory _MediaTrendConnection(
       {required final List<MediaTrendEdge> edges,
       required final List<MediaTrend>? nodes,
-      required final PageInfo pageInfo}) = _$_MediaTrendConnection;
+      required final PageInfo? pageInfo}) = _$_MediaTrendConnection;
 
   factory _MediaTrendConnection.fromJson(Map<String, dynamic> json) =
       _$_MediaTrendConnection.fromJson;
@@ -213,7 +221,7 @@ abstract class _MediaTrendConnection implements MediaTrendConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_MediaTrendConnectionCopyWith<_$_MediaTrendConnection> get copyWith =>

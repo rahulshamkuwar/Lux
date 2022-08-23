@@ -15,7 +15,7 @@ class StaffConnection with _$StaffConnection {
     required List<Staff>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _StaffConnection;
 
   factory StaffConnection.fromJson(Map<String, Object?> json) =>

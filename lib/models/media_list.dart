@@ -53,7 +53,7 @@ class MediaList with _$MediaList {
     required Map<String, bool>? customLists,
 
     /// Map of advanced scores with name keys
-    required Map<String, String>? advancedScores,
+    required Map<String, int>? advancedScores,
 
     /// When the entry was started by the user
     required FuzzyDate? startedAt,

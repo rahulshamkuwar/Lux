@@ -15,7 +15,7 @@ class MediaTrendConnection with _$MediaTrendConnection {
     required List<MediaTrend>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _MediaTrendConnection;
 
   factory MediaTrendConnection.fromJson(Map<String, Object?> json) =>

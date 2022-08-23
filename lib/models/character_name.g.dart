@@ -13,11 +13,11 @@ _$_CharacterName _$$_CharacterNameFromJson(Map<String, dynamic> json) =>
       last: json['last'] as String?,
       full: json['full'] as String?,
       native: json['native'] as String?,
-      alternative: (json['alternative'] as List<dynamic>)
-          .map((e) => e as String?)
+      alternative: (json['alternative'] as List<dynamic>?)
+          ?.map((e) => e as String?)
           .toList(),
-      alternativeSpoiler: (json['alternativeSpoiler'] as List<dynamic>)
-          .map((e) => e as String?)
+      alternativeSpoiler: (json['alternativeSpoiler'] as List<dynamic>?)
+          ?.map((e) => e as String?)
           .toList(),
       userPreferred: json['userPreferred'] as String?,
     );

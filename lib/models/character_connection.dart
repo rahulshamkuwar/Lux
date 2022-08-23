@@ -15,7 +15,7 @@ class CharacterConnection with _$CharacterConnection {
     required List<Character>? nodes,
 
     /// The pagination information
-    required PageInfo pageInfo,
+    required PageInfo? pageInfo,
   }) = _CharacterConnection;
 
   factory CharacterConnection.fromJson(Map<String, Object?> json) =>

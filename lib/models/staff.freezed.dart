@@ -30,7 +30,7 @@ mixin _$Staff {
   String? get languageV2 => throw _privateConstructorUsedError;
 
   /// The staff images
-  String get image => throw _privateConstructorUsedError;
+  StaffImage? get image => throw _privateConstructorUsedError;
 
   /// A general description of the staff member
   String? get description => throw _privateConstructorUsedError;
@@ -104,7 +104,7 @@ abstract class $StaffCopyWith<$Res> {
       {int id,
       StaffName name,
       String? languageV2,
-      String image,
+      StaffImage? image,
       String? description,
       List<String>? primaryOccupations,
       String? gender,
@@ -128,6 +128,7 @@ abstract class $StaffCopyWith<$Res> {
       String? modNotes});
 
   $StaffNameCopyWith<$Res> get name;
+  $StaffImageCopyWith<$Res>? get image;
   $FuzzyDateCopyWith<$Res>? get dateOfBirth;
   $FuzzyDateCopyWith<$Res>? get dateOfDeath;
   $MediaConnectionCopyWith<$Res>? get staffMedia;
@@ -189,7 +190,7 @@ class _$StaffCopyWithImpl<$Res> implements $StaffCopyWith<$Res> {
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StaffImage?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -285,6 +286,17 @@ class _$StaffCopyWithImpl<$Res> implements $StaffCopyWith<$Res> {
   }
 
   @override
+  $StaffImageCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $StaffImageCopyWith<$Res>(_value.image!, (value) {
+      return _then(_value.copyWith(image: value));
+    });
+  }
+
+  @override
   $FuzzyDateCopyWith<$Res>? get dateOfBirth {
     if (_value.dateOfBirth == null) {
       return null;
@@ -371,7 +383,7 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
       {int id,
       StaffName name,
       String? languageV2,
-      String image,
+      StaffImage? image,
       String? description,
       List<String>? primaryOccupations,
       String? gender,
@@ -396,6 +408,8 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
 
   @override
   $StaffNameCopyWith<$Res> get name;
+  @override
+  $StaffImageCopyWith<$Res>? get image;
   @override
   $FuzzyDateCopyWith<$Res>? get dateOfBirth;
   @override
@@ -465,7 +479,7 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res>
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StaffImage?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -601,7 +615,7 @@ class _$_Staff with DiagnosticableTreeMixin implements _Staff {
 
   /// The staff images
   @override
-  final String image;
+  final StaffImage? image;
 
   /// A general description of the staff member
   @override
@@ -815,7 +829,7 @@ abstract class _Staff implements Staff {
       {required final int id,
       required final StaffName name,
       required final String? languageV2,
-      required final String image,
+      required final StaffImage? image,
       required final String? description,
       required final List<String>? primaryOccupations,
       required final String? gender,
@@ -855,7 +869,7 @@ abstract class _Staff implements Staff {
   @override
 
   /// The staff images
-  String get image;
+  StaffImage? get image;
   @override
 
   /// A general description of the staff member

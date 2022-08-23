@@ -24,7 +24,7 @@ mixin _$CharacterConnection {
   List<Character>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,9 @@ abstract class $CharacterConnectionCopyWith<$Res> {
           CharacterConnection value, $Res Function(CharacterConnection) then) =
       _$CharacterConnectionCopyWithImpl<$Res>;
   $Res call(
-      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo pageInfo});
+      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -70,13 +70,17 @@ class _$CharacterConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -90,10 +94,10 @@ abstract class _$$_CharacterConnectionCopyWith<$Res>
       __$$_CharacterConnectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo pageInfo});
+      {List<CharacterEdge> edges, List<Character>? nodes, PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -125,7 +129,7 @@ class __$$_CharacterConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -148,7 +152,7 @@ class _$_CharacterConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -201,7 +205,7 @@ abstract class _CharacterConnection implements CharacterConnection {
   const factory _CharacterConnection(
       {required final List<CharacterEdge> edges,
       required final List<Character>? nodes,
-      required final PageInfo pageInfo}) = _$_CharacterConnection;
+      required final PageInfo? pageInfo}) = _$_CharacterConnection;
 
   factory _CharacterConnection.fromJson(Map<String, dynamic> json) =
       _$_CharacterConnection.fromJson;
@@ -213,7 +217,7 @@ abstract class _CharacterConnection implements CharacterConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterConnectionCopyWith<_$_CharacterConnection> get copyWith =>

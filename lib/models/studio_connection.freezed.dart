@@ -24,7 +24,7 @@ mixin _$StudioConnection {
   List<Studio>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $StudioConnectionCopyWith<$Res> {
   factory $StudioConnectionCopyWith(
           StudioConnection value, $Res Function(StudioConnection) then) =
       _$StudioConnectionCopyWithImpl<$Res>;
-  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo pageInfo});
+  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -69,13 +69,17 @@ class _$StudioConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -88,10 +92,10 @@ abstract class _$$_StudioConnectionCopyWith<$Res>
           _$_StudioConnection value, $Res Function(_$_StudioConnection) then) =
       __$$_StudioConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo pageInfo});
+  $Res call({List<StudioEdge> edges, List<Studio>? nodes, PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -123,7 +127,7 @@ class __$$_StudioConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -146,7 +150,7 @@ class _$_StudioConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -198,7 +202,7 @@ abstract class _StudioConnection implements StudioConnection {
   const factory _StudioConnection(
       {required final List<StudioEdge> edges,
       required final List<Studio>? nodes,
-      required final PageInfo pageInfo}) = _$_StudioConnection;
+      required final PageInfo? pageInfo}) = _$_StudioConnection;
 
   factory _StudioConnection.fromJson(Map<String, dynamic> json) =
       _$_StudioConnection.fromJson;
@@ -210,7 +214,7 @@ abstract class _StudioConnection implements StudioConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_StudioConnectionCopyWith<_$_StudioConnection> get copyWith =>

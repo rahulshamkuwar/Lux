@@ -20,7 +20,7 @@ class MediaExternalLink with _$MediaExternalLink {
     required String site,
 
     /// The links website site id
-    required int siteId,
+    required int? siteId,
     required ExternalLinkType? type,
 
     /// Language the site content is in. See Staff language field for values.

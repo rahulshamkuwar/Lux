@@ -24,7 +24,7 @@ mixin _$ReviewConnection {
   List<Review>? get nodes => throw _privateConstructorUsedError;
 
   /// The pagination information
-  PageInfo get pageInfo => throw _privateConstructorUsedError;
+  PageInfo? get pageInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $ReviewConnectionCopyWith<$Res> {
   factory $ReviewConnectionCopyWith(
           ReviewConnection value, $Res Function(ReviewConnection) then) =
       _$ReviewConnectionCopyWithImpl<$Res>;
-  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo pageInfo});
+  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo? pageInfo});
 
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -69,13 +69,17 @@ class _$ReviewConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo {
-    return $PageInfoCopyWith<$Res>(_value.pageInfo, (value) {
+  $PageInfoCopyWith<$Res>? get pageInfo {
+    if (_value.pageInfo == null) {
+      return null;
+    }
+
+    return $PageInfoCopyWith<$Res>(_value.pageInfo!, (value) {
       return _then(_value.copyWith(pageInfo: value));
     });
   }
@@ -88,10 +92,10 @@ abstract class _$$_ReviewConnectionCopyWith<$Res>
           _$_ReviewConnection value, $Res Function(_$_ReviewConnection) then) =
       __$$_ReviewConnectionCopyWithImpl<$Res>;
   @override
-  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo pageInfo});
+  $Res call({List<ReviewEdge> edges, List<Review>? nodes, PageInfo? pageInfo});
 
   @override
-  $PageInfoCopyWith<$Res> get pageInfo;
+  $PageInfoCopyWith<$Res>? get pageInfo;
 }
 
 /// @nodoc
@@ -123,7 +127,7 @@ class __$$_ReviewConnectionCopyWithImpl<$Res>
       pageInfo: pageInfo == freezed
           ? _value.pageInfo
           : pageInfo // ignore: cast_nullable_to_non_nullable
-              as PageInfo,
+              as PageInfo?,
     ));
   }
 }
@@ -146,7 +150,7 @@ class _$_ReviewConnection
 
   /// The pagination information
   @override
-  final PageInfo pageInfo;
+  final PageInfo? pageInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -198,7 +202,7 @@ abstract class _ReviewConnection implements ReviewConnection {
   const factory _ReviewConnection(
       {required final List<ReviewEdge> edges,
       required final List<Review>? nodes,
-      required final PageInfo pageInfo}) = _$_ReviewConnection;
+      required final PageInfo? pageInfo}) = _$_ReviewConnection;
 
   factory _ReviewConnection.fromJson(Map<String, dynamic> json) =
       _$_ReviewConnection.fromJson;
@@ -210,7 +214,7 @@ abstract class _ReviewConnection implements ReviewConnection {
   @override
 
   /// The pagination information
-  PageInfo get pageInfo;
+  PageInfo? get pageInfo;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewConnectionCopyWith<_$_ReviewConnection> get copyWith =>

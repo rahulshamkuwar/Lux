@@ -15,7 +15,9 @@ _$_AiringScheduleConnection _$$_AiringScheduleConnectionFromJson(
       nodes: (json['nodes'] as List<dynamic>?)
           ?.map((e) => AiringSchedule.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pageInfo: PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
+      pageInfo: json['pageInfo'] == null
+          ? null
+          : PageInfo.fromJson(json['pageInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AiringScheduleConnectionToJson(
