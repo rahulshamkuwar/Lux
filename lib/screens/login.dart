@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lux/providers/providers.dart';
@@ -45,7 +46,7 @@ class Login extends ConsumerWidget {
                       .watch(authNotifierProvider.notifier)
                       .signIn((authorizationUrl) {
                     final completer = Completer<Uri>();
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).push(CupertinoPageRoute(
                       builder: (context) => AuthorizationPage(
                         authorizationUrl: authorizationUrl,
                         onAuthorizataionCodeRedirectAttempt: (redirectUrl) {

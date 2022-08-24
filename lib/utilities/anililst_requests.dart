@@ -26,7 +26,7 @@ class AniListAPI {
     dir = await getTemporaryDirectory();
     _cacheOptions = CacheOptions(
       store: HiveCacheStore(dir.path),
-      policy: CachePolicy.forceCache,
+      policy: CachePolicy.request,
       hitCacheOnErrorExcept: [401, 403],
       priority: CachePriority.normal,
       allowPostMethod: true,
@@ -38,7 +38,8 @@ class AniListAPI {
     final Credentials? credentials = await _storage.getCredentials();
     final int? userID = await _storage.getUserID();
     final CacheOptions cacheKey = _cacheOptions.copyWith(
-      keyBuilder: (request) => "fetchUserLists",
+      keyBuilder: (request) =>
+          "fetchUserLists-${credentials.toString()}-$userID",
     );
     _dio.interceptors.clear();
     _dio.interceptors.add(DioCacheInterceptor(options: cacheKey));
@@ -77,7 +78,7 @@ class AniListAPI {
   Future<Either<AuthFailure, Media>> fetchAnime(int id) async {
     final Credentials? credentials = await _storage.getCredentials();
     final CacheOptions cacheKey = _cacheOptions.copyWith(
-      keyBuilder: (request) => "fetchAnime",
+      keyBuilder: (request) => "fetchAnime-$id",
     );
     _dio.interceptors.clear();
     _dio.interceptors.add(DioCacheInterceptor(options: cacheKey));
