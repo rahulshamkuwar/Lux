@@ -13,6 +13,7 @@ import "package:lux/misc/capitalize.dart";
 import 'package:lux/widgets/anime_page/anime_character_item.dart';
 import 'package:lux/widgets/anime_page/anime_external_links_item.dart';
 import 'package:lux/widgets/anime_page/anime_relation_item.dart';
+import 'package:lux/widgets/anime_page/anime_review_item.dart';
 import 'package:lux/widgets/anime_page/anime_staff_item.dart';
 import 'package:lux/widgets/anime_page/anime_stream_episode_item.dart';
 
@@ -209,31 +210,33 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         const SizedBox(
           height: 5,
         ),
-        Row(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 8.0,
-              ),
-              child: Text(
-                "Episodes",
-                style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withAlpha(150),
-                      fontWeight: FontWeight.bold,
+        r.episodes != null
+            ? Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 8.0,
                     ),
-              ),
-            ),
-            Text(
-              r.episodes.toString(),
-              style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    child: Text(
+                      "Episodes",
+                      style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withAlpha(150),
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
                   ),
-            ),
-          ],
-        ),
+                  Text(
+                    r.episodes.toString(),
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
+                  ),
+                ],
+              )
+            : const SizedBox.shrink(),
         const SizedBox(
           height: 5,
         ),
@@ -255,7 +258,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               ),
             ),
             Text(
-              "${r.season.toString().split(".").last.capitalize()} ${r.startDate!.year} (${r.status.toString().split(".").last.capitalize()})",
+              _year(r),
               style: Theme.of(context).textTheme.subtitle2?.copyWith(
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
@@ -298,31 +301,33 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         const SizedBox(
           height: 5,
         ),
-        Row(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 8.0,
-              ),
-              child: Text(
-                "Duration",
-                style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withAlpha(150),
-                      fontWeight: FontWeight.bold,
+        r.duration != null
+            ? Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 8.0,
                     ),
-              ),
-            ),
-            Text(
-              r.duration.toString(),
-              style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    child: Text(
+                      "Duration",
+                      style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withAlpha(150),
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
                   ),
-            ),
-          ],
-        ),
+                  Text(
+                    r.duration.toString(),
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
+                  ),
+                ],
+              )
+            : const SizedBox.shrink(),
         const SizedBox(
           height: 5,
         ),
@@ -395,6 +400,17 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         ),
       ],
     );
+  }
+
+  String _year(Media r) {
+    String season = r.season != null
+        ? r.season.toString().split(".").last.capitalize()
+        : "";
+    String year = r.startDate!.year != null ? r.startDate!.year.toString() : "";
+    String status = r.status != null
+        ? r.status.toString().split(".").last.replaceAll("_", " ").capitalize()
+        : "";
+    return "$season $year ($status)";
   }
 
   String _nextEpisodeDate(Media r, DateTime date) {
@@ -628,6 +644,47 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     );
   }
 
+  Widget _reviews(Media anime) {
+    if (anime.reviews == null || anime.reviews!.edges.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Reviews",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.reviews!.edges.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeReviewItem(
+                review: anime.reviews!.edges[index].node,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final api = ref.watch(aniListAPIProvider.future);
@@ -712,6 +769,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                         _characters(r),
                                         _staff(r),
                                         _episodeList(r),
+                                        _reviews(r),
                                       ],
                                     ),
                                   ),

@@ -56,7 +56,6 @@ class AnimeRelationItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     anime.title.userPreferred ?? anime.title.native!,
