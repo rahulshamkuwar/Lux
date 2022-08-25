@@ -1,33 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lux/misc/enums.dart';
-import 'package:lux/models/media.dart';
-import 'package:lux/screens/anime_page.dart';
+import 'package:lux/models/media_external_link.dart';
 import "package:lux/misc/capitalize.dart";
+import 'package:transparent_image/transparent_image.dart';
 
-class AnimeRelationItem extends StatelessWidget {
-  final Media anime;
-  final MediaRelation relationType;
-
-  const AnimeRelationItem(
-      {Key? key, required this.anime, required this.relationType})
+class AnimeExternalLinksItem extends StatelessWidget {
+  final MediaExternalLink externalLink;
+  const AnimeExternalLinksItem({Key? key, required this.externalLink})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        if (anime.type == MediaType.ANIME) {
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              builder: (context) => AnimePage(
-                id: anime.id,
-              ),
-            ),
-          );
-        }
-      },
+      // TODO: Implement link opening
+      onTap: () {},
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -40,11 +26,12 @@ class AnimeRelationItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             AspectRatio(
-              aspectRatio: 2 / 3,
+              aspectRatio: 1,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.0),
                 child: CachedNetworkImage(
-                  imageUrl: anime.coverImage.extraLarge!,
+                  imageUrl: externalLink.icon ??
+                      "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -56,10 +43,10 @@ class AnimeRelationItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    anime.title.userPreferred ?? anime.title.native!,
+                    externalLink.site,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).colorScheme.onSurface,
@@ -67,49 +54,37 @@ class AnimeRelationItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  anime.startDate != null && anime.startDate!.year != null
-                      ? Text(
-                          '${anime.startDate?.year.toString()} ${anime.format.toString().split(".").last.capitalize()}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.onSurface,
-                              ),
-                        )
-                      : const SizedBox.shrink(),
-                  anime.episodes != null
-                      ? Text(
-                          '${anime.episodes} Episodes',
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.onSurface,
-                              ),
-                        )
-                      : const SizedBox.shrink(),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          relationType.name.capitalize(),
-                          textAlign: TextAlign.right,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.onSurface,
-                              ),
+                  Text(
+                    externalLink.type.toString().split(".").last.capitalize(),
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
-                      ],
-                    ),
                   ),
+                  externalLink.notes != null
+                      ? Text(
+                          "Notes: ${externalLink.notes!}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
+                        )
+                      : const SizedBox.shrink(),
+                  externalLink.language != null
+                      ? Text(
+                          "Language: ${externalLink.language}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
+                        )
+                      : const SizedBox.shrink(),
                 ],
               ),
             ),

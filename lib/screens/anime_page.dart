@@ -11,6 +11,7 @@ import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import "package:lux/misc/capitalize.dart";
 import 'package:lux/widgets/anime_character_item.dart';
+import 'package:lux/widgets/anime_external_links_item.dart';
 import 'package:lux/widgets/anime_relation_item.dart';
 import 'package:lux/widgets/anime_staff_item.dart';
 
@@ -545,6 +546,47 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     );
   }
 
+  Widget _externalLinks(Media anime) {
+    if (anime.externalLinks == null || anime.externalLinks!.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "External Links",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.externalLinks!.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeExternalLinksItem(
+                externalLink: anime.externalLinks![index],
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final api = ref.watch(aniListAPIProvider.future);
@@ -624,6 +666,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                         ),
                                         _synopsis(r),
                                         _relatedAnime(r),
+                                        _externalLinks(r),
                                         _characters(r),
                                         _staff(r),
                                       ],

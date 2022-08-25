@@ -17,9 +17,7 @@ class AnimeCharacterItem extends StatelessWidget {
     final Staff? voiceActor;
     edge.voiceActors!.isNotEmpty
         ? voiceActor = edge.voiceActors
-            ?.where((element) => element!.languageV2! == "Japanese")
-            .toList()
-            .first
+            ?.firstWhere((element) => element!.languageV2! == "Japanese")
         : voiceActor = null;
     return Container(
       decoration: BoxDecoration(
@@ -87,6 +85,9 @@ class AnimeCharacterItem extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          const SizedBox(
+            width: 10,
           ),
           if (voiceActor != null)
             Expanded(
