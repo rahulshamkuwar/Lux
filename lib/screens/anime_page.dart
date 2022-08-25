@@ -10,10 +10,11 @@ import 'package:lux/models/media.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import "package:lux/misc/capitalize.dart";
-import 'package:lux/widgets/anime_character_item.dart';
-import 'package:lux/widgets/anime_external_links_item.dart';
-import 'package:lux/widgets/anime_relation_item.dart';
-import 'package:lux/widgets/anime_staff_item.dart';
+import 'package:lux/widgets/anime_page/anime_character_item.dart';
+import 'package:lux/widgets/anime_page/anime_external_links_item.dart';
+import 'package:lux/widgets/anime_page/anime_relation_item.dart';
+import 'package:lux/widgets/anime_page/anime_staff_item.dart';
+import 'package:lux/widgets/anime_page/anime_stream_episode_item.dart';
 
 class AnimePage extends ConsumerStatefulWidget {
   final int id;
@@ -587,6 +588,46 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     );
   }
 
+  Widget _episodeList(Media anime) {
+    if (anime.streamingEpisodes == null || anime.streamingEpisodes!.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Episodes",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        ListView.builder(
+          itemCount: anime.streamingEpisodes!.length,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeStreamEpisodeItem(
+              episode: anime.streamingEpisodes![index],
+              index: index,
+            );
+          },
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final api = ref.watch(aniListAPIProvider.future);
@@ -620,6 +661,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               return snapshot.data!.fold(
                   (l) => const Text("Error"),
                   (r) => CustomScrollView(
+                        physics: ScrollPhysics(),
                         slivers: [
                           SliverToBoxAdapter(
                             child: Stack(
@@ -669,6 +711,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                         _externalLinks(r),
                                         _characters(r),
                                         _staff(r),
+                                        _episodeList(r),
                                       ],
                                     ),
                                   ),

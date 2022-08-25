@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lux/models/media_external_link.dart';
 import "package:lux/misc/capitalize.dart";
-import 'package:transparent_image/transparent_image.dart';
 
 class AnimeExternalLinksItem extends StatelessWidget {
   final MediaExternalLink externalLink;
@@ -20,7 +19,7 @@ class AnimeExternalLinksItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
         ),
         padding: const EdgeInsets.all(16.0),
-        margin: const EdgeInsets.only(right: 8),
+        margin: const EdgeInsets.only(right: 10),
         width: MediaQuery.of(context).size.width - 29,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
