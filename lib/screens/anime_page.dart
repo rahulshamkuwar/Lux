@@ -1,12 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:lux/auth/auth_failure.dart';
+import 'package:lux/misc/enums.dart';
 import 'package:lux/models/media.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
-import 'package:transparent_image/transparent_image.dart';
 import "package:lux/misc/capitalize.dart";
+import 'package:lux/widgets/anime_character_item.dart';
+import 'package:lux/widgets/anime_relation_item.dart';
+import 'package:lux/widgets/anime_staff_item.dart';
 
 class AnimePage extends ConsumerStatefulWidget {
   final int id;
@@ -17,6 +22,9 @@ class AnimePage extends ConsumerStatefulWidget {
 }
 
 class _AnimePageState extends ConsumerState<AnimePage> {
+  double? _synopsisHeight = 110.0;
+  bool _synopsisExpanded = false;
+
   Widget _buildBanner(BuildContext context, Media r) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2,
@@ -35,12 +43,89 @@ class _AnimePageState extends ConsumerState<AnimePage> {
           );
         },
         blendMode: BlendMode.dstIn,
-        child: FadeInImage.memoryNetwork(
-          image: r.bannerImage ?? r.coverImage.extraLarge,
-          placeholder: kTransparentImage,
+        child: CachedNetworkImage(
+          imageUrl: r.bannerImage ?? r.coverImage.extraLarge,
+          cacheKey: r.bannerImage ?? r.coverImage.extraLarge,
           fit: BoxFit.cover,
           fadeInCurve: Curves.easeOut,
         ),
+      ),
+    );
+  }
+
+  Widget _synopsis(Media anime) {
+    return Container(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              "Synopsis",
+              style: Theme.of(context).textTheme.headline6?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          Column(
+            children: <Widget>[
+              AnimatedContainer(
+                curve: Curves.bounceIn,
+                duration: const Duration(seconds: 5),
+                height: (anime.description?.length ?? 0) > 255
+                    ? _synopsisHeight
+                    : null,
+                child: HtmlWidget(
+                  anime.description ?? "",
+                  textStyle: Theme.of(context).textTheme.subtitle2?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        overflow: TextOverflow.fade,
+                      ),
+                ),
+              ),
+              anime.description == null
+                  ? const SizedBox.shrink()
+                  : anime.description!.length > 255
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                if (_synopsisExpanded) {
+                                  setState(() {
+                                    _synopsisHeight = 110.0;
+                                    _synopsisExpanded = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    _synopsisHeight = null;
+                                    _synopsisExpanded = true;
+                                  });
+                                }
+                              },
+                              child: Text(
+                                _synopsisExpanded ? "Show less" : "Show more",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .caption
+                                    ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : const SizedBox.shrink(),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -57,9 +142,9 @@ class _AnimePageState extends ConsumerState<AnimePage> {
             borderRadius: BorderRadius.circular(
               5.0,
             ),
-            child: FadeInImage.memoryNetwork(
-              image: r.coverImage.extraLarge,
-              placeholder: kTransparentImage,
+            child: CachedNetworkImage(
+              imageUrl: r.coverImage.extraLarge,
+              cacheKey: r.coverImage.extraLarge,
               fit: BoxFit.cover,
               fadeInCurve: Curves.easeOut,
             ),
@@ -96,18 +181,20 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               padding: const EdgeInsets.only(right: 8.0),
               child: Text(
                 "Type",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(95),
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
             Text(
               r.format.toString().split(".").last.capitalize(),
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 15.0,
-              ),
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
             ),
           ],
         ),
@@ -122,18 +209,20 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               ),
               child: Text(
                 "Episodes",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(95),
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
             Text(
               r.episodes.toString(),
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 15.0,
-              ),
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
             ),
           ],
         ),
@@ -148,18 +237,20 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               ),
               child: Text(
                 "Year",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(95),
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
             Text(
               "${r.season.toString().split(".").last.capitalize()} ${r.startDate!.year} (${r.status.toString().split(".").last.capitalize()})",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 15.0,
-              ),
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
             ),
           ],
         ),
@@ -167,6 +258,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
           height: 5,
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
@@ -174,10 +266,13 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               ),
               child: Text(
                 "Genres",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(95),
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
             Expanded(
@@ -185,10 +280,9 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                 r.genres!.join(', '),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
               ),
             ),
           ],
@@ -204,20 +298,160 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               ),
               child: Text(
                 "Duration",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(95),
-                  fontSize: 15.0,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
             Text(
               r.duration.toString(),
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 15.0,
-              ),
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _relatedAnime(Media anime) {
+    if (anime.relations == null || anime.relations!.edges.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Related Anime",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.relations?.edges.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeRelationItem(
+                anime: anime.relations!.edges[index].node,
+                relationType: anime.relations!.edges[index].relationType,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _characters(Media anime) {
+    if (anime.characters == null || anime.characters!.edges.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Characters",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.characters!.edges.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              anime.characters!.edges.sort(
+                (a, b) {
+                  if (a.role == CharacterRole.MAIN &&
+                      b.role != CharacterRole.MAIN) {
+                    return -1;
+                  }
+                  if (b.role == CharacterRole.MAIN &&
+                      a.role != CharacterRole.MAIN) {
+                    return 1;
+                  }
+                  return 0;
+                },
+              );
+              return AnimeCharacterItem(
+                character: anime.characters!.edges[index].node,
+                role: anime.characters!.edges[index].role!,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _staff(Media anime) {
+    if (anime.staff == null || anime.staff!.edges.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Staff",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.staff!.edges.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeStaffItem(
+                staff: anime.staff!.edges[index].node,
+                role: anime.staff!.edges[index].role,
+              );
+            },
+          ),
         ),
       ],
     );
@@ -238,12 +472,20 @@ class _AnimePageState extends ConsumerState<AnimePage> {
             AsyncSnapshot<dartz.Either<AuthFailure, Media>> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
-            case ConnectionState.waiting:
             case ConnectionState.active:
               return Center(
                 child:
                     SpinKitRing(color: Theme.of(context).colorScheme.onPrimary),
               );
+            case ConnectionState.waiting:
+              if (snapshot.data == null) {
+                return Center(
+                  child: SpinKitRing(
+                      color: Theme.of(context).colorScheme.onPrimary),
+                );
+              }
+              continue done;
+            done:
             case ConnectionState.done:
               return snapshot.data!.fold(
                   (l) => const Text("Error"),
@@ -261,7 +503,8 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         const Padding(
-                                            padding: EdgeInsets.all(8.0)),
+                                          padding: EdgeInsets.all(8.0),
+                                        ),
                                         Row(
                                           children: [
                                             _buildCover(r),
@@ -290,7 +533,11 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                               ),
                                             ),
                                           ],
-                                        )
+                                        ),
+                                        _synopsis(r),
+                                        _relatedAnime(r),
+                                        _characters(r),
+                                        _staff(r),
                                       ],
                                     ),
                                   ),

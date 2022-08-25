@@ -1,13 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lux/auth/auth_failure.dart';
+import 'package:lux/models/media_list.dart';
 import 'package:lux/models/media_list_collection.dart';
+import 'package:lux/models/media_list_group.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:lux/screens/anime_page.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 class Lists extends ConsumerStatefulWidget {
   const Lists({Key? key}) : super(key: key);
@@ -29,11 +31,6 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
   void dispose() {
     super.dispose();
     _tabController.dispose();
-  }
-
-  double _progressValue(int? progress, int? episodes) {
-    if (progress == null || episodes == null) return 0;
-    return progress / episodes;
   }
 
   Widget _buildScore(double score) {
@@ -87,8 +84,19 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildCards(int index, MediaListCollection r) {
-    final entries = r.lists[index].entries;
+  Widget _buildEmptyList() {
+    // TODO: Implement empty list
+    return Container();
+  }
+
+  Widget _buildCards(String list, MediaListCollection r) {
+    final entryList =
+        List.from(r.lists.where((element) => element.name == list));
+    if (entryList.isEmpty) {
+      return _buildEmptyList();
+    }
+    List<MediaList> entries = List.from(entryList[0].entries);
+    entries.sort((a, b) => b.score.compareTo(a.score));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
       child: GridView.builder(
@@ -129,10 +137,11 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
                             transitionOnUserGestures: true,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(5.0),
-                              child: FadeInImage.memoryNetwork(
-                                image:
+                              child: CachedNetworkImage(
+                                imageUrl:
                                     entries[index].media!.coverImage.extraLarge,
-                                placeholder: kTransparentImage,
+                                cacheKey:
+                                    entries[index].media!.coverImage.extraLarge,
                                 fit: BoxFit.cover,
                                 fadeInCurve: Curves.easeOut,
                               ),
@@ -204,8 +213,10 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
               case ConnectionState.none:
               case ConnectionState.waiting:
               case ConnectionState.active:
-                return SpinKitRing(
-                    color: Theme.of(context).colorScheme.onPrimary);
+                return Center(
+                  child: SpinKitRing(
+                      color: Theme.of(context).colorScheme.onPrimary),
+                );
               case ConnectionState.done:
                 return snapshot.data!.fold(
                   (l) => const Text("Error"),
@@ -213,11 +224,11 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
                     child: TabBarView(
                       controller: _tabController,
                       children: [
-                        _buildCards(4, r),
-                        _buildCards(0, r),
-                        _buildCards(3, r),
-                        _buildCards(2, r),
-                        _buildCards(1, r),
+                        _buildCards("Watching", r),
+                        _buildCards("Completed", r),
+                        _buildCards("Paused", r),
+                        _buildCards("Planning", r),
+                        _buildCards("Dropped", r),
                       ],
                     ),
                   ),

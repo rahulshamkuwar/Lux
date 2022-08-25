@@ -72,7 +72,14 @@ class AniListQueries {
                 native
                 userPreferred
               }
+              startDate {
+                year
+                month
+                day
+              }
               type
+              format
+              episodes
               coverImage {
                 extraLarge
                 large

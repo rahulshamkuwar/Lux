@@ -26,10 +26,11 @@ class AniListAPI {
     dir = await getTemporaryDirectory();
     _cacheOptions = CacheOptions(
       store: HiveCacheStore(dir.path),
-      policy: CachePolicy.request,
+      policy: CachePolicy.refreshForceCache,
       hitCacheOnErrorExcept: [401, 403],
       priority: CachePriority.normal,
       allowPostMethod: true,
+      maxStale: const Duration(days: 3),
     );
     _dio = Dio();
   }
@@ -79,6 +80,7 @@ class AniListAPI {
     final Credentials? credentials = await _storage.getCredentials();
     final CacheOptions cacheKey = _cacheOptions.copyWith(
       keyBuilder: (request) => "fetchAnime-$id",
+      policy: CachePolicy.noCache,
     );
     _dio.interceptors.clear();
     _dio.interceptors.add(DioCacheInterceptor(options: cacheKey));
