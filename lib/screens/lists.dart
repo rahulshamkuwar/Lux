@@ -106,7 +106,7 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
           mainAxisSpacing: 25.0,
           mainAxisExtent: MediaQuery.of(context).size.height * 3 / 10,
         ),
-        itemCount: entries.length - 1,
+        itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {

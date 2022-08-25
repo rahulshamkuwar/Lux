@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:intl/intl.dart';
 import 'package:lux/auth/auth_failure.dart';
 import 'package:lux/misc/enums.dart';
 import 'package:lux/models/media.dart';
@@ -24,6 +25,7 @@ class AnimePage extends ConsumerStatefulWidget {
 class _AnimePageState extends ConsumerState<AnimePage> {
   double? _synopsisHeight = 110.0;
   bool _synopsisExpanded = false;
+  bool _airingTimeUntil = true;
 
   Widget _buildBanner(BuildContext context, Media r) {
     return SizedBox(
@@ -173,6 +175,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
   }
 
   Widget _details(Media r) {
+    DateTime? date = r.nextAiringEpisode != null
+        ? DateTime.fromMillisecondsSinceEpoch(
+            r.nextAiringEpisode!.airingAt * 1000)
+        : null;
     return Column(
       children: <Widget>[
         Row(
@@ -315,8 +321,91 @@ class _AnimePageState extends ConsumerState<AnimePage> {
             ),
           ],
         ),
+        const SizedBox(
+          height: 5,
+        ),
+        date != null
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 8.0,
+                    ),
+                    child: Text(
+                      "Next Episode",
+                      style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withAlpha(150),
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => setState(() {
+                        _airingTimeUntil = !_airingTimeUntil;
+                      }),
+                      child: Text(
+                        _nextEpisodeDate(r, date),
+                        style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                        maxLines: 2,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : const SizedBox.shrink(),
+        const SizedBox(
+          height: 5,
+        ),
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 8.0,
+              ),
+              child: Text(
+                "Studio",
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+            ),
+            Text(
+              r.studios!.edges
+                  .firstWhere((element) => element.isMain)
+                  .node
+                  .name,
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+            ),
+          ],
+        ),
       ],
     );
+  }
+
+  String _nextEpisodeDate(Media r, DateTime date) {
+    if (_airingTimeUntil) {
+      Duration remaining = date.difference(DateTime.now());
+      Duration days = Duration(days: remaining.inDays);
+      Duration hours = Duration(hours: remaining.inHours - days.inHours);
+      Duration minutes = Duration(
+          minutes: remaining.inMinutes - (hours.inMinutes + days.inMinutes));
+      return "Ep ${r.nextAiringEpisode!.episode}: ${days.inDays}d ${hours.inHours}h ${minutes.inMinutes}m";
+    } else {
+      return DateFormat("d MMM yyyy HH:mm:ss").format(date);
+    }
   }
 
   Widget _relatedAnime(Media anime) {
