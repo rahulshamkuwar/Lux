@@ -8,13 +8,13 @@ part 'media_cover_image.g.dart';
 class MediaCoverImage with _$MediaCoverImage {
   const factory MediaCoverImage({
     /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
-    required String extraLarge,
+    required String? extraLarge,
 
     /// The cover image url of the media at a large size
-    required String large,
+    required String? large,
 
     /// The cover image url of the media at medium size
-    required String medium,
+    required String? medium,
 
     /// Average #hex color of cover image
     required String? color,

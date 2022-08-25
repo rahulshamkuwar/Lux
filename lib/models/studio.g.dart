@@ -9,12 +9,12 @@ part of 'studio.dart';
 _$_Studio _$$_StudioFromJson(Map<String, dynamic> json) => _$_Studio(
       id: json['id'] as int,
       name: json['name'] as String,
-      isAnimationStudio: json['isAnimationStudio'] as bool,
+      isAnimationStudio: json['isAnimationStudio'] as bool?,
       media: json['media'] == null
           ? null
           : MediaConnection.fromJson(json['media'] as Map<String, dynamic>),
       siteUrl: json['siteUrl'] as String?,
-      isFavourite: json['isFavourite'] as bool,
+      isFavourite: json['isFavourite'] as bool?,
       favourites: json['favourites'] as int?,
     );
 

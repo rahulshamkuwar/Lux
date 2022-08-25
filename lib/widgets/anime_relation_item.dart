@@ -18,13 +18,15 @@ class AnimeRelationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-          CupertinoPageRoute(
-            builder: (context) => AnimePage(
-              id: anime.id,
+        if (anime.type == MediaType.ANIME) {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              builder: (context) => AnimePage(
+                id: anime.id,
+              ),
             ),
-          ),
-        );
+          );
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -42,7 +44,7 @@ class AnimeRelationItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.0),
                 child: CachedNetworkImage(
-                  imageUrl: anime.coverImage.extraLarge,
+                  imageUrl: anime.coverImage.extraLarge!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -54,6 +56,7 @@ class AnimeRelationItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     anime.title.userPreferred ?? anime.title.native!,

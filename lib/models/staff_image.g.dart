@@ -8,8 +8,8 @@ part of 'staff_image.dart';
 
 _$_StaffImage _$$_StaffImageFromJson(Map<String, dynamic> json) =>
     _$_StaffImage(
-      large: json['large'] as String,
-      medium: json['medium'] as String,
+      large: json['large'] as String?,
+      medium: json['medium'] as String?,
     );
 
 Map<String, dynamic> _$$_StaffImageToJson(_$_StaffImage instance) =>

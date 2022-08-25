@@ -36,7 +36,7 @@ class AnimeStaffItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.0),
                 child: CachedNetworkImage(
-                  imageUrl: staff.image!.large,
+                  imageUrl: staff.image!.large!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -48,6 +48,7 @@ class AnimeStaffItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     staff.name.userPreferred ?? staff.name.native!,
@@ -58,21 +59,15 @@ class AnimeStaffItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  const SizedBox(
+                    height: 5.0,
+                  ),
                   Text(
                     role,
                     style: Theme.of(context).textTheme.subtitle2?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).colorScheme.onSurface,
                         ),
-                  ),
-                  Text(
-                    staff.description ?? "",
-                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onSurface,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                    maxLines: 2,
                   ),
                 ],
               ),

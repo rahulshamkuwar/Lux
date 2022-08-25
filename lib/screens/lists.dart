@@ -6,7 +6,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lux/auth/auth_failure.dart';
 import 'package:lux/models/media_list.dart';
 import 'package:lux/models/media_list_collection.dart';
-import 'package:lux/models/media_list_group.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:lux/screens/anime_page.dart';
@@ -138,10 +137,14 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(5.0),
                               child: CachedNetworkImage(
-                                imageUrl:
-                                    entries[index].media!.coverImage.extraLarge,
-                                cacheKey:
-                                    entries[index].media!.coverImage.extraLarge,
+                                imageUrl: entries[index]
+                                    .media!
+                                    .coverImage
+                                    .extraLarge!,
+                                cacheKey: entries[index]
+                                    .media!
+                                    .coverImage
+                                    .extraLarge!,
                                 fit: BoxFit.cover,
                                 fadeInCurve: Curves.easeOut,
                               ),

@@ -21,13 +21,13 @@ MediaCoverImage _$MediaCoverImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MediaCoverImage {
   /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
-  String get extraLarge => throw _privateConstructorUsedError;
+  String? get extraLarge => throw _privateConstructorUsedError;
 
   /// The cover image url of the media at a large size
-  String get large => throw _privateConstructorUsedError;
+  String? get large => throw _privateConstructorUsedError;
 
   /// The cover image url of the media at medium size
-  String get medium => throw _privateConstructorUsedError;
+  String? get medium => throw _privateConstructorUsedError;
 
   /// Average #hex color of cover image
   String? get color => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $MediaCoverImageCopyWith<$Res> {
   factory $MediaCoverImageCopyWith(
           MediaCoverImage value, $Res Function(MediaCoverImage) then) =
       _$MediaCoverImageCopyWithImpl<$Res>;
-  $Res call({String extraLarge, String large, String medium, String? color});
+  $Res call({String? extraLarge, String? large, String? medium, String? color});
 }
 
 /// @nodoc
@@ -66,15 +66,15 @@ class _$MediaCoverImageCopyWithImpl<$Res>
       extraLarge: extraLarge == freezed
           ? _value.extraLarge
           : extraLarge // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$_MediaCoverImageCopyWith<$Res>
           _$_MediaCoverImage value, $Res Function(_$_MediaCoverImage) then) =
       __$$_MediaCoverImageCopyWithImpl<$Res>;
   @override
-  $Res call({String extraLarge, String large, String medium, String? color});
+  $Res call({String? extraLarge, String? large, String? medium, String? color});
 }
 
 /// @nodoc
@@ -115,15 +115,15 @@ class __$$_MediaCoverImageCopyWithImpl<$Res>
       extraLarge: extraLarge == freezed
           ? _value.extraLarge
           : extraLarge // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,15 @@ class _$_MediaCoverImage
 
   /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
   @override
-  final String extraLarge;
+  final String? extraLarge;
 
   /// The cover image url of the media at a large size
   @override
-  final String large;
+  final String? large;
 
   /// The cover image url of the media at medium size
   @override
-  final String medium;
+  final String? medium;
 
   /// Average #hex color of cover image
   @override
@@ -214,9 +214,9 @@ class _$_MediaCoverImage
 
 abstract class _MediaCoverImage implements MediaCoverImage {
   const factory _MediaCoverImage(
-      {required final String extraLarge,
-      required final String large,
-      required final String medium,
+      {required final String? extraLarge,
+      required final String? large,
+      required final String? medium,
       required final String? color}) = _$_MediaCoverImage;
 
   factory _MediaCoverImage.fromJson(Map<String, dynamic> json) =
@@ -225,15 +225,15 @@ abstract class _MediaCoverImage implements MediaCoverImage {
   @override
 
   /// The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
-  String get extraLarge;
+  String? get extraLarge;
   @override
 
   /// The cover image url of the media at a large size
-  String get large;
+  String? get large;
   @override
 
   /// The cover image url of the media at medium size
-  String get medium;
+  String? get medium;
   @override
 
   /// Average #hex color of cover image

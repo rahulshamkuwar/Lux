@@ -27,7 +27,7 @@ mixin _$Studio {
   String get name => throw _privateConstructorUsedError;
 
   /// If the studio is an animation studio or a different kind of company
-  bool get isAnimationStudio => throw _privateConstructorUsedError;
+  bool? get isAnimationStudio => throw _privateConstructorUsedError;
 
   /// The media the studio has worked on
   MediaConnection? get media => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$Studio {
   String? get siteUrl => throw _privateConstructorUsedError;
 
   /// If the studio is marked as favourite by the currently authenticated user
-  bool get isFavourite => throw _privateConstructorUsedError;
+  bool? get isFavourite => throw _privateConstructorUsedError;
 
   /// The amount of user's who have favourited the studio
   int? get favourites => throw _privateConstructorUsedError;
@@ -53,10 +53,10 @@ abstract class $StudioCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      bool isAnimationStudio,
+      bool? isAnimationStudio,
       MediaConnection? media,
       String? siteUrl,
-      bool isFavourite,
+      bool? isFavourite,
       int? favourites});
 
   $MediaConnectionCopyWith<$Res>? get media;
@@ -92,7 +92,7 @@ class _$StudioCopyWithImpl<$Res> implements $StudioCopyWith<$Res> {
       isAnimationStudio: isAnimationStudio == freezed
           ? _value.isAnimationStudio
           : isAnimationStudio // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -104,7 +104,7 @@ class _$StudioCopyWithImpl<$Res> implements $StudioCopyWith<$Res> {
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
@@ -132,10 +132,10 @@ abstract class _$$_StudioCopyWith<$Res> implements $StudioCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      bool isAnimationStudio,
+      bool? isAnimationStudio,
       MediaConnection? media,
       String? siteUrl,
-      bool isFavourite,
+      bool? isFavourite,
       int? favourites});
 
   @override
@@ -173,7 +173,7 @@ class __$$_StudioCopyWithImpl<$Res> extends _$StudioCopyWithImpl<$Res>
       isAnimationStudio: isAnimationStudio == freezed
           ? _value.isAnimationStudio
           : isAnimationStudio // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class __$$_StudioCopyWithImpl<$Res> extends _$StudioCopyWithImpl<$Res>
       isFavourite: isFavourite == freezed
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       favourites: favourites == freezed
           ? _value.favourites
           : favourites // ignore: cast_nullable_to_non_nullable
@@ -219,7 +219,7 @@ class _$_Studio with DiagnosticableTreeMixin implements _Studio {
 
   /// If the studio is an animation studio or a different kind of company
   @override
-  final bool isAnimationStudio;
+  final bool? isAnimationStudio;
 
   /// The media the studio has worked on
   @override
@@ -231,7 +231,7 @@ class _$_Studio with DiagnosticableTreeMixin implements _Studio {
 
   /// If the studio is marked as favourite by the currently authenticated user
   @override
-  final bool isFavourite;
+  final bool? isFavourite;
 
   /// The amount of user's who have favourited the studio
   @override
@@ -302,10 +302,10 @@ abstract class _Studio implements Studio {
   const factory _Studio(
       {required final int id,
       required final String name,
-      required final bool isAnimationStudio,
+      required final bool? isAnimationStudio,
       required final MediaConnection? media,
       required final String? siteUrl,
-      required final bool isFavourite,
+      required final bool? isFavourite,
       required final int? favourites}) = _$_Studio;
 
   factory _Studio.fromJson(Map<String, dynamic> json) = _$_Studio.fromJson;
@@ -321,7 +321,7 @@ abstract class _Studio implements Studio {
   @override
 
   /// If the studio is an animation studio or a different kind of company
-  bool get isAnimationStudio;
+  bool? get isAnimationStudio;
   @override
 
   /// The media the studio has worked on
@@ -333,7 +333,7 @@ abstract class _Studio implements Studio {
   @override
 
   /// If the studio is marked as favourite by the currently authenticated user
-  bool get isFavourite;
+  bool? get isFavourite;
   @override
 
   /// The amount of user's who have favourited the studio

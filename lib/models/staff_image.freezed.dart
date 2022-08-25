@@ -21,10 +21,10 @@ StaffImage _$StaffImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StaffImage {
   /// The person's image of media at its largest size
-  String get large => throw _privateConstructorUsedError;
+  String? get large => throw _privateConstructorUsedError;
 
   /// The person's image of media at medium size
-  String get medium => throw _privateConstructorUsedError;
+  String? get medium => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $StaffImageCopyWith<$Res> {
   factory $StaffImageCopyWith(
           StaffImage value, $Res Function(StaffImage) then) =
       _$StaffImageCopyWithImpl<$Res>;
-  $Res call({String large, String medium});
+  $Res call({String? large, String? medium});
 }
 
 /// @nodoc
@@ -57,11 +57,11 @@ class _$StaffImageCopyWithImpl<$Res> implements $StaffImageCopyWith<$Res> {
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_StaffImageCopyWith<$Res>
           _$_StaffImage value, $Res Function(_$_StaffImage) then) =
       __$$_StaffImageCopyWithImpl<$Res>;
   @override
-  $Res call({String large, String medium});
+  $Res call({String? large, String? medium});
 }
 
 /// @nodoc
@@ -95,11 +95,11 @@ class __$$_StaffImageCopyWithImpl<$Res> extends _$StaffImageCopyWithImpl<$Res>
       large: large == freezed
           ? _value.large
           : large // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       medium: medium == freezed
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -114,11 +114,11 @@ class _$_StaffImage with DiagnosticableTreeMixin implements _StaffImage {
 
   /// The person's image of media at its largest size
   @override
-  final String large;
+  final String? large;
 
   /// The person's image of media at medium size
   @override
-  final String medium;
+  final String? medium;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -165,8 +165,8 @@ class _$_StaffImage with DiagnosticableTreeMixin implements _StaffImage {
 
 abstract class _StaffImage implements StaffImage {
   const factory _StaffImage(
-      {required final String large,
-      required final String medium}) = _$_StaffImage;
+      {required final String? large,
+      required final String? medium}) = _$_StaffImage;
 
   factory _StaffImage.fromJson(Map<String, dynamic> json) =
       _$_StaffImage.fromJson;
@@ -174,11 +174,11 @@ abstract class _StaffImage implements StaffImage {
   @override
 
   /// The person's image of media at its largest size
-  String get large;
+  String? get large;
   @override
 
   /// The person's image of media at medium size
-  String get medium;
+  String? get medium;
   @override
   @JsonKey(ignore: true)
   _$$_StaffImageCopyWith<_$_StaffImage> get copyWith =>

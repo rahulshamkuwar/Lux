@@ -80,7 +80,7 @@ class AniListAPI {
     final Credentials? credentials = await _storage.getCredentials();
     final CacheOptions cacheKey = _cacheOptions.copyWith(
       keyBuilder: (request) => "fetchAnime-$id",
-      policy: CachePolicy.noCache,
+      policy: CachePolicy.forceCache,
     );
     _dio.interceptors.clear();
     _dio.interceptors.add(DioCacheInterceptor(options: cacheKey));

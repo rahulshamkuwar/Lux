@@ -13,10 +13,13 @@ _$_CharacterEdge _$$_CharacterEdgeFromJson(Map<String, dynamic> json) =>
       role: $enumDecodeNullable(_$CharacterRoleEnumMap, json['role']),
       name: json['name'] as String?,
       voiceActors: (json['voiceActors'] as List<dynamic>?)
-          ?.map((e) => Staff.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              e == null ? null : Staff.fromJson(e as Map<String, dynamic>))
           .toList(),
       voiceActorRoles: (json['voiceActorRoles'] as List<dynamic>?)
-          ?.map((e) => StaffRoleType.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => e == null
+              ? null
+              : StaffRoleType.fromJson(e as Map<String, dynamic>))
           .toList(),
       media: (json['media'] as List<dynamic>?)
           ?.map((e) => Media.fromJson(e as Map<String, dynamic>))

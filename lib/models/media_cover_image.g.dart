@@ -8,9 +8,9 @@ part of 'media_cover_image.dart';
 
 _$_MediaCoverImage _$$_MediaCoverImageFromJson(Map<String, dynamic> json) =>
     _$_MediaCoverImage(
-      extraLarge: json['extraLarge'] as String,
-      large: json['large'] as String,
-      medium: json['medium'] as String,
+      extraLarge: json['extraLarge'] as String?,
+      large: json['large'] as String?,
+      medium: json['medium'] as String?,
       color: json['color'] as String?,
     );
 

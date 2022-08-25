@@ -44,8 +44,8 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         },
         blendMode: BlendMode.dstIn,
         child: CachedNetworkImage(
-          imageUrl: r.bannerImage ?? r.coverImage.extraLarge,
-          cacheKey: r.bannerImage ?? r.coverImage.extraLarge,
+          imageUrl: r.bannerImage ?? r.coverImage.extraLarge!,
+          cacheKey: r.bannerImage ?? r.coverImage.extraLarge!,
           fit: BoxFit.cover,
           fadeInCurve: Curves.easeOut,
         ),
@@ -143,8 +143,8 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               5.0,
             ),
             child: CachedNetworkImage(
-              imageUrl: r.coverImage.extraLarge,
-              cacheKey: r.coverImage.extraLarge,
+              imageUrl: r.coverImage.extraLarge!,
+              cacheKey: r.coverImage.extraLarge!,
               fit: BoxFit.cover,
               fadeInCurve: Curves.easeOut,
             ),
@@ -405,8 +405,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                 },
               );
               return AnimeCharacterItem(
-                character: anime.characters!.edges[index].node,
-                role: anime.characters!.edges[index].role!,
+                edge: anime.characters!.edges[index],
               );
             },
           ),

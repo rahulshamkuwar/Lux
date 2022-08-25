@@ -32,10 +32,10 @@ mixin _$CharacterEdge {
   String? get name => throw _privateConstructorUsedError;
 
   /// The voice actors of the character
-  List<Staff>? get voiceActors => throw _privateConstructorUsedError;
+  List<Staff?>? get voiceActors => throw _privateConstructorUsedError;
 
   /// The voice actors of the character with role date
-  List<StaffRoleType>? get voiceActorRoles =>
+  List<StaffRoleType?>? get voiceActorRoles =>
       throw _privateConstructorUsedError;
 
   /// The media the character is in
@@ -60,8 +60,8 @@ abstract class $CharacterEdgeCopyWith<$Res> {
       int id,
       CharacterRole? role,
       String? name,
-      List<Staff>? voiceActors,
-      List<StaffRoleType>? voiceActorRoles,
+      List<Staff?>? voiceActors,
+      List<StaffRoleType?>? voiceActorRoles,
       List<Media>? media,
       int? favouriteOrder});
 
@@ -108,11 +108,11 @@ class _$CharacterEdgeCopyWithImpl<$Res>
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as List<Staff>?,
+              as List<Staff?>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>?,
+              as List<StaffRoleType?>?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -144,8 +144,8 @@ abstract class _$$_CharacterEdgeCopyWith<$Res>
       int id,
       CharacterRole? role,
       String? name,
-      List<Staff>? voiceActors,
-      List<StaffRoleType>? voiceActorRoles,
+      List<Staff?>? voiceActors,
+      List<StaffRoleType?>? voiceActorRoles,
       List<Media>? media,
       int? favouriteOrder});
 
@@ -195,11 +195,11 @@ class __$$_CharacterEdgeCopyWithImpl<$Res>
       voiceActors: voiceActors == freezed
           ? _value.voiceActors
           : voiceActors // ignore: cast_nullable_to_non_nullable
-              as List<Staff>?,
+              as List<Staff?>?,
       voiceActorRoles: voiceActorRoles == freezed
           ? _value.voiceActorRoles
           : voiceActorRoles // ignore: cast_nullable_to_non_nullable
-              as List<StaffRoleType>?,
+              as List<StaffRoleType?>?,
       media: media == freezed
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -245,11 +245,11 @@ class _$_CharacterEdge with DiagnosticableTreeMixin implements _CharacterEdge {
 
   /// The voice actors of the character
   @override
-  final List<Staff>? voiceActors;
+  final List<Staff?>? voiceActors;
 
   /// The voice actors of the character with role date
   @override
-  final List<StaffRoleType>? voiceActorRoles;
+  final List<StaffRoleType?>? voiceActorRoles;
 
   /// The media the character is in
   @override
@@ -329,8 +329,8 @@ abstract class _CharacterEdge implements CharacterEdge {
       required final int id,
       required final CharacterRole? role,
       required final String? name,
-      required final List<Staff>? voiceActors,
-      required final List<StaffRoleType>? voiceActorRoles,
+      required final List<Staff?>? voiceActors,
+      required final List<StaffRoleType?>? voiceActorRoles,
       required final List<Media>? media,
       required final int? favouriteOrder}) = _$_CharacterEdge;
 
@@ -354,11 +354,11 @@ abstract class _CharacterEdge implements CharacterEdge {
   @override
 
   /// The voice actors of the character
-  List<Staff>? get voiceActors;
+  List<Staff?>? get voiceActors;
   @override
 
   /// The voice actors of the character with role date
-  List<StaffRoleType>? get voiceActorRoles;
+  List<StaffRoleType?>? get voiceActorRoles;
   @override
 
   /// The media the character is in

@@ -17,7 +17,7 @@ class Studio with _$Studio {
     required String name,
 
     /// If the studio is an animation studio or a different kind of company
-    required bool isAnimationStudio,
+    required bool? isAnimationStudio,
 
     /// The media the studio has worked on
     required MediaConnection? media,
@@ -26,7 +26,7 @@ class Studio with _$Studio {
     required String? siteUrl,
 
     /// If the studio is marked as favourite by the currently authenticated user
-    required bool isFavourite,
+    required bool? isFavourite,
 
     /// The amount of user's who have favourited the studio
     required int? favourites,

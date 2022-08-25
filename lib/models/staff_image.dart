@@ -8,10 +8,10 @@ part 'staff_image.g.dart';
 class StaffImage with _$StaffImage {
   const factory StaffImage({
     /// The person's image of media at its largest size
-    required String large,
+    required String? large,
 
     /// The person's image of media at medium size
-    required String medium,
+    required String? medium,
   }) = _StaffImage;
 
   factory StaffImage.fromJson(Map<String, Object?> json) =>

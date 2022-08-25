@@ -26,10 +26,10 @@ class CharacterEdge with _$CharacterEdge {
     required String? name,
 
     /// The voice actors of the character
-    required List<Staff>? voiceActors,
+    required List<Staff?>? voiceActors,
 
     /// The voice actors of the character with role date
-    required List<StaffRoleType>? voiceActorRoles,
+    required List<StaffRoleType?>? voiceActorRoles,
 
     /// The media the character is in
     required List<Media>? media,

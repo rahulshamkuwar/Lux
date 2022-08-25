@@ -4,8 +4,6 @@ class AniListQueries {
       Media(id: $id, type: ANIME) {
         id
         title {
-          romaji
-          english
           native
           userPreferred
         }
@@ -39,8 +37,6 @@ class AniListQueries {
         updatedAt
         coverImage {
           extraLarge
-          large
-          medium
           color
         }
         bannerImage
@@ -51,6 +47,8 @@ class AniListQueries {
         popularity
         trending
         favourites
+        isFavourite
+        isAdult
         tags {
           id
           name
@@ -67,8 +65,6 @@ class AniListQueries {
             node {
               id
               title {
-                romaji
-                english
                 native
                 userPreferred
               }
@@ -82,8 +78,6 @@ class AniListQueries {
               episodes
               coverImage {
                 extraLarge
-                large
-                medium
                 color
               }
               isFavourite
@@ -91,42 +85,32 @@ class AniListQueries {
             }
             relationType
           }
-          nodes {
-            id
-            title {
-              romaji
-              english
-              native
-              userPreferred
-            }
-            type
-            coverImage {
-              extraLarge
-              large
-              medium
-              color
-            }
-            isFavourite
-            isAdult
-          }
         }
         characters {
           edges {
             id
             role
+            voiceActors {
+              id
+              name {
+                native
+                userPreferred
+              }
+              languageV2
+              image {
+                large
+              }
+              description
+            }
             node {
               id
               name {
-                first
-                middle
-                last
                 full
                 native
                 userPreferred
               }
               image {
                 large
-                medium
               }
             }
           }
@@ -138,36 +122,26 @@ class AniListQueries {
             node {
               id
               name {
-                first
-                middle
-                last
                 full
                 native
                 userPreferred
               }
               image {
                 large
-                medium
               }
-              description
             }
           }
         }
         studios {
           edges {
             id
+            isMain
             node {
               id
               name
-              isAnimationStudio
-              siteUrl
-              isFavourite
             }
-            isMain
           }
         }
-        isFavourite
-        isAdult
         nextAiringEpisode {
           id
           airingAt
@@ -206,7 +180,6 @@ class AniListQueries {
           status
           score
           progress
-          progressVolumes
           repeat
           priority
           notes
@@ -235,7 +208,6 @@ class AniListQueries {
                 name
                 avatar {
                   large
-                  medium
                 }
               }
             }
@@ -249,16 +221,12 @@ class AniListQueries {
               mediaRecommendation {
                 id
                 title {
-                  romaji
-                  english
                   native
                   userPreferred
                 }
                 type
                 coverImage {
                   extraLarge
-                  large
-                  medium
                   color
                 }
                 isFavourite
@@ -269,7 +237,6 @@ class AniListQueries {
                 name
                 avatar {
                   large
-                  medium
                 }
               }
             }
