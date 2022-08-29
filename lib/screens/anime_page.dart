@@ -12,6 +12,7 @@ import 'package:dartz/dartz.dart' as dartz;
 import "package:lux/misc/capitalize.dart";
 import 'package:lux/widgets/anime_page/anime_character_item.dart';
 import 'package:lux/widgets/anime_page/anime_external_links_item.dart';
+import 'package:lux/widgets/anime_page/anime_recommendation_item.dart';
 import 'package:lux/widgets/anime_page/anime_relation_item.dart';
 import 'package:lux/widgets/anime_page/anime_review_item.dart';
 import 'package:lux/widgets/anime_page/anime_staff_item.dart';
@@ -685,6 +686,50 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     );
   }
 
+  Widget _recommendations(Media anime) {
+    if (anime.recommendations == null || anime.recommendations!.edges.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    anime.recommendations!.edges.sort(
+      (a, b) => b.node.rating.compareTo(a.node.rating),
+    );
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
+          ),
+          width: double.infinity,
+          child: Text(
+            "Related Anime",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ),
+        const SizedBox(
+          height: 12.0,
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.only(left: 13.0),
+          child: ListView.builder(
+            itemCount: anime.recommendations!.edges.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeRecommendtaionItem(
+                recommendation: anime.recommendations!.edges[index].node,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final api = ref.watch(aniListAPIProvider.future);
@@ -718,7 +763,6 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               return snapshot.data!.fold(
                   (l) => const Text("Error"),
                   (r) => CustomScrollView(
-                        physics: ScrollPhysics(),
                         slivers: [
                           SliverToBoxAdapter(
                             child: Stack(
@@ -770,6 +814,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
                                         _staff(r),
                                         _episodeList(r),
                                         _reviews(r),
+                                        _recommendations(r),
                                       ],
                                     ),
                                   ),

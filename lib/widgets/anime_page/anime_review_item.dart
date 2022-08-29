@@ -9,6 +9,7 @@ class AnimeReviewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      // TODO: Implement Review Page
       onTap: () {},
       child: Container(
         decoration: BoxDecoration(

@@ -218,13 +218,21 @@ class AniListQueries {
             node {
               id
               rating
+              userRating
               mediaRecommendation {
                 id
                 title {
                   native
                   userPreferred
                 }
+                startDate {
+                  year
+                  month
+                  day
+                }
                 type
+                format
+                episodes
                 coverImage {
                   extraLarge
                   color
