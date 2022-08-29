@@ -30,6 +30,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
   double? _synopsisHeight = 110.0;
   bool _synopsisExpanded = false;
   bool _airingTimeUntil = true;
+  final bool _showEpisodeList = true;
 
   Widget _buildBanner(BuildContext context, Media r) {
     return SizedBox(
@@ -609,39 +610,34 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.streamingEpisodes == null || anime.streamingEpisodes!.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
+    return Container(
+      padding: const EdgeInsets.only(
+        top: 16.0,
+      ),
+      width: double.infinity,
+      child: ExpansionTile(
+        title: Text(
+          "Episodes",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        children: <Widget>[
+          ListView.builder(
+            itemCount: anime.streamingEpisodes!.length,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              return AnimeStreamEpisodeItem(
+                episode: anime.streamingEpisodes![index],
+                index: index,
+              );
+            },
           ),
-          width: double.infinity,
-          child: Text(
-            "Episodes",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-        ),
-        const SizedBox(
-          height: 12.0,
-        ),
-        ListView.builder(
-          itemCount: anime.streamingEpisodes!.length,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (BuildContext context, int index) {
-            return AnimeStreamEpisodeItem(
-              episode: anime.streamingEpisodes![index],
-              index: index,
-            );
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 
