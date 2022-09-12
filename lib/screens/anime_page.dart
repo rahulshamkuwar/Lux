@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -17,20 +18,21 @@ import 'package:lux/widgets/anime_page/anime_relation_item.dart';
 import 'package:lux/widgets/anime_page/anime_review_item.dart';
 import 'package:lux/widgets/anime_page/anime_staff_item.dart';
 import 'package:lux/widgets/anime_page/anime_stream_episode_item.dart';
+import 'package:lux/widgets/anime_page/user_list_button.dart';
 
 class AnimePage extends ConsumerStatefulWidget {
   final int id;
-  const AnimePage({required this.id, super.key});
+  final String listName;
+  const AnimePage({required this.listName, required this.id, super.key});
 
   @override
   ConsumerState<AnimePage> createState() => _AnimePageState();
 }
 
 class _AnimePageState extends ConsumerState<AnimePage> {
-  double? _synopsisHeight = 110.0;
-  bool _synopsisExpanded = false;
   bool _airingTimeUntil = true;
-  final bool _showEpisodeList = true;
+  bool _updatedList = false;
+  late bool _isFavourite;
 
   Widget _buildBanner(BuildContext context, Media r) {
     return SizedBox(
@@ -51,8 +53,8 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         },
         blendMode: BlendMode.dstIn,
         child: CachedNetworkImage(
-          imageUrl: r.bannerImage ?? r.coverImage.extraLarge!,
-          cacheKey: r.bannerImage ?? r.coverImage.extraLarge!,
+          imageUrl: r.bannerImage ?? r.coverImage!.extraLarge!,
+          cacheKey: r.bannerImage ?? r.coverImage!.extraLarge!,
           fit: BoxFit.cover,
           fadeInCurve: Curves.easeOut,
         ),
@@ -63,76 +65,34 @@ class _AnimePageState extends ConsumerState<AnimePage> {
   Widget _synopsis(Media anime) {
     return Container(
       padding: const EdgeInsets.all(12.0),
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            width: double.infinity,
-            child: Text(
-              "Synopsis",
-              style: Theme.of(context).textTheme.headline6?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          const SizedBox(
-            height: 12.0,
-          ),
-          Column(
-            children: <Widget>[
-              AnimatedContainer(
-                curve: Curves.bounceIn,
-                duration: const Duration(seconds: 5),
-                height: (anime.description?.length ?? 0) > 255
-                    ? _synopsisHeight
-                    : null,
-                child: HtmlWidget(
-                  anime.description ?? "",
-                  textStyle: Theme.of(context).textTheme.subtitle2?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurface,
-                        overflow: TextOverflow.fade,
-                      ),
-                ),
+      child: ExpandablePanel(
+        header: Text(
+          "Synopsis",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
               ),
-              anime.description == null
-                  ? const SizedBox.shrink()
-                  : anime.description!.length > 255
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                if (_synopsisExpanded) {
-                                  setState(() {
-                                    _synopsisHeight = 110.0;
-                                    _synopsisExpanded = false;
-                                  });
-                                } else {
-                                  setState(() {
-                                    _synopsisHeight = null;
-                                    _synopsisExpanded = true;
-                                  });
-                                }
-                              },
-                              child: Text(
-                                _synopsisExpanded ? "Show less" : "Show more",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .caption
-                                    ?.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        )
-                      : const SizedBox.shrink(),
-            ],
+        ),
+        collapsed: const SizedBox.shrink(),
+        expanded: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: HtmlWidget(
+            anime.description ?? "",
+            textStyle: Theme.of(context).textTheme.subtitle2?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  overflow: TextOverflow.fade,
+                ),
           ),
-        ],
+        ),
+        controller: ExpandableController(
+          initialExpanded: true,
+        ),
+        theme: ExpandableThemeData(
+          iconColor: Theme.of(context).colorScheme.onSurface,
+          tapBodyToCollapse: true,
+          tapHeaderToExpand: true,
+          animationDuration: const Duration(milliseconds: 300),
+        ),
       ),
     );
   }
@@ -150,8 +110,8 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               5.0,
             ),
             child: CachedNetworkImage(
-              imageUrl: r.coverImage.extraLarge!,
-              cacheKey: r.coverImage.extraLarge!,
+              imageUrl: r.coverImage!.extraLarge!,
+              cacheKey: r.coverImage!.extraLarge!,
               fit: BoxFit.cover,
               fadeInCurve: Curves.easeOut,
             ),
@@ -163,7 +123,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
 
   Widget _animeTitle(Media r) {
     return Text(
-      r.title.userPreferred ?? r.title.native!,
+      r.title!.userPreferred ?? r.title!.native!,
       style: TextStyle(
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
@@ -432,40 +392,43 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.relations == null || anime.relations!.edges.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "Related Anime",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "Related Anime",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        const SizedBox(
-          height: 12.0,
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.relations?.edges.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeRelationItem(
+              anime: anime.relations!.edges[index].node,
+              relationType: anime.relations!.edges[index].relationType,
+            );
+          },
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.relations?.edges.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeRelationItem(
-                anime: anime.relations!.edges[index].node,
-                relationType: anime.relations!.edges[index].relationType,
-              );
-            },
-          ),
-        ),
-      ],
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
     );
   }
 
@@ -473,53 +436,55 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.characters == null || anime.characters!.edges.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "Characters",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "Characters",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        const SizedBox(
-          height: 12.0,
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.characters!.edges.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            anime.characters!.edges.sort(
+              (a, b) {
+                if (a.role == CharacterRole.MAIN &&
+                    b.role != CharacterRole.MAIN) {
+                  return -1;
+                }
+                if (b.role == CharacterRole.MAIN &&
+                    a.role != CharacterRole.MAIN) {
+                  return 1;
+                }
+                return 0;
+              },
+            );
+            return AnimeCharacterItem(
+              edge: anime.characters!.edges[index],
+            );
+          },
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.characters!.edges.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              anime.characters!.edges.sort(
-                (a, b) {
-                  if (a.role == CharacterRole.MAIN &&
-                      b.role != CharacterRole.MAIN) {
-                    return -1;
-                  }
-                  if (b.role == CharacterRole.MAIN &&
-                      a.role != CharacterRole.MAIN) {
-                    return 1;
-                  }
-                  return 0;
-                },
-              );
-              return AnimeCharacterItem(
-                edge: anime.characters!.edges[index],
-              );
-            },
-          ),
-        ),
-      ],
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
     );
   }
 
@@ -527,41 +492,43 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.staff == null || anime.staff!.edges.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "Staff",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "Staff",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        const SizedBox(
-          height: 12.0,
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.staff!.edges.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeStaffItem(
+              staff: anime.staff!.edges[index].node,
+              role: anime.staff!.edges[index].role,
+            );
+          },
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.staff!.edges.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeStaffItem(
-                staff: anime.staff!.edges[index].node,
-                role: anime.staff!.edges[index].role,
-              );
-            },
-          ),
-        ),
-      ],
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
     );
   }
 
@@ -569,40 +536,42 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.externalLinks == null || anime.externalLinks!.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "External Links",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "External Links",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        const SizedBox(
-          height: 12.0,
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.externalLinks!.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeExternalLinksItem(
+              externalLink: anime.externalLinks![index],
+            );
+          },
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.externalLinks!.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeExternalLinksItem(
-                externalLink: anime.externalLinks![index],
-              );
-            },
-          ),
-        ),
-      ],
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
     );
   }
 
@@ -610,33 +579,40 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.streamingEpisodes == null || anime.streamingEpisodes!.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Container(
-      padding: const EdgeInsets.only(
-        top: 16.0,
-      ),
-      width: double.infinity,
-      child: ExpansionTile(
-        title: Text(
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
           "Episodes",
           style: Theme.of(context).textTheme.headline6?.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
               ),
         ),
-        children: <Widget>[
-          ListView.builder(
-            itemCount: anime.streamingEpisodes!.length,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeStreamEpisodeItem(
-                episode: anime.streamingEpisodes![index],
-                index: index,
-              );
-            },
-          ),
-        ],
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: ListView.builder(
+        itemCount: anime.streamingEpisodes!.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (BuildContext context, int index) {
+          return AnimeStreamEpisodeItem(
+            episode: anime.streamingEpisodes![index],
+            index: index,
+          );
+        },
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
       ),
     );
   }
@@ -645,40 +621,42 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     if (anime.reviews == null || anime.reviews!.edges.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "Reviews",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "Reviews",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        const SizedBox(
-          height: 12.0,
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.reviews!.edges.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeReviewItem(
+              review: anime.reviews!.edges[index].node,
+            );
+          },
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.reviews!.edges.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeReviewItem(
-                review: anime.reviews!.edges[index].node,
-              );
-            },
-          ),
-        ),
-      ],
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
     );
   }
 
@@ -689,139 +667,501 @@ class _AnimePageState extends ConsumerState<AnimePage> {
     anime.recommendations!.edges.sort(
       (a, b) => b.node.rating.compareTo(a.node.rating),
     );
+    return ExpandablePanel(
+      header: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text(
+          "Related Anime",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+      ),
+      collapsed: const SizedBox.shrink(),
+      expanded: Container(
+        height: 150,
+        padding: const EdgeInsets.only(left: 13.0),
+        child: ListView.builder(
+          itemCount: anime.recommendations!.edges.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimeRecommendtaionItem(
+              recommendation: anime.recommendations!.edges[index].node,
+            );
+          },
+        ),
+      ),
+      controller: ExpandableController(
+        initialExpanded: true,
+      ),
+      theme: ExpandableThemeData(
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        tapBodyToCollapse: true,
+        tapHeaderToExpand: true,
+        animationDuration: const Duration(milliseconds: 300),
+        iconPadding: const EdgeInsets.only(top: 16.0),
+      ),
+    );
+  }
+
+  Widget _userInfo(Media anime) {
+    final api = ref.watch(aniListAPIProvider).value!;
+    final collection = ref.watch(mediaListCollection)!;
+    Media? entry;
+    try {
+      entry = widget.listName.isNotEmpty
+          ? collection.lists
+              .firstWhere((group) => group.name == widget.listName)
+              .entries
+              .firstWhere((element) => element.mediaId == anime.id)
+              .media!
+          : null;
+    } catch (e) {
+      entry = null;
+    }
+    String listStatus =
+        entry?.mediaListEntry?.status.toString().split(".").last.capitalize() ??
+            "Add to List";
+    late IconData statusIcon;
+    switch (entry?.mediaListEntry?.status) {
+      case MediaListStatus.COMPLETED:
+        statusIcon = Icons.check;
+        break;
+      case MediaListStatus.CURRENT:
+        statusIcon = Icons.live_tv_rounded;
+        break;
+      case MediaListStatus.DROPPED:
+        statusIcon = Icons.cancel_presentation_rounded;
+        break;
+      case MediaListStatus.PAUSED:
+        statusIcon = Icons.pause_presentation_rounded;
+        break;
+      case MediaListStatus.PLANNING:
+        statusIcon = Icons.timer_outlined;
+        break;
+      case MediaListStatus.REPEATING:
+        statusIcon = Icons.restart_alt_rounded;
+        break;
+      default:
+        statusIcon = Icons.add_to_queue_rounded;
+        break;
+    }
+    _isFavourite = entry?.isFavourite ?? false;
     return Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-          ),
-          width: double.infinity,
-          child: Text(
-            "Related Anime",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            UserListButton(
+              icon: _isFavourite
+                  ? Icons.favorite_rounded
+                  : Icons.favorite_border_rounded,
+              onTap: () {
+                setState(() {
+                  _isFavourite = !_isFavourite;
+                  entry?.isFavourite = _isFavourite;
+                });
+                api.toggleFavorite(anime.type!, anime.id!);
+              },
+              text: _isFavourite ? "Favourited" : "Favourite",
+            ),
+            UserListButton(
+              icon: statusIcon,
+              text: listStatus,
+              onTap: () {
+                showModalBottomSheet(
+                  elevation: 10.0,
+                  context: context,
+                  builder: (context) {
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          ListTile(
+                            leading: const Icon(
+                              Icons.check,
+                            ),
+                            title: Text(
+                              "Completed",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.COMPLETED,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.COMPLETED;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.COMPLETED
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.live_tv_rounded,
+                            ),
+                            title: Text(
+                              "Current",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.CURRENT,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.CURRENT;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.CURRENT
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.cancel_presentation_rounded,
+                            ),
+                            title: Text(
+                              "Dropped",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.DROPPED,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.DROPPED;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.DROPPED
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.pause_presentation_rounded,
+                            ),
+                            title: Text(
+                              "Paused",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.PAUSED,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.PAUSED;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.PAUSED
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.timer_outlined,
+                            ),
+                            title: Text(
+                              "Planning",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.PLANNING,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.PLANNING;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.PLANNING
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.restart_alt_rounded,
+                            ),
+                            title: Text(
+                              "Repeating",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              dartz.Either<AuthFailure, dartz.Unit> addMedia =
+                                  await api.addMedia(
+                                      anime,
+                                      MediaListStatus.REPEATING,
+                                      entry?.mediaListEntry!.status!);
+                              setState(() {
+                                entry?.mediaListEntry!.status =
+                                    MediaListStatus.REPEATING;
+                                _updatedList = true;
+                              });
+                              // TODO: Implement rate limiting and flushbar.
+                            },
+                            trailing: entry?.mediaListEntry!.status ==
+                                    MediaListStatus.REPEATING
+                                ? const Icon(Icons.check)
+                                : null,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            UserListButton(
+              onTap: () {
+                // TODO: Implement score.
+              },
+              icon: Icons.star_border_rounded,
+              text: "Score",
+            ),
+          ],
         ),
         const SizedBox(
-          height: 12.0,
+          height: 15.0,
         ),
-        Container(
-          height: 150,
-          padding: const EdgeInsets.only(left: 13.0),
-          child: ListView.builder(
-            itemCount: anime.recommendations!.edges.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return AnimeRecommendtaionItem(
-                recommendation: anime.recommendations!.edges[index].node,
-              );
-            },
-          ),
+        Text(
+          entry?.mediaListEntry?.progress!.toString() ?? "",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
         ),
+        Flex(
+          direction: Axis.horizontal,
+          children: [
+            IconButton(
+              onPressed: () {
+                // TODO: Implement decrease progress
+              },
+              icon: const Icon(Icons.remove_rounded),
+              splashRadius: 0.01,
+            ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.all(2.0),
+                child: LinearProgressIndicator(
+                  value: _progressValue(
+                      entry?.mediaListEntry?.progress! ?? 0, anime.episodes),
+                  backgroundColor: Theme.of(context).colorScheme.onSurface,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                // TODO: Implement increase progress
+              },
+              icon: const Icon(Icons.add_rounded),
+              splashRadius: 0.01,
+            ),
+          ],
+        )
       ],
     );
+  }
+
+  double _progressValue(int? progress, int? episodes) {
+    if (progress == null || episodes == null) return 0;
+    return progress / episodes;
   }
 
   @override
   Widget build(BuildContext context) {
     final api = ref.watch(aniListAPIProvider.future);
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: FutureBuilder(
-        future: api.then((value) => value.fetchAnime(widget.id)),
-        builder: (context,
-            AsyncSnapshot<dartz.Either<AuthFailure, Media>> snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.active:
-              return Center(
-                child:
-                    SpinKitRing(color: Theme.of(context).colorScheme.onPrimary),
-              );
-            case ConnectionState.waiting:
-              if (snapshot.data == null) {
+    final collection = ref.watch(mediaListCollection);
+    return WillPopScope(
+      onWillPop: () async {
+        if (_updatedList) {
+          setState(() {
+            collection!.lists
+                .firstWhere((element) => element.name == widget.listName)
+                .entries
+                .removeWhere((element) => element.mediaId == widget.id);
+          });
+        }
+        Navigator.pop(context, _updatedList ? widget.listName : null);
+        return true;
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        body: FutureBuilder(
+          future: api
+              .then((value) => value.fetchAnime(widget.id, forceCache: true)),
+          builder: (context,
+              AsyncSnapshot<dartz.Either<AuthFailure, Media>> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+              case ConnectionState.active:
                 return Center(
                   child: SpinKitRing(
                       color: Theme.of(context).colorScheme.onPrimary),
                 );
-              }
-              continue done;
-            done:
-            case ConnectionState.done:
-              return snapshot.data!.fold(
-                  (l) => const Text("Error"),
-                  (r) => CustomScrollView(
-                        slivers: [
-                          SliverToBoxAdapter(
-                            child: Stack(
-                              children: [
-                                _buildBanner(context, r),
-                                SafeArea(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                        ),
-                                        Row(
-                                          children: [
-                                            _buildCover(r),
-                                            Container(
-                                              alignment: Alignment.bottomLeft,
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width -
-                                                  146,
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: <Widget>[
-                                                  _animeTitle(r),
-                                                  const Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 2.0,
-                                                      bottom: 2.0,
+              case ConnectionState.waiting:
+                if (snapshot.data == null) {
+                  return Center(
+                    child: SpinKitRing(
+                        color: Theme.of(context).colorScheme.onPrimary),
+                  );
+                }
+                continue done;
+              done:
+              case ConnectionState.done:
+                return snapshot.data!.fold(
+                    (l) => const Text("Error"),
+                    (r) => CustomScrollView(
+                          slivers: [
+                            SliverToBoxAdapter(
+                              child: Stack(
+                                children: [
+                                  _buildBanner(context, r),
+                                  SafeArea(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                          ),
+                                          Row(
+                                            children: [
+                                              _buildCover(r),
+                                              Container(
+                                                alignment: Alignment.bottomLeft,
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width -
+                                                    146,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    _animeTitle(r),
+                                                    const Padding(
+                                                      padding: EdgeInsets.only(
+                                                        top: 2.0,
+                                                        bottom: 2.0,
+                                                      ),
+                                                      child: Divider(),
                                                     ),
-                                                    child: Divider(),
-                                                  ),
-                                                  _details(r),
-                                                ],
+                                                    _details(r),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        _synopsis(r),
-                                        _relatedAnime(r),
-                                        _externalLinks(r),
-                                        _characters(r),
-                                        _staff(r),
-                                        _episodeList(r),
-                                        _reviews(r),
-                                        _recommendations(r),
-                                      ],
+                                            ],
+                                          ),
+                                          _synopsis(r),
+                                          _userInfo(r),
+                                          _relatedAnime(r),
+                                          _externalLinks(r),
+                                          _characters(r),
+                                          _staff(r),
+                                          _episodeList(r),
+                                          _reviews(r),
+                                          _recommendations(r),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ));
-          }
-        },
+                          ],
+                        ));
+            }
+          },
+        ),
       ),
     );
   }

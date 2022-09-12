@@ -3,11 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:lux/auth/auth_failure.dart';
 import 'package:lux/models/media_list.dart';
 import 'package:lux/models/media_list_collection.dart';
+import 'package:lux/models/media_list_group.dart';
 import 'package:lux/providers/providers.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:lux/screens/anime_page.dart';
 
 class Lists extends ConsumerStatefulWidget {
@@ -88,9 +87,10 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
     return Container();
   }
 
-  Widget _buildCards(String list, MediaListCollection r) {
-    final entryList =
-        List.from(r.lists.where((element) => element.name == list));
+  Widget _buildCards(String list) {
+    final MediaListCollection? collection = ref.watch(mediaListCollection);
+    List<MediaListGroup> entryList =
+        List.from(collection!.lists.where((element) => element.name == list));
     if (entryList.isEmpty) {
       return _buildEmptyList();
     }
@@ -110,9 +110,18 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).push(CupertinoPageRoute(
-                builder: (context) => AnimePage(id: entries[index].mediaId),
-              ));
+              Navigator.of(context)
+                  .push(CupertinoPageRoute(
+                builder: (context) => AnimePage(
+                  id: entries[index].mediaId,
+                  listName: list,
+                ),
+              ))
+                  .then((value) {
+                if (value != null) {
+                  setState(() {});
+                }
+              });
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,11 +148,11 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
                               child: CachedNetworkImage(
                                 imageUrl: entries[index]
                                     .media!
-                                    .coverImage
+                                    .coverImage!
                                     .extraLarge!,
                                 cacheKey: entries[index]
                                     .media!
-                                    .coverImage
+                                    .coverImage!
                                     .extraLarge!,
                                 fit: BoxFit.cover,
                                 fadeInCurve: Curves.easeOut,
@@ -161,8 +170,8 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
                   ),
                 ),
                 Text(
-                  entries[index].media!.title.userPreferred ??
-                      entries[index].media!.title.native!,
+                  entries[index].media!.title!.userPreferred ??
+                      entries[index].media!.title!.native!,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSurface,
@@ -181,7 +190,7 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final api = ref.watch(aniListAPIProvider.future);
+    final MediaListCollection? collection = ref.watch(mediaListCollection);
     return Column(
       children: [
         TabBar(
@@ -207,38 +216,23 @@ class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
           labelColor: Theme.of(context).colorScheme.onSecondary,
           indicatorColor: Theme.of(context).colorScheme.secondary,
         ),
-        FutureBuilder(
-          future: api.then((value) => value.fetchUserLists()),
-          builder: (context,
-              AsyncSnapshot<dartz.Either<AuthFailure, MediaListCollection>>
-                  snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-              case ConnectionState.waiting:
-              case ConnectionState.active:
-                return Center(
-                  child: SpinKitRing(
-                      color: Theme.of(context).colorScheme.onPrimary),
-                );
-              case ConnectionState.done:
-                return snapshot.data!.fold(
-                  (l) => const Text("Error"),
-                  (r) => Expanded(
-                    child: TabBarView(
-                      controller: _tabController,
-                      children: [
-                        _buildCards("Watching", r),
-                        _buildCards("Completed", r),
-                        _buildCards("Paused", r),
-                        _buildCards("Planning", r),
-                        _buildCards("Dropped", r),
-                      ],
-                    ),
-                  ),
-                );
-            }
-          },
-        ),
+        collection == null
+            ? Center(
+                child:
+                    SpinKitRing(color: Theme.of(context).colorScheme.onPrimary),
+              )
+            : Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    _buildCards("Watching"),
+                    _buildCards("Completed"),
+                    _buildCards("Paused"),
+                    _buildCards("Planning"),
+                    _buildCards("Dropped"),
+                  ],
+                ),
+              ),
       ],
     );
   }

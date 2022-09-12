@@ -22,7 +22,8 @@ class AnimeRelationItem extends StatelessWidget {
           Navigator.of(context).push(
             CupertinoPageRoute(
               builder: (context) => AnimePage(
-                id: anime.id,
+                id: anime.id!,
+                listName: "",
               ),
             ),
           );
@@ -44,7 +45,7 @@ class AnimeRelationItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.0),
                 child: CachedNetworkImage(
-                  imageUrl: anime.coverImage.extraLarge!,
+                  imageUrl: anime.coverImage!.extraLarge!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -58,7 +59,7 @@ class AnimeRelationItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    anime.title.userPreferred ?? anime.title.native!,
+                    anime.title!.userPreferred ?? anime.title!.native!,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).colorScheme.onSurface,

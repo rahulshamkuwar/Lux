@@ -124,7 +124,7 @@ class __$$_MediaListGroupCopyWithImpl<$Res>
   }) {
     return _then(_$_MediaListGroup(
       entries: entries == freezed
-          ? _value._entries
+          ? _value.entries
           : entries // ignore: cast_nullable_to_non_nullable
               as List<MediaList>,
       name: name == freezed
@@ -150,27 +150,19 @@ class __$$_MediaListGroupCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MediaListGroup implements _MediaListGroup {
-  const _$_MediaListGroup(
-      {required final List<MediaList> entries,
+  _$_MediaListGroup(
+      {required this.entries,
       required this.name,
       required this.isCustomList,
       required this.isSplitCompletedList,
-      required this.status})
-      : _entries = entries;
+      required this.status});
 
   factory _$_MediaListGroup.fromJson(Map<String, dynamic> json) =>
       _$$_MediaListGroupFromJson(json);
 
   /// Media list entries
-  final List<MediaList> _entries;
-
-  /// Media list entries
   @override
-  List<MediaList> get entries {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_entries);
-  }
-
+  final List<MediaList> entries;
   @override
   final String name;
   @override
@@ -190,7 +182,7 @@ class _$_MediaListGroup implements _MediaListGroup {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MediaListGroup &&
-            const DeepCollectionEquality().equals(other._entries, _entries) &&
+            const DeepCollectionEquality().equals(other.entries, entries) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.isCustomList, isCustomList) &&
@@ -203,7 +195,7 @@ class _$_MediaListGroup implements _MediaListGroup {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_entries),
+      const DeepCollectionEquality().hash(entries),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(isCustomList),
       const DeepCollectionEquality().hash(isSplitCompletedList),
@@ -223,7 +215,7 @@ class _$_MediaListGroup implements _MediaListGroup {
 }
 
 abstract class _MediaListGroup implements MediaListGroup {
-  const factory _MediaListGroup(
+  factory _MediaListGroup(
       {required final List<MediaList> entries,
       required final String name,
       required final bool isCustomList,

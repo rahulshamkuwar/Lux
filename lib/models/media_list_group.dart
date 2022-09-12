@@ -5,9 +5,9 @@ import 'package:lux/models/media_list.dart';
 part 'media_list_group.freezed.dart';
 part 'media_list_group.g.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class MediaListGroup with _$MediaListGroup {
-  const factory MediaListGroup({
+  factory MediaListGroup({
     /// Media list entries
     required List<MediaList> entries,
     required String name,

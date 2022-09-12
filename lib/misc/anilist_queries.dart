@@ -173,28 +173,6 @@ class AniListQueries {
           context
           allTime
         }
-        mediaListEntry {
-          id
-          userId
-          mediaId
-          status
-          score
-          progress
-          repeat
-          priority
-          notes
-          advancedScores
-          startedAt {
-            year
-            month
-            day
-          }
-          completedAt {
-            year
-            month
-            day
-          }
-        }
         reviews {
           edges {
             node {
@@ -299,6 +277,28 @@ class AniListQueries {
               isFavourite
               isAdult
               episodes
+              mediaListEntry {
+                id
+                userId
+                mediaId
+                status
+                score
+                progress
+                repeat
+                priority
+                notes
+                advancedScores
+                startedAt {
+                  year
+                  month
+                  day
+                }
+                completedAt {
+                  year
+                  month
+                  day
+                }
+              }
             }
           }
         }

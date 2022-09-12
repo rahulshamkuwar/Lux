@@ -10,9 +10,9 @@ part 'media_list.freezed.dart';
 part 'media_list.g.dart';
 
 /// List of anime or manga
-@Freezed(makeCollectionsUnmodifiable: false)
+@unfreezed
 class MediaList with _$MediaList {
-  const factory MediaList({
+  factory MediaList({
     /// The id of the list entry
     required int id,
 

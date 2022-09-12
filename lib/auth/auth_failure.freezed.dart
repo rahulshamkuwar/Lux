@@ -19,18 +19,21 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) server,
+    required TResult Function(String? message) rateLimit,
     required TResult Function() storage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Server value) server,
+    required TResult Function(_RateLimit value) rateLimit,
     required TResult Function(_Storage value) storage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
     required TResult orElse(),
   }) =>
@@ -135,6 +141,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) server,
+    required TResult Function(String? message) rateLimit,
     required TResult Function() storage,
   }) {
     return server(message);
@@ -144,6 +151,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
   }) {
     return server?.call(message);
@@ -153,6 +161,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
     required TResult orElse(),
   }) {
@@ -166,6 +175,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Server value) server,
+    required TResult Function(_RateLimit value) rateLimit,
     required TResult Function(_Storage value) storage,
   }) {
     return server(this);
@@ -175,6 +185,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
   }) {
     return server?.call(this);
@@ -184,6 +195,7 @@ class _$_Server extends _Server {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
     required TResult orElse(),
   }) {
@@ -201,6 +213,146 @@ abstract class _Server extends AuthFailure {
   String? get message;
   @JsonKey(ignore: true)
   _$$_ServerCopyWith<_$_Server> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RateLimitCopyWith<$Res> {
+  factory _$$_RateLimitCopyWith(
+          _$_RateLimit value, $Res Function(_$_RateLimit) then) =
+      __$$_RateLimitCopyWithImpl<$Res>;
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$_RateLimitCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$_RateLimitCopyWith<$Res> {
+  __$$_RateLimitCopyWithImpl(
+      _$_RateLimit _value, $Res Function(_$_RateLimit) _then)
+      : super(_value, (v) => _then(v as _$_RateLimit));
+
+  @override
+  _$_RateLimit get _value => super._value as _$_RateLimit;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_RateLimit(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RateLimit extends _RateLimit {
+  const _$_RateLimit([this.message]) : super._();
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'AuthFailure.rateLimit(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RateLimit &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RateLimitCopyWith<_$_RateLimit> get copyWith =>
+      __$$_RateLimitCopyWithImpl<_$_RateLimit>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) server,
+    required TResult Function(String? message) rateLimit,
+    required TResult Function() storage,
+  }) {
+    return rateLimit(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
+    TResult Function()? storage,
+  }) {
+    return rateLimit?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
+    TResult Function()? storage,
+    required TResult orElse(),
+  }) {
+    if (rateLimit != null) {
+      return rateLimit(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Server value) server,
+    required TResult Function(_RateLimit value) rateLimit,
+    required TResult Function(_Storage value) storage,
+  }) {
+    return rateLimit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
+    TResult Function(_Storage value)? storage,
+  }) {
+    return rateLimit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
+    TResult Function(_Storage value)? storage,
+    required TResult orElse(),
+  }) {
+    if (rateLimit != null) {
+      return rateLimit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RateLimit extends AuthFailure {
+  const factory _RateLimit([final String? message]) = _$_RateLimit;
+  const _RateLimit._() : super._();
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_RateLimitCopyWith<_$_RateLimit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -244,6 +396,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) server,
+    required TResult Function(String? message) rateLimit,
     required TResult Function() storage,
   }) {
     return storage();
@@ -253,6 +406,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
   }) {
     return storage?.call();
@@ -262,6 +416,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? server,
+    TResult Function(String? message)? rateLimit,
     TResult Function()? storage,
     required TResult orElse(),
   }) {
@@ -275,6 +430,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Server value) server,
+    required TResult Function(_RateLimit value) rateLimit,
     required TResult Function(_Storage value) storage,
   }) {
     return storage(this);
@@ -284,6 +440,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
   }) {
     return storage?.call(this);
@@ -293,6 +450,7 @@ class _$_Storage extends _Storage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Server value)? server,
+    TResult Function(_RateLimit value)? rateLimit,
     TResult Function(_Storage value)? storage,
     required TResult orElse(),
   }) {

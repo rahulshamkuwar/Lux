@@ -23,58 +23,116 @@ mixin _$MediaList {
   /// The id of the list entry
   int get id => throw _privateConstructorUsedError;
 
+  /// The id of the list entry
+  set id(int value) => throw _privateConstructorUsedError;
+
   /// The id of the user owner of the list entry
   int get userId => throw _privateConstructorUsedError;
+
+  /// The id of the user owner of the list entry
+  set userId(int value) => throw _privateConstructorUsedError;
 
   /// The id of the media
   int get mediaId => throw _privateConstructorUsedError;
 
+  /// The id of the media
+  set mediaId(int value) => throw _privateConstructorUsedError;
+
   /// The watching/reading status
   MediaListStatus? get status => throw _privateConstructorUsedError;
+
+  /// The watching/reading status
+  set status(MediaListStatus? value) => throw _privateConstructorUsedError;
 
   /// The score of the entry
   double get score => throw _privateConstructorUsedError;
 
+  /// The score of the entry
+  set score(double value) => throw _privateConstructorUsedError;
+
   /// The amount of episodes/chapters consumed by the user
   int? get progress => throw _privateConstructorUsedError;
+
+  /// The amount of episodes/chapters consumed by the user
+  set progress(int? value) => throw _privateConstructorUsedError;
 
   /// The amount of volumes read by the user
   int? get progressVolumes => throw _privateConstructorUsedError;
 
+  /// The amount of volumes read by the user
+  set progressVolumes(int? value) => throw _privateConstructorUsedError;
+
   /// The amount of times the user has rewatched/read the media
   int? get repeat => throw _privateConstructorUsedError;
+
+  /// The amount of times the user has rewatched/read the media
+  set repeat(int? value) => throw _privateConstructorUsedError;
 
   /// Priority of planning
   int? get priority => throw _privateConstructorUsedError;
 
+  /// Priority of planning
+  set priority(int? value) => throw _privateConstructorUsedError;
+
   /// If the entry should only be visible to authenticated user
   bool? get private => throw _privateConstructorUsedError;
+
+  /// If the entry should only be visible to authenticated user
+  set private(bool? value) => throw _privateConstructorUsedError;
 
   /// Text notes
   String? get notes => throw _privateConstructorUsedError;
 
+  /// Text notes
+  set notes(String? value) => throw _privateConstructorUsedError;
+
   /// If the entry shown be hidden from non-custom lists
   bool? get hiddenFromStatusLists => throw _privateConstructorUsedError;
+
+  /// If the entry shown be hidden from non-custom lists
+  set hiddenFromStatusLists(bool? value) => throw _privateConstructorUsedError;
 
   /// Map of booleans for which custom lists the entry are in
   Map<String, bool>? get customLists => throw _privateConstructorUsedError;
 
+  /// Map of booleans for which custom lists the entry are in
+  set customLists(Map<String, bool>? value) =>
+      throw _privateConstructorUsedError;
+
   /// Map of advanced scores with name keys
   Map<String, int>? get advancedScores => throw _privateConstructorUsedError;
+
+  /// Map of advanced scores with name keys
+  set advancedScores(Map<String, int>? value) =>
+      throw _privateConstructorUsedError;
 
   /// When the entry was started by the user
   FuzzyDate? get startedAt => throw _privateConstructorUsedError;
 
+  /// When the entry was started by the user
+  set startedAt(FuzzyDate? value) => throw _privateConstructorUsedError;
+
   /// When the entry was completed by the user
   FuzzyDate? get completedAt => throw _privateConstructorUsedError;
+
+  /// When the entry was completed by the user
+  set completedAt(FuzzyDate? value) => throw _privateConstructorUsedError;
 
   /// When the entry data was last updated
   int? get updatedAt => throw _privateConstructorUsedError;
 
+  /// When the entry data was last updated
+  set updatedAt(int? value) => throw _privateConstructorUsedError;
+
   /// When the entry data was created
   int? get createdAt => throw _privateConstructorUsedError;
+
+  /// When the entry data was created
+  set createdAt(int? value) => throw _privateConstructorUsedError;
   Media? get media => throw _privateConstructorUsedError;
+  set media(Media? value) => throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
+  set user(User? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -433,7 +491,7 @@ class __$$_MediaListCopyWithImpl<$Res> extends _$MediaListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
-  const _$_MediaList(
+  _$_MediaList(
       {required this.id,
       required this.userId,
       required this.mediaId,
@@ -460,79 +518,79 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
 
   /// The id of the list entry
   @override
-  final int id;
+  int id;
 
   /// The id of the user owner of the list entry
   @override
-  final int userId;
+  int userId;
 
   /// The id of the media
   @override
-  final int mediaId;
+  int mediaId;
 
   /// The watching/reading status
   @override
-  final MediaListStatus? status;
+  MediaListStatus? status;
 
   /// The score of the entry
   @override
-  final double score;
+  double score;
 
   /// The amount of episodes/chapters consumed by the user
   @override
-  final int? progress;
+  int? progress;
 
   /// The amount of volumes read by the user
   @override
-  final int? progressVolumes;
+  int? progressVolumes;
 
   /// The amount of times the user has rewatched/read the media
   @override
-  final int? repeat;
+  int? repeat;
 
   /// Priority of planning
   @override
-  final int? priority;
+  int? priority;
 
   /// If the entry should only be visible to authenticated user
   @override
-  final bool? private;
+  bool? private;
 
   /// Text notes
   @override
-  final String? notes;
+  String? notes;
 
   /// If the entry shown be hidden from non-custom lists
   @override
-  final bool? hiddenFromStatusLists;
+  bool? hiddenFromStatusLists;
 
   /// Map of booleans for which custom lists the entry are in
   @override
-  final Map<String, bool>? customLists;
+  Map<String, bool>? customLists;
 
   /// Map of advanced scores with name keys
   @override
-  final Map<String, int>? advancedScores;
+  Map<String, int>? advancedScores;
 
   /// When the entry was started by the user
   @override
-  final FuzzyDate? startedAt;
+  FuzzyDate? startedAt;
 
   /// When the entry was completed by the user
   @override
-  final FuzzyDate? completedAt;
+  FuzzyDate? completedAt;
 
   /// When the entry data was last updated
   @override
-  final int? updatedAt;
+  int? updatedAt;
 
   /// When the entry data was created
   @override
-  final int? createdAt;
+  int? createdAt;
   @override
-  final Media? media;
+  Media? media;
   @override
-  final User? user;
+  User? user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -566,64 +624,6 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
       ..add(DiagnosticsProperty('user', user));
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MediaList &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.userId, userId) &&
-            const DeepCollectionEquality().equals(other.mediaId, mediaId) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.score, score) &&
-            const DeepCollectionEquality().equals(other.progress, progress) &&
-            const DeepCollectionEquality()
-                .equals(other.progressVolumes, progressVolumes) &&
-            const DeepCollectionEquality().equals(other.repeat, repeat) &&
-            const DeepCollectionEquality().equals(other.priority, priority) &&
-            const DeepCollectionEquality().equals(other.private, private) &&
-            const DeepCollectionEquality().equals(other.notes, notes) &&
-            const DeepCollectionEquality()
-                .equals(other.hiddenFromStatusLists, hiddenFromStatusLists) &&
-            const DeepCollectionEquality()
-                .equals(other.customLists, customLists) &&
-            const DeepCollectionEquality()
-                .equals(other.advancedScores, advancedScores) &&
-            const DeepCollectionEquality().equals(other.startedAt, startedAt) &&
-            const DeepCollectionEquality()
-                .equals(other.completedAt, completedAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
-            const DeepCollectionEquality().equals(other.user, user));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        const DeepCollectionEquality().hash(id),
-        const DeepCollectionEquality().hash(userId),
-        const DeepCollectionEquality().hash(mediaId),
-        const DeepCollectionEquality().hash(status),
-        const DeepCollectionEquality().hash(score),
-        const DeepCollectionEquality().hash(progress),
-        const DeepCollectionEquality().hash(progressVolumes),
-        const DeepCollectionEquality().hash(repeat),
-        const DeepCollectionEquality().hash(priority),
-        const DeepCollectionEquality().hash(private),
-        const DeepCollectionEquality().hash(notes),
-        const DeepCollectionEquality().hash(hiddenFromStatusLists),
-        const DeepCollectionEquality().hash(customLists),
-        const DeepCollectionEquality().hash(advancedScores),
-        const DeepCollectionEquality().hash(startedAt),
-        const DeepCollectionEquality().hash(completedAt),
-        const DeepCollectionEquality().hash(updatedAt),
-        const DeepCollectionEquality().hash(createdAt),
-        const DeepCollectionEquality().hash(media),
-        const DeepCollectionEquality().hash(user)
-      ]);
-
   @JsonKey(ignore: true)
   @override
   _$$_MediaListCopyWith<_$_MediaList> get copyWith =>
@@ -638,27 +638,27 @@ class _$_MediaList with DiagnosticableTreeMixin implements _MediaList {
 }
 
 abstract class _MediaList implements MediaList {
-  const factory _MediaList(
-      {required final int id,
-      required final int userId,
-      required final int mediaId,
-      required final MediaListStatus? status,
-      required final double score,
-      required final int? progress,
-      required final int? progressVolumes,
-      required final int? repeat,
-      required final int? priority,
-      required final bool? private,
-      required final String? notes,
-      required final bool? hiddenFromStatusLists,
-      required final Map<String, bool>? customLists,
-      required final Map<String, int>? advancedScores,
-      required final FuzzyDate? startedAt,
-      required final FuzzyDate? completedAt,
-      required final int? updatedAt,
-      required final int? createdAt,
-      required final Media? media,
-      required final User? user}) = _$_MediaList;
+  factory _MediaList(
+      {required int id,
+      required int userId,
+      required int mediaId,
+      required MediaListStatus? status,
+      required double score,
+      required int? progress,
+      required int? progressVolumes,
+      required int? repeat,
+      required int? priority,
+      required bool? private,
+      required String? notes,
+      required bool? hiddenFromStatusLists,
+      required Map<String, bool>? customLists,
+      required Map<String, int>? advancedScores,
+      required FuzzyDate? startedAt,
+      required FuzzyDate? completedAt,
+      required int? updatedAt,
+      required int? createdAt,
+      required Media? media,
+      required User? user}) = _$_MediaList;
 
   factory _MediaList.fromJson(Map<String, dynamic> json) =
       _$_MediaList.fromJson;
@@ -667,78 +667,134 @@ abstract class _MediaList implements MediaList {
 
   /// The id of the list entry
   int get id;
+
+  /// The id of the list entry
+  set id(int value);
   @override
 
   /// The id of the user owner of the list entry
   int get userId;
+
+  /// The id of the user owner of the list entry
+  set userId(int value);
   @override
 
   /// The id of the media
   int get mediaId;
+
+  /// The id of the media
+  set mediaId(int value);
   @override
 
   /// The watching/reading status
   MediaListStatus? get status;
+
+  /// The watching/reading status
+  set status(MediaListStatus? value);
   @override
 
   /// The score of the entry
   double get score;
+
+  /// The score of the entry
+  set score(double value);
   @override
 
   /// The amount of episodes/chapters consumed by the user
   int? get progress;
+
+  /// The amount of episodes/chapters consumed by the user
+  set progress(int? value);
   @override
 
   /// The amount of volumes read by the user
   int? get progressVolumes;
+
+  /// The amount of volumes read by the user
+  set progressVolumes(int? value);
   @override
 
   /// The amount of times the user has rewatched/read the media
   int? get repeat;
+
+  /// The amount of times the user has rewatched/read the media
+  set repeat(int? value);
   @override
 
   /// Priority of planning
   int? get priority;
+
+  /// Priority of planning
+  set priority(int? value);
   @override
 
   /// If the entry should only be visible to authenticated user
   bool? get private;
+
+  /// If the entry should only be visible to authenticated user
+  set private(bool? value);
   @override
 
   /// Text notes
   String? get notes;
+
+  /// Text notes
+  set notes(String? value);
   @override
 
   /// If the entry shown be hidden from non-custom lists
   bool? get hiddenFromStatusLists;
+
+  /// If the entry shown be hidden from non-custom lists
+  set hiddenFromStatusLists(bool? value);
   @override
 
   /// Map of booleans for which custom lists the entry are in
   Map<String, bool>? get customLists;
+
+  /// Map of booleans for which custom lists the entry are in
+  set customLists(Map<String, bool>? value);
   @override
 
   /// Map of advanced scores with name keys
   Map<String, int>? get advancedScores;
+
+  /// Map of advanced scores with name keys
+  set advancedScores(Map<String, int>? value);
   @override
 
   /// When the entry was started by the user
   FuzzyDate? get startedAt;
+
+  /// When the entry was started by the user
+  set startedAt(FuzzyDate? value);
   @override
 
   /// When the entry was completed by the user
   FuzzyDate? get completedAt;
+
+  /// When the entry was completed by the user
+  set completedAt(FuzzyDate? value);
   @override
 
   /// When the entry data was last updated
   int? get updatedAt;
+
+  /// When the entry data was last updated
+  set updatedAt(int? value);
   @override
 
   /// When the entry data was created
   int? get createdAt;
+
+  /// When the entry data was created
+  set createdAt(int? value);
   @override
   Media? get media;
+  set media(Media? value);
   @override
   User? get user;
+  set user(User? value);
   @override
   @JsonKey(ignore: true)
   _$$_MediaListCopyWith<_$_MediaList> get copyWith =>

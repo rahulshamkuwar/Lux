@@ -31,7 +31,7 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5.0),
                 child: CachedNetworkImage(
                   imageUrl: recommendation
-                      .mediaRecommendation!.coverImage.extraLarge!,
+                      .mediaRecommendation!.coverImage!.extraLarge!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -45,8 +45,8 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    recommendation.mediaRecommendation!.title.userPreferred ??
-                        recommendation.mediaRecommendation!.title.native!,
+                    recommendation.mediaRecommendation!.title!.userPreferred ??
+                        recommendation.mediaRecommendation!.title!.native!,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).colorScheme.onSurface,

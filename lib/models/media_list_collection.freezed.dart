@@ -120,7 +120,7 @@ class __$$_MediaListCollectionCopyWithImpl<$Res>
   }) {
     return _then(_$_MediaListCollection(
       lists: lists == freezed
-          ? _value._lists
+          ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
               as List<MediaListGroup>,
       user: user == freezed
@@ -138,24 +138,15 @@ class __$$_MediaListCollectionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MediaListCollection implements _MediaListCollection {
-  const _$_MediaListCollection(
-      {required final List<MediaListGroup> lists,
-      required this.user,
-      required this.hasNextChunk})
-      : _lists = lists;
+  _$_MediaListCollection(
+      {required this.lists, required this.user, required this.hasNextChunk});
 
   factory _$_MediaListCollection.fromJson(Map<String, dynamic> json) =>
       _$$_MediaListCollectionFromJson(json);
 
   /// Grouped media list entries
-  final List<MediaListGroup> _lists;
-
-  /// Grouped media list entries
   @override
-  List<MediaListGroup> get lists {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lists);
-  }
+  final List<MediaListGroup> lists;
 
   /// The owner of the list
   @override
@@ -175,7 +166,7 @@ class _$_MediaListCollection implements _MediaListCollection {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MediaListCollection &&
-            const DeepCollectionEquality().equals(other._lists, _lists) &&
+            const DeepCollectionEquality().equals(other.lists, lists) &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality()
                 .equals(other.hasNextChunk, hasNextChunk));
@@ -185,7 +176,7 @@ class _$_MediaListCollection implements _MediaListCollection {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_lists),
+      const DeepCollectionEquality().hash(lists),
       const DeepCollectionEquality().hash(user),
       const DeepCollectionEquality().hash(hasNextChunk));
 
@@ -204,7 +195,7 @@ class _$_MediaListCollection implements _MediaListCollection {
 }
 
 abstract class _MediaListCollection implements MediaListCollection {
-  const factory _MediaListCollection(
+  factory _MediaListCollection(
       {required final List<MediaListGroup> lists,
       required final User? user,
       required final bool? hasNextChunk}) = _$_MediaListCollection;

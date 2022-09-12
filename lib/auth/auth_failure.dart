@@ -6,5 +6,6 @@ part 'auth_failure.freezed.dart';
 class AuthFailure with _$AuthFailure {
   const AuthFailure._();
   const factory AuthFailure.server([String? message]) = _Server;
+  const factory AuthFailure.rateLimit([String? message]) = _RateLimit;
   const factory AuthFailure.storage() = _Storage;
 }

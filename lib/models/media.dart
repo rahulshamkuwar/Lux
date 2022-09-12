@@ -26,17 +26,17 @@ part 'media.freezed.dart';
 part 'media.g.dart';
 
 /// Anime or Manga
-@Freezed(makeCollectionsUnmodifiable: false)
+@unfreezed
 class Media with _$Media {
-  const factory Media({
+  factory Media({
     /// The id of the media
-    required int id,
+    required int? id,
 
     /// The official titles of the media in various languages
-    required MediaTitle title,
+    required MediaTitle? title,
 
     /// The type of the media; anime or manga
-    required MediaType type,
+    required MediaType? type,
 
     /// The format the media was released in
     required MediaFormat? format,
@@ -90,7 +90,7 @@ class Media with _$Media {
     required int? updatedAt,
 
     /// The cover images of the media
-    required MediaCoverImage coverImage,
+    required MediaCoverImage? coverImage,
 
     /// The banner image of the media
     required String? bannerImage,
@@ -135,13 +135,13 @@ class Media with _$Media {
     required StudioConnection? studios,
 
     /// If the media is marked as favourite by the current authenticated user
-    required bool isFavourite,
+    required bool? isFavourite,
 
     /// If the media is blocked from being added to favourites
     required bool? isFavouriteBlocked,
 
     /// If the media is intended only for 18+ adult audiences
-    required bool isAdult,
+    required bool? isAdult,
 
     /// The media's next episode airing schedule
     required AiringSchedule? nextAiringEpisode,
