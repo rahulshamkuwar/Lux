@@ -242,6 +242,62 @@ class AniListQueries {
     }
     """;
 
+  static String addMedia(int userID, int id) => '''
+    query {
+      MediaList(userId: $userID type: ANIME, mediaId: $id) {
+        id
+        userId
+        mediaId
+        score
+        progress
+        repeat
+        notes
+        hiddenFromStatusLists
+        media {
+          id
+          title {
+            romaji
+            english
+            native
+            userPreferred
+          }
+          type
+          coverImage {
+            extraLarge
+            large
+            medium
+            color
+          }
+          isFavourite
+          isAdult
+          episodes
+          mediaListEntry {
+            id
+            userId
+            mediaId
+            status
+            score
+            progress
+            repeat
+            priority
+            notes
+            advancedScores
+            startedAt {
+              year
+              month
+              day
+            }
+            completedAt {
+              year
+              month
+              day
+            }
+          }
+        }
+      }
+    }
+    ''';
+
   static String currentUserAnimeList(int userId) => """
     query {
       MediaListCollection(userId: $userId, type: ANIME) {

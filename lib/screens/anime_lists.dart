@@ -9,14 +9,15 @@ import 'package:lux/models/media_list_group.dart';
 import 'package:lux/providers/providers.dart';
 import 'package:lux/screens/anime_page.dart';
 
-class Lists extends ConsumerStatefulWidget {
-  const Lists({Key? key}) : super(key: key);
+class AnimeLists extends ConsumerStatefulWidget {
+  const AnimeLists({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<Lists> createState() => _ListsState();
+  ConsumerState<AnimeLists> createState() => _ListsState();
 }
 
-class _ListsState extends ConsumerState<Lists> with TickerProviderStateMixin {
+class _ListsState extends ConsumerState<AnimeLists>
+    with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override

@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lux/screens/home/home.dart';
-import 'package:lux/screens/lists.dart';
+import 'package:lux/screens/anime_lists.dart';
 import 'package:lux/screens/loading.dart';
+import 'package:lux/screens/manga_lists.dart';
 import 'package:lux/screens/settings.dart';
 
 class Lux extends StatelessWidget {
@@ -54,16 +56,16 @@ class LuxTabs extends StatefulWidget {
 }
 
 class _LuxTabsState extends State<LuxTabs> {
-  int _index = 0;
+  int _index = 1;
 
   Widget _buildBody(int index) {
     switch (index) {
       case 0:
-        return const Lists();
+        return const MangaLists();
       case 1:
         return const Home();
       case 2:
-        return const Settings();
+        return const AnimeLists();
       default:
         return const Home();
     }
@@ -82,24 +84,33 @@ class _LuxTabsState extends State<LuxTabs> {
         title: const Text(
           "Lux",
         ),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(CupertinoPageRoute(
+              builder: (context) => const Settings(),
+            )),
+            icon: const Icon(Icons.settings),
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: "Lists",
+            icon: Icon(Icons.menu_book_rounded),
+            label: "Manga Lists",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
-          )
+            icon: Icon(Icons.tv_rounded),
+            label: "Anime Lists",
+          ),
         ],
         currentIndex: _index,
         onTap: updatePage,
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Theme.of(context).colorScheme.primary,
         selectedItemColor: Theme.of(context).colorScheme.onPrimary,
       ),

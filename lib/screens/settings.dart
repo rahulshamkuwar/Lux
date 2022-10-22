@@ -8,15 +8,22 @@ class Settings extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return CustomTextButton(
-      onPressed: () {
-        ref.read(authNotifierProvider.notifier).signOut();
-      },
-      child: Text(
-        "Sign Out",
-        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Lux",
+        ),
+      ),
+      body: CustomTextButton(
+        onPressed: () {
+          ref.read(authNotifierProvider.notifier).signOut();
+        },
+        child: Text(
+          "Sign Out",
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+        ),
       ),
     );
   }

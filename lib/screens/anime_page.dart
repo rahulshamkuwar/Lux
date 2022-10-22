@@ -408,9 +408,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.relations?.edges.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return AnimeRelationItem(
               anime: anime.relations!.edges[index].node,
@@ -452,9 +453,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.characters!.edges.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             anime.characters!.edges.sort(
               (a, b) {
@@ -508,9 +510,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.staff!.edges.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return AnimeStaffItem(
               staff: anime.staff!.edges[index].node,
@@ -552,9 +555,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.externalLinks!.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return AnimeExternalLinksItem(
               externalLink: anime.externalLinks![index],
@@ -637,9 +641,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.reviews!.edges.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return AnimeReviewItem(
               review: anime.reviews!.edges[index].node,
@@ -672,7 +677,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         padding: const EdgeInsets.all(16.0),
         width: double.infinity,
         child: Text(
-          "Related Anime",
+          "Anime Recommendations",
           style: Theme.of(context).textTheme.headline6?.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
@@ -683,9 +688,10 @@ class _AnimePageState extends ConsumerState<AnimePage> {
       expanded: Container(
         height: 150,
         padding: const EdgeInsets.only(left: 13.0),
-        child: ListView.builder(
+        child: PageView.builder(
           itemCount: anime.recommendations!.edges.length,
-          scrollDirection: Axis.horizontal,
+          controller: PageController(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return AnimeRecommendtaionItem(
               recommendation: anime.recommendations!.edges[index].node,

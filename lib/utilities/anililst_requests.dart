@@ -250,62 +250,6 @@ class AniListAPI extends StateNotifier<MediaListCollection?> {
       }
     }
 
-    String query = '''
-    query {
-      MediaList(userId: $userID type: ANIME, mediaId: ${media.id}) {
-        id
-        userId
-        mediaId
-        score
-        progress
-        repeat
-        notes
-        hiddenFromStatusLists
-        media {
-          id
-          title {
-            romaji
-            english
-            native
-            userPreferred
-          }
-          type
-          coverImage {
-            extraLarge
-            large
-            medium
-            color
-          }
-          isFavourite
-          isAdult
-          episodes
-          mediaListEntry {
-            id
-            userId
-            mediaId
-            status
-            score
-            progress
-            repeat
-            priority
-            notes
-            advancedScores
-            startedAt {
-              year
-              month
-              day
-            }
-            completedAt {
-              year
-              month
-              day
-            }
-          }
-        }
-      }
-    }
-    ''';
-
     final Response response = await _dio.post(
       _aniListPath,
       options: Options(
@@ -316,7 +260,7 @@ class AniListAPI extends StateNotifier<MediaListCollection?> {
         },
         contentType: "application/json",
       ),
-      data: jsonEncode({"query": query}),
+      data: jsonEncode({"query": AniListQueries.addMedia(userID!, media.id!)}),
     );
 
     MediaList mediaList =
