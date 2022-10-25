@@ -14,7 +14,7 @@ class AnimeReviewItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         padding: const EdgeInsets.all(16.0),
         margin: const EdgeInsets.only(right: 8),

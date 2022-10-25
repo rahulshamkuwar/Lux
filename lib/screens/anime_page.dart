@@ -107,7 +107,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
           transitionOnUserGestures: true,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(
-              5.0,
+              10.0,
             ),
             child: CachedNetworkImage(
               imageUrl: r.coverImage!.extraLarge!,

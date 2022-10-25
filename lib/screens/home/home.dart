@@ -26,19 +26,31 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           tabs: const <Widget>[
             Tab(
               icon: Icon(Icons.feed),
-              child: Text("Feed"),
+              child: Text(
+                "Feed",
+                style: TextStyle(fontSize: 15.0),
+              ),
             ),
             Tab(
               icon: Icon(Icons.forum),
-              child: Text("Forums"),
+              child: Text(
+                "Forums",
+                style: TextStyle(fontSize: 15.0),
+              ),
             ),
             Tab(
               icon: Icon(Icons.reviews_outlined),
-              child: Text("Reviews"),
+              child: Text(
+                "Reviews",
+                style: TextStyle(fontSize: 15.0),
+              ),
             ),
             Tab(
               icon: Icon(Icons.trending_up),
-              child: Text("Trending"),
+              child: Text(
+                "Trending",
+                style: TextStyle(fontSize: 15.0),
+              ),
             ),
           ],
           labelColor: Theme.of(context).colorScheme.onSecondary,

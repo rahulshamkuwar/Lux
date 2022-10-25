@@ -16,7 +16,7 @@ class AnimeExternalLinksItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         padding: const EdgeInsets.all(16.0),
         margin: const EdgeInsets.only(right: 10),
@@ -27,7 +27,7 @@ class AnimeExternalLinksItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: externalLink.icon ??
                       "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",

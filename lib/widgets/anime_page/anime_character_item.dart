@@ -22,7 +22,7 @@ class AnimeCharacterItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: BorderRadius.circular(5.0),
+        borderRadius: BorderRadius.circular(10.0),
       ),
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.only(right: 8),
@@ -41,7 +41,7 @@ class AnimeCharacterItem extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 2 / 3,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: edge.node.image.large!,
                   fit: BoxFit.cover,
@@ -137,7 +137,7 @@ class AnimeCharacterItem extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 2 / 3,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   child: CachedNetworkImage(
                     imageUrl: voiceActor.image!.large!,
                     fit: BoxFit.cover,

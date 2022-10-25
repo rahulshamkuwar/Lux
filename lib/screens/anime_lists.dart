@@ -32,60 +32,23 @@ class _ListsState extends ConsumerState<AnimeLists>
     _tabController.dispose();
   }
 
-  Widget _buildScore(double score) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Theme.of(context).colorScheme.onPrimary.withAlpha(150),
+  Widget _buildEmptyList() {
+    // TODO: Implement empty list
+    return Card(
+      color: Theme.of(context).colorScheme.surface,
+      elevation: 0,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
       ),
-      padding: const EdgeInsets.all(8.0),
       child: Text(
-        score.toString(),
+        "No Anime in this list.",
         style: TextStyle(
-          fontSize: Theme.of(context).textTheme.headline6?.fontSize,
           color: Theme.of(context).colorScheme.onSurface,
-          shadows: const <Shadow>[
-            Shadow(
-              color: Colors.black,
-              blurRadius: 1.0,
-              offset: Offset(
-                0.5,
-                0.5,
-              ),
-            ),
-            Shadow(
-              color: Colors.black87,
-              blurRadius: 1.0,
-              offset: Offset(
-                -0.5,
-                0.5,
-              ),
-            ),
-            Shadow(
-              color: Colors.black87,
-              blurRadius: 1.0,
-              offset: Offset(
-                0.5,
-                -0.5,
-              ),
-            ),
-            Shadow(
-              color: Colors.black87,
-              blurRadius: 1.0,
-              offset: Offset(
-                -0.5,
-                -0.5,
-              ),
-            ),
-          ],
+          fontSize: Theme.of(context).textTheme.subtitle1?.fontSize,
         ),
       ),
     );
-  }
-
-  Widget _buildEmptyList() {
-    // TODO: Implement empty list
-    return Container();
   }
 
   Widget _buildCards(String list) {
@@ -99,93 +62,95 @@ class _ListsState extends ConsumerState<AnimeLists>
     entries.sort((a, b) => b.score.compareTo(a.score));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: (MediaQuery.of(context).size.width > 640) ? 6 : 3,
-          childAspectRatio: 2 / 3,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 25.0,
-          mainAxisExtent: MediaQuery.of(context).size.height * 3 / 10,
-        ),
-        itemCount: entries.length,
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.of(context)
-                  .push(CupertinoPageRoute(
-                builder: (context) => AnimePage(
-                  id: entries[index].mediaId,
-                  listName: list,
+      child: OrientationBuilder(builder: (context, orienation) {
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: orienation == Orientation.landscape ? 3 : 2,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 25.0,
+            mainAxisExtent: MediaQuery.of(context).size.height * 3 / 10,
+          ),
+          itemCount: entries.length,
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(CupertinoPageRoute(
+                  builder: (context) => AnimePage(
+                    id: entries[index].mediaId,
+                    listName: list,
+                  ),
+                ))
+                    .then((value) {
+                  if (value != null) {
+                    setState(() {});
+                  }
+                });
+              },
+              child: Card(
+                color: Theme.of(context).colorScheme.surface,
+                elevation: 0,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
-              ))
-                  .then((value) {
-                if (value != null) {
-                  setState(() {});
-                }
-              });
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AspectRatio(
-                  aspectRatio: 2 / 3,
-                  child: Card(
-                    color: Theme.of(context).colorScheme.surface,
-                    elevation: 5.0,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        FittedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Hero(
+                      tag: entries[index].mediaId,
+                      transitionOnUserGestures: true,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: CachedNetworkImage(
+                          height: MediaQuery.of(context).size.width * 43 / 100,
+                          width: double.infinity,
+                          imageUrl:
+                              entries[index].media!.coverImage!.extraLarge!,
+                          cacheKey:
+                              entries[index].media!.coverImage!.extraLarge!,
                           fit: BoxFit.cover,
-                          child: Hero(
-                            tag: entries[index].mediaId,
-                            transitionOnUserGestures: true,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: CachedNetworkImage(
-                                imageUrl: entries[index]
-                                    .media!
-                                    .coverImage!
-                                    .extraLarge!,
-                                cacheKey: entries[index]
-                                    .media!
-                                    .coverImage!
-                                    .extraLarge!,
-                                fit: BoxFit.cover,
-                                fadeInCurve: Curves.easeOut,
-                              ),
-                            ),
-                          ),
+                          fadeInCurve: Curves.easeOut,
                         ),
-                        Positioned(
-                          top: 5.0,
-                          right: 5.0,
-                          child: _buildScore(entries[index].score),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5.0,
+                        right: 5.0,
+                        top: 5.0,
+                        bottom: 2.0,
+                      ),
+                      child: Text(
+                        entries[index].media!.title!.userPreferred ??
+                            entries[index].media!.title!.native!,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontSize:
+                              Theme.of(context).textTheme.bodyText1?.fontSize,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Text(
+                        entries[index].score.toString(),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontSize:
+                              Theme.of(context).textTheme.subtitle2?.fontSize,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  entries[index].media!.title!.userPreferred ??
-                      entries[index].media!.title!.native!,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            );
+          },
+        );
+      }),
     );
   }
 

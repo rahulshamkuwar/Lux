@@ -17,7 +17,7 @@ class AnimeRecommendtaionItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         padding: const EdgeInsets.all(16.0),
         margin: const EdgeInsets.only(right: 8),
@@ -28,7 +28,7 @@ class AnimeRecommendtaionItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 2 / 3,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: recommendation
                       .mediaRecommendation!.coverImage!.extraLarge!,
@@ -81,6 +81,7 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                         )
                       : const SizedBox.shrink(),
                   Expanded(
+                    flex: 2,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -103,17 +104,21 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Text(
-                              recommendation.user!.name,
-                              textAlign: TextAlign.left,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .subtitle2
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
-                                  ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                recommendation.user!.name,
+                                textAlign: TextAlign.left,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle2
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface,
+                                    ),
+                              ),
                             ),
                           ],
                         ),

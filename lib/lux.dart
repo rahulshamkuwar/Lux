@@ -42,6 +42,7 @@ class Lux extends StatelessWidget {
           onSurface: Color.fromARGB(255, 238, 238, 238),
           tertiary: Color.fromARGB(255, 230, 57, 71),
         ),
+        useMaterial3: true,
       ),
       home: const Loading(),
     );

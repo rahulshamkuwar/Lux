@@ -33,7 +33,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
             ),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.0),
+                borderRadius: BorderRadius.circular(10.0),
               ),
             ),
           ),
