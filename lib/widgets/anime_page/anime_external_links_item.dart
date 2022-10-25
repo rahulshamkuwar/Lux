@@ -31,6 +31,8 @@ class AnimeExternalLinksItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: externalLink.icon ??
                       "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
+                  cacheKey: externalLink.icon ??
+                      "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),

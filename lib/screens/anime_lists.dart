@@ -33,19 +33,38 @@ class _ListsState extends ConsumerState<AnimeLists>
   }
 
   Widget _buildEmptyList() {
-    // TODO: Implement empty list
-    return Card(
-      color: Theme.of(context).colorScheme.surface,
-      elevation: 0,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Text(
-        "No Anime in this list.",
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onSurface,
-          fontSize: Theme.of(context).textTheme.subtitle1?.fontSize,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height / 10,
+          width: MediaQuery.of(context).size.width - 10,
+          child: Card(
+            color: Theme.of(context).colorScheme.surface,
+            elevation: 0,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: ListTile(
+                leading: Icon(
+                  Icons.error_outline_rounded,
+                  color: Theme.of(context).colorScheme.tertiary,
+                  size: 25,
+                ),
+                title: Text(
+                  "No Anime in this list.",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -58,14 +77,14 @@ class _ListsState extends ConsumerState<AnimeLists>
     if (entryList.isEmpty) {
       return _buildEmptyList();
     }
-    List<MediaList> entries = List.from(entryList[0].entries);
+    List<MediaList> entries = entryList[0].entries;
     entries.sort((a, b) => b.score.compareTo(a.score));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
       child: OrientationBuilder(builder: (context, orienation) {
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: orienation == Orientation.landscape ? 3 : 2,
+            crossAxisCount: orienation == Orientation.landscape ? 4 : 2,
             crossAxisSpacing: 10.0,
             mainAxisSpacing: 25.0,
             mainAxisExtent: MediaQuery.of(context).size.height * 3 / 10,

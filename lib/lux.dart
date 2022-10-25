@@ -86,12 +86,13 @@ class _LuxTabsState extends State<LuxTabs> {
           "Lux",
         ),
         actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.sort)),
           IconButton(
             onPressed: () => Navigator.of(context).push(CupertinoPageRoute(
               builder: (context) => const Settings(),
             )),
             icon: const Icon(Icons.settings),
-          )
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

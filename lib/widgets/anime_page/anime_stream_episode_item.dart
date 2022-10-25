@@ -30,17 +30,18 @@ class AnimeStreamEpisodeItem extends StatelessWidget {
           children: <Widget>[
             AspectRatio(
               aspectRatio: 16 / 9,
-              child: Container(
-                color: Colors.black54,
-                child: episode.thumbnail != null
-                    ? CachedNetworkImage(
-                        imageUrl: episode.thumbnail!,
-                        fadeInCurve: Curves.easeOut,
-                        fadeInDuration: const Duration(milliseconds: 300),
-                        placeholder: (context, url) =>
-                            Image.memory(kTransparentImage),
-                      )
-                    : Container(),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  10.0,
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: episode.thumbnail!,
+                  cacheKey: episode.thumbnail!,
+                  fadeInCurve: Curves.easeOut,
+                  fadeInDuration: const Duration(milliseconds: 300),
+                  placeholder: (context, url) =>
+                      Image.memory(kTransparentImage),
+                ),
               ),
             ),
             Expanded(

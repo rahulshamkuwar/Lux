@@ -397,7 +397,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
         padding: const EdgeInsets.all(16.0),
         width: double.infinity,
         child: Text(
-          "Related Anime",
+          "Relations",
           style: Theme.of(context).textTheme.headline6?.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.bold,

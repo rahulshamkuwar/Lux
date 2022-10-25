@@ -16,8 +16,10 @@ class AnimeCharacterItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final Staff? voiceActor;
     edge.voiceActors!.isNotEmpty
-        ? voiceActor = edge.voiceActors
-            ?.firstWhere((element) => element!.languageV2! == "Japanese")
+        ? voiceActor = edge.voiceActors?.firstWhere(
+            (element) => element!.languageV2! == "Japanese",
+            orElse: () => edge.voiceActors![0],
+          )
         : voiceActor = null;
     return Container(
       decoration: BoxDecoration(
@@ -44,6 +46,7 @@ class AnimeCharacterItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: edge.node.image.large!,
+                  cacheKey: edge.node.image.large!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),
@@ -140,6 +143,7 @@ class AnimeCharacterItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   child: CachedNetworkImage(
                     imageUrl: voiceActor.image!.large!,
+                    cacheKey: voiceActor.image!.large!,
                     fit: BoxFit.cover,
                     fadeInCurve: Curves.easeOut,
                   ),

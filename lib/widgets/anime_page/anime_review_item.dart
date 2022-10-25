@@ -28,6 +28,8 @@ class AnimeReviewItem extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: review.user!.avatar?.large ??
                     "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
+                cacheKey: review.user!.avatar?.large ??
+                    "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
                 fit: BoxFit.contain,
                 fadeInCurve: Curves.easeOut,
                 imageBuilder: (context, imageProvider) => CircleAvatar(

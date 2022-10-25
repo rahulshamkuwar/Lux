@@ -37,6 +37,7 @@ class AnimeStaffItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: staff.image!.large!,
+                  cacheKey: staff.image!.large!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),

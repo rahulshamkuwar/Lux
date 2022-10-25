@@ -46,6 +46,7 @@ class AnimeRelationItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
                   imageUrl: anime.coverImage!.extraLarge!,
+                  cacheKey: anime.coverImage!.extraLarge!,
                   fit: BoxFit.cover,
                   fadeInCurve: Curves.easeOut,
                 ),

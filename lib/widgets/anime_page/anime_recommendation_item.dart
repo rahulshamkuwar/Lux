@@ -33,6 +33,8 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                   imageUrl: recommendation
                       .mediaRecommendation!.coverImage!.extraLarge!,
                   fit: BoxFit.cover,
+                  cacheKey: recommendation
+                      .mediaRecommendation!.coverImage!.extraLarge!,
                   fadeInCurve: Curves.easeOut,
                 ),
               ),
@@ -40,7 +42,8 @@ class AnimeRecommendtaionItem extends StatelessWidget {
             const SizedBox(
               width: 15,
             ),
-            Expanded(
+            Flexible(
+              fit: FlexFit.loose,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
@@ -80,8 +83,9 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                               ),
                         )
                       : const SizedBox.shrink(),
-                  Expanded(
+                  Flexible(
                     flex: 2,
+                    fit: FlexFit.loose,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -89,35 +93,49 @@ class AnimeRecommendtaionItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GestureDetector(
-                              // TODO: Implement UserPage
-                              onTap: () {},
-                              child: CachedNetworkImage(
-                                imageUrl: recommendation.user!.avatar?.large ??
-                                    "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
-                                fit: BoxFit.contain,
-                                fadeInCurve: Curves.easeOut,
-                                imageBuilder: (context, imageProvider) =>
-                                    CircleAvatar(
-                                  backgroundImage: imageProvider,
-                                  radius: 20.0,
-                                ),
-                              ),
-                            ),
-                            Expanded(
+                            Flexible(
                               flex: 1,
-                              child: Text(
-                                recommendation.user!.name,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle2
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface,
+                              fit: FlexFit.loose,
+                              child: GestureDetector(
+                                // TODO: Implement UserPage
+                                onTap: () {},
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    CachedNetworkImage(
+                                      imageUrl: recommendation
+                                              .user!.avatar?.large ??
+                                          "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
+                                      cacheKey: recommendation
+                                              .user!.avatar?.large ??
+                                          "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg",
+                                      fit: BoxFit.contain,
+                                      fadeInCurve: Curves.easeOut,
+                                      imageBuilder: (context, imageProvider) =>
+                                          CircleAvatar(
+                                        backgroundImage: imageProvider,
+                                        radius: 20.0,
+                                      ),
                                     ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      recommendation.user!.name,
+                                      textAlign: TextAlign.left,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle2
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSurface,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
