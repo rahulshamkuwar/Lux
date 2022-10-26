@@ -33,6 +33,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
   bool _airingTimeUntil = true;
   bool _updatedList = false;
   late bool _isFavourite;
+  double _listWheelOpacity = 0;
 
   Widget _buildBanner(BuildContext context, Media r) {
     return SizedBox(
@@ -779,6 +780,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               onTap: () {
                 showModalBottomSheet(
                   elevation: 10.0,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
                   context: context,
                   builder: (context) {
                     return SingleChildScrollView(
@@ -1004,6 +1006,64 @@ class _AnimePageState extends ConsumerState<AnimePage> {
               icon: Icons.star_border_rounded,
               text: "Score",
             ),
+            Container(
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+              width: 55,
+              height: 100,
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    bottom: 0,
+                    child: Text(
+                      "Progress",
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
+                    ),
+                  ),
+                  SizedBox(
+                    child: ListWheelScrollView.useDelegate(
+                      itemExtent: 30,
+                      perspective: 0.01,
+                      diameterRatio: 1.5,
+                      physics: const FixedExtentScrollPhysics(),
+                      overAndUnderCenterOpacity: 0.5,
+                      renderChildrenOutsideViewport: false,
+                      childDelegate: ListWheelChildBuilderDelegate(
+                        childCount: (anime.episodes ?? 99999) + 1,
+                        builder: (context, index) {
+                          return GestureDetector(
+                            onLongPress: () {
+                              setState(() {
+                                _listWheelOpacity = 0.5;
+                              });
+                            },
+                            onLongPressCancel: () {
+                              setState(() {
+                                _listWheelOpacity = 0;
+                              });
+                            },
+                            child: Text(
+                              index.toString(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5
+                                  ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
         const SizedBox(
@@ -1051,7 +1111,7 @@ class _AnimePageState extends ConsumerState<AnimePage> {
   }
 
   double _progressValue(int? progress, int? episodes) {
-    if (progress == null || episodes == null) return 0;
+    if (progress == null || episodes == null) return 0.5;
     return progress / episodes;
   }
 

@@ -81,49 +81,52 @@ class _ListsState extends ConsumerState<AnimeLists>
     entries.sort((a, b) => b.score.compareTo(a.score));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-      child: OrientationBuilder(builder: (context, orienation) {
-        return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: orienation == Orientation.landscape ? 4 : 2,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 25.0,
-            mainAxisExtent: MediaQuery.of(context).size.height * 3 / 10,
-          ),
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .push(CupertinoPageRoute(
-                  builder: (context) => AnimePage(
-                    id: entries[index].mediaId,
-                    listName: list,
-                  ),
-                ))
-                    .then((value) {
-                  if (value != null) {
-                    setState(() {});
-                  }
-                });
-              },
-              child: Card(
-                color: Theme.of(context).colorScheme.surface,
-                elevation: 0,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 25.0,
+          mainAxisExtent: MediaQuery.of(context).size.height * 45 / 100,
+        ),
+        // itemCount: entries.length,
+        // controller: FixedExtentScrollController(),
+        // physics:
+        //     const FixedExtentScrollPhysics(parent: BouncingScrollPhysics()),
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(CupertinoPageRoute(
+                builder: (context) => AnimePage(
+                  id: entries[index].mediaId,
+                  listName: list,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Hero(
-                      tag: entries[index].mediaId,
-                      transitionOnUserGestures: true,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
+              ))
+                  .then((value) {
+                if (value != null) {
+                  setState(() {});
+                }
+              });
+            },
+            child: Card(
+              color: Theme.of(context).colorScheme.surface,
+              elevation: 0,
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Hero(
+                    tag: entries[index].mediaId,
+                    transitionOnUserGestures: true,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: AspectRatio(
+                        aspectRatio: 2 / 3,
                         child: CachedNetworkImage(
-                          height: MediaQuery.of(context).size.width * 43 / 100,
-                          width: double.infinity,
                           imageUrl:
                               entries[index].media!.coverImage!.extraLarge!,
                           cacheKey:
@@ -133,43 +136,43 @@ class _ListsState extends ConsumerState<AnimeLists>
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 5.0,
-                        right: 5.0,
-                        top: 5.0,
-                        bottom: 2.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 5.0,
+                      right: 5.0,
+                      top: 5.0,
+                      bottom: 2.0,
+                    ),
+                    child: Text(
+                      entries[index].media!.title!.userPreferred ??
+                          entries[index].media!.title!.native!,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize:
+                            Theme.of(context).textTheme.bodyText1?.fontSize,
                       ),
-                      child: Text(
-                        entries[index].media!.title!.userPreferred ??
-                            entries[index].media!.title!.native!,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fontSize:
-                              Theme.of(context).textTheme.bodyText1?.fontSize,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: Text(
+                      entries[index].score.toString(),
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize:
+                            Theme.of(context).textTheme.subtitle2?.fontSize,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(
-                        entries[index].score.toString(),
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fontSize:
-                              Theme.of(context).textTheme.subtitle2?.fontSize,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            );
-          },
-        );
-      }),
+            ),
+          );
+        },
+      ),
     );
   }
 
